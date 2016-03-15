@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Browser/PopViewController.swift"
+            timestampString = "474657870.789719"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "PopViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Browser.PopViewController.headLine.getter : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;"
+                  moduleName = "Browser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pstoehr/Software/EEXCESS-Browser/iOSX-App/Team%20UI/Browser/Browser/PopViewController.swift"
+                  timestampString = "474657870.9443"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Browser.PopViewController.headLine.setter : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;"
+                  moduleName = "Browser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pstoehr/Software/EEXCESS-Browser/iOSX-App/Team%20UI/Browser/Browser/PopViewController.swift"
+                  timestampString = "474657870.950291"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "50">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Browser.PopViewController.headLine.materializeForSet : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;"
+                  moduleName = "Browser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pstoehr/Software/EEXCESS-Browser/iOSX-App/Team%20UI/Browser/Browser/PopViewController.swift"
+                  timestampString = "474657870.95048"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Browser.PopViewController.init (Browser.PopViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Browser.PopViewController"
+                  moduleName = "Browser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pstoehr/Software/EEXCESS-Browser/iOSX-App/Team%20UI/Browser/Browser/PopViewController.swift"
+                  timestampString = "474657870.950654"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "354">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Browser.PopViewController.init (Browser.PopViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Browser.PopViewController&gt;"
+                  moduleName = "Browser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pstoehr/Software/EEXCESS-Browser/iOSX-App/Team%20UI/Browser/Browser/PopViewController.swift"
+                  timestampString = "474657870.950803"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "280">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Browser/PopViewController.swift"
+            timestampString = "474657925.048155"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "openTable(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Browser/PopViewController.swift"
+            timestampString = "474658011.268259"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Browser.PopViewController.viewDidLoad (Browser.PopViewController)() -&gt; ()"
+                  moduleName = "Browser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pstoehr/Software/EEXCESS-Browser/iOSX-App/Team%20UI/Browser/Browser/PopViewController.swift"
+                  timestampString = "474905658.523555"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "1231">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Browser.PopViewController.viewDidLoad (Browser.PopViewController)() -&gt; ()"
+                  moduleName = "Browser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pstoehr/Software/EEXCESS-Browser/iOSX-App/Team%20UI/Browser/Browser/PopViewController.swift"
+                  timestampString = "474905658.524087"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "1256">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
