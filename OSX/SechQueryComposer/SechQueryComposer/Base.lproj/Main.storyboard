@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10115" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10115"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="10115"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -945,9 +945,9 @@
                                     <action selector="searchPressed:" target="XfG-lQ-9wD" id="VZd-nR-CHh"/>
                                 </connections>
                             </button>
-                            <scrollView ambiguous="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrS-8x-ehv">
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrS-8x-ehv">
                                 <rect key="frame" x="451" y="25" width="431" height="148"/>
-                                <clipView key="contentView" ambiguous="YES" id="2bS-ie-qgf">
+                                <clipView key="contentView" id="2bS-ie-qgf">
                                     <rect key="frame" x="1" y="0.0" width="429" height="147"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -1055,6 +1055,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="2Bd-Do-COh" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="332" id="9DG-gc-cBR"/>
+                            <constraint firstAttribute="bottom" secondItem="QrS-8x-ehv" secondAttribute="bottom" constant="25" id="BDn-eR-fIf"/>
                             <constraint firstItem="QrS-8x-ehv" firstAttribute="leading" secondItem="cPY-Gc-VHl" secondAttribute="leading" id="EeG-FM-smQ"/>
                             <constraint firstItem="QvI-Lf-1dl" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="15" id="GzY-ZQ-fAt"/>
                             <constraint firstItem="I7N-Bi-6He" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="NKE-Qv-ic6"/>

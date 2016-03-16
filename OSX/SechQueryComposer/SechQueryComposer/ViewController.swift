@@ -101,7 +101,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         let dele = resultTable.delegate() as! RecommendationDelegate
         dele.viewCtrl = self
         resultTable.enabled = false
-        resultTable.doubleAction = Selector("performSegue:")
+        resultTable.doubleAction = #selector(ViewController.performSegue(_:))
         // Create the CTRLs
         recommendCTRL = RecommendationCTRL()
         
