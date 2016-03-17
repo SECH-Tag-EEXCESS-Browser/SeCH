@@ -12,7 +12,7 @@ Please use it regularly.
 
 SeCH Browser (März 2016)
 
-Diese README Dateien in jeem Ordner enthalten eine kurze Erklärung, wofür der Ordner gedacht ist.
+Diese README Dateien in jedem Ordner enthalten eine kurze Erklärung, wofür der Ordner gedacht ist.
 
 Das [Wiki](https://github.com/SECH-Tag-EEXCESS-Browser/SeCH/wiki) ist der zentrale Dokumentationsort.
 Bitte benutzt es regelmäßig.
