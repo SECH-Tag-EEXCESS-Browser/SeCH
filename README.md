@@ -1,4 +1,4 @@
-# SeCH
+# SeCH Browser
 -- english --
 
 SeCH Browser (March 2016)
