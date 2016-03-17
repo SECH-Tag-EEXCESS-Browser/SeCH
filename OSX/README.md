@@ -1,7 +1,9 @@
 #OSX
 
--- English --
+-- english --
+
 This is the OSX App for querrying the EEXCESS Server.
 
--- Deutsch --
+-- deutsch --
+
 Dies ist die OSX App um Anfragen an den EEXCESS Server zu schicken.
