@@ -60,6 +60,7 @@ class SechManager {
         var tmpFilter = headFilter
         var sectionIsAvailable = false
         
+        if sechBodyArray.count > 0{
         for i in 0 ..< sechBodyArray.count-1 {
             
             //Check for Closingtags
@@ -91,6 +92,7 @@ class SechManager {
                     makeSechObject(head, section: Tag(), link: link, filter: setFilter(headFilter, newFilter: sechBodyArray[i]))
                 }
             }
+        }
         }
     }
     
