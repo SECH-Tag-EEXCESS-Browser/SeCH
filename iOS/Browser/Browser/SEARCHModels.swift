@@ -8,6 +8,14 @@
 
 import Foundation
 
+
+class SEARCHModels {
+    //Create Array of SEARCHModel
+}
+
+
+
+
 class SEACHModel {
     static let LINK_TAG = "LINK"
     static let SECTION_TAG = "SECTION"
