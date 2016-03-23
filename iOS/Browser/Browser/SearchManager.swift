@@ -1,5 +1,5 @@
 //
-//  SechManager.swift
+//  SearchManager.swift
 //  Browser
 //
 //  Created by Burak Erol on 10.12.15.
@@ -8,21 +8,21 @@
 
 import Foundation
 
-class SechManager {
-    private let regex = RegexForSech()
+class SEARCHManager {
+    private let regex = RegexForSEARCH()
     private let headFilter = Filter()
-    private var sechCollection = [SEACHModel]()
+    private var sechCollection = [SEARCHModel]()
     
     // TODO: Validation of Filterattributes
     private var validationFilterMediaType = []
     
-    func getSechObjects(htmlHead : String, htmlBody : String) -> [SEACHModel] {
+    func getSEARCHObjects(htmlHead : String, htmlBody : String) -> [SEARCHModel] {
         
         let sechHead = getSechHead(htmlHead)
         makeSech(sechHead, htmlBody: htmlBody)
         
         let tmpSechCollection = sechCollection
-        sechCollection = [SEACHModel]()
+        sechCollection = [SEARCHModel]()
         
         return tmpSechCollection
     }
@@ -32,7 +32,7 @@ class SechManager {
     private func getSechHead(htmlHead : String) -> Tag{
         
         // Get Head-Sech-Tag
-        let headSech = regex.findSechTags(inString: htmlHead)
+        let headSech = regex.findSEARCHTags(inString: htmlHead)
         var headAttributes = [String : String]()
         let head = Tag()
         
@@ -55,7 +55,7 @@ class SechManager {
     
     private func makeSech(head: Tag, htmlBody : String){
         
-        let sechBodyArray = regex.findSechTags(inString: htmlBody)
+        let sechBodyArray = regex.findSEARCHTags(inString: htmlBody)
         var tmpSection = Tag()
         var tmpFilter = headFilter
         var sectionIsAvailable = false
@@ -64,17 +64,17 @@ class SechManager {
         for i in 0 ..< sechBodyArray.count-1 {
             
             //Check for Closingtags
-            if regex.isSechSectionClosing(inString: sechBodyArray[i]){
+            if regex.isSEARCHSectionClosing(inString: sechBodyArray[i]){
                 tmpFilter = headFilter
                 sectionIsAvailable = false
                 continue
             }
-            if regex.isSechLinkClosing(inString: sechBodyArray[i]){
+            if regex.isSEARCHLinkClosing(inString: sechBodyArray[i]){
                 continue
             }
             
             //Check if Element is Section
-            if regex.isSechSection(inString: sechBodyArray[i]){
+            if regex.isSEARCHSection(inString: sechBodyArray[i]){
                 tmpSection = makeTagObject(sechBodyArray[i], isMainTopic: false)
                 tmpFilter = setFilter(tmpFilter, newFilter: sechBodyArray[i])
                 sectionIsAvailable = true
@@ -82,7 +82,7 @@ class SechManager {
             }
             
             // Check if Element is Link
-            if regex.isSechLink(inString: sechBodyArray[i]){
+            if regex.isSEARCHLink(inString: sechBodyArray[i]){
                 if sectionIsAvailable == true{
                     let link = makeTagObject(sechBodyArray[i], isMainTopic: true)
                     makeSechObject(head, section: tmpSection, link: link, filter: setFilter(tmpFilter, newFilter: sechBodyArray[i]))
@@ -143,7 +143,7 @@ class SechManager {
     }
     
     private func makeSechObject(head : Tag, section : Tag, link : Tag, filter : Filter){
-        let sechObject = SEACHModel()
+        let sechObject = SEARCHModel()
         
         sechObject.tags = ["head" : head, "section" : section, "link" : link]
         sechObject.filters = filter

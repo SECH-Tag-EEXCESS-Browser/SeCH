@@ -32,7 +32,7 @@ class EEXCESSRecommendationJSONCtrl {
 //        jsonObject["numResults"] = mInfos.numResult
 //    }
     
-    private func addKontextKeywords(seachData:[SEACHModel])
+    private func addKontextKeywords(seachData:[SEARCHModel])
     {
         print("seachData \(seachData.first?.tags)")
         var allKWS : [AnyObject] = []
@@ -59,7 +59,7 @@ class EEXCESSRecommendationJSONCtrl {
         jsonObject["contextKeywords"] = allKWS
     }
     
-    init(seachData:[SEACHModel])
+    init(seachData:[SEARCHModel])
     {
         addOrigin()
         //addMetaInfo()

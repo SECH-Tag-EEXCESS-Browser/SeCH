@@ -35,7 +35,7 @@
 		961D15D81C24122E00D2EF46 /* ConnectionCtrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D41C24122E00D2EF46 /* ConnectionCtrls.swift */; };
 		961D15DA1C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D61C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift */; };
 		961D15DB1C24122E00D2EF46 /* EEXCESSRecommendationJSONCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D71C24122E00D2EF46 /* EEXCESSRecommendationJSONCtrl.swift */; };
-		961D15DD1C2412CF00D2EF46 /* SechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15DC1C2412CF00D2EF46 /* SechManager.swift */; };
+		961D15DD1C2412CF00D2EF46 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15DC1C2412CF00D2EF46 /* SearchManager.swift */; };
 		96A5C4621CA1A1BA00EA62D3 /* WebContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A5C4611CA1A1BA00EA62D3 /* WebContent.swift */; };
 		96A5C4641CA1A21F00EA62D3 /* SearchQuerys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A5C4631CA1A21F00EA62D3 /* SearchQuerys.swift */; };
 		96A5C4661CA1A24800EA62D3 /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A5C4651CA1A24800EA62D3 /* SearchResults.swift */; };
@@ -43,7 +43,7 @@
 		96F405741C0335B50013E66F /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F405731C0335B50013E66F /* Rules.swift */; };
 		A9767A101C1B215100D6FF10 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = A9767A0F1C1B215100D6FF10 /* main.js */; };
 		A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F615751BEA37CF003A3878 /* PopViewController.swift */; };
-		FE14E3B21BE9F860008FC4ED /* HtmlManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE14E3B11BE9F860008FC4ED /* HtmlManager.swift */; };
+		FE14E3B21BE9F860008FC4ED /* RegexForSEARCH.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE14E3B11BE9F860008FC4ED /* RegexForSEARCH.swift */; };
 		FEFDD4EF1BFCE6FE005C95EC /* SechTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFDD4EE1BFCE6FE005C95EC /* SechTableDataSource.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,7 +99,7 @@
 		961D15D41C24122E00D2EF46 /* ConnectionCtrls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionCtrls.swift; sourceTree = "<group>"; };
 		961D15D61C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EEXCESSRecommendationCtrl.swift; sourceTree = "<group>"; };
 		961D15D71C24122E00D2EF46 /* EEXCESSRecommendationJSONCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EEXCESSRecommendationJSONCtrl.swift; sourceTree = "<group>"; };
-		961D15DC1C2412CF00D2EF46 /* SechManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SechManager.swift; sourceTree = "<group>"; };
+		961D15DC1C2412CF00D2EF46 /* SearchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		96A5C4611CA1A1BA00EA62D3 /* WebContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebContent.swift; sourceTree = "<group>"; };
 		96A5C4631CA1A21F00EA62D3 /* SearchQuerys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchQuerys.swift; sourceTree = "<group>"; };
 		96A5C4651CA1A24800EA62D3 /* SearchResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 		96F405731C0335B50013E66F /* Rules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rules.swift; sourceTree = "<group>"; };
 		A9767A0F1C1B215100D6FF10 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		A9F615751BEA37CF003A3878 /* PopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
-		FE14E3B11BE9F860008FC4ED /* HtmlManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlManager.swift; sourceTree = "<group>"; };
+		FE14E3B11BE9F860008FC4ED /* RegexForSEARCH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexForSEARCH.swift; sourceTree = "<group>"; };
 		FEFDD4EE1BFCE6FE005C95EC /* SechTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SechTableDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -241,6 +241,8 @@
 		96A5C45A1CA19CBA00EA62D3 /* SEARCHExtraction */ = {
 			isa = PBXGroup;
 			children = (
+				961D15DC1C2412CF00D2EF46 /* SearchManager.swift */,
+				FE14E3B11BE9F860008FC4ED /* RegexForSEARCH.swift */,
 			);
 			name = SEARCHExtraction;
 			sourceTree = "<group>";
@@ -348,7 +350,6 @@
 		FEB9DC451BFC8DB500EB1729 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				961D15DC1C2412CF00D2EF46 /* SechManager.swift */,
 				187387521BE64CA400EDDC31 /* FavouriteCell.swift */,
 			);
 			name = Cell;
@@ -357,7 +358,6 @@
 		FEB9DC461BFC8E1A00EB1729 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				FE14E3B11BE9F860008FC4ED /* HtmlManager.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -512,13 +512,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEFDD4EF1BFCE6FE005C95EC /* SechTableDataSource.swift in Sources */,
-				FE14E3B21BE9F860008FC4ED /* HtmlManager.swift in Sources */,
+				FE14E3B21BE9F860008FC4ED /* RegexForSEARCH.swift in Sources */,
 				96A5C4641CA1A21F00EA62D3 /* SearchQuerys.swift in Sources */,
 				96A5C4621CA1A1BA00EA62D3 /* WebContent.swift in Sources */,
 				961D15D21C24119900D2EF46 /* EEXCESSAllResponses.swift in Sources */,
 				4B5FEA061C3FBE94004795F8 /* SearchTableViewController.swift in Sources */,
 				A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */,
-				961D15DD1C2412CF00D2EF46 /* SechManager.swift in Sources */,
+				961D15DD1C2412CF00D2EF46 /* SearchManager.swift in Sources */,
 				961D15C51C2410B900D2EF46 /* PersistenceController.swift in Sources */,
 				187387311BE61DE000EDDC31 /* FavouriteTableViewController.swift in Sources */,
 				961D15D81C24122E00D2EF46 /* ConnectionCtrls.swift in Sources */,

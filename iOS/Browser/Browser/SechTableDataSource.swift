@@ -28,7 +28,7 @@ class SechTableDataSource : NSObject, UITableViewDataSource{
         return cell
     }
     
-    func makeLabels(sechs : [SEACHModel]){
+    func makeLabels(sechs : [SEARCHModel]){
         
         sechTags = []
         

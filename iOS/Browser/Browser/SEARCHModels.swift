@@ -1,5 +1,5 @@
 //
-//  SEACHModel.swift
+//  SEARCHModel.swift
 //  Browser
 //
 //  Created by Burak Erol on 10.12.15.
@@ -16,7 +16,7 @@ class SEARCHModels {
 
 
 
-class SEACHModel {
+class SEARCHModel {
     static let LINK_TAG = "LINK"
     static let SECTION_TAG = "SECTION"
     static let HEAD_TAG = "HEAD"

@@ -11,8 +11,8 @@ import WebKit
 
 class WebViewDelegate: NSObject, WKNavigationDelegate {
     
-    let regex = RegexForSech()
-    let sechManager = SechManager()
+    let regex = RegexForSEARCH()
+    let searchManager = SEARCHManager()
     var mURL : String = ""
     var viewCtrl: ViewController!
     var htmlHead : String = ""
@@ -36,16 +36,16 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
                  if error == nil && object != nil{
                 self.htmlBody = (object as? String)!
                 
-                let sech = self.sechManager.getSechObjects(self.htmlHead, htmlBody: self.htmlBody)
+                let searchObjects = self.searchManager.getSEARCHObjects(self.htmlHead, htmlBody: self.htmlBody)
                 
                 
-                print("Sechlinks found: \(sech.count)")
+                print("Sechlinks found: \(searchObjects.count)")
                 print("SechlinkIDs:")
                     
                 self.viewCtrl.countSechsLabel.hidden = false
-                self.viewCtrl.countSechsLabel.text = "\(sech.count)"
+                self.viewCtrl.countSechsLabel.text = "\(searchObjects.count)"
                 
-                for item in sech{
+                for item in searchObjects{
                     print(item.id)
                 }
                 //-> !
@@ -55,7 +55,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
                     print(msg)
                     // TODO: To be redesigned! 6
                     let ds = self.viewCtrl.tableViewDataSource
-                    ds.makeLabels(sech)
+                    ds.makeLabels(searchObjects)
                     
                     if(data != nil){
                         self.viewCtrl.eexcessAllResponses = data
@@ -73,7 +73,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
                 
 
                     let task = TaskCtrl()
-                    task.getRecommendations(sech, setRecommendations: setRecommendations)
+                    task.getRecommendations(searchObjects, setRecommendations: setRecommendations)
 
                 
                 }

@@ -1,5 +1,4 @@
 //
-//  Regex.swift
 //  Browser
 //
 //  Created by Brian Mairhörmann on 04.11.15.
@@ -8,9 +7,9 @@
 
 import Foundation
 
-class RegexForSech {
+class RegexForSEARCH {
     
-    func findSechTags(inString string : String) -> [String]{
+    func findSEARCHTags(inString string : String) -> [String]{
         
         let pattern = "</?search-[^>]*>"
         let regex = makeRegEx(withPattern: pattern)
@@ -23,7 +22,7 @@ class RegexForSech {
         
     }
     
-    func isSechSectionClosing(inString string : String) -> Bool {
+    func isSEARCHSectionClosing(inString string : String) -> Bool {
         
         let pattern = "</search-section"
         let regex = makeRegEx(withPattern: pattern)
@@ -31,7 +30,7 @@ class RegexForSech {
         return regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil
     }
     
-    func isSechLinkClosing(inString string : String) -> Bool {
+    func isSEARCHLinkClosing(inString string : String) -> Bool {
         
         let pattern = "</search-link"
         let regex = makeRegEx(withPattern: pattern)
@@ -39,7 +38,7 @@ class RegexForSech {
         return regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil
     }
     
-    func isSechSection(inString string : String) -> Bool {
+    func isSEARCHSection(inString string : String) -> Bool {
         
         let pattern = "<search-section"
         let regex = makeRegEx(withPattern: pattern)
@@ -47,7 +46,7 @@ class RegexForSech {
         return regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil
     }
     
-    func isSechLink(inString string : String) -> Bool {
+    func isSEARCHLink(inString string : String) -> Bool {
         
         let pattern = "<search-link"
         let regex = makeRegEx(withPattern: pattern)
