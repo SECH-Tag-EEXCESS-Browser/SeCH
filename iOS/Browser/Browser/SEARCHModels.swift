@@ -31,6 +31,11 @@ class Tag {
     var topic = String()
     var type = String()
     var isMainTopic = false
+    
+    func getValues()->[String:AnyObject]{
+        return ["topic":self.topic,"type":self.type,"isMainTopic":self.isMainTopic]
+        
+    }
 }
 
 class Filter {
