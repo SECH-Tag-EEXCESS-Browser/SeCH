@@ -11,34 +11,34 @@ import Foundation
 class SEARCHManager {
     private let regex = RegexForSEARCH()
     private let headFilter = Filter()
-    private var sechCollection = [SEARCHModel]()
+    private var searchCollection = [SEARCHModel]()
     
     // TODO: Validation of Filterattributes
     private var validationFilterMediaType = []
     
     func getSEARCHObjects(htmlHead : String, htmlBody : String) -> [SEARCHModel] {
         
-        let sechHead = getSechHead(htmlHead)
-        makeSech(sechHead, htmlBody: htmlBody)
+        let searchHead = getSEARCHHead(htmlHead)
+        makeSech(searchHead, htmlBody: htmlBody)
         
-        let tmpSechCollection = sechCollection
-        sechCollection = [SEARCHModel]()
+        let tmpSEARCHCollection = searchCollection
+        searchCollection = [SEARCHModel]()
         
-        return tmpSechCollection
+        return tmpSEARCHCollection
     }
     
     // Private Methods
     // #################################################################################################
-    private func getSechHead(htmlHead : String) -> Tag{
+    private func getSEARCHHead(htmlHead : String) -> Tag{
         
-        // Get Head-Sech-Tag
-        let headSech = regex.findSEARCHTags(inString: htmlHead)
+        // Get Head-SEARCH-Tag
+        let headSEARCH = regex.findSEARCHTags(inString: htmlHead)
         var headAttributes = [String : String]()
         let head = Tag()
         
         
-        if headSech.isEmpty != true{
-            headAttributes = regex.getAttributes(inString: "\(headSech[0])")
+        if headSEARCH.isEmpty != true{
+            headAttributes = regex.getAttributes(inString: "\(headSEARCH[0])")
             
             // Set Headattributes
             head.topic = headAttributes["topic"]!
@@ -55,41 +55,41 @@ class SEARCHManager {
     
     private func makeSech(head: Tag, htmlBody : String){
         
-        let sechBodyArray = regex.findSEARCHTags(inString: htmlBody)
+        let searchBodyArray = regex.findSEARCHTags(inString: htmlBody)
         var tmpSection = Tag()
         var tmpFilter = headFilter
         var sectionIsAvailable = false
         
-        if sechBodyArray.count > 0{
-        for i in 0 ..< sechBodyArray.count-1 {
+        if searchBodyArray.count > 0{
+        for i in 0 ..< searchBodyArray.count-1 {
             
             //Check for Closingtags
-            if regex.isSEARCHSectionClosing(inString: sechBodyArray[i]){
+            if regex.isSEARCHSectionClosing(inString: searchBodyArray[i]){
                 tmpFilter = headFilter
                 sectionIsAvailable = false
                 continue
             }
-            if regex.isSEARCHLinkClosing(inString: sechBodyArray[i]){
+            if regex.isSEARCHLinkClosing(inString: searchBodyArray[i]){
                 continue
             }
             
             //Check if Element is Section
-            if regex.isSEARCHSection(inString: sechBodyArray[i]){
-                tmpSection = makeTagObject(sechBodyArray[i], isMainTopic: false)
-                tmpFilter = setFilter(tmpFilter, newFilter: sechBodyArray[i])
+            if regex.isSEARCHSection(inString: searchBodyArray[i]){
+                tmpSection = makeTagObject(searchBodyArray[i], isMainTopic: false)
+                tmpFilter = setFilter(tmpFilter, newFilter: searchBodyArray[i])
                 sectionIsAvailable = true
                 continue
             }
             
             // Check if Element is Link
-            if regex.isSEARCHLink(inString: sechBodyArray[i]){
+            if regex.isSEARCHLink(inString: searchBodyArray[i]){
                 if sectionIsAvailable == true{
-                    let link = makeTagObject(sechBodyArray[i], isMainTopic: true)
-                    makeSechObject(head, section: tmpSection, link: link, filter: setFilter(tmpFilter, newFilter: sechBodyArray[i]))
+                    let link = makeTagObject(searchBodyArray[i], isMainTopic: true)
+                    makeSEARCHObject(head, section: tmpSection, link: link, filter: setFilter(tmpFilter, newFilter: searchBodyArray[i]))
                 }
                 if sectionIsAvailable == false{
-                    let link = makeTagObject(sechBodyArray[i], isMainTopic: true)
-                    makeSechObject(head, section: Tag(), link: link, filter: setFilter(headFilter, newFilter: sechBodyArray[i]))
+                    let link = makeTagObject(searchBodyArray[i], isMainTopic: true)
+                    makeSEARCHObject(head, section: Tag(), link: link, filter: setFilter(headFilter, newFilter: searchBodyArray[i]))
                 }
             }
         }
@@ -142,13 +142,13 @@ class SEARCHManager {
         return tmpFilter
     }
     
-    private func makeSechObject(head : Tag, section : Tag, link : Tag, filter : Filter){
-        let sechObject = SEARCHModel()
+    private func makeSEARCHObject(head : Tag, section : Tag, link : Tag, filter : Filter){
+        let searchObject = SEARCHModel()
         
-        sechObject.tags = ["head" : head, "section" : section, "link" : link]
-        sechObject.filters = filter
-        sechObject.id = (sechObject.tags["link"]?.topic)!
+        searchObject.tags = ["head" : head, "section" : section, "link" : link]
+        searchObject.filters = filter
+        searchObject.id = (searchObject.tags["link"]?.topic)!
         
-        sechCollection.append(sechObject)
+        searchCollection.append(searchObject)
     }
 }
