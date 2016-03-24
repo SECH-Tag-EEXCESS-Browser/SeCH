@@ -7,12 +7,12 @@
 
 import Foundation
 
-class EEXCESSRecommendation : CustomStringConvertible {
+class EEXCESSRecommendation : NSObject {
     var title : String
     var provider : String
     var uri : String
     
-    var description: String {
+    override var description: String {
         get {
             return "Title:\(title) -- Provider:\(provider) -- URI:\(uri)"
         }

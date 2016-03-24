@@ -18,6 +18,10 @@ class RecommendationDataSource : NSObject, NSTableViewDataSource
         return data.count
     }
     
-
+    func tableView(tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
+        
+        data = ((data as NSArray).sortedArrayUsingDescriptors(tableView.sortDescriptors)) as! [EEXCESSRecommendation]
+        tableView.reloadData()
+    }
     
 }

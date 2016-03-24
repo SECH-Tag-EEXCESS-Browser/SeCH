@@ -22,7 +22,6 @@
 		0CE12DD21BF4F2FF00EDACD9 /* EEXCESSrecomendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE12DD11BF4F2FF00EDACD9 /* EEXCESSrecomendation.swift */; };
 		0CE12DD51BF4F3CD00EDACD9 /* JsonRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE12DD41BF4F3CD00EDACD9 /* JsonRecommendation.swift */; };
 		0CE12DD71BF4F45200EDACD9 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE12DD61BF4F45200EDACD9 /* JsonParser.swift */; };
-		0CE12DDA1BF516CB00EDACD9 /* WebViewCTRL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE12DD91BF516CB00EDACD9 /* WebViewCTRL.swift */; };
 		0CE12DDD1BF51BB400EDACD9 /* RecommendationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE12DDC1BF51BB400EDACD9 /* RecommendationDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +43,6 @@
 		0CE12DD11BF4F2FF00EDACD9 /* EEXCESSrecomendation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EEXCESSrecomendation.swift; sourceTree = "<group>"; };
 		0CE12DD41BF4F3CD00EDACD9 /* JsonRecommendation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonRecommendation.swift; sourceTree = "<group>"; };
 		0CE12DD61BF4F45200EDACD9 /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
-		0CE12DD91BF516CB00EDACD9 /* WebViewCTRL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewCTRL.swift; sourceTree = "<group>"; };
 		0CE12DDC1BF51BB400EDACD9 /* RecommendationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				0C63CA101BF22E8C00E12411 /* ViewController.swift */,
-				0CE12DD91BF516CB00EDACD9 /* WebViewCTRL.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -250,7 +247,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CE12DDD1BF51BB400EDACD9 /* RecommendationDelegate.swift in Sources */,
-				0CE12DDA1BF516CB00EDACD9 /* WebViewCTRL.swift in Sources */,
 				0C63CA291BF4C55900E12411 /* eexcessMeta.swift in Sources */,
 				0C63CA361BF4DC5900E12411 /* Connection.swift in Sources */,
 				0C63CA301BF4CBA700E12411 /* getPrefs.swift in Sources */,
