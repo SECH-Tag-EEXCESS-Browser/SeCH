@@ -9,9 +9,49 @@
 import Foundation
 
 class SearchResults {
-    //Create Array of SearchResult
+    private var mSearchResults: [SearchResult]
+    
+    var searchResults:[SearchResult]{
+        get{
+            return mSearchResults
+        }
+    }
+    
+    init(){
+        mSearchResults = []
+    }
+    
+    init(searchResults:[SearchResult]){
+        self.mSearchResults = searchResults
+    }
+    
+    func addSearchResult(searchResult: SearchResult){
+        self.mSearchResults.append(searchResult)
+    }
 }
 
+
+
 class SearchResult {
-    //SearchResult
+    var title : String
+    var provider : String
+    var uri : String?
+    var language: String
+    var mediaType: String
+    var avg:Double!
+    
+    var description: String {
+        get {
+            return "Title:\(title) -- Provider:\(provider) -- URI:\(uri)"
+        }
+    }
+    init(title : String, provider : String, uri : String, language: String, mediaType: String)
+    {
+        self.title = title
+        self.provider = provider
+        self.uri = uri
+        self.language = language
+        self.mediaType = mediaType
+        
+    }
 }

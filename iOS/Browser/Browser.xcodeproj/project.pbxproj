@@ -216,13 +216,6 @@
 			name = JSONData;
 			sourceTree = "<group>";
 		};
-		961D15CB1C24117700D2EF46 /* SEACHData */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = SEACHData;
-			sourceTree = "<group>";
-		};
 		964CE9E41C0C5461006419D5 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,7 +310,6 @@
 				961D15CE1C24119900D2EF46 /* EEXCESSSingleResponse.swift */,
 				961D15CF1C24119900D2EF46 /* EEXCESSAllResponses.swift */,
 				961D15D01C24119900D2EF46 /* EEXCESSOrigin.swift */,
-				961D15CB1C24117700D2EF46 /* SEACHData */,
 				961D15C81C24113800D2EF46 /* JSONData */,
 				964CE9E41C0C5461006419D5 /* Persistence */,
 				8DA1FB551BF5E44700732F5E /* SettingsModel.swift */,

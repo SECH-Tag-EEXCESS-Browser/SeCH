@@ -50,10 +50,7 @@ class Rules {
                     res.avg = 0
                 }
                 
-                
-                
-            }
-            
+            } 
             
         }
     }

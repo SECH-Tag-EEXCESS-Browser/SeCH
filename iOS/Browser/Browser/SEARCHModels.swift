@@ -10,7 +10,25 @@ import Foundation
 
 
 class SEARCHModels {
-    //Create Array of SEARCHModel
+    private var mSearchModels:[SEARCHModel]
+    
+    var searchModels :[SEARCHModel]{
+        get{
+            return self.mSearchModels
+        }
+    }
+    
+    init(){
+        mSearchModels = []
+    }
+    
+    init(searchModels:[SEARCHModel]){
+        self.mSearchModels = searchModels
+    }
+    
+    func addSEARCHModel(searchModel:SEARCHModel){
+        self.mSearchModels.append(searchModel)
+    }
 }
 
 
