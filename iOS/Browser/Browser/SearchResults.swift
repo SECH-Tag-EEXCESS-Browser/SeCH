@@ -9,25 +9,29 @@
 import Foundation
 
 class SearchResults {
-    private var mSearchResults: [SearchResult]
+    private let mSearchResults: [SearchResult]
     
-    var searchResults:[SearchResult]{
-        get{
-            return mSearchResults
-        }
-    }
+//    var searchResults:[SearchResult]{
+//        get{
+//            return mSearchResults
+//        }
+//    }
     
-    init(){
-        mSearchResults = []
-    }
+//    init(){
+//        mSearchResults = []
+//    }
     
     init(searchResults:[SearchResult]){
         self.mSearchResults = searchResults
     }
     
-    func addSearchResult(searchResult: SearchResult){
-        self.mSearchResults.append(searchResult)
+    func getSearchResults()->[SearchResult]{
+        return self.mSearchResults
     }
+    
+//    func addSearchResult(searchResult: SearchResult){
+//        self.mSearchResults.append(searchResult)
+//    }
 }
 
 

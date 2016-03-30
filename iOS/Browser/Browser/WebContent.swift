@@ -9,7 +9,6 @@
 import Foundation
 
 public class WebContent{
-    
     private let html:Html
     
     init(html:Html){
@@ -19,7 +18,6 @@ public class WebContent{
     func getHtml()->Html{
         return self.html
     }
-    
 }
 
 public class Html{
@@ -31,11 +29,7 @@ public class Html{
         self.head = head
     }
     
-    func getHead()->String{
-        return head
-    }
-    
-    func getBody()->String{
-        return body
+    func getHeadAndBody()->(String,String){
+        return (head,body)
     }
 }

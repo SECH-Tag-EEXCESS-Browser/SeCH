@@ -10,24 +10,21 @@ import Foundation
 
 
 class SEARCHModels {
-    private var mSearchModels:[SEARCHModel]
+    private let mSearchModels:[SEARCHModel]
     
-    var searchModels :[SEARCHModel]{
-        get{
-            return self.mSearchModels
-        }
-    }
-    
-    init(){
-        mSearchModels = []
-    }
+//   Wieso? https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Properties.html Dafür gibt es Getter
+//    var searchModels :[SEARCHModel]{
+//        get{
+//            return self.mSearchModels
+//        }
+//    }
     
     init(searchModels:[SEARCHModel]){
         self.mSearchModels = searchModels
     }
     
-    func addSEARCHModel(searchModel:SEARCHModel){
-        self.mSearchModels.append(searchModel)
+    func getSearchModels()->[SEARCHModel]{
+        return self.mSearchModels
     }
 }
 
