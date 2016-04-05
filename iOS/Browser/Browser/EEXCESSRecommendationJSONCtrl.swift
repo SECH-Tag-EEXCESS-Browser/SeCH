@@ -34,7 +34,7 @@ class EEXCESSRecommendationJSONCtrl {
     
     private func addKontextKeywords(seachData:[SEARCHModel])
     {
-        print("seachData \(seachData.first?.tags)")
+        //print("seachData \(seachData.first?.tags)")
         var allKWS : [AnyObject] = []
         
         for i in 0 ..< seachData.count

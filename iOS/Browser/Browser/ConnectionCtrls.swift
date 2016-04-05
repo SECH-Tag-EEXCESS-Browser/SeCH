@@ -47,16 +47,17 @@ class ConnectionCtrl {
     
      private func post(data : NSData, request : NSMutableURLRequest,
         postCompleted : (succeeded: Bool, data: NSData) -> ())
-    {
+     {print("start")
         request.HTTPMethod = "POST"
         request.HTTPBody = data
         
         let session = NSURLSession.sharedSession()
+        print("running")
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             postCompleted(succeeded: error == nil, data: data!)
         })
         
-        
+        print("stoped")
         task.resume()
         
     }

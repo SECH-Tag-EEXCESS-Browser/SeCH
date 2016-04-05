@@ -21,7 +21,7 @@ class EEXCESSRecommendationCtrl {
     {
         let jsonT = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as AnyObject
         
-        print(jsonT)
+        //print(jsonT)
         
         guard let json = jsonT else {
 
