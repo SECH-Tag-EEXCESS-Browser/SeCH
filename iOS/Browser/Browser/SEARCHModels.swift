@@ -37,6 +37,7 @@ class SEARCHModel {
     static let HEAD_TAG = "HEAD"
     
     var id = String()
+    var index:Int!
     var tags = [String : Tag]() // String is id (link, section, head) and Tag is Tag-Object
     var filters = Filter()
 

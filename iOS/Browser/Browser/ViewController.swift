@@ -357,12 +357,24 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     func userContentController(userContentController: WKUserContentController,
         didReceiveScriptMessage message: WKScriptMessage) {
             print("JavaScript is sending a message \(message.body)")
-            self.headLine = message.body as! String
+            //self.headLine
+            let str  = message.body as! String
+//            str.characters.split($0 == "|").map(String.init)
+            var strs = str.componentsSeparatedByString("|")
             
+            print(strs[0])
+            
+            self.headLine = ""
+            
+            for i in 1 ..< strs.count {
+                self.headLine = self.headLine + strs[i]
+            }
+            
+            //str.sp
             let sechTags = tableViewDataSource.sechTags
             
             for i in 0 ..< sechTags.count {
-                if(sechTags[i] == self.headLine){
+                if(eexcessAllResponses[i].index == Int(strs[0])){
                     self.indexPathForSelectedSearchTag = i
                 }
             }

@@ -85,11 +85,11 @@ class SEARCHManager {
             if regex.isSEARCHLink(inString: searchBodyArray[i]){
                 if sectionIsAvailable == true{
                     let link = makeTagObject(searchBodyArray[i], isMainTopic: true)
-                    makeSEARCHObject(head, section: tmpSection, link: link, filter: setFilter(tmpFilter, newFilter: searchBodyArray[i]))
+                    makeSEARCHObject(head, section: tmpSection, link: link, filter: setFilter(tmpFilter, newFilter: searchBodyArray[i]),withID: i)
                 }
                 if sectionIsAvailable == false{
                     let link = makeTagObject(searchBodyArray[i], isMainTopic: true)
-                    makeSEARCHObject(head, section: Tag(), link: link, filter: setFilter(headFilter, newFilter: searchBodyArray[i]))
+                    makeSEARCHObject(head, section: Tag(), link: link, filter: setFilter(headFilter, newFilter: searchBodyArray[i]),withID: i)
                 }
             }
         }
@@ -142,13 +142,13 @@ class SEARCHManager {
         return tmpFilter
     }
     
-    private func makeSEARCHObject(head : Tag, section : Tag, link : Tag, filter : Filter){
+    private func makeSEARCHObject(head : Tag, section : Tag, link : Tag, filter : Filter, withID:Int){
         let searchObject = SEARCHModel()
         
         searchObject.tags = ["head" : head, "section" : section, "link" : link]
         searchObject.filters = filter
         searchObject.id = (searchObject.tags["link"]?.topic)!
-        
+        searchObject.index = withID
         searchCollection.append(searchObject)
     }
 }

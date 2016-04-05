@@ -10,6 +10,7 @@ import Foundation
 
 class EEXCESSAllResponses {
     var responses: [EEXCESSSingleResponse]
+    var index: Int!
     
     init(){
         responses = []

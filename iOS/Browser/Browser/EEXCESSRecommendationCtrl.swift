@@ -44,12 +44,14 @@ class EEXCESSRecommendationCtrl {
         
         pRecommendations = []
         
-        
+        var index = 0
         
         for i in allResults
         {
             
             let allResponses = EEXCESSAllResponses()
+            allResponses.index = index
+            index += 1
             let result = i.object!["result"]?.array
             
             for res in result!{
