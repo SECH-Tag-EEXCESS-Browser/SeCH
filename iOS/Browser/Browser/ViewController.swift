@@ -97,8 +97,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         tableView.hidden = true
         sechWidthConstraint.constant = 0
         
-        print(containerView.bounds)
-        print(myWebView?.bounds)
+        //Observer for ProgressBarWebsite
+        myWebView?.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
         
     }
     
@@ -130,6 +130,13 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     {
         super.didReceiveMemoryWarning()
         //Dispose of any resources that can be recreated.
+    }
+    
+    //Obeserver Function for ProgressBar Website
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if keyPath == "estimatedProgress" {
+            progressViewWebsite.progress = Float ((myWebView?.estimatedProgress)!)
+        }
     }
     
     func receiveInfo(ctrl: FavouriteTableViewController, info: FavouritesModel)
