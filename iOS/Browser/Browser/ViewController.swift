@@ -46,6 +46,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var countSechsLabel: UILabel!
     
+    @IBOutlet weak var progressViewWebsite: UIProgressView!
     
     var webViewWidth: NSLayoutConstraint!
     var webViewHeight: NSLayoutConstraint!
