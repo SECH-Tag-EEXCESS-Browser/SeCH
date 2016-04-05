@@ -46,7 +46,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
                 self.viewCtrl.countSechsLabel.text = "\(searchObjects.count)"
                 
                 for item in searchObjects{
-                    print(item.id)
+                    print(item.title)
                 }
                 //-> !
                 // Put call for Request of EEXCESS here!

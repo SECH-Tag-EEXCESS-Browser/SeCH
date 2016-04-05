@@ -147,7 +147,7 @@ class SEARCHManager {
         
         searchObject.tags = ["head" : head, "section" : section, "link" : link]
         searchObject.filters = filter
-        searchObject.id = (searchObject.tags["link"]?.topic)!
+        searchObject.title = (searchObject.tags["link"]?.topic)!
         searchObject.index = withID
         searchCollection.append(searchObject)
     }

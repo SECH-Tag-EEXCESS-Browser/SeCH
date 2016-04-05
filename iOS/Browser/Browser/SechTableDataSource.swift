@@ -33,7 +33,7 @@ class SechTableDataSource : NSObject, UITableViewDataSource{
         sechTags = []
         
         for item in sechs{
-            sechTags.append(item.id)
+            sechTags.append(item.title)
         }
         
         
