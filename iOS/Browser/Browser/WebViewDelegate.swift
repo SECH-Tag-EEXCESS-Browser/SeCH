@@ -32,66 +32,72 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
             if error == nil && object != nil{
                 self.htmlHead = (object as? String)!
             
-            webView .evaluateJavaScript("document.body.innerHTML", completionHandler: { (object, error) -> Void in
-                 if error == nil && object != nil{
-                self.htmlBody = (object as? String)!
-                
-                let searchObjects = self.searchManager.getSEARCHObjects(self.htmlHead, htmlBody: self.htmlBody)
-                
-                
-                print("Sechlinks found: \(searchObjects.count)")
-                print("SechlinkIDs:")
-                    
-                self.viewCtrl.countSechsLabel.hidden = false
-                self.viewCtrl.countSechsLabel.text = "\(searchObjects.count)"
-                
-                for item in searchObjects{
-                    print(item.title)
-                }
-                //-> !
-                // Put call for Request of EEXCESS here!
-                
-                let setRecommendations = ({(msg:String,data:[EEXCESSAllResponses]?) -> () in
-                    print(msg)
-                    // TODO: To be redesigned! 6
-                    let ds = self.viewCtrl.tableViewDataSource
-                    ds.makeLabels(searchObjects)
-                    
-                    if(data != nil){
-                        self.viewCtrl.eexcessAllResponses = data
-                    }else{
-                        self.viewCtrl.eexcessAllResponses = []
+                webView .evaluateJavaScript("document.body.innerHTML", completionHandler: { (object, error) -> Void in
+                    if error == nil && object != nil{
+                        self.htmlBody = (object as? String)!
+                        self.sechMng()
                     }
-                    
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        // TODO: To be redesigned! 8
-                        self.viewCtrl.rankThatShit(self.viewCtrl.eexcessAllResponses)
-                        self.viewCtrl.tableView.reloadData()
-                        
-                    })
                 })
-                
-
-                    let task = TaskCtrl()
-                    task.getRecommendations(searchObjects, setRecommendations: setRecommendations)
-
-                
-                }
-            })
-            
-            
-                            }
-        }
-        )
-            
-
-        
             }
+        })
+    }
         
     
     func webView(webView: WKWebView, didFailLoadWithError error: NSError?) {
 
     }
-            
+    
+    func sechMng(){
         
+        let searchObjects = self.searchManager.getSEARCHObjects(self.htmlHead, htmlBody: self.htmlBody)
+        
+        
+        print("Sechlinks found: \(searchObjects.count)")
+        print("SechlinkIDs:")
+        
+        self.viewCtrl.countSechsLabel.hidden = false
+        self.viewCtrl.countSechsLabel.text = "\(searchObjects.count)"
+        
+        for item in searchObjects{
+            print(item.title)
+        }
+        //-> !
+        // Put call for Request of EEXCESS here!
+        
+        let setRecommendations = ({(msg:String,data:[EEXCESSAllResponses]?) -> () in
+            print(msg)
+            // TODO: To be redesigned! 6
+            let ds = self.viewCtrl.tableViewDataSource
+            ds.makeLabels(searchObjects)
+            
+            if(data != nil){
+                self.viewCtrl.eexcessAllResponses = data
+            }else{
+                self.viewCtrl.eexcessAllResponses = []
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                // TODO: To be redesigned! 8
+                self.viewCtrl.rankThatShit(self.viewCtrl.eexcessAllResponses)
+                self.viewCtrl.tableView.reloadData()
+                
+            })
+        })
+        
+        
+        let task = TaskCtrl()
+        task.getRecommendations(searchObjects, setRecommendations: setRecommendations)
+        
+        
+    }
+    func webView(webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
+        print("#########didReceiveServerRedirectForProvisionalNavigation##########")
+    }
+    func webViewWebContentProcessDidTerminate(webView: WKWebView) {
+        print("##########webViewWebContentProcessDidTerminate#########")
+    }
+    //    func webView(webView: WKWebView, decidePolicyForNavigationResponse navigationResponse: WKNavigationResponse, decisionHandler: (WKNavigationResponsePolicy) -> Void) {
+    //    print("decidePolicyForNavigationResponse")
+    //    }
+    
 }
