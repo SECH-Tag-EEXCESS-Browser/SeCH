@@ -35,7 +35,14 @@ class SechTableDataSource : NSObject, UITableViewDataSource{
         for item in sechs{
             sechTags.append(item.title)
         }
+    }
+    
+    func makeLabels(sechs : [EEXCESSAllResponses]){
         
+        sechTags = []
         
+        for item in sechs{
+            sechTags.append("item.title")
+        }
     }
 }

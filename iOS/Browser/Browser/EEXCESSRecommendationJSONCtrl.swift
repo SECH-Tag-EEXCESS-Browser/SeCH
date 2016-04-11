@@ -32,38 +32,39 @@ class EEXCESSRecommendationJSONCtrl {
 //        jsonObject["numResults"] = mInfos.numResult
 //    }
     
-    private func addKontextKeywords(seachData:[SEARCHModel])
+    private func addKontextKeywords(searchModels:SEARCHModels)
     {
         //print("seachData \(seachData.first?.tags)")
         var allKWS : [AnyObject] = []
+        let lSearchModels = searchModels.getSearchModels()
         
-        for i in 0 ..< seachData.count
+        for i in 0 ..< lSearchModels.count
         {
             var newEntry : [[String : AnyObject]] = [[:], [:], [:]]
             
             
-            newEntry[0]["text"] = seachData[i].tags["link"]?.topic
-            newEntry[0]["isMainTopic"] = seachData[i].tags["link"]?.isMainTopic
-            newEntry[0]["type"] = createCorrectTypeString((seachData[i].tags["link"]?.type)!)
+            newEntry[0]["text"] = lSearchModels[i].tags["link"]?.topic
+            newEntry[0]["isMainTopic"] = lSearchModels[i].tags["link"]?.isMainTopic
+            newEntry[0]["type"] = createCorrectTypeString((lSearchModels[i].tags["link"]?.type)!)
             
-            newEntry[1]["text"] = seachData[i].tags["section"]?.topic
-            newEntry[1]["isMainTopic"] = seachData[i].tags["section"]?.isMainTopic
-            newEntry[1]["type"] = createCorrectTypeString((seachData[i].tags["section"]?.type)!)
+            newEntry[1]["text"] = lSearchModels[i].tags["section"]?.topic
+            newEntry[1]["isMainTopic"] = lSearchModels[i].tags["section"]?.isMainTopic
+            newEntry[1]["type"] = createCorrectTypeString((lSearchModels[i].tags["section"]?.type)!)
             
-            newEntry[2]["text"] = seachData[i].tags["head"]?.topic
-            newEntry[2]["isMainTopic"] = seachData[i].tags["head"]?.isMainTopic
-            newEntry[2]["type"] = createCorrectTypeString((seachData[i].tags["head"]?.type)!)
+            newEntry[2]["text"] = lSearchModels[i].tags["head"]?.topic
+            newEntry[2]["isMainTopic"] = lSearchModels[i].tags["head"]?.isMainTopic
+            newEntry[2]["type"] = createCorrectTypeString((lSearchModels[i].tags["head"]?.type)!)
 
             allKWS.append(newEntry)
         }
         jsonObject["contextKeywords"] = allKWS
     }
     
-    init(seachData:[SEARCHModel])
+    init(lSearchModels:SEARCHModels)
     {
         addOrigin()
         //addMetaInfo()
-        addKontextKeywords(seachData)
+        addKontextKeywords(lSearchModels)
     }
     
     private func createCorrectTypeString(type : String) -> String

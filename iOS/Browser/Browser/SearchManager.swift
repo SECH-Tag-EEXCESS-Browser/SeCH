@@ -16,16 +16,27 @@ class SEARCHManager {
     // TODO: Validation of Filterattributes
     private var validationFilterMediaType = []
     
-    func getSEARCHObjects(htmlHead : String, htmlBody : String) -> [SEARCHModel] {
+    func getSEARCHObjects(html:WebContent) -> SEARCHModels {
         
-        let searchHead = getSEARCHHead(htmlHead)
-        makeSech(searchHead, htmlBody: htmlBody)
+        let searchHead = getSEARCHHead(html.getHtml().getHeadAndBody().0)
+        makeSech(searchHead, htmlBody: html.getHtml().getHeadAndBody().1)
         
-        let tmpSEARCHCollection = searchCollection
-        searchCollection = [SEARCHModel]()
+        let searchModels = SEARCHModels(searchModels: searchCollection)
+        searchCollection.removeAll()
         
-        return tmpSEARCHCollection
+        return searchModels
     }
+    
+//    func getSEARCHObjects(htmlHead : String, htmlBody : String) -> [SEARCHModel] {
+//        
+//        let searchHead = getSEARCHHead(htmlHead)
+//        makeSech(searchHead, htmlBody: htmlBody)
+//        
+//        let tmpSEARCHCollection = searchCollection
+//        searchCollection = [SEARCHModel]()
+//        
+//        return tmpSEARCHCollection
+//    }
     
     // Private Methods
     // #################################################################################################

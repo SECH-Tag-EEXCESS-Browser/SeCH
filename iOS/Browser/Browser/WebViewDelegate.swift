@@ -49,18 +49,18 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
     
     func sechMng(){
         
-        let searchObjects = self.searchManager.getSEARCHObjects(self.htmlHead, htmlBody: self.htmlBody)
+        //let searchObjects = self.searchManager.getSEARCHObjects(self.htmlHead, htmlBody: self.htmlBody)
         
         
-        print("Sechlinks found: \(searchObjects.count)")
-        print("SechlinkIDs:")
+//        print("Sechlinks found: \(searchObjects.count)")
+//        print("SechlinkIDs:")
         
         self.viewCtrl.countSechsLabel.hidden = false
-        self.viewCtrl.countSechsLabel.text = "\(searchObjects.count)"
+        //self.viewCtrl.countSechsLabel.text = "\(searchObjects.count)"
         
-        for item in searchObjects{
-            print(item.title)
-        }
+//        for item in searchObjects{
+//            print(item.title)
+//        }
         //-> !
         // Put call for Request of EEXCESS here!
         
@@ -68,7 +68,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
             print(msg)
             // TODO: To be redesigned! 6
             let ds = self.viewCtrl.tableViewDataSource
-            ds.makeLabels(searchObjects)
+            ds.makeLabels(data!)
             
             if(data != nil){
                 self.viewCtrl.eexcessAllResponses = data
@@ -86,7 +86,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
         
         
         let task = TaskCtrl()
-        task.getRecommendations(searchObjects, setRecommendations: setRecommendations)
+        task.getRecommendations(WebContent(html: Html(head: self.htmlHead, body: self.htmlBody)), setRecommendations: setRecommendations)
         
         
     }
