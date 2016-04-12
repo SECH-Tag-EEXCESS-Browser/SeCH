@@ -50,7 +50,7 @@ class SearchQuery{
         return self.searchContext
     }
 }
-
+// SearchContext represent a KeyWord with attributes and filters for the searchEngine ToDO: In Wiki
 class SearchContext{
     private let values:[String:AnyObject]
     private let filters:[String:AnyObject]
