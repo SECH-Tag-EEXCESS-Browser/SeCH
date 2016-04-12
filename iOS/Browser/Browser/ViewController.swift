@@ -375,7 +375,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             
             self.headLine = ""
             
-            for i in 1 ..< strs.count {
+            for i in 2 ..< strs.count {
                 self.headLine = self.headLine + strs[i]
             }
             
