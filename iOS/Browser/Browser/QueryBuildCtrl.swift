@@ -18,10 +18,13 @@ class QueryBuildCtrl {
             for (key,value) in searchModel.tags {
                 var dic = value.getValues()
                 dic["tag"] = key
-                dic["type"] = "Misc"
-//                if (dic["type"]! as! String) == "" {
-//                    dic["type"] = "Misc"
-//                }
+
+                if (dic["type"]! as! String) == "" {
+                    dic["type"] = "Misc"
+                }else{
+                    let str = dic["type"] as! String
+                    dic["type"] = str.substringToIndex(str.startIndex.advancedBy(1)).uppercaseString + str.substringFromIndex(str.startIndex.advancedBy(1))
+                }
                 searchContexts.append(SearchContext(values: dic, filters: searchModel.filters.getValues()))
                 print(dic)
             }
