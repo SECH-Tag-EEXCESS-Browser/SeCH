@@ -38,12 +38,16 @@ class SearchQuerys {
 
 class SearchQuery{
 
-    private let id:String
+    private let index:Int
     private let searchContext:[SearchContext]
     
-    init(id:String,searchContext:[SearchContext]){
-        self.id = id
+    init(index:Int,searchContext:[SearchContext]){
+        self.index = index
         self.searchContext = searchContext
+    }
+    
+    func getSearchContext()->[SearchContext] {
+        return self.searchContext
     }
 }
 
@@ -54,5 +58,9 @@ class SearchContext{
     init(values:[String:AnyObject],filters:[String:AnyObject]){
         self.values = values
         self.filters = filters
+    }
+    
+    func getValues()->[String:AnyObject]{
+        return self.values
     }
 }

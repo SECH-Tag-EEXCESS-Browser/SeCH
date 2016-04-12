@@ -17,14 +17,17 @@ class TaskCtrl {
     {
         let searchObjects = SEARCHManager().getSEARCHObjects(webContent)
         let c = JSONConnectionCtrl()
-        let rec = EEXCESSRecommendationJSONCtrl(lSearchModels: searchObjects)
+        let searchQuerys = QueryBuildCtrl().buildQuery(searchObjects)
+        let json = EEXCESSRecommendationJSONCtrl().addKontextKeywords(searchQuerys)
         //let url = Preferences().url + "/recommend"
-        print(rec.jsonObject)
-        c.post(rec.jsonObject, url: QUERY_URL){ (succeeded: Bool, msg: NSData) -> () in
+        print(json)
+        c.post(json, url: QUERY_URL){ (succeeded: Bool, msg: NSData) -> () in
             if (succeeded) {
                 guard let recommJson = EEXCESSRecommendationCtrl(data: msg) else
                 {
+                    
                     print ("Versagen 1")
+                    print(String(data: msg, encoding: NSUTF8StringEncoding)!)
                     return
                 }
                 let recomms: [EEXCESSAllResponses]? = recommJson.recommendations

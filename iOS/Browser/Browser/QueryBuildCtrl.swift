@@ -7,3 +7,26 @@
 //
 
 import Foundation
+
+class QueryBuildCtrl {
+    
+    func buildQuery(searchModels:SEARCHModels)->SearchQuerys {
+        var searchQuery = [SearchQuery]()
+        for searchModel in searchModels.getSearchModels() {
+            var searchContexts = [SearchContext]()
+            
+            for (key,value) in searchModel.tags {
+                var dic = value.getValues()
+                dic["tag"] = key
+                dic["type"] = "Misc"
+//                if (dic["type"]! as! String) == "" {
+//                    dic["type"] = "Misc"
+//                }
+                searchContexts.append(SearchContext(values: dic, filters: searchModel.filters.getValues()))
+                print(dic)
+            }
+            searchQuery.append(SearchQuery(index: searchModel.index, searchContext: searchContexts))
+        }
+        return SearchQuerys(mSearchQuerys: searchQuery)
+    }
+}

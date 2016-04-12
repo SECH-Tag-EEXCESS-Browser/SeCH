@@ -30,6 +30,8 @@ public class Html{
     private let body:String
     
     init(head:String,body:String){
+        print(head)
+        print(body)
         self.body = body
         self.head = head
     }

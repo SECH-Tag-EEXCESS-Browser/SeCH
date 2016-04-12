@@ -50,8 +50,7 @@ class Tag {
     var isMainTopic = false
     
     func getValues()->[String:AnyObject]{
-        return ["topic":self.topic,"type":self.type,"isMainTopic":self.isMainTopic]
-        
+        return ["text":self.topic,"type":self.type,"isMainTopic":self.isMainTopic]
     }
 }
 
@@ -59,4 +58,8 @@ class Filter {
     var mediaType = String()
     var provider = String()
     var licence = String()
+    
+    func getValues()->[String:AnyObject]{
+        return ["mediaType":self.mediaType,"provider":self.provider,"licence":self.licence]
+    }
 }

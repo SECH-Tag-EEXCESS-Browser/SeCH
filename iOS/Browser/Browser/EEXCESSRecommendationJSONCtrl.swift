@@ -32,39 +32,33 @@ class EEXCESSRecommendationJSONCtrl {
 //        jsonObject["numResults"] = mInfos.numResult
 //    }
     
-    private func addKontextKeywords(searchModels:SEARCHModels)
+    func addKontextKeywords(searchQuerys:SearchQuerys)->[String:AnyObject]
     {
         //print("seachData \(seachData.first?.tags)")
-        var allKWS : [AnyObject] = []
-        let lSearchModels = searchModels.getSearchModels()
+        var allKWS : [[[String:AnyObject]]] = []
+        let lSearchModels = searchQuerys.getSearchQuerys()
         
-        for i in 0 ..< lSearchModels.count
-        {
-            var newEntry : [[String : AnyObject]] = [[:], [:], [:]]
-            
-            
-            newEntry[0]["text"] = lSearchModels[i].tags["link"]?.topic
-            newEntry[0]["isMainTopic"] = lSearchModels[i].tags["link"]?.isMainTopic
-            newEntry[0]["type"] = createCorrectTypeString((lSearchModels[i].tags["link"]?.type)!)
-            
-            newEntry[1]["text"] = lSearchModels[i].tags["section"]?.topic
-            newEntry[1]["isMainTopic"] = lSearchModels[i].tags["section"]?.isMainTopic
-            newEntry[1]["type"] = createCorrectTypeString((lSearchModels[i].tags["section"]?.type)!)
-            
-            newEntry[2]["text"] = lSearchModels[i].tags["head"]?.topic
-            newEntry[2]["isMainTopic"] = lSearchModels[i].tags["head"]?.isMainTopic
-            newEntry[2]["type"] = createCorrectTypeString((lSearchModels[i].tags["head"]?.type)!)
-
-            allKWS.append(newEntry)
+        for searchModel in lSearchModels {
+            var dic = [[String:AnyObject]]()
+            for contextTag in searchModel.getSearchContext() {
+                var context = [String:AnyObject]()
+                context["text"] = contextTag.getValues()["text"] as! String
+                context["isMainTopic"] = contextTag.getValues()["isMainTopic"] as! Bool
+                context["type"] = contextTag.getValues()["type"] as! String
+                dic.append(context)
+                
+            }
+            allKWS.append(dic)
         }
         jsonObject["contextKeywords"] = allKWS
+        
+        return jsonObject
     }
     
-    init(lSearchModels:SEARCHModels)
+    init()
     {
         addOrigin()
         //addMetaInfo()
-        addKontextKeywords(lSearchModels)
     }
     
     private func createCorrectTypeString(type : String) -> String
