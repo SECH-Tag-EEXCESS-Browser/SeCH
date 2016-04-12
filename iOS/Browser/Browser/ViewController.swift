@@ -36,6 +36,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     var settings = SettingsModel()
     var eexcessAllResponses: [EEXCESSAllResponses]!
     var headLine : String!
+    var config = WKWebViewConfiguration()
+
     
     @IBOutlet weak var sechWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var backButton: UIBarButtonItem!
@@ -70,14 +72,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         //p = DataObjectPersistency()
         settings = settingsPers.loadDataObject()
         
-        let config = WKWebViewConfiguration()
-        let scriptURL = NSBundle.mainBundle().pathForResource("main", ofType: "js")
-        let scriptContent = try! String( contentsOfFile: scriptURL!, encoding:NSUTF8StringEncoding)
-        let script = WKUserScript(source: scriptContent, injectionTime: .AtDocumentStart, forMainFrameOnly: true)
-        config.userContentController.addUserScript(script)
         
         config.userContentController.addScriptMessageHandler(self, name: "onclick")
-        
         //WebView erzeugen
         self.myWebView = WKWebView(frame: containerView.bounds, configuration: config)
         self.containerView.addSubview(myWebView!)
@@ -319,23 +315,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        
 
-//        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")
-//        vc.modalPresentationStyle = UIModalPresentationStyle.Popover
-//        
-//        //vc.prepareForSegue(<#T##segue: UIStoryboardSegue##UIStoryboardSegue#>, sender: <#T##AnyObject?#>)
-//        
-//        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
-//        popover.sourceView = tableView.cellForRowAtIndexPath(indexPath)
-//        popover.sourceRect = (tableView.cellForRowAtIndexPath(indexPath)?.bounds)!
-//        popover.delegate = self
-//        
-//        presentViewController(vc, animated: true, completion:nil)
-//        
-//
         self.indexPathForSelectedSearchTag = indexPath.row
 
         let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
@@ -343,22 +323,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         headLine = (currentCell.textLabel?.text!)! as String
         print("\n\n\n\n\n\n\n")
         print("selected: "+headLine)
-        
-//        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")
-//        vc.modalPresentationStyle = UIModalPresentationStyle.Popover
-//        
-//        
-//        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
-//        popover.sourceView = tableView.cellForRowAtIndexPath(indexPath)
-//        popover.sourceRect = (tableView.cellForRowAtIndexPath(indexPath)?.bounds)!
-//        popover.delegate = self
 
-        
-        
-        
-        
-//        presentViewController(vc, animated: true, completion:nil)
         
         return indexPath
     }
@@ -383,7 +348,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             let sechTags = tableViewDataSource.sechTags
             
             for i in 0 ..< sechTags.count {
-                if(eexcessAllResponses[i].index == Int(strs[0])){
+                if(eexcessAllResponses[i].index == Int(strs[1])){
                     self.indexPathForSelectedSearchTag = i
                 }
             }
@@ -414,8 +379,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
                 rules.append(mendeley)
                 rules.append(language)
                 rules.append(mediaType)
-                
-               
                 seachRule.appendSeachRules(rules)
             }
             
@@ -425,7 +388,14 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         
         
         rule.applyRulesToAllResponses(allResponses)
-        print("After Rules \(eexcessAllResponses)")
+        let scriptURL = NSBundle.mainBundle().pathForResource("main", ofType: "js")
+        let scriptContent = try! String( contentsOfFile: scriptURL!, encoding:NSUTF8StringEncoding)
+        self.myWebView?.evaluateJavaScript(scriptContent, completionHandler: { (object, error) in
+        })
+        
+
+        
+        
 
     }
 

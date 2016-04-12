@@ -1,5 +1,3 @@
-
-window.onload = function() {    
     var elements = document.getElementsByTagName("search-link");
     for (var i=0; i<elements.length;i++){
         elements[i].style.color = "Red";
@@ -10,5 +8,3 @@ window.onload = function() {
                                      var currentID = this.getAttribute("id");
                                      webkit.messageHandlers.onclick.postMessage(currentURL+"|"+currentID+"|"+currentTopic);});
     }
-}
-
