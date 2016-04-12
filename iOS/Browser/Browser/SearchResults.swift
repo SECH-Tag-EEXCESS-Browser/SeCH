@@ -10,28 +10,22 @@ import Foundation
 
 class SearchResults {
     private let mSearchResults: [SearchResult]
+    private let index: Int
+
     
-//    var searchResults:[SearchResult]{
-//        get{
-//            return mSearchResults
-//        }
-//    }
-    
-//    init(){
-//        mSearchResults = []
-//    }
-    
-    init(searchResults:[SearchResult]){
+    init(searchResults:[SearchResult], index: Int){
         self.mSearchResults = searchResults
+        self.index = index
     }
     
     func getSearchResults()->[SearchResult]{
         return self.mSearchResults
     }
     
-//    func addSearchResult(searchResult: SearchResult){
-//        self.mSearchResults.append(searchResult)
-//    }
+    func getIndex()->Int{
+        return self.index
+    }
+    
 }
 
 
@@ -58,4 +52,9 @@ class SearchResult {
         self.mediaType = mediaType
         
     }
+}
+
+func < (left : SearchResult, right : SearchResult) -> Bool
+    {
+        return left.avg < right.avg
 }
