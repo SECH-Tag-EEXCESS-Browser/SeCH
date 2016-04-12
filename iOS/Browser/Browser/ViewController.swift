@@ -94,8 +94,9 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         tableView.hidden = true
         sechWidthConstraint.constant = 0
         
-        //Observer for ProgressBarWebsite
+        //Observer for ProgressBarWebsite and hiding ProgressView
         myWebView?.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
+        progressViewWebsite.hidden = true
         
     }
     
@@ -132,6 +133,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     //Obeserver Function for ProgressBar Website
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath == "estimatedProgress" {
+            progressViewWebsite.hidden = false
             progressViewWebsite.progress = Float ((myWebView?.estimatedProgress)!)
         }
     }

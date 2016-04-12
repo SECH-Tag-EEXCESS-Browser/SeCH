@@ -24,6 +24,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
         
         mURL = (webView.URL?.absoluteString)!
         viewCtrl.addressBarTxt.text = mURL
+        viewCtrl.progressViewWebsite.hidden = true
         
         
         // Ineinander verschachtelt, weil completionHandler wartet bis ausgeführt wurde
