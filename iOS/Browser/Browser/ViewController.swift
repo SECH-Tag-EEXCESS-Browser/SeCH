@@ -81,6 +81,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         //WebView erzeugen
         self.myWebView = WKWebView(frame: containerView.bounds, configuration: config)
         self.containerView.addSubview(myWebView!)
+        
 
         myWebView!.translatesAutoresizingMaskIntoConstraints = false // Neu seit iOS 9
 

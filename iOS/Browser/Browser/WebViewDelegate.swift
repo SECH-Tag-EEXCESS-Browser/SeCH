@@ -35,6 +35,8 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
                 webView .evaluateJavaScript("document.body.innerHTML", completionHandler: { (object, error) -> Void in
                     if error == nil && object != nil{
                         self.htmlBody = (object as? String)!
+                        //IBAction
+                        
                         self.sechMng()
                     }
                 })
@@ -86,7 +88,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
         
         
         let task = TaskCtrl()
-        task.getRecommendations(WebContent(html: Html(head: self.htmlHead, body: self.htmlBody)), setRecommendations: setRecommendations)
+        task.getRecommendations(WebContent(html: Html(head: self.htmlHead, body: self.htmlBody), url: (self.viewCtrl.myWebView?.URL?.absoluteString)!), setRecommendations: setRecommendations)
         
         
     }

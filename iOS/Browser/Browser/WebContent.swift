@@ -10,13 +10,18 @@ import Foundation
 
 public class WebContent{
     private let html:Html
+    private let url: String
     
-    init(html:Html){
+    init(html:Html, url:String){
         self.html = html
+        self.url = url
     }
     
     func getHtml()->Html{
         return self.html
+    }
+    func getUrl()-> String{
+        return self.url
     }
 }
 

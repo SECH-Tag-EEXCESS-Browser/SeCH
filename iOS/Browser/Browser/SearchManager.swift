@@ -12,12 +12,14 @@ class SEARCHManager {
     private let regex = RegexForSEARCH()
     private let headFilter = Filter()
     private var searchCollection = [SEARCHModel]()
+    private var url = String()
     
     // TODO: Validation of Filterattributes
     private var validationFilterMediaType = []
     
     func getSEARCHObjects(html:WebContent) -> SEARCHModels {
         
+        url =  html.getUrl()
         let searchHead = getSEARCHHead(html.getHtml().getHeadAndBody().0)
         makeSech(searchHead, htmlBody: html.getHtml().getHeadAndBody().1)
         
@@ -96,11 +98,11 @@ class SEARCHManager {
             if regex.isSEARCHLink(inString: searchBodyArray[i]){
                 if sectionIsAvailable == true{
                     let link = makeTagObject(searchBodyArray[i], isMainTopic: true)
-                    makeSEARCHObject(head, section: tmpSection, link: link, filter: setFilter(tmpFilter, newFilter: searchBodyArray[i]),withID: i)
+                    makeSEARCHObject(head, section: tmpSection, link: link, filter: setFilter(tmpFilter, newFilter: searchBodyArray[i]),withID: i, withUrl: self.url)
                 }
                 if sectionIsAvailable == false{
                     let link = makeTagObject(searchBodyArray[i], isMainTopic: true)
-                    makeSEARCHObject(head, section: Tag(), link: link, filter: setFilter(headFilter, newFilter: searchBodyArray[i]),withID: i)
+                    makeSEARCHObject(head, section: Tag(), link: link, filter: setFilter(headFilter, newFilter: searchBodyArray[i]),withID: i, withUrl: self.url)
                 }
             }
         }
@@ -153,13 +155,14 @@ class SEARCHManager {
         return tmpFilter
     }
     
-    private func makeSEARCHObject(head : Tag, section : Tag, link : Tag, filter : Filter, withID:Int){
+    private func makeSEARCHObject(head : Tag, section : Tag, link : Tag, filter : Filter, withID:Int, withUrl: String){
         let searchObject = SEARCHModel()
         
         searchObject.tags = ["head" : head, "section" : section, "link" : link]
         searchObject.filters = filter
         searchObject.title = (searchObject.tags["link"]?.topic)!
         searchObject.index = withID
+        searchObject.url = withUrl
         searchCollection.append(searchObject)
     }
 }
