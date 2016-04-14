@@ -31,26 +31,27 @@ class SearchResults {
 
 
 class SearchResult {
-    var title : String
-    var provider : String
-    var uri : String?
-    var language: String
-    var mediaType: String
+    let title : String
+    let provider : String
+    let uri : String?
+    let language: String
+    let mediaType: String
     var avg:Double!
+    let url:String
     
     var description: String {
         get {
             return "Title:\(title) -- Provider:\(provider) -- URI:\(uri)"
         }
     }
-    init(title : String, provider : String, uri : String, language: String, mediaType: String)
+    init(title : String, provider : String, uri : String, language: String, mediaType: String,url:String)
     {
         self.title = title
         self.provider = provider
         self.uri = uri
         self.language = language
         self.mediaType = mediaType
-        
+        self.url = url
     }
 }
 

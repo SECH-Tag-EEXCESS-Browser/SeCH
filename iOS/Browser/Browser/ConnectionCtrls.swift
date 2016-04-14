@@ -9,15 +9,20 @@
 import Foundation
 
 class JSONConnectionCtrl:ConnectionCtrl {
-    override func post(params : AnyObject, url : String,
-        postCompleted : (succeeded: Bool, data: NSData) -> ())
+    
+    override init(){
+        super.init()
+    }
+    
+    override func post(params : (String,AnyObject), url : String,
+        postCompleted : (succeeded: Bool, data: NSData, url:String) -> ())
     {
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        let data =  try! NSJSONSerialization.dataWithJSONObject(params, options: [NSJSONWritingOptions()])
+        let data =  try! NSJSONSerialization.dataWithJSONObject(params.1, options: [NSJSONWritingOptions()])
         
-        self.post(data, request: request, postCompleted: postCompleted)
+        self.post((params.0 ,data), request: request, postCompleted: postCompleted)
     }
 }
 
@@ -40,21 +45,28 @@ class ConnectionCtrl {
 //        task.resume()
 //
 //    }
-    func post(params : AnyObject, url : String,
-        postCompleted : (succeeded: Bool, data: NSData) -> ()){
-            postCompleted(succeeded: false,data: "Es wird die abstrakte Klasse ConnectionCtrl".dataUsingEncoding(NSUTF8StringEncoding)!)
+    var url:String
+    
+    init(){
+        self.url = ""
     }
     
-     private func post(data : NSData, request : NSMutableURLRequest,
-        postCompleted : (succeeded: Bool, data: NSData) -> ())
+    func post(params : (String,AnyObject), url : String,
+        postCompleted : (succeeded: Bool, data: NSData, url:String) -> ()){
+            postCompleted(succeeded: false,data: "Es wird die abstrakte Klasse ConnectionCtrl".dataUsingEncoding(NSUTF8StringEncoding)!,url: "")
+    }
+    
+     private func post(data : (String,NSData), request : NSMutableURLRequest,
+        postCompleted : (succeeded: Bool, data: NSData, url: String) -> ())
      {print("start")
+        url = data.0
         request.HTTPMethod = "POST"
-        request.HTTPBody = data
-        print(String(data: data, encoding: NSUTF8StringEncoding)!)
+        request.HTTPBody = data.1
+        print(String(data: data.1, encoding: NSUTF8StringEncoding)!)
         let session = NSURLSession.sharedSession()
         print("running")
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            postCompleted(succeeded: error == nil, data: data!)
+            postCompleted(succeeded: error == nil, data: data!,url: self.url)
         })
         
         print("stoped")

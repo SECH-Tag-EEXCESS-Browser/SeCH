@@ -95,7 +95,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "361"
             endingLineNumber = "361"
-            landmarkName = "tableView(_:willSelectRowAtIndexPath:)"
+            landmarkName = "userContentController(_:didReceiveScriptMessage:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -111,7 +111,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "374"
             endingLineNumber = "374"
-            landmarkName = "userContentController(_:didReceiveScriptMessage:)"
+            landmarkName = "rankThatShit(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

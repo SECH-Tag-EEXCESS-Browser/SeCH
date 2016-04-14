@@ -32,48 +32,38 @@ class EEXCESSRecommendationJSONCtrl {
 //        jsonObject["numResults"] = mInfos.numResult
 //    }
     
-    func addKontextKeywords(searchQuerys:SearchQuerys)->[String:AnyObject]
+    func addKontextKeywords(searchQuerys:SearchQuerys)->(String,AnyObject)
     {
         //print("seachData \(seachData.first?.tags)")
         var allKWS : [[[String:AnyObject]]] = []
         let lSearchModels = searchQuerys.getSearchQuerys()
-        
+        var url:String?
         for searchModel in lSearchModels {
             var dic = [[String:AnyObject]]()
             for contextTag in searchModel.getSearchContext() {
                 var context = [String:AnyObject]()
                 context["text"] = contextTag.getValues()["text"] as! String
-                context["isMainTopic"] = contextTag.getValues()["isMainTopic"] as! Bool
-                context["type"] = contextTag.getValues()["type"] as! String
+                context["isMainTopic"] = contextTag.getValues()["tag"] as! String == "link"
+                //contextTag.getValues()["isMainTopic"] as! Bool
+                let str = contextTag.getValues()["type"] as! String
+                context["type"] = str.substringToIndex(str.startIndex.advancedBy(1)).uppercaseString + str.substringFromIndex(str.startIndex.advancedBy(1))
                 dic.append(context)
                 
             }
             allKWS.append(dic)
+            if url == nil {
+                url = searchModel.getUrl()
+            }
         }
         jsonObject["contextKeywords"] = allKWS
         
-        return jsonObject
+        return (url!,jsonObject as AnyObject)
     }
     
     init()
     {
         addOrigin()
         //addMetaInfo()
-    }
-    
-    private func createCorrectTypeString(type : String) -> String
-    {
-        let lower = type.lowercaseString
-        switch lower {
-            case "misc":
-                return "Misc"
-            case "persom":
-                return "Person"
-            case "location":
-                return "Location"
-        default:
-            return "Organization"
-        }
     }
 }
 

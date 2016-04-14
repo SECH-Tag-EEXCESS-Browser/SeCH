@@ -20,16 +20,16 @@ class TaskCtrl {
         let searchQuerys = QueryBuildCtrl().buildQuery(searchObjects)
         let json = EEXCESSRecommendationJSONCtrl().addKontextKeywords(searchQuerys)
         //let url = Preferences().url + "/recommend"
-        print(json)
-        c.post(json, url: QUERY_URL){ (succeeded: Bool, msg: NSData) -> () in
+        print(json.1)
+        c.post(json, url: QUERY_URL){ (succeeded: Bool, msg: NSData, url:String) -> () in
             if (succeeded) {
-                guard let recommJson = EEXCESSRecommendationCtrl(data: msg) else
+                guard let recommJson = EEXCESSRecommendationCtrl(data: msg,url: url) else
                 {
-                    
                     print ("Versagen 1")
                     print(String(data: msg, encoding: NSUTF8StringEncoding)!)
                     return
                 }
+                
                 let recomms: [EEXCESSAllResponses]? = recommJson.recommendations
                 
                 

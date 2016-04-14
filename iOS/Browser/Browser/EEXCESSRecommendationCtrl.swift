@@ -17,7 +17,7 @@ class EEXCESSRecommendationCtrl {
         }
     }
     
-    init? (data : NSData)
+    init? (data : NSData, url:String)
     {
         let jsonT = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as AnyObject
         

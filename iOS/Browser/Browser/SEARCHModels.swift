@@ -47,10 +47,10 @@ class SEARCHModel {
 class Tag {
     var topic = String()
     var type = String()
-    var isMainTopic = Bool()
+    //var isMainTopic = Bool()
     
     func getValues()->[String:AnyObject]{
-        return ["text":self.topic,"type":self.type,"isMainTopic":self.isMainTopic]
+        return ["text":self.topic,"type":self.type]
     }
 }
 

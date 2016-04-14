@@ -45,7 +45,6 @@ class SEARCHManager {
             // Set Headattributes
             head.topic = headAttributes["topic"]!
             head.type = headAttributes["type"]!
-            head.isMainTopic = false
             
             // Set Filterattributes
             headFilter.mediaType = headAttributes["mediaType"]!
