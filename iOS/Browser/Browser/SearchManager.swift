@@ -85,11 +85,11 @@ class SEARCHManager {
             // Check if Element is Link
             if regex.isSEARCHLink(inString: searchBodyArray[i]){
                 if sectionIsAvailable == true{
-                    let link = makeTagObject(searchBodyArray[i]/*, isMainTopic: true*/)
+                    let link = makeTagObject(searchBodyArray[i])
                     makeSEARCHObject(head, section: tmpSection, link: link, filter: setFilter(tmpFilter, newFilter: searchBodyArray[i]),withID: i, withUrl: self.url)
                 }
                 if sectionIsAvailable == false{
-                    let link = makeTagObject(searchBodyArray[i]/*, isMainTopic: true*/)
+                    let link = makeTagObject(searchBodyArray[i])
                     makeSEARCHObject(head, section: Tag(), link: link, filter: setFilter(headFilter, newFilter: searchBodyArray[i]),withID: i, withUrl: self.url)
                 }
             }
@@ -97,11 +97,9 @@ class SEARCHManager {
         }
     }
     
-    private func makeTagObject(tagText : String/*, isMainTopic : Bool*/) -> Tag{
+    private func makeTagObject(tagText : String) -> Tag{
         let attributes = regex.getAttributes(inString: tagText)
         let tmpTag = Tag()
-        
-        //tmpTag.isMainTopic = isMainTopic
         
         if (attributes["topic"] != nil){
             tmpTag.topic = (attributes["topic"])!

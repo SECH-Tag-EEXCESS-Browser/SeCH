@@ -94,8 +94,12 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         tableView.hidden = true
         sechWidthConstraint.constant = 0
         
-        //Observer for ProgressBarWebsite and hiding ProgressView
+        //Observer
         myWebView?.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
+        myWebView?.addObserver(self, forKeyPath: "canGoBack", options: .New, context: nil)
+        myWebView?.addObserver(self, forKeyPath: "canGoForward", options: .New, context: nil)
+        
+        
         progressViewWebsite.hidden = true
         
     }
@@ -103,7 +107,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        //Constrains setzen
+        //Set Constrains
         containerView.addSubview(myWebView!)
         myWebView?.navigationDelegate = myWebViewDelegate
     }
@@ -130,11 +134,19 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         //Dispose of any resources that can be recreated.
     }
     
-    //Obeserver Function for ProgressBar Website
+    //Obeserver Function
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath == "estimatedProgress" {
             progressViewWebsite.hidden = false
             progressViewWebsite.progress = Float ((myWebView?.estimatedProgress)!)
+        }
+        
+        if keyPath == "canGoBack"{
+            backButton.enabled = (myWebView?.canGoBack)!
+        }
+        
+        if keyPath == "canGoForward"{
+            forwardButton.enabled = (myWebView?.canGoForward)!
         }
     }
     
@@ -279,7 +291,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
 
     @IBAction func doPopover(sender: AnyObject) {
 
-        //Wenn Sech ausgeblendet
+        //If Sech-Table not visible
         if (tableView.hidden == true){
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 self.sechWidthConstraint.constant = 160;
@@ -287,7 +299,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
                 self.view.layoutIfNeeded()
             })
             
-        //Wenn Sech eingeblendet
+        //If Sech-Table visible
         }else{
             countSechAnimation()
             self.tableView.hidden = true
