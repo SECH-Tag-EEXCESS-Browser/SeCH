@@ -102,6 +102,10 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         
         progressViewWebsite.hidden = true
         
+        //Disable back & forward Buttons at the beginning
+        forwardButton.enabled = false
+        backButton.enabled = false
+        
     }
     
     override func viewDidAppear(animated: Bool) {
