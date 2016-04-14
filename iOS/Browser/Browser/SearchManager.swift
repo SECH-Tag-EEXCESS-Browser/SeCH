@@ -29,17 +29,6 @@ class SEARCHManager {
         return searchModels
     }
     
-//    func getSEARCHObjects(htmlHead : String, htmlBody : String) -> [SEARCHModel] {
-//        
-//        let searchHead = getSEARCHHead(htmlHead)
-//        makeSech(searchHead, htmlBody: htmlBody)
-//        
-//        let tmpSEARCHCollection = searchCollection
-//        searchCollection = [SEARCHModel]()
-//        
-//        return tmpSEARCHCollection
-//    }
-    
     // Private Methods
     // #################################################################################################
     private func getSEARCHHead(htmlHead : String) -> Tag{
@@ -88,7 +77,7 @@ class SEARCHManager {
             
             //Check if Element is Section
             if regex.isSEARCHSection(inString: searchBodyArray[i]){
-                tmpSection = makeTagObject(searchBodyArray[i], isMainTopic: false)
+                tmpSection = makeTagObject(searchBodyArray[i]/*, isMainTopic: false*/)
                 tmpFilter = setFilter(tmpFilter, newFilter: searchBodyArray[i])
                 sectionIsAvailable = true
                 continue
@@ -97,11 +86,11 @@ class SEARCHManager {
             // Check if Element is Link
             if regex.isSEARCHLink(inString: searchBodyArray[i]){
                 if sectionIsAvailable == true{
-                    let link = makeTagObject(searchBodyArray[i], isMainTopic: true)
+                    let link = makeTagObject(searchBodyArray[i]/*, isMainTopic: true*/)
                     makeSEARCHObject(head, section: tmpSection, link: link, filter: setFilter(tmpFilter, newFilter: searchBodyArray[i]),withID: i, withUrl: self.url)
                 }
                 if sectionIsAvailable == false{
-                    let link = makeTagObject(searchBodyArray[i], isMainTopic: true)
+                    let link = makeTagObject(searchBodyArray[i]/*, isMainTopic: true*/)
                     makeSEARCHObject(head, section: Tag(), link: link, filter: setFilter(headFilter, newFilter: searchBodyArray[i]),withID: i, withUrl: self.url)
                 }
             }
@@ -109,11 +98,11 @@ class SEARCHManager {
         }
     }
     
-    private func makeTagObject(tagText : String, isMainTopic : Bool) -> Tag{
+    private func makeTagObject(tagText : String/*, isMainTopic : Bool*/) -> Tag{
         let attributes = regex.getAttributes(inString: tagText)
         let tmpTag = Tag()
         
-        tmpTag.isMainTopic = isMainTopic
+        //tmpTag.isMainTopic = isMainTopic
         
         if (attributes["topic"] != nil){
             tmpTag.topic = (attributes["topic"])!
