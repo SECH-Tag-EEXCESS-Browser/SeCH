@@ -105,17 +105,17 @@
                     <navigationItem key="navigationItem" id="Qex-x7-0XI">
                         <nil key="title"/>
                         <leftBarButtonItems>
-                            <barButtonItem systemItem="rewind" id="5Yo-GX-MbL">
+                            <barButtonItem image="BackIcon" id="5Yo-GX-MbL">
                                 <connections>
                                     <action selector="backButton:" destination="BYZ-38-t0r" id="3DR-As-aDG"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="fastForward" id="Jt3-Ps-8LQ">
+                            <barButtonItem image="ForwardIcon" id="Jt3-Ps-8LQ">
                                 <connections>
                                     <action selector="forwardButton:" destination="BYZ-38-t0r" id="9o9-ax-eSB"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="bookmarks" id="ode-4e-rRf">
+                            <barButtonItem image="BookmarksIcon" id="ode-4e-rRf">
                                 <connections>
                                     <action selector="favBtn:" destination="BYZ-38-t0r" id="vPZ-5U-8io"/>
                                 </connections>
@@ -125,14 +125,14 @@
                                     <action selector="favouriteButton:" destination="BYZ-38-t0r" id="PTg-wn-MNw"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Home" id="F2l-5d-8jr">
+                            <barButtonItem image="HomeIcon" id="F2l-5d-8jr">
                                 <connections>
                                     <action selector="homeBtn:" destination="BYZ-38-t0r" id="yce-gz-rh7"/>
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="aq5-DT-Mlq">
-                            <rect key="frame" x="272" y="7" width="136" height="30"/>
+                            <rect key="frame" x="291" y="7" width="25" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -142,17 +142,17 @@
                             </connections>
                         </textField>
                         <rightBarButtonItems>
-                            <barButtonItem title="Optionen" id="1j9-bH-VaA">
+                            <barButtonItem image="SettingsIcon" id="1j9-bH-VaA">
                                 <connections>
                                     <action selector="optionsMenu:" destination="BYZ-38-t0r" id="AK8-x2-elA"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Sech" id="QKM-Ym-WL8">
+                            <barButtonItem image="SechIcon" id="QKM-Ym-WL8">
                                 <connections>
                                     <action selector="doPopover:" destination="BYZ-38-t0r" id="yV6-UQ-BOV"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="refresh" id="ELU-wd-HGf">
+                            <barButtonItem image="ReloudIcon" id="ELU-wd-HGf">
                                 <connections>
                                     <action selector="reloadButton:" destination="BYZ-38-t0r" id="8wJ-mf-5AV"/>
                                 </connections>
@@ -527,6 +527,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BackIcon" width="29" height="29"/>
+        <image name="BookmarksIcon" width="29" height="29"/>
+        <image name="ForwardIcon" width="29" height="29"/>
+        <image name="HomeIcon" width="29" height="29"/>
         <image name="LogoGelb" width="170" height="145"/>
+        <image name="ReloudIcon" width="29" height="29"/>
+        <image name="SechIcon" width="29" height="29"/>
+        <image name="SettingsIcon" width="29" height="29"/>
     </resources>
 </document>
