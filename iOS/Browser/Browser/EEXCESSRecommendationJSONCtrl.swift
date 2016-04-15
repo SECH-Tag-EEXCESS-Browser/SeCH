@@ -9,9 +9,8 @@
 import Foundation
 
 class EEXCESSRecommendationJSONCtrl {
-    var jsonObject : [String : AnyObject] = [:]
     
-    private func addOrigin ()
+    private func addOrigin (var json:[String : AnyObject])->[String:AnyObject]
     {
         let eInfos = EEXCESSOrigin()
         var originInfo : [String : AnyObject] = [:]
@@ -21,7 +20,9 @@ class EEXCESSRecommendationJSONCtrl {
         originInfo["userID"] = eInfos.userID
         originInfo["module"] = eInfos.module
         
-        jsonObject["origin"] = originInfo
+        json["origin"] = originInfo
+        
+        return json
     }
     
 //    private func addMetaInfo()
@@ -34,6 +35,9 @@ class EEXCESSRecommendationJSONCtrl {
     
     func addKontextKeywords(searchQuerys:SearchQuerys)->(String,AnyObject)
     {
+        // create the jsonRequestObject and add the origin
+        var jsonObject = addOrigin([String:AnyObject]())
+        
         //print("seachData \(seachData.first?.tags)")
         var allKWS : [[[String:AnyObject]]] = []
         let lSearchModels = searchQuerys.getSearchQuerys()
@@ -58,12 +62,6 @@ class EEXCESSRecommendationJSONCtrl {
         jsonObject["contextKeywords"] = allKWS
         
         return (url!,jsonObject as AnyObject)
-    }
-    
-    init()
-    {
-        addOrigin()
-        //addMetaInfo()
     }
 }
 

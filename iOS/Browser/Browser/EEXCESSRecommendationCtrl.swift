@@ -9,40 +9,15 @@
 import Foundation
 
 class EEXCESSRecommendationCtrl {
-    private var pRecommendations : [EEXCESSAllResponses]?
     
-    var recommendations : [EEXCESSAllResponses]? {
-        get {
-            return pRecommendations
-        }
-    }
-    
-    init? (data : NSData, url:String)
+    func extractRecommendatins(data : NSData, url:String)->[EEXCESSAllResponses]?
     {
-        let jsonT = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as AnyObject
+        let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as AnyObject
         
-        //print(jsonT)
-        
-        guard let json = jsonT else {
-
+        guard let allResults = JSONData.fromObject(json!)!["results"]?.array as [JSONData]! else{
             return nil
         }
-        extractRecommendatins(json)
-    }
-    
-    private func extractRecommendatins(json : AnyObject)
-    {
-        guard let jsonData = JSONData.fromObject(json) else
-        {
-            return
-        }
-        guard let allResults = jsonData["results"]?.array as [JSONData]! else
-        {
-
-            return
-        }
-        
-        pRecommendations = []
+        var pRecommendations = [EEXCESSAllResponses]()
         
         
         for (index, allResult) in allResults.enumerate()
@@ -65,9 +40,40 @@ class EEXCESSRecommendationCtrl {
                 allResponses.appendSingleResponse(newRecommendation)
             }
             
-            pRecommendations?.append(allResponses)
+            pRecommendations.append(allResponses)
             
         }
+        return pRecommendations
+    }
+    
+    //For Interface SearchResults
+    func extractRecommendatins2(data : NSData, url:String)->SearchResults?
+    {
+        let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as AnyObject
         
+        guard let allResults = JSONData.fromObject(json!)!["results"]?.array as [JSONData]! else{
+            return nil
+        }
+        var searchResults = [SearchResult]()
+        
+        for (index, allResult) in allResults.enumerate()
+        {
+            var searchResultItems = [SearchResultItem]()
+
+            let result = allResult.object!["result"]?.array
+            
+            for res in result!{
+                let u = (res.object!["documentBadge"]?["uri"]?.string)!
+                let p = (res.object!["documentBadge"]?["provider"]?.string)!
+                let t = (res.object!["title"]?.string)!
+                let l = (res.object!["language"]?.string)!
+                let m = (res.object!["mediaType"]?.string)!
+                
+                searchResultItems.append(SearchResultItem(title: t, provider: p, uri: u, language: l, mediaType: m))
+            }
+            searchResults.append(SearchResult(index: index, url: url, resultItems: searchResultItems))
+            
+        }
+        return SearchResults(searchResults: searchResults)
     }
 }

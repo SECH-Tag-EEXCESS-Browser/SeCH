@@ -15,25 +15,28 @@ class TaskCtrl {
     
     func getRecommendations(webContent:WebContent, setRecommendations: (message: String, recommendationData: [EEXCESSAllResponses]?) -> Void)
     {
+        //
         let searchObjects = SEARCHManager().getSEARCHObjects(webContent)
-        let c = JSONConnectionCtrl()
+        
+        //
         let searchQuerys = QueryBuildCtrl().buildQuery(searchObjects)
-        let json = EEXCESSRecommendationJSONCtrl().addKontextKeywords(searchQuerys)
+        
+        //
+        let requestData = EEXCESSRecommendationJSONCtrl().addKontextKeywords(searchQuerys)
         //let url = Preferences().url + "/recommend"
-        print(json.1)
-        c.post(json, url: QUERY_URL){ (succeeded: Bool, msg: NSData, url:String) -> () in
+//        print(json.1)
+        //
+        JSONConnectionCtrl().post(requestData, url: QUERY_URL){ (succeeded: Bool, msg: NSData, url:String) -> () in
             if (succeeded) {
-                guard let recommJson = EEXCESSRecommendationCtrl(data: msg,url: url) else
+                let recommendationCtrl = EEXCESSRecommendationCtrl()
+                guard let recommendation = recommendationCtrl.extractRecommendatins(msg,url: url) else
                 {
                     print ("Versagen 1")
                     print(String(data: msg, encoding: NSUTF8StringEncoding)!)
                     return
                 }
                 
-                let recomms: [EEXCESSAllResponses]? = recommJson.recommendations
-                
-                
-                setRecommendations(message: "SUCCEDED", recommendationData: recomms)
+                setRecommendations(message: "SUCCEDED", recommendationData: recommendation)
                 
                 let sm = SettingsManager()
                 sm.getPreferencesValues()
