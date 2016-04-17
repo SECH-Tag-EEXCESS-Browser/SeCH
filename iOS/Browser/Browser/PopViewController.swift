@@ -54,7 +54,7 @@ class PopViewController : UIViewController{
     var headLine : String!
     var jsonText : String!
     var url : String!
-    var searchTags : [EEXCESSSingleResponse]!
+    var searchTags : [SearchResultItem]!
     
     override func viewDidLoad() {
         
@@ -66,10 +66,14 @@ class PopViewController : UIViewController{
         
         if(sTags.count > 0){
         
-        let requesturl = NSURL(string: sTags[0].uri!)
+        let requesturl = NSURL(string: sTags[0].getUri())
         let request = NSURLRequest(URL: requesturl!)
         sechWebView.loadRequest(request)
-              }
+        }else{
+            let requesturl = NSURL(string: "http://www.sech-browser.de/404.html")
+            let request = NSURLRequest(URL: requesturl!)
+            sechWebView.loadRequest(request)
+        }
         
         self.popoverContent = (self.storyboard?.instantiateViewControllerWithIdentifier("SearchTableViewController"))! as! SearchTableViewController
         

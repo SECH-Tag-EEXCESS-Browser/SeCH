@@ -38,7 +38,7 @@ class EEXCESSRecommendationJSONCtrl {
         // create the jsonRequestObject and add the origin
         var jsonObject = addOrigin([String:AnyObject]())
         
-        //print("seachData \(seachData.first?.tags)")
+
         var allKWS : [[[String:AnyObject]]] = []
         let lSearchModels = searchQuerys.getSearchQuerys()
         var url:String?

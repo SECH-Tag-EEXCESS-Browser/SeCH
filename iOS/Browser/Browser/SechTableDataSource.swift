@@ -37,7 +37,7 @@ class SechTableDataSource : NSObject, UITableViewDataSource{
         }
     }
     
-    func makeLabels(sechs : [EEXCESSAllResponses]){
+    func makeLabels(sechs : [SearchResult]){
         
         sechTags = []
         

@@ -30,8 +30,6 @@
 		961D15C71C24111F00D2EF46 /* TaskCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C61C24111F00D2EF46 /* TaskCtrl.swift */; };
 		961D15CA1C24114400D2EF46 /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C91C24114400D2EF46 /* JSONData.swift */; };
 		961D15CD1C24118100D2EF46 /* SEARCHModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15CC1C24118100D2EF46 /* SEARCHModels.swift */; };
-		961D15D11C24119900D2EF46 /* EEXCESSSingleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15CE1C24119900D2EF46 /* EEXCESSSingleResponse.swift */; };
-		961D15D21C24119900D2EF46 /* EEXCESSAllResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15CF1C24119900D2EF46 /* EEXCESSAllResponses.swift */; };
 		961D15D31C24119900D2EF46 /* EEXCESSOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D01C24119900D2EF46 /* EEXCESSOrigin.swift */; };
 		961D15D81C24122E00D2EF46 /* ConnectionCtrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D41C24122E00D2EF46 /* ConnectionCtrls.swift */; };
 		961D15DA1C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D61C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift */; };
@@ -95,8 +93,6 @@
 		961D15C61C24111F00D2EF46 /* TaskCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCtrl.swift; sourceTree = "<group>"; };
 		961D15C91C24114400D2EF46 /* JSONData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONData.swift; sourceTree = "<group>"; };
 		961D15CC1C24118100D2EF46 /* SEARCHModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEARCHModels.swift; sourceTree = "<group>"; };
-		961D15CE1C24119900D2EF46 /* EEXCESSSingleResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EEXCESSSingleResponse.swift; sourceTree = "<group>"; };
-		961D15CF1C24119900D2EF46 /* EEXCESSAllResponses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EEXCESSAllResponses.swift; sourceTree = "<group>"; };
 		961D15D01C24119900D2EF46 /* EEXCESSOrigin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EEXCESSOrigin.swift; sourceTree = "<group>"; };
 		961D15D41C24122E00D2EF46 /* ConnectionCtrls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionCtrls.swift; sourceTree = "<group>"; };
 		961D15D61C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EEXCESSRecommendationCtrl.swift; sourceTree = "<group>"; };
@@ -302,7 +298,6 @@
 				961D15D61C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift */,
 				961D15D71C24122E00D2EF46 /* EEXCESSRecommendationJSONCtrl.swift */,
 				FEB9DC471BFC8E8100EB1729 /* Toolbar */,
-				FEB9DC461BFC8E1A00EB1729 /* Manager */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -310,8 +305,6 @@
 		FEB9DC421BFC8D1900EB1729 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				961D15CE1C24119900D2EF46 /* EEXCESSSingleResponse.swift */,
-				961D15CF1C24119900D2EF46 /* EEXCESSAllResponses.swift */,
 				961D15D01C24119900D2EF46 /* EEXCESSOrigin.swift */,
 				961D15C81C24113800D2EF46 /* JSONData */,
 				964CE9E41C0C5461006419D5 /* Persistence */,
@@ -348,13 +341,6 @@
 				187387521BE64CA400EDDC31 /* FavouriteCell.swift */,
 			);
 			name = Cell;
-			sourceTree = "<group>";
-		};
-		FEB9DC461BFC8E1A00EB1729 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Manager;
 			sourceTree = "<group>";
 		};
 		FEB9DC471BFC8E8100EB1729 /* Toolbar */ = {
@@ -510,7 +496,6 @@
 				FE14E3B21BE9F860008FC4ED /* RegexForSEARCH.swift in Sources */,
 				96A5C4641CA1A21F00EA62D3 /* SearchQuerys.swift in Sources */,
 				96A5C4621CA1A1BA00EA62D3 /* WebContent.swift in Sources */,
-				961D15D21C24119900D2EF46 /* EEXCESSAllResponses.swift in Sources */,
 				4B5FEA061C3FBE94004795F8 /* SearchTableViewController.swift in Sources */,
 				A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */,
 				961D15DD1C2412CF00D2EF46 /* SearchManager.swift in Sources */,
@@ -527,7 +512,6 @@
 				961D15DB1C24122E00D2EF46 /* EEXCESSRecommendationJSONCtrl.swift in Sources */,
 				961D15DA1C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift in Sources */,
 				50D67A951C2ACA8100B864FC /* ViewController.swift in Sources */,
-				961D15D11C24119900D2EF46 /* EEXCESSSingleResponse.swift in Sources */,
 				961D15CD1C24118100D2EF46 /* SEARCHModels.swift in Sources */,
 				961D15C31C2410B200D2EF46 /* RankingDataObjectPersistency.swift in Sources */,
 				961D15C71C24111F00D2EF46 /* TaskCtrl.swift in Sources */,

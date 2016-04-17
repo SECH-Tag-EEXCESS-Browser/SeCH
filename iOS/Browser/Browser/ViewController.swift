@@ -34,7 +34,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     
     let settingsPers = SettingsPersistency()
     var settings = SettingsModel()
-    var eexcessAllResponses: [EEXCESSAllResponses]!
+    var responses: [SearchResult]!
     var headLine : String!
     var config = WKWebViewConfiguration()
 
@@ -105,6 +105,10 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         //Disable back & forward Buttons at the beginning
         forwardButton.enabled = false
         backButton.enabled = false
+        
+        let homeUrl = settings.homeURL
+        let url = myAdressBar.checkURL(homeUrl)
+        loadURL(url)
         
     }
     
@@ -262,8 +266,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
 //                popViewController.jsonText = "NO RESULTS"
 //                popViewController.url = "https://www.google.de/"
 //            }
-            if eexcessAllResponses != nil && eexcessAllResponses.count > 0{
-                popViewController.searchTags = eexcessAllResponses[indexPathForSelectedSearchTag].responses
+            if responses != nil && responses.count > 0{
+                popViewController.searchTags = responses[indexPathForSelectedSearchTag].getResultItems()
 //                popViewController.url = response
             }else{
                 popViewController.jsonText = "NO RESULTS"
@@ -354,7 +358,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
 //            str.characters.split($0 == "|").map(String.init)
             var strs = str.componentsSeparatedByString("|")
             
-            print(strs[0])
+    
             
             self.headLine = ""
             
@@ -366,7 +370,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             let sechTags = tableViewDataSource.sechTags
             
             for i in 0 ..< sechTags.count {
-                if(eexcessAllResponses[i].index == Int(strs[1])){
+                if(responses[i].getIndex() == Int(strs[1])){
                     self.indexPathForSelectedSearchTag = i
                 }
             }
@@ -376,8 +380,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
    
     }
     
-    func rankThatShit(eexcessAllResponses: [EEXCESSAllResponses]!){
-        print("Before Rules \(eexcessAllResponses)")
+    func rankThatShit(eexcessAllResponses: [SearchResult]!){
+ 
         
         guard let allResponses = eexcessAllResponses else{
             return
@@ -389,10 +393,10 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             
              let seachRule: SeachRules = SeachRules()
             
-            for j in 0 ..< allResponses[i].responses.count {
+            for j in 0 ..< allResponses[i].getResultItems().count {
                 var rules: [Rule] = []
                 let mendeley : Mendeley = Mendeley(expectedResult: "Mendeley")
-                let language: Language = Language(expectedResult: LanguageType.German, title: allResponses[i].responses[j].title)
+                let language: Language = Language(expectedResult: LanguageType.German, title: allResponses[i].getResultItems()[j].getTitle())
                 let mediaType: MediaType = MediaType(expectedResult: MediaTypes.image)
                 rules.append(mendeley)
                 rules.append(language)

@@ -10,7 +10,7 @@ import Foundation
 
 class EEXCESSRecommendationCtrl {
     
-    func extractRecommendatins(data : NSData, url:String)->[EEXCESSAllResponses]?
+    /*func extractRecommendatins2(data : NSData, url:String)->[EEXCESSAllResponses]?
     {
         let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as AnyObject
         
@@ -44,10 +44,10 @@ class EEXCESSRecommendationCtrl {
             
         }
         return pRecommendations
-    }
+    }*/
     
     //For Interface SearchResults
-    func extractRecommendatins2(data : NSData, url:String)->SearchResults?
+    func extractRecommendatins(data : NSData, url:String)->SearchResults?
     {
         let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as AnyObject
         

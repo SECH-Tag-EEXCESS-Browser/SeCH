@@ -67,28 +67,30 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
         //-> !
         // Put call for Request of EEXCESS here!
         
-        let setRecommendations = ({(msg:String,data:[EEXCESSAllResponses]?) -> () in
+        let task = TaskCtrl()
+        
+        let setRecommendations = ({(msg:String,data:SearchResults?) -> () in
             print(msg)
             // TODO: To be redesigned! 6
             let ds = self.viewCtrl.tableViewDataSource
-            ds.makeLabels(data!)
+            ds.makeLabels(task.searchObjects.getSearchModels())
             
             if(data != nil){
-                self.viewCtrl.eexcessAllResponses = data
+                self.viewCtrl.responses = data?.getSearchResults()
             }else{
-                self.viewCtrl.eexcessAllResponses = []
+                self.viewCtrl.responses = []
             }
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 // TODO: To be redesigned! 8
-                self.viewCtrl.rankThatShit(self.viewCtrl.eexcessAllResponses)
+                self.viewCtrl.rankThatShit(self.viewCtrl.responses)
                 self.viewCtrl.tableView.reloadData()
                 
             })
         })
         
         
-        let task = TaskCtrl()
+        
         task.getRecommendations(WebContent(html: Html(head: self.htmlHead, body: self.htmlBody), url: (self.viewCtrl.myWebView?.URL?.absoluteString)!), setRecommendations: setRecommendations)
         
         

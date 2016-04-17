@@ -62,7 +62,6 @@ class ConnectionCtrl {
         url = data.0
         request.HTTPMethod = "POST"
         request.HTTPBody = data.1
-        print(String(data: data.1, encoding: NSUTF8StringEncoding)!)
         let session = NSURLSession.sharedSession()
         print("running")
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in

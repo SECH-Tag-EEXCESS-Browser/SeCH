@@ -22,7 +22,7 @@ class SearchResults {
 
 class SearchResult {
     private let url:String
-    private let resultItems:[SearchResultItem]
+    private var resultItems:[SearchResultItem]
     private let index: Int
     
     init(index:Int,url:String,resultItems:[SearchResultItem])
@@ -34,6 +34,14 @@ class SearchResult {
     
     func getIndex()->Int{
         return self.index
+    }
+    
+    func getResultItems()->[SearchResultItem]{
+        return self.resultItems
+    }
+    
+    func setResultItems(resultItems:[SearchResultItem]){
+        self.resultItems = resultItems
     }
 }
 
@@ -58,6 +66,36 @@ class SearchResultItem {
         self.language = language
         self.mediaType = mediaType
     }
+    
+    func getUri()->String{
+        return self.uri!
+    }
+    
+    func getTitle()->String{
+        return self.title
+    }
+    
+    func getAvg()->Double{
+        return self.avg
+    }
+    
+    func setAvg(avg: Double){
+        self.avg = avg
+    }
+    
+    func getProvider()->String{
+        return self.provider
+    }
+    
+    func getMediaType()->String{
+        return self.mediaType
+    }
+    
+    func getLanguage()->String{
+        return self.language
+    }
+    
+    
     
     
 }

@@ -17,7 +17,7 @@ protocol Rule{
 
 class Rules {
     var storedRules: [SeachRules]
-    private var allResponses: [EEXCESSAllResponses]!
+    private var allResponses: [SearchResult]!
     
     init(){
         storedRules = []
@@ -27,27 +27,29 @@ class Rules {
         storedRules.append(rule)
     }
     
-    func applyRulesToAllResponses(var responses: [EEXCESSAllResponses]) {
+    func applyRulesToAllResponses(var responses: [SearchResult]) {
         calculateValueOfEachRule(responses)
         
-        for i : EEXCESSAllResponses in responses
+        for i : SearchResult in responses
         {
-            i.responses.sortInPlace({$0.avg > $1.avg})
+            var results = i.getResultItems()
+            results.sortInPlace({$0.getAvg() > $1.getAvg()})
+            i.setResultItems(results)
         }
         
     }
     
     
-    private func calculateValueOfEachRule(responses: [EEXCESSAllResponses]){
+    private func calculateValueOfEachRule(responses: [SearchResult]){
         
         for response in responses{
-            for res in response.responses{
+            for res in response.getResultItems(){
                 let avg = calculateRulesForSingleResponse(res)
                 
-                res.avg = avg
+                res.setAvg(avg)
                 
-                if(res.provider == "Mendeley"){
-                    res.avg = 0
+                if(res.getProvider() == "Mendeley"){
+                    res.setAvg(0)
                 }
                 
             } 
@@ -55,7 +57,7 @@ class Rules {
         }
     }
     
-    private func calculateRulesForSingleResponse(res: EEXCESSSingleResponse)->Double{
+    private func calculateRulesForSingleResponse(res: SearchResultItem)->Double{
         
         var ruleValues: [Double] = []
         var sum: Double = 0
@@ -78,14 +80,14 @@ class Rules {
     }
     
     
-    private func getRuleParameters(rule: Rule, response: EEXCESSSingleResponse)->String{
+    private func getRuleParameters(rule: Rule, response: SearchResultItem)->String{
         switch rule.classId{
         case "MediaType":
-            return response.mediaType
+            return response.getMediaType()
         case "Language":
-            return response.language
+            return response.getLanguage()
         case "Mendeley":
-            return response.provider
+            return response.getProvider()
         default:
             return ""
         }

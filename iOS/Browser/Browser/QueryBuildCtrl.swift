@@ -26,7 +26,7 @@ class QueryBuildCtrl {
 //                    dic["type"] = str.substringToIndex(str.startIndex.advancedBy(1)).uppercaseString + str.substringFromIndex(str.startIndex.advancedBy(1))
                 }
                 searchContexts.append(SearchContext(values: dic, filters: searchModel.filters.getValues()))
-                print(dic)
+            
             }
             searchQuery.append(SearchQuery(index: searchModel.index, searchContext: searchContexts,url: searchModel.url))
         }

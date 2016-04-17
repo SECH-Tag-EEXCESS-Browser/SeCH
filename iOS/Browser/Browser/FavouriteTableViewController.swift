@@ -59,8 +59,7 @@ class FavouriteTableViewController: UITableViewController
             favourites.append(fav)
             
             delegate!.receiveInfo(self, info: fav)
-            
-//            print(fav)
+
         }
     }
     
