@@ -42,6 +42,7 @@ class EEXCESSRecommendationJSONCtrl {
         var allKWS : [[[String:AnyObject]]] = []
         let lSearchModels = searchQuerys.getSearchQuerys()
         var url:String?
+
         for searchModel in lSearchModels {
             var dic = [[String:AnyObject]]()
             for contextTag in searchModel.getSearchContext() {
@@ -60,7 +61,9 @@ class EEXCESSRecommendationJSONCtrl {
             }
         }
         jsonObject["contextKeywords"] = allKWS
-        jsonObject["numResults"] = 35 * searchQuerys.getSearchQuerys().count
+        
+        // Schneller Hack um Anzahl der möglichen Suchergebnisse zu erhöhen
+        jsonObject["numResults"] = 50 * searchQuerys.getSearchQuerys().count
         jsonObject["loggingLevel"] = 1
         
         return (url!,jsonObject as AnyObject)

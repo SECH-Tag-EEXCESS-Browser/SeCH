@@ -14,7 +14,8 @@ struct EEXCESSOrigin {
     let module = "SECH-Client"
     var userID : String {
         get {
-            return NSUserName()
+            //return NSUserName()
+            return "iOS-SeCH-Browser"
         }
     }
 }
