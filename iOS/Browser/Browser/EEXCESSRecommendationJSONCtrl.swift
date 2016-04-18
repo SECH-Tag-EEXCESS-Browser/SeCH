@@ -60,6 +60,8 @@ class EEXCESSRecommendationJSONCtrl {
             }
         }
         jsonObject["contextKeywords"] = allKWS
+        jsonObject["numResults"] = 35 * searchQuerys.getSearchQuerys().count
+        jsonObject["loggingLevel"] = 1
         
         return (url!,jsonObject as AnyObject)
     }
