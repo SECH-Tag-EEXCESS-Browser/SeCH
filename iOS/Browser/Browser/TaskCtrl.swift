@@ -20,7 +20,11 @@ class TaskCtrl {
         searchObjects = SEARCHManager().getSEARCHObjects(webContent)
         
         
-        //
+        if(searchObjects.getSearchModels().count == 0){
+            setRecommendations(message: "FAILED", recommendationData: nil)
+            return
+        }
+        
         let searchQuerys = QueryBuildCtrl().buildQuery(searchObjects)
         
         //
