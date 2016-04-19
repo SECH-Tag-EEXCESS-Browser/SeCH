@@ -69,11 +69,11 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
         
         let task = TaskCtrl()
         
-        let setRecommendations = ({(msg:String,data:SearchResults?) -> () in
+        let setRecommendations = ({(status:String,msg: String, data: SearchResults?) -> () in
             print(msg)
             // TODO: To be redesigned! 6
             
-            if(msg == "FAILED"){
+            if(status == "FAILED"){
                 self.viewCtrl.tableViewDataSource.sechTags = []
                 self.viewCtrl.tableView.reloadData()
                 return

@@ -61,6 +61,10 @@ class SearchQuery{
     func getTitle()->String {
         return self.title
     }
+    
+    func getIndex()->Int{
+        return self.index
+    }
 }
 // SearchContext represent a KeyWord with attributes and filters for the searchEngine ToDO: In Wiki
 class SearchContext{

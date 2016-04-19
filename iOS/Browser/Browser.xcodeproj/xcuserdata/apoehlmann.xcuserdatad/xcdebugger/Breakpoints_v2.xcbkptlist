@@ -90,13 +90,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Browser/EEXCESSRecommendationCtrl.swift"
-            timestampString = "482753969.841449"
+            timestampString = "482761332.861869"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "extractRecommendatins(_:searchQuerys:)"
-            landmarkType = "5">
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "EEXCESSRecommendationCtrl"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Browser/EEXCESSRecommendationCtrl.swift"
-            timestampString = "482753965.915997"
+            timestampString = "482761332.861869"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "extractRecommendatins(_:searchQuerys:)"
             landmarkType = "5">
          </BreakpointContent>

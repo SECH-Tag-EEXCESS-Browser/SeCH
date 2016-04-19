@@ -10,10 +10,6 @@ import Foundation
 
 class JSONConnectionCtrl:ConnectionCtrl {
     
-    override init(){
-        super.init()
-    }
-    
     override func post(params : (SearchQuerys,AnyObject), url : String,
         postCompleted : (succeeded: Bool, data: NSData, searchQuerys:SearchQuerys?) -> ())
     {
@@ -27,29 +23,8 @@ class JSONConnectionCtrl:ConnectionCtrl {
 }
 
 class ConnectionCtrl {
-//    func post(params : AnyObject, url : String,
-//        postCompleted : (succeeded: Bool, data: NSData) -> ())
-//    {
-//        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
-//        request.HTTPMethod = "POST"
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.addValue("application/json", forHTTPHeaderField: "Accept")
-//        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(params, options: [NSJSONWritingOptions()])
-//        
-//        let session = NSURLSession.sharedSession()
-//        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-//            postCompleted(succeeded: error == nil, data: data!)
-//        })
-//        
-//        
-//        task.resume()
-//
-//    }
+
     var searchQuerys:SearchQuerys?
-    
-    init(){
-        self.searchQuerys = nil
-    }
     
     func post(params : (SearchQuerys,AnyObject), url : String,
         postCompleted : (succeeded: Bool, data: NSData, searchQuerys:SearchQuerys?) -> ()){
@@ -58,18 +33,17 @@ class ConnectionCtrl {
     
      private func post(data : (SearchQuerys,NSData), request : NSMutableURLRequest,
         postCompleted : (succeeded: Bool, data: NSData, searchQuerys:SearchQuerys?) -> ())
-     {print("start")
+     {
+        print("start")
         self.searchQuerys = data.0
         request.HTTPMethod = "POST"
         request.HTTPBody = data.1
         let session = NSURLSession.sharedSession()
         print("running")
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            print("stoped")
             postCompleted(succeeded: error == nil, data: data!,searchQuerys: self.searchQuerys!)
         })
-        
-        print("stoped")
         task.resume()
-        
     }
 }

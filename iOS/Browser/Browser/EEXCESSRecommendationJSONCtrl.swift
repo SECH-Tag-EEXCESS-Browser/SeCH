@@ -38,11 +38,8 @@ class EEXCESSRecommendationJSONCtrl {
         // create the jsonRequestObject and add the origin
         var jsonObject = addOrigin([String:AnyObject]())
         
-
         var allKWS : [[[String:AnyObject]]] = []
         let lSearchModels = searchQuerys.getSearchQuerys()
-        var url:String?
-
         for searchModel in lSearchModels {
             var dic = [[String:AnyObject]]()
             for contextTag in searchModel.getSearchContext() {
@@ -53,22 +50,14 @@ class EEXCESSRecommendationJSONCtrl {
                 let str = contextTag.getValues()["type"] as! String
                 context["type"] = str.substringToIndex(str.startIndex.advancedBy(1)).uppercaseString + str.substringFromIndex(str.startIndex.advancedBy(1))
                 dic.append(context)
-                
             }
             allKWS.append(dic)
-            if url == nil {
-                url = searchModel.getUrl()
-            }
         }
         jsonObject["contextKeywords"] = allKWS
-        
         // Schneller Hack um Anzahl der möglichen Suchergebnisse zu erhöhen
         jsonObject["numResults"] = 50 * searchQuerys.getSearchQuerys().count
         jsonObject["loggingLevel"] = 1
-        
-        var dic = [String:String]()
-        dic["url"] = url!
+
         return (searchQuerys,jsonObject as AnyObject)
     }
 }
-
