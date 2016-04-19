@@ -93,6 +93,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
                 // TODO: To be redesigned! 8
                 self.viewCtrl.rankThatShit(self.viewCtrl.responses)
                 self.viewCtrl.tableView.reloadData()
+                print("######### SeARCH fertig #########")
                 
             })
         })
