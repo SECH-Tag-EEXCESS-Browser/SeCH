@@ -39,7 +39,8 @@ class SearchTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("listCell", forIndexPath: indexPath) as UITableViewCell
         
         cell.textLabel!.text = searchLists[indexPath.row].getTitle()
-        cell.detailTextLabel?.text = "Reason why this super duper cool item is here"
+        //cell.detailTextLabel?.text = "Reason why this super duper cool item is here"
+        cell.detailTextLabel?.text = searchLists[indexPath.row].getUri()
         
         
         return cell
