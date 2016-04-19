@@ -360,11 +360,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             let id = Int(json["id"]!)
 
             let sechTags = tableViewDataSource.sechTags
-            for i in 0 ..< sechTags.count {
-                if(responses[i].getIndex() == id){
-                    self.indexPathForSelectedSearchTag = i
-                }
-            }
+            self.indexPathForSelectedSearchTag = id
+ 
             
             self.headLine = json["topic"]
             

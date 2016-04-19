@@ -47,7 +47,13 @@ class EEXCESSRecommendationJSONCtrl {
                 context["text"] = contextTag.getValues()["text"] as! String
                 context["isMainTopic"] = contextTag.getValues()["tag"] as! String == "link"
                 //contextTag.getValues()["isMainTopic"] as! Bool
-                let str = contextTag.getValues()["type"] as! String
+                if context["type"] == nil {
+                    context["type"] = "Misc"
+                }
+                if context["type"] as! String == "" {
+                    context["type"] = "Misc"
+                }
+                let str = context["type"] as! String
                 context["type"] = str.substringToIndex(str.startIndex.advancedBy(1)).uppercaseString + str.substringFromIndex(str.startIndex.advancedBy(1))
                 dic.append(context)
             }
