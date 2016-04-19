@@ -8,13 +8,7 @@
 
 import UIKit
 
-
-
-
 class PopViewController : UIViewController{
-    
-    
-//    @IBOutlet weak var sechText: UITextView!
     
     @IBOutlet weak var sechHeadline: UILabel!
     @IBOutlet weak var sechImage: UIImageView!
@@ -23,18 +17,7 @@ class PopViewController : UIViewController{
     private var popoverContent: SearchTableViewController!
     
     @IBAction func openTable(sender: AnyObject) {
-//        var popoverContent = (self.storyboard?.instantiateViewControllerWithIdentifier("SearchTableViewController"))! as UIViewController
-//        var nav = UINavigationController(rootViewController: popoverContent)
-//        nav.modalPresentationStyle = UIModalPresentationStyle.Popover
-//        var popover = nav.popoverPresentationController
-//        popoverContent.preferredContentSize = CGSizeMake(500,600)
-//       // popover!.delegate = self.view
-//        popover!.sourceView = self.view
-//        popover!.sourceRect = CGRectMake(100,100,0,0)
-//        
-//        self.presentViewController(nav, animated: true, completion: nil)
         
-
         if let popover = popoverContent.popoverPresentationController {
             
             let viewForSource = sender as! UIView
@@ -45,7 +28,6 @@ class PopViewController : UIViewController{
             
             // the size you want to display
             popoverContent.preferredContentSize = CGSizeMake(400,500)
-            //            popover.delegate = self.view
         }
         
         self.presentViewController(popoverContent, animated: true, completion: nil)
@@ -79,23 +61,12 @@ class PopViewController : UIViewController{
         
         popoverContent.searchLists = sTags
         popoverContent.sechWebView = sechWebView
-        
         popoverContent.modalPresentationStyle = .Popover
       
-     
-        
-        
     }
-    
-    
-    @IBOutlet weak var SechTitle: UILabel!
-    
 
     func setDetailsInSechView(url: String){
         
     }
     
-    
-    
-
 }
