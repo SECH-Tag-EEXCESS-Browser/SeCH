@@ -77,7 +77,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         //WebView erzeugen
         self.myWebView = WKWebView(frame: containerView.bounds, configuration: config)
         self.containerView.addSubview(myWebView!)
-        
 
         myWebView!.translatesAutoresizingMaskIntoConstraints = false // Neu seit iOS 9
 
@@ -257,23 +256,15 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             //Change Size from PopViewController
             popViewController.preferredContentSize.height = (UIScreen.mainScreen().bounds.height)*0.66
             popViewController.preferredContentSize.width = (UIScreen.mainScreen().bounds.width)*0.66
+//            popViewController.si
             
             
             popViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             print("Segue "+self.headLine)
             popViewController.headLine = self.headLine
-//            popViewController.jsonText = SechModel.instance.sechs[self.headLine]?.response.convertToString()
-//            popViewController.url = SechModel.instance.sechs[self.headLine]?.responseObject.documentBadge.uri
-//            if let response = SechPage.instance.sechs[self.headLine]?.getFirstSingleResponseObject(){
-//                popViewController.jsonText = response.getString()
-//                popViewController.url = response.documentBadge.getURI()
-//            }else{
-//                popViewController.jsonText = "NO RESULTS"
-//                popViewController.url = "https://www.google.de/"
-//            }
+
             if responses != nil && responses.count > 0{
                 popViewController.searchTags = responses[indexPathForSelectedSearchTag].getResultItems()
-//                popViewController.url = response
             }else{
                 popViewController.jsonText = "NO RESULTS"
                 popViewController.url = "https://www.google.de/?gws_rd=ssl#q=Mein+Name+ist+Hase"
