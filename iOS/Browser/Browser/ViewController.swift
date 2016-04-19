@@ -353,28 +353,19 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     func userContentController(userContentController: WKUserContentController,
         didReceiveScriptMessage message: WKScriptMessage) {
             print("JavaScript is sending a message \(message.body)")
-            //self.headLine
-            let str  = message.body as! String
-//            str.characters.split($0 == "|").map(String.init)
-            var strs = str.componentsSeparatedByString("|")
+            let json = message.body as! [String:String]
             
-    
+            let id = Int(json["id"]!)
             
-            self.headLine = ""
             
-            for i in 2 ..< strs.count {
-                self.headLine = self.headLine + strs[i]
-            }
-            
-            //str.sp
             let sechTags = tableViewDataSource.sechTags
-            
             for i in 0 ..< sechTags.count {
-                if(responses[i].getIndex() == Int(strs[1])){
+                if(responses[i].getIndex() == id){
                     self.indexPathForSelectedSearchTag = i
                 }
             }
             
+            self.headLine = json["topic"]
             
             performSegueWithIdentifier("showPopView", sender: self)
    

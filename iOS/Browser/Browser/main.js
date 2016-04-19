@@ -6,5 +6,6 @@
         elements[i].addEventListener("click", function(){
                                      var currentTopic = this.getAttribute("topic");
                                      var currentID = this.getAttribute("id");
-                                     webkit.messageHandlers.onclick.postMessage(currentURL+"|"+currentID+"|"+currentTopic);});
+                                     webkit.messageHandlers.onclick.postMessage({"url":currentURL, "id":currentID, "topic":currentTopic});
+                                     });
     }
