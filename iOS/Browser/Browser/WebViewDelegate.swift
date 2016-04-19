@@ -33,10 +33,11 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
         
         //Change SechButton Image
         viewCtrl.sechButton.image = UIImage(named: "SechLoadIcon")
-        
-        
+
         // Ineinander verschachtelt, weil completionHandler wartet bis ausgeführt wurde
-        webView.evaluateJavaScript("document.head.innerHTML", completionHandler: { (object, error) -> Void in
+        let scriptURL = NSBundle.mainBundle().pathForResource("readHead", ofType: "js")
+        let scriptContent = try! String( contentsOfFile: scriptURL!, encoding:NSUTF8StringEncoding)
+        webView.evaluateJavaScript( scriptContent, completionHandler: { (object, error) -> Void in
             if error == nil && object != nil{
                 self.htmlHead = (object as? String)!
             

@@ -34,23 +34,31 @@ class SEARCHManager {
     private func getSEARCHHead(htmlHead : String) -> Tag{
         
         // Get Head-SEARCH-Tag
-        let headSEARCH = regex.findSEARCHTags(inString: htmlHead)
         var headAttributes = [String : String]()
         let head = Tag()
         
         
-        if headSEARCH.isEmpty != true{
-            headAttributes = regex.getAttributes(inString: "\(headSEARCH[0])")
+        headAttributes = regex.getAttributes(inString: htmlHead)
             
-            // Set Headattributes
+        // Set Headattributes
+        if headAttributes["topic"] != nil{
             head.topic = headAttributes["topic"]!
+        }
+        if headAttributes["type"] != nil{
             head.type = headAttributes["type"]!
-            
-            // Set Filterattributes
+        }
+        
+        // Set Filterattributes
+        if headAttributes["mediaType"] != nil{
             headFilter.mediaType = headAttributes["mediaType"]!
+        }
+        if headAttributes["provider"] != nil{
             headFilter.provider = headAttributes["provider"]!
+        }
+        if headAttributes["licence"] != nil{
             headFilter.licence = headAttributes["licence"]!
         }
+        
         return head
     }
     
