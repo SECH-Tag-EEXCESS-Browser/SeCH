@@ -74,7 +74,7 @@ class EEXCESSRecommendationCtrl {
                 }
                 
 
-                //Sucht nach title und url in dem er die generatingQuery mit den Suchwörtern aus SearchResults vergleicht
+                //Sucht nach title und url in dem er die generatingQuery mit den Suchwörtern aus SearchQuerys vergleicht
                 for searchQuery in (searchQuerys?.getSearchQuerys())! {
                     var isCorrectQuery = true
                     for context in searchQuery.getSearchContext(){
