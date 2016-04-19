@@ -45,4 +45,9 @@ class SechTableDataSource : NSObject, UITableViewDataSource{
             sechTags.append("item.title")
         }
     }
+    
+    func emptyTable(){
+        sechTags = [""]
+        
+    }
 }

@@ -19,6 +19,11 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
     var htmlBody : String = ""
 
     
+    func webView(webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        viewCtrl.tableViewDataSource.emptyTable()
+        viewCtrl.tableView.reloadData()
+    }
+    
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         
         
@@ -26,9 +31,11 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
         viewCtrl.addressBarTxt.text = mURL
         viewCtrl.progressViewWebsite.hidden = true
         
+        //Change SechButton Image
+        viewCtrl.sechButton.image = UIImage(named: "SechLoadIcon")
+        
         
         // Ineinander verschachtelt, weil completionHandler wartet bis ausgeführt wurde
-        
         webView.evaluateJavaScript("document.head.innerHTML", completionHandler: { (object, error) -> Void in
             if error == nil && object != nil{
                 self.htmlHead = (object as? String)!
@@ -37,7 +44,6 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
                     if error == nil && object != nil{
                         self.htmlBody = (object as? String)!
                         //IBAction
-                        
                         self.sechMng()
                     }
                 })

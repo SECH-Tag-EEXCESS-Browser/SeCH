@@ -37,7 +37,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     var responses: [SearchResult]!
     var headLine : String!
     var config = WKWebViewConfiguration()
-
     
     @IBOutlet weak var sechWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var backButton: UIBarButtonItem!
@@ -47,6 +46,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var countSechsLabel: UILabel!
+    @IBOutlet weak var sechButton: UIBarButtonItem!
     
     @IBOutlet weak var progressViewWebsite: UIProgressView!
     
@@ -71,7 +71,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         
         //p = DataObjectPersistency()
         settings = settingsPers.loadDataObject()
-        
+
         
         config.userContentController.addScriptMessageHandler(self, name: "onclick")
         //WebView erzeugen
@@ -98,7 +98,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         myWebView?.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
         myWebView?.addObserver(self, forKeyPath: "canGoBack", options: .New, context: nil)
         myWebView?.addObserver(self, forKeyPath: "canGoForward", options: .New, context: nil)
-        
         
         progressViewWebsite.hidden = true
         
@@ -254,6 +253,12 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         if segue.identifier == "showPopView"
         {
             let popViewController = segue.destinationViewController as! PopViewController
+            
+            //Change Size from PopViewController
+            popViewController.preferredContentSize.height = (UIScreen.mainScreen().bounds.height)*0.66
+            popViewController.preferredContentSize.width = (UIScreen.mainScreen().bounds.width)*0.66
+            
+            
             popViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             print("Segue "+self.headLine)
             popViewController.headLine = self.headLine
@@ -300,7 +305,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         //If Sech-Table not visible
         if (tableView.hidden == true){
             UIView.animateWithDuration(0.4, animations: { () -> Void in
-                self.sechWidthConstraint.constant = 160;
+                self.sechWidthConstraint.constant = 210;
                 self.tableView.hidden = false
                 self.view.layoutIfNeeded()
             })
@@ -398,7 +403,10 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         let scriptContent = try! String( contentsOfFile: scriptURL!, encoding:NSUTF8StringEncoding)
         self.myWebView?.evaluateJavaScript(scriptContent, completionHandler: { (object, error) in
         })
-
+        
+        //Change SechButton Image
+        sechButton.image = UIImage(named: "SechIcon")
+        
     }
 
 }
