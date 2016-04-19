@@ -1,0 +1,2588 @@
+{
+    "queryID": "231061538",
+    "results": [
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'The National Archives UK' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "The National Archives UK"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'DeutscheNationalbibliothek' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'CORE.ac.uk' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "CORE.ac.uk"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [],
+            "totalResults": 0
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 6318 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "success": true,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 6318 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 6318 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "success": true,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 6318 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "success": true,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 6318 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 6318 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 6318 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 6318 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [],
+            "totalResults": 0
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'The National Archives UK' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "The National Archives UK"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'DeutscheNationalbibliothek' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'CORE.ac.uk' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "CORE.ac.uk"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5429 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [],
+            "totalResults": 0
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'The National Archives UK' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "The National Archives UK"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'DeutscheNationalbibliothek' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'CORE.ac.uk' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "CORE.ac.uk"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [],
+            "totalResults": 0
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 5679 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'The National Archives UK' to respond 5679 ms ",
+                    "success": false,
+                    "systemID": "The National Archives UK"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 5679 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5679 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 5679 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5679 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 5679 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 5679 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 5679 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'DeutscheNationalbibliothek' to respond 5679 ms ",
+                    "success": false,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'CORE.ac.uk' to respond 5679 ms ",
+                    "success": false,
+                    "systemID": "CORE.ac.uk"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5679 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5679 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [],
+            "totalResults": 0
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "success": true,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 10764 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 10764 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 10764 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'DeutscheNationalbibliothek' to respond 10764 ms ",
+                    "success": false,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'CORE.ac.uk' to respond 10764 ms ",
+                    "success": false,
+                    "systemID": "CORE.ac.uk"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 10764 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 10764 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 10764 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 10764 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 10764 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 10764 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [
+                {
+                    "date": "unknown",
+                    "description": "Journal de La Haye van 18 maat 1849 met het nieuws van het overlijden van koning Willem II, C. van der Meer, 1849",
+                    "documentBadge": {
+                        "id": "RP-P-OB-88.993",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-P-OB-88.993"
+                    },
+                    "generatingQuery": "(Donald%20OR%20track%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Journal de La Haye van 18 maat 1849 met het nieuws van het overlijden van koning Willem II"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Lauterbrunnental, Donald Shaw McLaughlan, ",
+                    "documentBadge": {
+                        "id": "RP-P-1954-87",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-P-1954-87"
+                    },
+                    "generatingQuery": "(Donald%20OR%20track%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Lauterbrunnental"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Straattoneel in Itali\u00eb, Donald Shaw McLaughlan, ",
+                    "documentBadge": {
+                        "id": "RP-P-1952-495",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-P-1952-495"
+                    },
+                    "generatingQuery": "(Donald%20OR%20track%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Straattoneel in Itali\u00eb"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Bethofen, traumend fotoreproductie van schilderij, H, C, 1870 - 1900",
+                    "documentBadge": {
+                        "id": "RP-F-F00671-W",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-F-F00671-W"
+                    },
+                    "generatingQuery": "(Donald%20OR%20track%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Bethofen, traumend fotoreproductie van schilderij"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Dol veel pret, H.F. Davey, Monogrammist LL (19e eeuw), Dorothy Tennant, 1892 - 1905",
+                    "documentBadge": {
+                        "id": "RP-P-OB-204.013",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-P-OB-204.013"
+                    },
+                    "generatingQuery": "(Donald%20OR%20track%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Dol veel pret"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Toscaansche boerderij, Donald Shaw McLaughlan, ",
+                    "documentBadge": {
+                        "id": "RP-P-1912-2354",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-P-1912-2354"
+                    },
+                    "generatingQuery": "(Donald%20OR%20track%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Toscaansche boerderij"
+                },
+                {
+                    "date": "unknown",
+                    "description": "La porte Gaxole, Boulogne sur Mer, Donald Shaw McLaughlan, ",
+                    "documentBadge": {
+                        "id": "RP-P-1971-271",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-P-1971-271"
+                    },
+                    "generatingQuery": "(Donald%20OR%20track%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "La porte Gaxole, Boulogne sur Mer"
+                },
+                {
+                    "date": "unknown",
+                    "description": "De Kathedraal te Ronen, Donald Shaw McLaughlan, ",
+                    "documentBadge": {
+                        "id": "RP-P-1912-2353",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-P-1912-2353"
+                    },
+                    "generatingQuery": "(Donald%20OR%20track%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "De Kathedraal te Ronen"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Havengezicht 1906, op Japans papier, Donald Shaw McLaughlan, ",
+                    "documentBadge": {
+                        "id": "RP-P-1975-185",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-P-1975-185"
+                    },
+                    "generatingQuery": "(Donald%20OR%20track%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Havengezicht 1906, op Japans papier"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Gezicht in Veneti\u00eb 1911 (Het witte paleis), Donald Shaw McLaughlan, ",
+                    "documentBadge": {
+                        "id": "RP-P-1975-186",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-P-1975-186"
+                    },
+                    "generatingQuery": "(Donald%20OR%20track%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Gezicht in Veneti\u00eb 1911 (Het witte paleis)"
+                }
+            ],
+            "totalResults": 10
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'The National Archives UK' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "The National Archives UK"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'DeutscheNationalbibliothek' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'CORE.ac.uk' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "CORE.ac.uk"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [],
+            "totalResults": 0
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "success": true,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 5492 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "success": true,
+                    "systemID": "Europeana"
+                },
+                {
+                    "success": true,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "success": true,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5492 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 5492 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5492 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5492 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 5492 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5492 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "/2059209/C0960X0105XX_0004",
+                        "provider": "Europeana",
+                        "uri": "http://europeana.eu/resolve/record/2059209/C0960X0105XX_0004"
+                    },
+                    "generatingQuery": "(Maggie) AND (Lisa OR (Julius AND C\ufffdsar))",
+                    "language": "en",
+                    "licence": "http://www.europeana.eu/rights/rr-f/",
+                    "mediaType": "SOUND",
+                    "previewImage": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fsounds.bl.uk%2Fwaveforms%2FCrafts%2F021A-C0960X0105XX-0004A0.png&size=LARGE&type=SOUND",
+                    "resultGroup": [],
+                    "title": "Walpole, Lois (4 of 8) National Life\u00a0Stories Collection: Crafts' Lives"
+                },
+                {
+                    "date": "2014-01-01",
+                    "documentBadge": {
+                        "id": "/9200235/BibliographicResource_3000095906832",
+                        "provider": "Europeana",
+                        "uri": "http://europeana.eu/resolve/record/9200235/BibliographicResource_3000095906832"
+                    },
+                    "generatingQuery": "(Maggie) AND (Lisa OR (Julius AND C\ufffdsar))",
+                    "language": "en",
+                    "licence": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
+                    "mediaType": "TEXT",
+                    "previewImage": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fwww.doabooks.org%2Fdoab%2F%3Ffunc%3Dcover%26rid%3D16056&size=LARGE&type=TEXT",
+                    "resultGroup": [],
+                    "title": "Burn After Reading"
+                },
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "14a7fbe26f59c25baab525cb1d56f3ed",
+                        "provider": "Digital Public Library of America",
+                        "uri": "http://dp.la/item/14a7fbe26f59c25baab525cb1d56f3ed"
+                    },
+                    "generatingQuery": "(Lisa OR Maggie OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "unkown",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "STS068-82-034 - STS-068 - Spaceborne Imaging Radar C/X-Band Synthetic Aperture Radar (SIR-C/X-SAR)"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Journal de La Haye van 18 maat 1849 met het nieuws van het overlijden van koning Willem II, C. van der Meer, 1849",
+                    "documentBadge": {
+                        "id": "RP-P-OB-88.993",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-P-OB-88.993"
+                    },
+                    "generatingQuery": "(Lisa%20OR%20Maggie%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Journal de La Haye van 18 maat 1849 met het nieuws van het overlijden van koning Willem II"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Schurz, Carl, 1829-1906ClippingsPortraits",
+                    "documentBadge": {
+                        "id": "4b35830f2e43829ecb66cb0958ab949a",
+                        "provider": "Digital Public Library of America",
+                        "uri": "http://dp.la/item/4b35830f2e43829ecb66cb0958ab949a"
+                    },
+                    "generatingQuery": "(Lisa OR Maggie OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "unkown",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Clasping hands over the bloodless (sar)c(h)asm"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Portret van Janszoon, Simon Frisius, C. Sammers, 1595 - 1628",
+                    "documentBadge": {
+                        "id": "RP-P-1885-A-9920",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-P-1885-A-9920"
+                    },
+                    "generatingQuery": "(Lisa%20OR%20Maggie%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Portret van Janszoon"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Rome--Constitutional history",
+                    "documentBadge": {
+                        "id": "a31d4986512c066e09c51624d4e8dfe3",
+                        "provider": "Digital Public Library of America",
+                        "uri": "http://dp.la/item/a31d4986512c066e09c51624d4e8dfe3"
+                    },
+                    "generatingQuery": "(Lisa OR Maggie OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "unkown",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Die verfassung der ro mischen republik von den Gracchen bis auf Julius C sar"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Gynaecologische voorstellingen, Nicolaas van Frankendaal, C. Plevier, 1730 - 1791",
+                    "documentBadge": {
+                        "id": "RP-P-1911-2993",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-P-1911-2993"
+                    },
+                    "generatingQuery": "(Lisa%20OR%20Maggie%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Gynaecologische voorstellingen"
+                },
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "1580a35d835212276f6e4230a49005fe",
+                        "provider": "Digital Public Library of America",
+                        "uri": "http://dp.la/item/1580a35d835212276f6e4230a49005fe"
+                    },
+                    "generatingQuery": "(Lisa OR Maggie OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "unkown",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "STS068-47-006 - STS-068 - Spaceborne Imaging Radar C/X-Band Synthetic Aperture Radar (SIR-C/X-SAR)"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Bethofen, traumend fotoreproductie van schilderij, H, C, 1870 - 1900",
+                    "documentBadge": {
+                        "id": "RP-F-F00671-W",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-F-F00671-W"
+                    },
+                    "generatingQuery": "(Lisa%20OR%20Maggie%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Bethofen, traumend fotoreproductie van schilderij"
+                }
+            ],
+            "totalResults": 10
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'The National Archives UK' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "The National Archives UK"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'DeutscheNationalbibliothek' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'CORE.ac.uk' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "CORE.ac.uk"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [],
+            "totalResults": 0
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'The National Archives UK' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "The National Archives UK"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'DeutscheNationalbibliothek' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'CORE.ac.uk' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "CORE.ac.uk"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [],
+            "totalResults": 0
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 5054 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'The National Archives UK' to respond 5054 ms ",
+                    "success": false,
+                    "systemID": "The National Archives UK"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 5054 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5054 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 5054 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5054 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 5054 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 5054 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 5054 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'DeutscheNationalbibliothek' to respond 5054 ms ",
+                    "success": false,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'CORE.ac.uk' to respond 5054 ms ",
+                    "success": false,
+                    "systemID": "CORE.ac.uk"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5054 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5054 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [],
+            "totalResults": 0
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 5085 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'The National Archives UK' to respond 5085 ms ",
+                    "success": false,
+                    "systemID": "The National Archives UK"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 5085 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5085 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 5085 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5085 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 5085 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 5085 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 5085 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'DeutscheNationalbibliothek' to respond 5085 ms ",
+                    "success": false,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'CORE.ac.uk' to respond 5085 ms ",
+                    "success": false,
+                    "systemID": "CORE.ac.uk"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5085 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5085 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [],
+            "totalResults": 0
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 5398 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'The National Archives UK' to respond 5398 ms ",
+                    "success": false,
+                    "systemID": "The National Archives UK"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 5398 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5398 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 5398 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5398 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 5398 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 5398 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 5398 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'DeutscheNationalbibliothek' to respond 5398 ms ",
+                    "success": false,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'CORE.ac.uk' to respond 5398 ms ",
+                    "success": false,
+                    "systemID": "CORE.ac.uk"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5398 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5398 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [],
+            "totalResults": 0
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 5116 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "success": true,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "success": true,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 5116 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "success": true,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "success": true,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "success": true,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5116 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5116 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "success": true,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5116 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "/2051933/data_euscreenXL_EUS_38159BF633956E6A758F311ABD097B39",
+                        "provider": "Europeana",
+                        "uri": "http://europeana.eu/resolve/record/2051933/data_euscreenXL_EUS_38159BF633956E6A758F311ABD097B39"
+                    },
+                    "generatingQuery": "(Hilton) AND (Paris OR (Julius AND C\ufffdsar))",
+                    "language": "mul",
+                    "licence": "http://www.europeana.eu/rights/rr-f/",
+                    "mediaType": "VIDEO",
+                    "previewImage": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fimages3.noterik.com%2Fdomain%2Feuscreenxl%2Fuser%2Feu_luce%2Fvideo%2FEUS_38159BF633956E6A758F311ABD097B39%2Fshots%2F1%2Fh%2F0%2Fm%2F0%2Fsec35.jpg&size=LARGE&type=VIDEO",
+                    "resultGroup": [],
+                    "title": "SERIES TITLE: Horizon film magazine"
+                },
+                {
+                    "date": "2007-06-11",
+                    "description": "The mirror-neuron system (MNS) becomes instigated when the spectator empathizes with the principal\u2019s intention. MNS also involves imitation, where empathy is irrelevant. While the former may attenuate the principal\u2019s emotion, the latter paradoxically reinforces it. This paper proposes a solution of the contradictory attenuation/reinforcement functions of fellow-feeling by distinguishing two axes: \u201crationality axis\u201d concerns whether the action is efficient or suboptimal; \u201cintentionality axis\u201d concerns whether the intention is \u201cwellbeing\u201d or \u201cevil.\u201d The solution shows how group solidarity differs from altruism and fairness; how revulsion differs from squeamishness; how malevolence differs from selfishness; and how racial hatred differs from racial segregation.",
+                    "documentBadge": {
+                        "id": "10005835773",
+                        "provider": "ZBW",
+                        "uri": "http://www.econbiz.de/Record/10005835773"
+                    },
+                    "generatingQuery": "(Hilton) AND (Paris OR (Julius AND C\ufffdsar))",
+                    "language": "de",
+                    "licence": "restricted",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "The Mirror-Neuron Paradox: How Far is Sympathy from Compassion, Indulgence, and Adulation?"
+                },
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "145809587",
+                        "provider": "Swissbib",
+                        "uri": "https://www.swissbib.ch/Record/145809587"
+                    },
+                    "generatingQuery": "(Paris OR Hilton OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "restricted",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Molly Hilton Library assistant"
+                },
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "/2051933/data_euscreenXL_EUS_38159BF633956E6A758F311ABD097B39",
+                        "provider": "Europeana",
+                        "uri": "http://europeana.eu/resolve/record/2051933/data_euscreenXL_EUS_38159BF633956E6A758F311ABD097B39"
+                    },
+                    "generatingQuery": "(Hilton) AND (Paris OR (Julius AND C\ufffdsar))",
+                    "language": "mul",
+                    "licence": "http://www.europeana.eu/rights/rr-f/",
+                    "mediaType": "VIDEO",
+                    "previewImage": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fimages3.noterik.com%2Fdomain%2Feuscreenxl%2Fuser%2Feu_luce%2Fvideo%2FEUS_38159BF633956E6A758F311ABD097B39%2Fshots%2F1%2Fh%2F0%2Fm%2F0%2Fsec35.jpg&size=LARGE&type=VIDEO",
+                    "resultGroup": [],
+                    "title": "Orizzonte cinematografico"
+                },
+                {
+                    "date": "2014-08-01",
+                    "description": "The \u2018equal punishment for the same crime\u2019 principle is generally agreed upon\u2014yet its implementation differs radically depending on whether the punishment is measured purely in nominal terms or the subjective perspective of the punishee is accounted for. This is simply because different people may experience the same punishment with differing intensity. Legal scholars have recently been proposing that improvements in scientific knowledge and advancing technologies (such as functional magnetic resonance imaging), which allow us to measure subjective perceptions and feelings, need and should be incorporated in our penal systems. This would facilitate calibrating the punishment not only to the crime but also to the offender\u2019s persona, so that different people experience equally tough punishment for the same crime. However, such a substantial change in criminal law and policy necessitates a certain amount of public legitimacy and understanding among constituents. We run a simple experiment in order to learn how people understand punishment and to ascertain whether such legitimacy exists. We find that it may be, in the case of pecuniary punishments. With regard to incarceration policies, however, the likelihood of popular acceptance of proposed innovations is rather remote. Our findings therefore point out a serious challenge to the existing literature and may complicate the implementation of suggested reforms, even if legal scholars find them worthwhile.",
+                    "documentBadge": {
+                        "id": "10010891913",
+                        "provider": "ZBW",
+                        "uri": "http://www.econbiz.de/Record/10010891913"
+                    },
+                    "generatingQuery": "(Hilton) AND (Paris OR (Julius AND C\ufffdsar))",
+                    "language": "de",
+                    "licence": "restricted",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Should Paris Hilton Receive a Lighter Prison Sentence Because She\u2019s Rich? An Experimental Study"
+                },
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "123732425",
+                        "provider": "Swissbib",
+                        "uri": "https://www.swissbib.ch/Record/123732425"
+                    },
+                    "generatingQuery": "(Paris OR Hilton OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "restricted",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "L'incendie du Hilton roman"
+                },
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "/2051933/data_euscreenXL_EUS_38159BF633956E6A758F311ABD097B39",
+                        "provider": "Europeana",
+                        "uri": "http://europeana.eu/resolve/record/2051933/data_euscreenXL_EUS_38159BF633956E6A758F311ABD097B39"
+                    },
+                    "generatingQuery": "(Hilton) AND (Paris OR (Julius AND C\ufffdsar))",
+                    "language": "mul",
+                    "licence": "http://www.europeana.eu/rights/rr-f/",
+                    "mediaType": "VIDEO",
+                    "previewImage": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fimages3.noterik.com%2Fdomain%2Feuscreenxl%2Fuser%2Feu_luce%2Fvideo%2FEUS_38159BF633956E6A758F311ABD097B39%2Fshots%2F1%2Fh%2F0%2Fm%2F0%2Fsec35.jpg&size=LARGE&type=VIDEO",
+                    "resultGroup": [],
+                    "title": "News through objective lens"
+                },
+                {
+                    "date": "unknown",
+                    "description": "When the fashion industry declares that lime green is the new black, or instructs us to \u201cthink pink!\u201d, it is not the result of a backroom deal forged by a secretive cabal of fashion journalists, designers, manufacturers, and the editor of Vogue. It is the latest development of a color revolution that has been unfolding for more than a century. In this book, the award-winning historian Regina Lee Blaszczyk traces the relationship of color and commerce, from haute couture to automobile showrooms to interior design, describing the often unrecognized role of the color profession in consumer culture. Blaszczyk examines the evolution of the color profession from 1850 to 1970, telling the stories of innovators who managed the color cornucopia that modern artificial dyes and pigments made possible. These \u201ccolor stylists\u201d, \u201ccolor forecasters\u201d, and \u201ccolor engineers\u201d helped corporations understand the art of illusion and the psychology of color. Blaszczyk describes the strategic burst of color that took place in the 1920s, when General Motors introduced a bright blue sedan to compete with Ford' all-black Model T and when housewares became available in a range of brilliant hues. She explains the process of color forecasting--not a conspiracy to manipulate hapless consumers but a careful reading of cultural trends and consumer taste. And she shows how color information flowed from the fashion houses of Paris to textile mills in New Jersey. Today professional colorists are part of design management teams at such global corporations as Hilton, Disney, and Toyota. The Color Revolution tells the history of how colorists help industry capture the hearts and dollars of consumers.",
+                    "documentBadge": {
+                        "id": "10010640605",
+                        "provider": "ZBW",
+                        "uri": "http://www.econbiz.de/Record/10010640605"
+                    },
+                    "generatingQuery": "(Hilton) AND (Paris OR (Julius AND C\ufffdsar))",
+                    "language": "de",
+                    "licence": "restricted",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "The Color Revolution"
+                },
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "/2051933/data_euscreenXL_EUS_38159BF633956E6A758F311ABD097B39",
+                        "provider": "Europeana",
+                        "uri": "http://europeana.eu/resolve/record/2051933/data_euscreenXL_EUS_38159BF633956E6A758F311ABD097B39"
+                    },
+                    "generatingQuery": "(Hilton) AND (Paris OR (Julius AND C\ufffdsar))",
+                    "language": "mul",
+                    "licence": "http://www.europeana.eu/rights/rr-f/",
+                    "mediaType": "VIDEO",
+                    "previewImage": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fimages3.noterik.com%2Fdomain%2Feuscreenxl%2Fuser%2Feu_luce%2Fvideo%2FEUS_38159BF633956E6A758F311ABD097B39%2Fshots%2F1%2Fh%2F0%2Fm%2F0%2Fsec35.jpg&size=LARGE&type=VIDEO",
+                    "resultGroup": [],
+                    "title": "Cronaca con l'obiettivo"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Ce matin, j\u00bfai trouv\u00e9 papa dans le lave-vaisselle. En entrant dans la cuisine, j\u00bfai vu le panier en plastique sur le sol, avec le reste de la vaisselle d\u00bfhier soir. J\u00bfai ouvert le lave-vaisselle, papa \u00e9tait dedans. Il m\u00bfa regard\u00e9 comme le chien de la voisine du dessous quand il fait pipi dans les escaliers. Il \u00e9tait tout repli\u00e9 sur lui-m\u00eame",
+                    "documentBadge": {
+                        "id": "336224060",
+                        "provider": "Swissbib",
+                        "uri": "https://www.swissbib.ch/Record/336224060"
+                    },
+                    "generatingQuery": "(Paris OR Hilton OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "restricted",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Au pays des kangourous"
+                }
+            ],
+            "totalResults": 10
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 5055 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'The National Archives UK' to respond 5055 ms ",
+                    "success": false,
+                    "systemID": "The National Archives UK"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 5055 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5055 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 5055 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5055 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 5055 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 5055 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 5055 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'DeutscheNationalbibliothek' to respond 5055 ms ",
+                    "success": false,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'CORE.ac.uk' to respond 5055 ms ",
+                    "success": false,
+                    "systemID": "CORE.ac.uk"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5055 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5055 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [],
+            "totalResults": 0
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'The National Archives UK' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "The National Archives UK"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'DeutscheNationalbibliothek' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'CORE.ac.uk' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "CORE.ac.uk"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5382 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [],
+            "totalResults": 0
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'The National Archives UK' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "The National Archives UK"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'DeutscheNationalbibliothek' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'CORE.ac.uk' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "CORE.ac.uk"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [],
+            "totalResults": 0
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "success": true,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "success": true,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "success": true,
+                    "systemID": "Europeana"
+                },
+                {
+                    "success": true,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "success": true,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5617 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "success": true,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5617 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "success": true,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "success": true,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5617 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "/92027/BibliographicResource_1000125591596",
+                        "provider": "Europeana",
+                        "uri": "http://europeana.eu/resolve/record/92027/BibliographicResource_1000125591596"
+                    },
+                    "generatingQuery": "(Berge) AND (Salzburg OR (Julius AND C\ufffdsar))",
+                    "language": "de",
+                    "licence": "http://www.europeana.eu/rights/rr-f/",
+                    "mediaType": "IMAGE",
+                    "previewImage": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fwww.bildarchivaustria.at%2FBildarchiv%2F%2FBA%2F929%2FB12534660T12534664.jpg&size=LARGE&type=IMAGE",
+                    "resultGroup": [],
+                    "title": "Stangenalm."
+                },
+                {
+                    "date": "2010-01-01",
+                    "documentBadge": {
+                        "id": "ec36b16e-d100-38da-b0f5-3b3bafa7aecd",
+                        "provider": "Mendeley",
+                        "uri": "http://www.mendeley.com/research/kontroll-vedvarende-grubling-og-bekymring"
+                    },
+                    "generatingQuery": "(Berge) AND (Salzburg OR (Julius AND C\ufffdsar))",
+                    "language": "unknown",
+                    "licence": "https://creativecommons.org/licenses/by/3.0/legalcode",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Kontroll over vedvarende grubling og bekymring"
+                },
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "/92027/BibliographicResource_1000125588809",
+                        "provider": "Europeana",
+                        "uri": "http://europeana.eu/resolve/record/92027/BibliographicResource_1000125588809"
+                    },
+                    "generatingQuery": "(Berge) AND (Salzburg OR (Julius AND C\ufffdsar))",
+                    "language": "de",
+                    "licence": "http://www.europeana.eu/rights/rr-f/",
+                    "mediaType": "IMAGE",
+                    "previewImage": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fwww.bildarchivaustria.at%2FBildarchiv%2F%2FBA%2F929%2FB12536312T12536316.jpg&size=LARGE&type=IMAGE",
+                    "resultGroup": [],
+                    "title": "Johannisberg."
+                },
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "14a7fbe26f59c25baab525cb1d56f3ed",
+                        "provider": "Digital Public Library of America",
+                        "uri": "http://dp.la/item/14a7fbe26f59c25baab525cb1d56f3ed"
+                    },
+                    "generatingQuery": "(Salzburg OR Berge OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "unkown",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "STS068-82-034 - STS-068 - Spaceborne Imaging Radar C/X-Band Synthetic Aperture Radar (SIR-C/X-SAR)"
+                },
+                {
+                    "date": "2004-01-01",
+                    "documentBadge": {
+                        "id": "338756fd-2e9f-3dbe-ad15-996ae303ecc7",
+                        "provider": "Mendeley",
+                        "uri": "http://www.mendeley.com/research/oligocene-trondhjemitic-dikes-austroalpine-basement-pfunderer-berge-s%C3%BCdtirol-level-emplacement-metam"
+                    },
+                    "generatingQuery": "(Berge) AND (Salzburg OR (Julius AND C\ufffdsar))",
+                    "language": "unknown",
+                    "licence": "https://creativecommons.org/licenses/by/3.0/legalcode",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Oligocene trondhjemitic dikes in the Austroalpine basement of the Pfunderer Berge, S\u00fcdtirol - level of emplacement and metamorphic overprint"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Journal de La Haye van 18 maat 1849 met het nieuws van het overlijden van koning Willem II, C. van der Meer, 1849",
+                    "documentBadge": {
+                        "id": "RP-P-OB-88.993",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-P-OB-88.993"
+                    },
+                    "generatingQuery": "(Salzburg%20OR%20Berge%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Journal de La Haye van 18 maat 1849 met het nieuws van het overlijden van koning Willem II"
+                },
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "/92027/BibliographicResource_1000125589242",
+                        "provider": "Europeana",
+                        "uri": "http://europeana.eu/resolve/record/92027/BibliographicResource_1000125589242"
+                    },
+                    "generatingQuery": "(Berge) AND (Salzburg OR (Julius AND C\ufffdsar))",
+                    "language": "de",
+                    "licence": "http://www.europeana.eu/rights/rr-f/",
+                    "mediaType": "IMAGE",
+                    "previewImage": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fwww.bildarchivaustria.at%2FBildarchiv%2F%2FBA%2F929%2FB12537405T12537409.jpg&size=LARGE&type=IMAGE",
+                    "resultGroup": [],
+                    "title": "Katschbergh\u00f6he."
+                },
+                {
+                    "date": "2000-01-01",
+                    "documentBadge": {
+                        "id": "c10d6769-38d8-39bd-8771-a3dc46cd5bf0",
+                        "provider": "Mendeley",
+                        "uri": "http://www.mendeley.com/research/optimal-packings-edgedisjoint-odd-cycles"
+                    },
+                    "generatingQuery": "(Berge) AND (Salzburg OR (Julius AND C\ufffdsar))",
+                    "language": "unknown",
+                    "licence": "https://creativecommons.org/licenses/by/3.0/legalcode",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Optimal packings of edge-disjoint odd cycles"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Schurz, Carl, 1829-1906ClippingsPortraits",
+                    "documentBadge": {
+                        "id": "4b35830f2e43829ecb66cb0958ab949a",
+                        "provider": "Digital Public Library of America",
+                        "uri": "http://dp.la/item/4b35830f2e43829ecb66cb0958ab949a"
+                    },
+                    "generatingQuery": "(Salzburg OR Berge OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "unkown",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Clasping hands over the bloodless (sar)c(h)asm"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Assisi-S. Francesco-Porta della Crypta 1230, C. Polozzi, 1870",
+                    "documentBadge": {
+                        "id": "RP-F-F01909",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-F-F01909"
+                    },
+                    "generatingQuery": "(Salzburg%20OR%20Berge%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Assisi-S. Francesco-Porta della Crypta 1230"
+                }
+            ],
+            "totalResults": 10
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 5804 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'The National Archives UK' to respond 5804 ms ",
+                    "success": false,
+                    "systemID": "The National Archives UK"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 5804 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5804 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 5804 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5804 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 5804 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 5804 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 5804 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'DeutscheNationalbibliothek' to respond 5804 ms ",
+                    "success": false,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'CORE.ac.uk' to respond 5804 ms ",
+                    "success": false,
+                    "systemID": "CORE.ac.uk"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5804 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5804 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [],
+            "totalResults": 0
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "success": true,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "success": true,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "success": true,
+                    "systemID": "Europeana"
+                },
+                {
+                    "success": true,
+                    "systemID": "The National Archives UK"
+                },
+                {
+                    "success": true,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "success": true,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "success": true,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "success": true,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 8550 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "success": true,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "success": true,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 8550 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "/92027/BibliographicResource_1000125591596",
+                        "provider": "Europeana",
+                        "uri": "http://europeana.eu/resolve/record/92027/BibliographicResource_1000125591596"
+                    },
+                    "generatingQuery": "(Berge) AND (Salzburg OR Kugel)",
+                    "language": "de",
+                    "licence": "http://www.europeana.eu/rights/rr-f/",
+                    "mediaType": "IMAGE",
+                    "previewImage": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fwww.bildarchivaustria.at%2FBildarchiv%2F%2FBA%2F929%2FB12534660T12534664.jpg&size=LARGE&type=IMAGE",
+                    "resultGroup": [],
+                    "title": "Stangenalm."
+                },
+                {
+                    "date": "2010-01-01",
+                    "documentBadge": {
+                        "id": "ec36b16e-d100-38da-b0f5-3b3bafa7aecd",
+                        "provider": "Mendeley",
+                        "uri": "http://www.mendeley.com/research/kontroll-vedvarende-grubling-og-bekymring"
+                    },
+                    "generatingQuery": "(Berge) AND (Salzburg OR Kugel)",
+                    "language": "unknown",
+                    "licence": "https://creativecommons.org/licenses/by/3.0/legalcode",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Kontroll over vedvarende grubling og bekymring"
+                },
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "/92027/BibliographicResource_1000125588809",
+                        "provider": "Europeana",
+                        "uri": "http://europeana.eu/resolve/record/92027/BibliographicResource_1000125588809"
+                    },
+                    "generatingQuery": "(Berge) AND (Salzburg OR Kugel)",
+                    "language": "de",
+                    "licence": "http://www.europeana.eu/rights/rr-f/",
+                    "mediaType": "IMAGE",
+                    "previewImage": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fwww.bildarchivaustria.at%2FBildarchiv%2F%2FBA%2F929%2FB12536312T12536316.jpg&size=LARGE&type=IMAGE",
+                    "resultGroup": [],
+                    "title": "Johannisberg."
+                },
+                {
+                    "date": "unknown",
+                    "description": "Includes bibliographical references",
+                    "documentBadge": {
+                        "id": "279882947",
+                        "provider": "Swissbib",
+                        "uri": "https://www.swissbib.ch/Record/279882947"
+                    },
+                    "generatingQuery": "(Salzburg OR Berge OR Kugel)",
+                    "language": "de",
+                    "licence": "restricted",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Salzburg ein Bundesland vom Ersten Weltkrieg bis zur Gegenwart"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Arts, German--PeriodicalsDadaism--Germany--PeriodicalsExpressionism (Art)--Germany--Periodicals",
+                    "documentBadge": {
+                        "id": "f304b9f3fdf56a6a5aaf4323b49d0cc1",
+                        "provider": "Digital Public Library of America",
+                        "uri": "http://dp.la/item/f304b9f3fdf56a6a5aaf4323b49d0cc1"
+                    },
+                    "generatingQuery": "(Salzburg OR Berge OR Kugel)",
+                    "language": "de",
+                    "licence": "unkown",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Die Kugel"
+                },
+                {
+                    "date": "2007-01-01",
+                    "documentBadge": {
+                        "id": "f3d0f106-1079-305f-8e0b-92e7d68be396",
+                        "provider": "Mendeley",
+                        "uri": "http://www.mendeley.com/research/open-preperitoneal-hernia-repair-kugel-patch-prospective-multicentre-study-450-repairs"
+                    },
+                    "generatingQuery": "(Berge) AND (Salzburg OR Kugel)",
+                    "language": "unknown",
+                    "licence": "https://creativecommons.org/licenses/by/3.0/legalcode",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Open, preperitoneal hernia repair with the Kugel patch: A prospective, multicentre study of 450 repairs"
+                },
+                {
+                    "date": "unknown",
+                    "description": "These photographs were taken at the Salzburg Festival in August 1922, during which time the International Society for Contemporary Music was founded. The group photographs include the founder members of the society.",
+                    "documentBadge": {
+                        "id": "b862f5ee-360e-4a66-927d-963b12df27dd",
+                        "provider": "The National Archives UK",
+                        "uri": "http://discovery.nationalarchives.gov.uk/details/rd/b862f5ee-360e-4a66-927d-963b12df27dd"
+                    },
+                    "generatingQuery": "(Salzburg OR Berge OR Kugel)",
+                    "language": "en",
+                    "licence": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "[ISCM]: Salzburg 1922"
+                },
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "fa79de910d1e4b1b2f42342d041c80b7",
+                        "provider": "Digital Public Library of America",
+                        "uri": "http://dp.la/item/fa79de910d1e4b1b2f42342d041c80b7"
+                    },
+                    "generatingQuery": "(Salzburg OR Berge OR Kugel)",
+                    "language": "de",
+                    "licence": "unkown",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Salzburg"
+                },
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "/92027/BibliographicResource_1000125589242",
+                        "provider": "Europeana",
+                        "uri": "http://europeana.eu/resolve/record/92027/BibliographicResource_1000125589242"
+                    },
+                    "generatingQuery": "(Berge) AND (Salzburg OR Kugel)",
+                    "language": "de",
+                    "licence": "http://www.europeana.eu/rights/rr-f/",
+                    "mediaType": "IMAGE",
+                    "previewImage": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fwww.bildarchivaustria.at%2FBildarchiv%2F%2FBA%2F929%2FB12537405T12537409.jpg&size=LARGE&type=IMAGE",
+                    "resultGroup": [],
+                    "title": "Katschbergh\u00f6he."
+                },
+                {
+                    "date": "2007-01-01",
+                    "documentBadge": {
+                        "id": "90b3157f-9601-3b74-bfc8-adfe9cd7ede4",
+                        "provider": "Mendeley",
+                        "uri": "http://www.mendeley.com/research/note-berge-equilibrium"
+                    },
+                    "generatingQuery": "(Berge) AND (Salzburg OR Kugel)",
+                    "language": "unknown",
+                    "licence": "https://creativecommons.org/licenses/by/3.0/legalcode",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "A note on Berge equilibrium"
+                }
+            ],
+            "totalResults": 10
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 5366 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'The National Archives UK' to respond 5366 ms ",
+                    "success": false,
+                    "systemID": "The National Archives UK"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 5366 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5366 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 5366 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5366 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 5366 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 5366 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 5366 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'DeutscheNationalbibliothek' to respond 5366 ms ",
+                    "success": false,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'CORE.ac.uk' to respond 5366 ms ",
+                    "success": false,
+                    "systemID": "CORE.ac.uk"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5366 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5366 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [],
+            "totalResults": 0
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "success": true,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "success": true,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "success": true,
+                    "systemID": "Europeana"
+                },
+                {
+                    "success": true,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "success": true,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Swissbib' to respond 5569 ms ",
+                    "success": false,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "success": true,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5569 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "success": true,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "success": true,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5569 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "/2022608/TEM_BKM_F_013713",
+                        "provider": "Europeana",
+                        "uri": "http://europeana.eu/resolve/record/2022608/TEM_BKM_F_013713"
+                    },
+                    "generatingQuery": "(Berge) AND (Eis OR (Julius AND C\ufffdsar))",
+                    "language": "no",
+                    "licence": "http://www.europeana.eu/rights/rr-f/",
+                    "mediaType": "IMAGE",
+                    "previewImage": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fmedia31.dimu.no%2Fmedia%2Fimage%2FTEM%2FBKM.F.013713%2F0%3FbyIndex%3Dtrue%26height%3D400%26width%3D400&size=LARGE&type=IMAGE",
+                    "resultGroup": [],
+                    "title": "Henriette Marie Homann og Caroline Magnine Fog st\u00e5r p\u00e5 ei bru."
+                },
+                {
+                    "date": "2010-01-01",
+                    "documentBadge": {
+                        "id": "ec36b16e-d100-38da-b0f5-3b3bafa7aecd",
+                        "provider": "Mendeley",
+                        "uri": "http://www.mendeley.com/research/kontroll-vedvarende-grubling-og-bekymring"
+                    },
+                    "generatingQuery": "(Berge) AND (Eis OR (Julius AND C\ufffdsar))",
+                    "language": "unknown",
+                    "licence": "https://creativecommons.org/licenses/by/3.0/legalcode",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Kontroll over vedvarende grubling og bekymring"
+                },
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "/2048330/providedCHO_SE_ULA_10105_E_I_4",
+                        "provider": "Europeana",
+                        "uri": "http://europeana.eu/resolve/record/2048330/providedCHO_SE_ULA_10105_E_I_4"
+                    },
+                    "generatingQuery": "(Berge) AND (Eis OR (Julius AND C\ufffdsar))",
+                    "language": "sv",
+                    "licence": "http://www.europeana.eu/rights/rr-p/",
+                    "mediaType": "TEXT",
+                    "resultGroup": [],
+                    "title": "1891--1894"
+                },
+                {
+                    "date": "2014-01-01",
+                    "documentBadge": {
+                        "id": "1cbd99bf-ac49-3327-a579-ad41a14039be",
+                        "provider": "Mendeley",
+                        "uri": "http://www.mendeley.com/research/evaluation-mea-manufacturing-parameters-using-eis-so2-electrolysis"
+                    },
+                    "generatingQuery": "(Berge) AND (Eis OR (Julius AND C\ufffdsar))",
+                    "language": "unknown",
+                    "licence": "https://creativecommons.org/licenses/by/3.0/legalcode",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Evaluation of MEA manufacturing parameters using EIS for SO2 electrolysis"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Henri Verschnuring, Etienne Ficquet, Eisen, 1729 - 1794",
+                    "documentBadge": {
+                        "id": "RP-P-OB-43.392",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-P-OB-43.392"
+                    },
+                    "generatingQuery": "(Eis%20OR%20Berge%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Henri Verschnuring"
+                },
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "14a7fbe26f59c25baab525cb1d56f3ed",
+                        "provider": "Digital Public Library of America",
+                        "uri": "http://dp.la/item/14a7fbe26f59c25baab525cb1d56f3ed"
+                    },
+                    "generatingQuery": "(Eis OR Berge OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "unkown",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "STS068-82-034 - STS-068 - Spaceborne Imaging Radar C/X-Band Synthetic Aperture Radar (SIR-C/X-SAR)"
+                },
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "/2048328/providedCHO_SE__LA_11041_E_I_1",
+                        "provider": "Europeana",
+                        "uri": "http://europeana.eu/resolve/record/2048328/providedCHO_SE__LA_11041_E_I_1"
+                    },
+                    "generatingQuery": "(Berge) AND (Eis OR (Julius AND C\ufffdsar))",
+                    "language": "sv",
+                    "licence": "http://www.europeana.eu/rights/rr-p/",
+                    "mediaType": "TEXT",
+                    "resultGroup": [],
+                    "title": "1843--1861"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Schurz, Carl, 1829-1906ClippingsPortraits",
+                    "documentBadge": {
+                        "id": "4b35830f2e43829ecb66cb0958ab949a",
+                        "provider": "Digital Public Library of America",
+                        "uri": "http://dp.la/item/4b35830f2e43829ecb66cb0958ab949a"
+                    },
+                    "generatingQuery": "(Eis OR Berge OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "unkown",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Clasping hands over the bloodless (sar)c(h)asm"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Illustratie 'Les Sens': La Musique, Joseph de Longueil, Eisen, 1740 - 1792",
+                    "documentBadge": {
+                        "id": "RP-P-OB-69.535",
+                        "provider": "RijksMuseum",
+                        "uri": "https://www.rijksmuseum.nl/en/collection/RP-P-OB-69.535"
+                    },
+                    "generatingQuery": "(Eis%20OR%20Berge%20OR%20Julius+C%EF%BF%BDsar)",
+                    "language": "de",
+                    "licence": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Illustratie 'Les Sens': La Musique"
+                },
+                {
+                    "date": "2004-01-01",
+                    "documentBadge": {
+                        "id": "338756fd-2e9f-3dbe-ad15-996ae303ecc7",
+                        "provider": "Mendeley",
+                        "uri": "http://www.mendeley.com/research/oligocene-trondhjemitic-dikes-austroalpine-basement-pfunderer-berge-s%C3%BCdtirol-level-emplacement-metam"
+                    },
+                    "generatingQuery": "(Berge) AND (Eis OR (Julius AND C\ufffdsar))",
+                    "language": "unknown",
+                    "licence": "https://creativecommons.org/licenses/by/3.0/legalcode",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Oligocene trondhjemitic dikes in the Austroalpine basement of the Pfunderer Berge, S\u00fcdtirol - level of emplacement and metamorphic overprint"
+                }
+            ],
+            "totalResults": 10
+        },
+        {
+            "partnerResponseState": [
+                {
+                    "errorMessage": "Waited too long for partner system 'RijksMuseum' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "RijksMuseum"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Deutsche Digitale Bibliothek' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Deutsche Digitale Bibliothek"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Europeana' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Europeana"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Digital Public Library of America' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Digital Public Library of America"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'DeutscheNationalbibliothek' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "DeutscheNationalbibliothek"
+                },
+                {
+                    "success": true,
+                    "systemID": "Swissbib"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'KIMPortal' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "KIMPortal"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv K\u00e4rnten' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv K\u00e4rnten"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Mendeley' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Mendeley"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'ZBW' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "ZBW"
+                },
+                {
+                    "errorMessage": "Waited too long for partner system 'Landesarchiv Steiermark' to respond 5070 ms ",
+                    "success": false,
+                    "systemID": "Landesarchiv Steiermark"
+                }
+            ],
+            "provider": "federated",
+            "result": [
+                {
+                    "date": "unknown",
+                    "description": "Ungek\u00fcrzte Lesung",
+                    "documentBadge": {
+                        "id": "333031989",
+                        "provider": "Swissbib",
+                        "uri": "https://www.swissbib.ch/Record/333031989"
+                    },
+                    "generatingQuery": "(Elephant OR Berge OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "restricted",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Das K\u00fcstengrab Ton"
+                },
+                {
+                    "date": "unknown",
+                    "description": "With a half-title",
+                    "documentBadge": {
+                        "id": "245058850",
+                        "provider": "Swissbib",
+                        "uri": "https://www.swissbib.ch/Record/245058850"
+                    },
+                    "generatingQuery": "(Elephant OR Berge OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "restricted",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "A letter from the elephant to the people of England Ressource \u00e9lectronique"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Half-title from NHi",
+                    "documentBadge": {
+                        "id": "245058850",
+                        "provider": "Swissbib",
+                        "uri": "https://www.swissbib.ch/Record/245058850"
+                    },
+                    "generatingQuery": "(Elephant OR Berge OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "restricted",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "A letter from the elephant to the people of England Ressource \u00e9lectronique"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Reproduction of original from British Library",
+                    "documentBadge": {
+                        "id": "245058850",
+                        "provider": "Swissbib",
+                        "uri": "https://www.swissbib.ch/Record/245058850"
+                    },
+                    "generatingQuery": "(Elephant OR Berge OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "restricted",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "A letter from the elephant to the people of England Ressource \u00e9lectronique"
+                },
+                {
+                    "date": "unknown",
+                    "description": "",
+                    "documentBadge": {
+                        "id": "245058850",
+                        "provider": "Swissbib",
+                        "uri": "https://www.swissbib.ch/Record/245058850"
+                    },
+                    "generatingQuery": "(Elephant OR Berge OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "restricted",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "A letter from the elephant to the people of England Ressource \u00e9lectronique"
+                },
+                {
+                    "date": "unknown",
+                    "description": "English Short Title Catalog N19822",
+                    "documentBadge": {
+                        "id": "245058850",
+                        "provider": "Swissbib",
+                        "uri": "https://www.swissbib.ch/Record/245058850"
+                    },
+                    "generatingQuery": "(Elephant OR Berge OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "restricted",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "A letter from the elephant to the people of England Ressource \u00e9lectronique"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Electronic reproduction. Farmington Hills, Mich. : Cengage Gale, 2009. Available via the World Wide Web. Access limited by licensing agreements",
+                    "documentBadge": {
+                        "id": "099906309",
+                        "provider": "Swissbib",
+                        "uri": "https://www.swissbib.ch/Record/099906309"
+                    },
+                    "generatingQuery": "(Elephant OR Berge OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "restricted",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "A letter from the elephant to the people of England Elektronische Daten"
+                },
+                {
+                    "date": "unknown",
+                    "documentBadge": {
+                        "id": "030078490",
+                        "provider": "Swissbib",
+                        "uri": "https://www.swissbib.ch/Record/030078490"
+                    },
+                    "generatingQuery": "(Elephant OR Berge OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "restricted",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "Elephant"
+                },
+                {
+                    "date": "unknown",
+                    "description": "Reproduction of original from British Library",
+                    "documentBadge": {
+                        "id": "099906309",
+                        "provider": "Swissbib",
+                        "uri": "https://www.swissbib.ch/Record/099906309"
+                    },
+                    "generatingQuery": "(Elephant OR Berge OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "restricted",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "A letter from the elephant to the people of England Elektronische Daten"
+                },
+                {
+                    "date": "unknown",
+                    "description": "English Short Title Catalog, N19822",
+                    "documentBadge": {
+                        "id": "099906309",
+                        "provider": "Swissbib",
+                        "uri": "https://www.swissbib.ch/Record/099906309"
+                    },
+                    "generatingQuery": "(Elephant OR Berge OR Julius C\ufffdsar)",
+                    "language": "de",
+                    "licence": "restricted",
+                    "mediaType": "text",
+                    "resultGroup": [],
+                    "title": "A letter from the elephant to the people of England Elektronische Daten"
+                }
+            ],
+            "totalResults": 10
+        }
+    ]
+}

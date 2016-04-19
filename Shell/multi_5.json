@@ -1,0 +1,86 @@
+{
+   "origin": {
+      "clientType": "My super client", 
+      "clientVersion": "0.1",
+      "module": "curl command line",
+      "userID": "9384324107084"
+   },
+   "contextKeywords":[
+      [
+          {
+             "text":"women", 
+             "isMainTopic": false
+          }, {
+             "text":"Ada",
+             "isMainTopic": true
+          }
+	  ,{
+	      "text" : "Julius Cäsar",
+	      "isMainTopic" : false
+          }
+      ], [
+          {
+             "text":"paris", 
+             "isMainTopic": false
+          }, {
+             "text":"history",
+             "isMainTopic": true
+          }
+	  ,{
+	      "text" : "Julius Cäsar",
+	      "isMainTopic" : false
+          }
+      ], [
+          {
+             "text":"sport", 
+             "isMainTopic": false
+          }, {
+             "text":"soccer",
+             "isMainTopic": true
+          }
+	  ,{
+	      "text" : "Julius Cäsar",
+	      "isMainTopic" : false
+          }
+      ],
+      [
+          {
+             "text":"tom", 
+             "isMainTopic": false
+          }, {
+             "text":"jerry",
+             "isMainTopic": true
+          }
+	  ,{
+	      "text" : "Julius Cäsar",
+	      "isMainTopic" : false
+          }
+      ],
+      [
+          {
+             "text":"tick", 
+             "isMainTopic": false
+          }, {
+             "text":"trick",
+             "isMainTopic": true
+          }
+	  ,{
+	      "text" : "Julius Cäsar",
+	      "isMainTopic" : false
+          }
+      ],
+      [
+          {
+             "text":"Donald", 
+             "isMainTopic": false
+          }, {
+             "text":"track",
+             "isMainTopic": true
+          }
+	  ,{
+	      "text" : "Julius Cäsar",
+	      "isMainTopic" : false
+          }
+      ],
+   ]
+}
