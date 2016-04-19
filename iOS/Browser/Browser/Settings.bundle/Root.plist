@@ -80,11 +80,11 @@
 			<key>Key</key>
 			<string>language_preference</string>
 			<key>DefaultValue</key>
-			<integer>0</integer>
+			<string>unknown</string>
 			<key>Values</key>
 			<array>
-				<integer>0</integer>
-				<integer>1</integer>
+				<string>de</string>
+				<string>en</string>
 			</array>
 			<key>Titles</key>
 			<array>

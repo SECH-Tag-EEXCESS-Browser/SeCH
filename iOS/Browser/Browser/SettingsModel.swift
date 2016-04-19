@@ -170,6 +170,17 @@ class SettingsManager {
         let a = NSUserDefaults.standardUserDefaults().floatForKey("slider_preference")
         print("slider_preference: \(a)")
     }
+    
+    static func getLanguage()->String{
+        var l = NSUserDefaults.standardUserDefaults().valueForKey("language_preference") as? String
+        
+        if(l == nil){
+            NSUserDefaults.standardUserDefaults().setObject("de", forKey: "language_preference")
+            l = "de"
+        }
+        
+        return l!
+    }
 }
 
 

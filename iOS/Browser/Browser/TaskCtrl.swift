@@ -12,6 +12,9 @@ class TaskCtrl {
     
     //let QUERY_URL: String = "https://eexcess-dev.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer/recommend"
     let QUERY_URL: String = "https://eexcess.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer/recommend"
+
+    
+    
     var searchObjects: SEARCHModels!
     
     func getRecommendations(webContent:WebContent, setRecommendations: (status:String,message: String, recommendationData: SearchResults?) -> Void)
@@ -26,6 +29,14 @@ class TaskCtrl {
         let searchQuerys = QueryBuildCtrl().buildQuery(searchObjects)
         
         let requestData = EEXCESSRecommendationJSONCtrl().addKontextKeywords(searchQuerys)
+
+        //let url = Preferences().url + "/recommend"
+//        print(json.1)
+        //
+        
+        
+        //Erst mit Key möglich
+        //let res = FarooConnectionCtrl().sendRequest(searchQuerys)
 
         JSONConnectionCtrl().post(requestData, url: QUERY_URL){ (succeeded: Bool, msg: NSData, searchQuerys:SearchQuerys?) -> () in
             if (succeeded) {

@@ -237,7 +237,7 @@
         <!--Pop View Controller-->
         <scene sceneID="dqh-fZ-zYg">
             <objects>
-                <viewController storyboardIdentifier="PopoverViewController" id="uZZ-vY-Phs" customClass="PopViewController" customModule="Browser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopoverViewController" definesPresentationContext="YES" id="uZZ-vY-Phs" customClass="PopViewController" customModule="Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B87-Ow-p0w"/>
                         <viewControllerLayoutGuide type="bottom" id="MUu-Kz-DLC"/>

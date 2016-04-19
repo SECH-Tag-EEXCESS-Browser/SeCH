@@ -68,6 +68,8 @@ class SearchQuery{
 }
 // SearchContext represent a KeyWord with attributes and filters for the searchEngine ToDO: In Wiki
 class SearchContext{
+    
+    //values enthält "type", "text", und "link" oder "head" oder "section"
     private let values:[String:AnyObject]
     private let filters:[String:AnyObject]
     

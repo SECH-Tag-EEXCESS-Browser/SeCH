@@ -22,6 +22,82 @@ class JSONConnectionCtrl:ConnectionCtrl {
     }
 }
 
+
+class FarooConnectionCtrl: ConnectionCtrl{
+    
+    
+    
+    func sendRequest(searchQuerys: SearchQuerys)->SearchResults{
+        var topic: String = ""
+        let language = SettingsManager.getLanguage()
+        let basicUrl = "http://www.faroo.com/api?\(topic)start=1&length=10&l=\(language)&src=web&f=json"
+        
+        var searchResults: [SearchResult] = []
+        
+        
+        let searchQueryArray: [SearchQuery] = searchQuerys.getSearchQuerys()
+        
+        for searchQuery in searchQueryArray{
+            let searchContexts: [SearchContext] = searchQuery.getSearchContext()
+            
+            for searchContext in searchContexts{
+                let searchContextValues: [String: AnyObject] = searchContext.getValues()
+                topic += "q="
+                topic += searchContextValues["text"] as! String
+                topic += "&"
+                
+            }
+            
+            print("topic in URL: " + topic)
+            
+            let request = NSMutableURLRequest(URL: NSURL(string: basicUrl)!)
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
+            self.post((searchQuerys, NSData()), request: request, postCompleted: { (succeeded, data, searchQuerys) -> () in
+
+                 searchResults.append(self.parseJson(data, index: searchQuery.getIndex(), url: searchQuery.getUrl(), title: searchQuery.getTitle(), language: language)!)
+            })
+            
+            
+            topic = ""
+            
+        }
+        
+        print("Anzahl an Results: \(searchResults.count)")
+        
+        return SearchResults(searchResults: searchResults)
+        
+    }
+    
+    private func parseJson(data: NSData, index: Int, url: String, title: String, language: String)->SearchResult?{
+        
+        let provider = "Faroo"
+         var searchResultItems: [SearchResultItem] = []
+        
+        
+        let json = try? NSJSONSerialization.JSONObjectWithData(data, options: [NSJSONReadingOptions.MutableContainers]) as AnyObject
+        
+        print("Faroo json" + String(data: data, encoding: NSUTF8StringEncoding)!)
+        
+        guard let allResults = JSONData.fromObject(json!)!["results"]?.array as [JSONData]! else{
+            return nil
+        }
+        
+        for(index, allResult) in allResults.enumerate(){
+            let title2 = allResult.object!["title"]?.string
+            let url = allResult.object!["url"]?.string
+            let author = allResult.object!["author"]?.string
+            
+            searchResultItems.append(SearchResultItem(title: title2!, provider: provider, uri: url!, language: language, mediaType: MediaTypes.unknown.simpleDescription()))
+            
+        }
+        
+        return SearchResult(index: index, url: url, resultItems: searchResultItems, title: title)
+        
+    }
+}
+
 class ConnectionCtrl {
 
     var searchQuerys:SearchQuerys?
