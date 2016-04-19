@@ -24,12 +24,14 @@ class SearchResult {
     private let url:String
     private var resultItems:[SearchResultItem]
     private let index: Int
+    private let title:String
     
-    init(index:Int,url:String,resultItems:[SearchResultItem])
+    init(index:Int,url:String,resultItems:[SearchResultItem], title:String)
     {
         self.url = url
         self.resultItems = resultItems
         self.index = index
+        self.title = title
     }
     
     func getIndex()->Int{
@@ -42,6 +44,10 @@ class SearchResult {
     
     func setResultItems(resultItems:[SearchResultItem]){
         self.resultItems = resultItems
+    }
+    
+    func getTitle()->String {
+        return self.title
     }
 }
 

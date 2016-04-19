@@ -41,11 +41,13 @@ class SearchQuery{
     private let index:Int
     private let searchContext:[SearchContext]
     private let url:String
+    private let title:String
     
-    init(index:Int,searchContext:[SearchContext],url:String){
+    init(index:Int,searchContext:[SearchContext],url:String,title:String){
         self.index = index
         self.searchContext = searchContext
         self.url = url
+        self.title = title
     }
     
     func getSearchContext()->[SearchContext] {
@@ -54,6 +56,10 @@ class SearchQuery{
     
     func getUrl()->String{
         return self.url
+    }
+    
+    func getTitle()->String {
+        return self.title
     }
 }
 // SearchContext represent a KeyWord with attributes and filters for the searchEngine ToDO: In Wiki

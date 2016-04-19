@@ -33,7 +33,7 @@ class EEXCESSRecommendationJSONCtrl {
 //        jsonObject["numResults"] = mInfos.numResult
 //    }
     
-    func addKontextKeywords(searchQuerys:SearchQuerys)->(String,AnyObject)
+    func addKontextKeywords(searchQuerys:SearchQuerys)->(SearchQuerys,AnyObject)
     {
         // create the jsonRequestObject and add the origin
         var jsonObject = addOrigin([String:AnyObject]())
@@ -66,7 +66,9 @@ class EEXCESSRecommendationJSONCtrl {
         jsonObject["numResults"] = 50 * searchQuerys.getSearchQuerys().count
         jsonObject["loggingLevel"] = 1
         
-        return (url!,jsonObject as AnyObject)
+        var dic = [String:String]()
+        dic["url"] = url!
+        return (searchQuerys,jsonObject as AnyObject)
     }
 }
 

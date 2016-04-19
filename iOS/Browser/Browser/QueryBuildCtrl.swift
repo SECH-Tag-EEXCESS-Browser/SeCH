@@ -28,7 +28,7 @@ class QueryBuildCtrl {
                 searchContexts.append(SearchContext(values: dic, filters: searchModel.filters.getValues()))
             
             }
-            searchQuery.append(SearchQuery(index: searchModel.index, searchContext: searchContexts,url: searchModel.url))
+            searchQuery.append(SearchQuery(index: searchModel.index, searchContext: searchContexts,url: searchModel.url,title: searchModel.title))
         }
         return SearchQuerys(mSearchQuerys: searchQuery)
     }

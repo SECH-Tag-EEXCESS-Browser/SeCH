@@ -277,8 +277,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             popViewController.popoverPresentationController?.delegate = self
 
         }
-    
-
     }
     
     
@@ -346,7 +344,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         print("\n\n\n\n\n\n\n")
         print("selected: "+headLine)
 
-        
         return indexPath
     }
     
@@ -356,8 +353,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             let json = message.body as! [String:String]
             
             let id = Int(json["id"]!)
-            
-            
+
             let sechTags = tableViewDataSource.sechTags
             for i in 0 ..< sechTags.count {
                 if(responses[i].getIndex() == id){
@@ -394,21 +390,14 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
                 rules.append(mediaType)
                 seachRule.appendSeachRules(rules)
             }
-            
             rule.addRule(seachRule)
-            
         }
-        
         
         rule.applyRulesToAllResponses(allResponses)
         let scriptURL = NSBundle.mainBundle().pathForResource("main", ofType: "js")
         let scriptContent = try! String( contentsOfFile: scriptURL!, encoding:NSUTF8StringEncoding)
         self.myWebView?.evaluateJavaScript(scriptContent, completionHandler: { (object, error) in
         })
-        
-
-        
-        
 
     }
 

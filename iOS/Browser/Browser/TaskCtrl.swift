@@ -32,10 +32,10 @@ class TaskCtrl {
         //let url = Preferences().url + "/recommend"
 //        print(json.1)
         //
-        JSONConnectionCtrl().post(requestData, url: QUERY_URL){ (succeeded: Bool, msg: NSData, url:String) -> () in
+        JSONConnectionCtrl().post(requestData, url: QUERY_URL){ (succeeded: Bool, msg: NSData, searchQuerys:SearchQuerys?) -> () in
             if (succeeded) {
                 let recommendationCtrl = EEXCESSRecommendationCtrl()
-                guard let recommendation = recommendationCtrl.extractRecommendatins(msg,url: url) else
+                guard let recommendation = recommendationCtrl.extractRecommendatins(msg,searchQuerys: searchQuerys) else
                 {
                     print ("Versagen 1")
                     print(String(data: msg, encoding: NSUTF8StringEncoding)!)

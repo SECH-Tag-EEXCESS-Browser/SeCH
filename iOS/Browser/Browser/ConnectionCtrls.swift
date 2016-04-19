@@ -14,8 +14,8 @@ class JSONConnectionCtrl:ConnectionCtrl {
         super.init()
     }
     
-    override func post(params : (String,AnyObject), url : String,
-        postCompleted : (succeeded: Bool, data: NSData, url:String) -> ())
+    override func post(params : (SearchQuerys,AnyObject), url : String,
+        postCompleted : (succeeded: Bool, data: NSData, searchQuerys:SearchQuerys?) -> ())
     {
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -45,27 +45,27 @@ class ConnectionCtrl {
 //        task.resume()
 //
 //    }
-    var url:String
+    var searchQuerys:SearchQuerys?
     
     init(){
-        self.url = ""
+        self.searchQuerys = nil
     }
     
-    func post(params : (String,AnyObject), url : String,
-        postCompleted : (succeeded: Bool, data: NSData, url:String) -> ()){
-            postCompleted(succeeded: false,data: "Es wird die abstrakte Klasse ConnectionCtrl".dataUsingEncoding(NSUTF8StringEncoding)!,url: "")
+    func post(params : (SearchQuerys,AnyObject), url : String,
+        postCompleted : (succeeded: Bool, data: NSData, searchQuerys:SearchQuerys?) -> ()){
+            postCompleted(succeeded: false,data: "Es wird die abstrakte Klasse ConnectionCtrl".dataUsingEncoding(NSUTF8StringEncoding)!,searchQuerys: nil)
     }
     
-     private func post(data : (String,NSData), request : NSMutableURLRequest,
-        postCompleted : (succeeded: Bool, data: NSData, url: String) -> ())
+     private func post(data : (SearchQuerys,NSData), request : NSMutableURLRequest,
+        postCompleted : (succeeded: Bool, data: NSData, searchQuerys:SearchQuerys?) -> ())
      {print("start")
-        url = data.0
+        self.searchQuerys = data.0
         request.HTTPMethod = "POST"
         request.HTTPBody = data.1
         let session = NSURLSession.sharedSession()
         print("running")
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            postCompleted(succeeded: error == nil, data: data!,url: self.url)
+            postCompleted(succeeded: error == nil, data: data!,searchQuerys: self.searchQuerys!)
         })
         
         print("stoped")
