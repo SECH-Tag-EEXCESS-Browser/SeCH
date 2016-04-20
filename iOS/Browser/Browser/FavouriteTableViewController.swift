@@ -17,7 +17,7 @@ class FavouriteTableViewController: UITableViewController
 {
     var favourites = [FavouritesModel]()
     let fav = FavouritesModel()
-    var delegate : BackDelegate?//Wird nicht verwendet!
+    var delegate : BackDelegate?// Is not used!
     let p = DataObjectPersistency()
     
     override func viewDidLoad()
@@ -68,8 +68,6 @@ class FavouriteTableViewController: UITableViewController
         let editAction = UITableViewRowAction(style: .Normal, title: "Bearbeiten")
             { (action, indexPath)-> Void in
                 
-                //self.performSegueWithIdentifier("editFavouriteName", sender: self)
-                
                 let alertSheetController = UIAlertController(title: "Favoriten bearbeiten", message: "Geben Sie den Titel ein", preferredStyle: .Alert)
                 
                 let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel)
@@ -87,7 +85,6 @@ class FavouriteTableViewController: UITableViewController
                         
                         let textfield : UITextField = alertSheetController.textFields![0]
                         
-                        //var title = self.favourites[indexPath.row].title
                         let title = textfield.text!
                         self.fav.title = title
                         self.favourites[indexPath.row].title = title

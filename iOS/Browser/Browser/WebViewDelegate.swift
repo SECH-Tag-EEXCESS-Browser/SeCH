@@ -58,10 +58,16 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
     }
     
     func sechMng(){
+<<<<<<< HEAD
         self.viewCtrl.countSechsLabel.hidden = false
         
         //-> !
         // Put call for Request of EEXCESS here!
+=======
+        
+        self.viewCtrl.countSechsLabel.hidden = false
+        
+>>>>>>> origin/dev-april
         let task = TaskCtrl()
         
         let setRecommendations = ({(status:String,msg: String, data: SearchResults?) -> () in
@@ -102,8 +108,4 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
     func webViewWebContentProcessDidTerminate(webView: WKWebView) {
         print("##########webViewWebContentProcessDidTerminate#########")
     }
-    //    func webView(webView: WKWebView, decidePolicyForNavigationResponse navigationResponse: WKNavigationResponse, decisionHandler: (WKNavigationResponsePolicy) -> Void) {
-    //    print("decidePolicyForNavigationResponse")
-    //    }
-    
 }

@@ -12,13 +12,6 @@ import Foundation
 class SEARCHModels {
     private let mSearchModels:[SEARCHModel]
     
-//   Wieso? https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Properties.html Dafür gibt es Getter
-//    var searchModels :[SEARCHModel]{
-//        get{
-//            return self.mSearchModels
-//        }
-//    }
-    
     init(searchModels:[SEARCHModel]){
         self.mSearchModels = searchModels
     }
@@ -27,9 +20,6 @@ class SEARCHModels {
         return self.mSearchModels
     }
 }
-
-
-
 
 class SEARCHModel {
     static let LINK_TAG = "LINK"
@@ -47,7 +37,6 @@ class SEARCHModel {
 class Tag {
     var topic = String()
     var type = String()
-    //var isMainTopic = Bool()
     
     func getValues()->[String:AnyObject]{
         return ["text":self.topic,"type":self.type]

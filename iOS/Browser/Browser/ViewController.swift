@@ -15,22 +15,11 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     private var indexPathForSelectedSearchTag: Int!
     
     var myWebView: WKWebView?
-    
-//    override func loadView() {
-//        super.loadView()
-//        
-//        self.myWebView = WKWebView(frame: containerView.bounds)
-//        containerView.addSubview(myWebView!)
-//    }
-    
     var myWebViewDelegate : WebViewDelegate!
     let myAdressBar: AddressBar = AddressBar()
 
     let p : DataObjectPersistency = DataObjectPersistency()
     let tableViewDataSource = SechTableDataSource()
-//    var p = DataObjectPersistency()
-//    var tableViewDataSource = SechTableDataSource()
-
     
     let settingsPers = SettingsPersistency()
     var settings = SettingsModel()
@@ -47,7 +36,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var countSechsLabel: UILabel!
     @IBOutlet weak var sechButton: UIBarButtonItem!
-    
     @IBOutlet weak var progressViewWebsite: UIProgressView!
     
     var webViewWidth: NSLayoutConstraint!
@@ -59,8 +47,11 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        // Setup WebView
         myWebViewDelegate = WebViewDelegate()
         myWebViewDelegate.viewCtrl = self
+        
         
         countSechsLabel.hidden = true
        
@@ -68,12 +59,10 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         tableView.delegate = self
         tableView.dataSource = tableViewDataSource
         
-        
-        //p = DataObjectPersistency()
         settings = settingsPers.loadDataObject()
 
-        
         config.userContentController.addScriptMessageHandler(self, name: "onclick")
+        
         //WebView erzeugen
         self.myWebView = WKWebView(frame: containerView.bounds, configuration: config)
         self.containerView.addSubview(myWebView!)
@@ -137,7 +126,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-        //Dispose of any resources that can be recreated.
     }
     
     //Obeserver Function
@@ -244,10 +232,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
 
         }
 
-//        if segue.identifier == "PopoverViewController"{
-//            let destVC = segue.destinationViewController as! PopViewController
-//            destVC.title = "This is From Segue"
-//        }
 
         if segue.identifier == "showPopView"
         {
@@ -256,9 +240,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             //Change Size from PopViewController
             popViewController.preferredContentSize.height = (UIScreen.mainScreen().bounds.height)*0.66
             popViewController.preferredContentSize.width = (UIScreen.mainScreen().bounds.width)*0.66
-//            popViewController.si
-            
-            
             popViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             print("Segue "+self.headLine)
             popViewController.headLine = self.headLine
@@ -350,10 +331,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             
             let id = Int(json["id"]!)
 
-            let sechTags = tableViewDataSource.sechTags
             self.indexPathForSelectedSearchTag = id
  
-            
             self.headLine = json["topic"]
             
             performSegueWithIdentifier("showPopView", sender: self)
@@ -362,7 +341,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     
     func rankThatShit(eexcessAllResponses: [SearchResult]!){
  
-        
         guard let allResponses = eexcessAllResponses else{
             return
         }
