@@ -59,20 +59,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
     
     func sechMng(){
         
-        //let searchObjects = self.searchManager.getSEARCHObjects(self.htmlHead, htmlBody: self.htmlBody)
-        
-        
-//        print("Sechlinks found: \(searchObjects.count)")
-//        print("SechlinkIDs:")
-        
         self.viewCtrl.countSechsLabel.hidden = false
-        //self.viewCtrl.countSechsLabel.text = "\(searchObjects.count)"
-        
-//        for item in searchObjects{
-//            print(item.title)
-//        }
-        //-> !
-        // Put call for Request of EEXCESS here!
         
         let task = TaskCtrl()
         
@@ -105,20 +92,15 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
             })
         })
         
-        
-        
         task.getRecommendations(WebContent(html: Html(head: self.htmlHead, body: self.htmlBody), url: (self.viewCtrl.myWebView?.URL?.absoluteString)!), setRecommendations: setRecommendations)
         
-        
     }
+    
     func webView(webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
         print("#########didReceiveServerRedirectForProvisionalNavigation##########")
     }
+    
     func webViewWebContentProcessDidTerminate(webView: WKWebView) {
         print("##########webViewWebContentProcessDidTerminate#########")
     }
-    //    func webView(webView: WKWebView, decidePolicyForNavigationResponse navigationResponse: WKNavigationResponse, decisionHandler: (WKNavigationResponsePolicy) -> Void) {
-    //    print("decidePolicyForNavigationResponse")
-    //    }
-    
 }
