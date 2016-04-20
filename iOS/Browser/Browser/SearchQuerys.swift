@@ -10,30 +10,22 @@ import UIKit
 
 class SearchQuerys {
     
-    private let /*var*/ mSearchQuerys:[SearchQuery]
+    private let mSearchQuerys:[SearchQuery]
     
-//    var searchQuerys:[SearchQuery]{
-//        get{
-//            return mSearchQuerys
-//        }
-//    }
+    private let language:String
     
-    init(mSearchQuerys:[SearchQuery]){
+    init(mSearchQuerys:[SearchQuery], language:String){
         self.mSearchQuerys = mSearchQuerys
+        self.language = language
     }
     
     func getSearchQuerys()->[SearchQuery]{
         return self.mSearchQuerys
     }
     
-    
-//    init(){
-//        self.mSearchQuerys = []
-//    }
-//    
-//    func addSearchQuery(searchQuery:SearchQuery){
-//        self.mSearchQuerys.append(searchQuery)
-//    }
+    func getLanguage()->String {
+        return self.language
+    }
 }
 
 class SearchQuery{
