@@ -54,6 +54,7 @@ class FarooConnectionCtrl: ConnectionCtrl{
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             
+            
             self.post((searchQuerys, NSData()), request: request, postCompleted: { (succeeded, data, searchQuerys) -> () in
 
                  searchResults.append(self.parseJson(data, index: searchQuery.getIndex(), url: searchQuery.getUrl(), title: searchQuery.getTitle(), language: language)!)
@@ -107,7 +108,7 @@ class ConnectionCtrl {
             postCompleted(succeeded: false,data: "Es wird die abstrakte Klasse ConnectionCtrl".dataUsingEncoding(NSUTF8StringEncoding)!,searchQuerys: nil)
     }
     
-     private func post(data : (SearchQuerys,NSData), request : NSMutableURLRequest,
+     func post(data : (SearchQuerys,NSData), request : NSMutableURLRequest,
         postCompleted : (succeeded: Bool, data: NSData, searchQuerys:SearchQuerys?) -> ())
      {
         print("start")

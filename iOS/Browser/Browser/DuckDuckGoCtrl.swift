@@ -8,20 +8,48 @@
 
 import Foundation
 
-
-class DuckDuckGoCtrl{
+class DuckDuckGoCtrl:ConnectionCtrl{
     
-    func extractSearch(data : NSData, searchQuerys:SearchQuerys?)->SearchResults?{
+    func extractSearch(searchQuerys:SearchQuerys)->SearchResults?{
+
+        var topic: String = ""
+        let basicUrl = "http://api.duckduckgo.com/?q=\(topic)&format=json&pretty=1&t=sechbrowser"
+        
+        var searchResults: [SearchResult] = []
+        let searchQueryArr: [SearchQuery] = searchQuerys.getSearchQuerys()
+        
+        for query in searchQueryArr{
+            let searchContexts: [String:SearchContext] = query.getSearchContext()
+            
+            for searchContext in searchContexts{
+                let searchContextValues: [String: AnyObject] = searchContext.1.getValues()
+                topic += searchContextValues["text"] as! String
+                topic += "+"
+            }
+            
+            let request = NSMutableURLRequest(URL: NSURL(string: basicUrl)!)
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
+            self.post((searchQuerys, NSData()), request: request, postCompleted: { (succeeded, data, querys) -> () in
+                
+                searchResults.append(self.extractQuery(data, index: query.getIndex(), url: query.getUrl(), title: query.getTitle())!)
+            })
+            
+            
+            topic = ""
+            
+        }
+        return SearchResults(searchResults: searchResults)
+    }
+    
+    
+    func extractQuery(data: NSData, index: Int, url: String, title: String)->SearchResult?{
         let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as AnyObject
         let relatedTopics = JSONData.fromObject(json!)!["RelatedTopics"]?.array as [JSONData]!
         let results = JSONData.fromObject(json!)!["Results"]?.array as [JSONData]!
-        var searchResults = [SearchResult]()
         var searchResultItems = [SearchResultItem]()
         
-        let title = ""
-        let url = ""
-        let index = 0
-
         //Abstract
         let uri = (JSONData.fromObject(json!)!["AbstractURL"]?.string)! as String
         let provider = (JSONData.fromObject(json!)!["AbstractSource"]?.string)! as String
@@ -51,7 +79,7 @@ class DuckDuckGoCtrl{
             
             searchResultItems.append(SearchResultItem(title: t, provider: p, uri: u, language: l, mediaType: m))
         }
-        searchResults.append(SearchResult(index: index, url: url, resultItems: searchResultItems,title: title))
-        return SearchResults(searchResults: searchResults)
+        
+        return SearchResult(index: index, url: url, resultItems: searchResultItems, title: title)
     }
 }
