@@ -259,7 +259,7 @@
                                 <rect key="frame" x="16" y="74" width="568" height="518"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoGelb" translatesAutoresizingMaskIntoConstraints="NO" id="xYG-k9-xtV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIconPopUp" translatesAutoresizingMaskIntoConstraints="NO" id="xYG-k9-xtV">
                                 <rect key="frame" x="539" y="24" width="45" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="jdN-CE-x8z"/>
@@ -572,11 +572,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AppIconPopUp" width="76" height="76"/>
         <image name="BackIcon" width="29" height="29"/>
         <image name="BookmarksIcon" width="29" height="29"/>
         <image name="ForwardIcon" width="29" height="29"/>
         <image name="HomeIcon" width="29" height="29"/>
-        <image name="LogoGelb" width="170" height="145"/>
         <image name="ReloudIcon" width="29" height="29"/>
         <image name="SechIcon" width="72" height="72"/>
         <image name="SettingsIcon" width="29" height="29"/>
