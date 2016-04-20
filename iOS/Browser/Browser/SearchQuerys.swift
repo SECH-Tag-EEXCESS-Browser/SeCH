@@ -39,18 +39,21 @@ class SearchQuerys {
 class SearchQuery{
 
     private let index:Int
-    private let searchContext:[SearchContext]
+    // Contain [tagTyp:SearchContext] || tagTyp -> "link", "head" or "section" || SearchContext -> contain one SearchTag(SearchWord + Attributes)
+    private let searchContext:[String:SearchContext]
+    // url of the 
     private let url:String
+    // title
     private let title:String
     
-    init(index:Int,searchContext:[SearchContext],url:String,title:String){
+    init(index:Int,searchContext:[String:SearchContext],url:String,title:String){
         self.index = index
         self.searchContext = searchContext
         self.url = url
         self.title = title
     }
     
-    func getSearchContext()->[SearchContext] {
+    func getSearchContext()->[String:SearchContext] {
         return self.searchContext
     }
     
@@ -69,7 +72,7 @@ class SearchQuery{
 // SearchContext represent a KeyWord with attributes and filters for the searchEngine ToDO: In Wiki
 class SearchContext{
     
-    //values enthält "type", "text", und "link" oder "head" oder "section"
+    //values contain "type", "text"
     private let values:[String:AnyObject]
     private let filters:[String:AnyObject]
     

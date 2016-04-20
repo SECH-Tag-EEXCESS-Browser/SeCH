@@ -38,10 +38,10 @@ class FarooConnectionCtrl: ConnectionCtrl{
         let searchQueryArray: [SearchQuery] = searchQuerys.getSearchQuerys()
         
         for searchQuery in searchQueryArray{
-            let searchContexts: [SearchContext] = searchQuery.getSearchContext()
+            let searchContexts: [String:SearchContext] = searchQuery.getSearchContext()
             
             for searchContext in searchContexts{
-                let searchContextValues: [String: AnyObject] = searchContext.getValues()
+                let searchContextValues: [String: AnyObject] = searchContext.1.getValues()
                 topic += "q="
                 topic += searchContextValues["text"] as! String
                 topic += "&"

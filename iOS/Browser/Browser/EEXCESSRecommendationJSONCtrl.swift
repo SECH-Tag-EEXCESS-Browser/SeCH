@@ -44,8 +44,8 @@ class EEXCESSRecommendationJSONCtrl {
             var dic = [[String:AnyObject]]()
             for contextTag in searchModel.getSearchContext() {
                 var context = [String:AnyObject]()
-                context["text"] = contextTag.getValues()["text"] as! String
-                context["isMainTopic"] = contextTag.getValues()["tag"] as! String == "link"
+                context["text"] = contextTag.1.getValues()["text"] as! String
+                context["isMainTopic"] = contextTag.0 == "link"
                 //contextTag.getValues()["isMainTopic"] as! Bool
                 if context["type"] == nil {
                     context["type"] = "Misc"
