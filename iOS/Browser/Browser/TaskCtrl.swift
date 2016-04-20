@@ -9,56 +9,55 @@
 import Foundation
 
 class TaskCtrl {
-    
+//-------------------------------- EXXCESS 
     //let QUERY_URL: String = "https://eexcess-dev.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer/recommend"
     let QUERY_URL: String = "https://eexcess.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer/recommend"
+//-------------------------------- /EXXCESS
 
     var searchObjects: SEARCHModels!
     
     func getRecommendations(webContent:WebContent, setRecommendations: (status:String,message: String, recommendationData: SearchResults?) -> Void)
     {
+//-------------------------------- SeARCHExtraction ----------------------------------------
         // Generate SearchObjects for QueryBuildCtrl
         searchObjects = SEARCHManager().getSEARCHObjects(webContent)
+        
         // Controll container is Empty
         if(searchObjects.getSearchModels().isEmpty){
             setRecommendations(status: "FAILED",message: "Es sind keine Suchwörter vorhanden", recommendationData: nil)
             return
         }
+//-------------------------------- /SeARCHExtraction ---------------------------------------
+//-------------------------------- QueryBuild ----------------------------------------------
         // Generate SearchQuerys
         let searchQuerys = QueryBuildCtrl().buildQuery(searchObjects)
-        
-        // Generate Tuple(NSData,SearchQuerys) || NSData -> Query in JSON
-        let requestData = EEXCESSRecommendationJSONCtrl().addKontextKeywords(searchQuerys)
-
-        //let url = Preferences().url + "/recommend"
-//        print(json.1)
-        //
-        
+//-------------------------------- /QueryBuild ---------------------------------------------
+//-------------------------------- QueryResulution -----------------------------------------
+//-------------------------------- Faroo
         //Erst mit Key möglich
         //let res = FarooConnectionCtrl().sendRequest(searchQuerys)
+//-------------------------------- /Faroo
+//-------------------------------- EXXCESS
 
+        // Generate Tuple(NSData,SearchQuerys) || NSData -> Query in JSON
+        let requestData = EEXCESSRecommendationJSONCtrl().addKontextKeywords(searchQuerys)
+        
         // Send EEXCESS Request
         JSONConnectionCtrl().post(requestData, url: QUERY_URL){ (succeeded: Bool, msg: NSData, searchQuerys:SearchQuerys?) -> () in
             if (succeeded) {
                 let recommendationCtrl = EEXCESSRecommendationCtrl()
                 guard let recommendation = recommendationCtrl.extractRecommendatins(msg,searchQuerys: searchQuerys) else
                 {
-                    print ("Versagen 1")
-                    print(String(data: msg, encoding: NSUTF8StringEncoding)!)
                     setRecommendations(status: "FAILED",message: "Das Datenformat ist nicht verwertbar", recommendationData: nil)
                     return
                 }
-                
                 setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", recommendationData: recommendation)
-                
-                let sm = SettingsManager()
-                sm.getPreferencesValues()
             }
             else {
-                print("Versagen 2")
                 setRecommendations(status: "FAILED",message: "Die Anfrage war nicht erfolgreich", recommendationData: nil)
             }
         }
+//-------------------------------- /EXXCESS
+//-------------------------------- /QueryResulution -----------------------------------------
     }
-    
 }

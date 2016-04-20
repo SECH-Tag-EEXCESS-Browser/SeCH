@@ -27,7 +27,6 @@ class SettingsController: UITableViewController{
         countrySetting.detailTextLabel?.text = settingsModel.country
         citySetting.detailTextLabel?.text = settingsModel.city
         languageSetting.detailTextLabel?.text = settingsModel.language
-    
     }
     
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {

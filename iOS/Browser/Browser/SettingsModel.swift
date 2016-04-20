@@ -164,6 +164,7 @@ class SettingsPersistency {
 
 //<Settings.bundle> ----------------------------------------------------------------------------------------
 
+
 class SettingsManager {
     
     func getPreferencesValues(){
