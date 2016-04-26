@@ -371,9 +371,45 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         })
         
         //Change SechButton Image
-        sechButton.image = UIImage(named: "SechIcon")
+        setSechButtonLoading(false)
         
+    }
+    
+    func setSechButtonLoading(bool : Bool){
+        if bool == true{
+            sechButton.image = UIImage(named: "SechLoadIcon")
+        }else{
+            sechButton.image = UIImage(named: "SechIcon")
+        }
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

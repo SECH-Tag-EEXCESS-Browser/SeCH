@@ -32,7 +32,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
         viewCtrl.progressViewWebsite.hidden = true
         
         //Change SechButton Image
-        viewCtrl.sechButton.image = UIImage(named: "SechLoadIcon")
+        viewCtrl.setSechButtonLoading(true)
 
         // Ineinander verschachtelt, weil completionHandler wartet bis ausgeführt wurde
         let scriptURL = NSBundle.mainBundle().pathForResource("readHead", ofType: "js")
@@ -72,6 +72,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
             if(status == "FAILED"){
                 self.viewCtrl.tableViewDataSource.sechTags = []
                 self.viewCtrl.tableView.reloadData()
+                self.viewCtrl.setSechButtonLoading(false)
                 return
             }
             
