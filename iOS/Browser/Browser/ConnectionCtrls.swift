@@ -10,10 +10,16 @@ import Foundation
 
 class FarooConnectionCtrl:URLConnectionCtrl{
     
-    func sendRequest(searchQuerys: SearchQuerys)->SearchResults{
+    func sendRequest(searchQuerys: SearchQuerys, queryCompleted: (searchResults: SearchResults) ->()){
+        let specialCharacters = [" ", "/", "=", "(", ")", ":", ";"]
         var topic: String = ""
+
         let language = searchQuerys.getLanguage()
-        let basicUrl = "http://www.faroo.com/api?\(topic)start=1&length=10&l=\(language)&src=web&f=json"
+        let basicUrl = "http://www.faroo.com/api?q="
+
+        let key = "&key=FQtTu5NKF02wXVyU2viD2SjfJ4Q_"
+        let restUrl = "&start=1&length=10&l=\(language)&src=web&f=json\(key)"
+
         
         var searchResults: [SearchResult] = []
         
@@ -25,21 +31,45 @@ class FarooConnectionCtrl:URLConnectionCtrl{
             
             for searchContext in searchContexts{
                 let searchContextValues: [String: AnyObject] = searchContext.1.getValues()
-                topic += "q="
-                topic += searchContextValues["text"] as! String
-                topic += "&"
+
+                
+                topic += "%20"
+               
+                var searchValue = searchContextValues["text"] as! String
+                
+                for specialChar in specialCharacters{
+                    
+                    searchValue = searchValue.stringByReplacingOccurrencesOfString(specialChar, withString: "%20")
+                }
+                
+                topic += searchValue
+                
+            
+
             }
             
-            print("topic in URL: " + topic)
             
-            let request = NSMutableURLRequest(URL: NSURL(string: basicUrl)!)
+            let completeUrl = basicUrl + topic + restUrl
+            
+            print("URL " + completeUrl)
+            
+            
+            
+            let request = NSMutableURLRequest(URL: NSURL(string: completeUrl)!)
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             
             
             self.post((searchQuerys, NSData()), request: request, postCompleted: { (succeeded, data, searchQuerys) -> () in
 
-                 searchResults.append(self.parseJson(data, index: searchQuery.getIndex(), url: searchQuery.getUrl(), title: searchQuery.getTitle(), language: language)!)
+                
+                let searchRes: SearchResult? = self.parseJson(data, index: searchQuery.getIndex(), url: searchQuery.getUrl(), title: searchQuery.getTitle(), language: language)
+                
+                if(searchRes != nil){
+                    searchResults.append(searchRes!)
+                }
+                
+                
             })
             
             
@@ -49,7 +79,7 @@ class FarooConnectionCtrl:URLConnectionCtrl{
         
         print("Anzahl an Results: \(searchResults.count)")
         
-        return SearchResults(searchResults: searchResults)
+        queryCompleted(searchResults: SearchResults(searchResults: searchResults))
         
     }
     
@@ -59,11 +89,15 @@ class FarooConnectionCtrl:URLConnectionCtrl{
          var searchResultItems: [SearchResultItem] = []
         
         
-        let json = try? NSJSONSerialization.JSONObjectWithData(data, options: [NSJSONReadingOptions.MutableContainers]) as AnyObject
+        let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as AnyObject
         
         print("Faroo json" + String(data: data, encoding: NSUTF8StringEncoding)!)
         
         guard let allResults = JSONData.fromObject(json!)!["results"]?.array as [JSONData]! else{
+            return nil
+        }
+        
+        if(allResults.count == 0){
             return nil
         }
         

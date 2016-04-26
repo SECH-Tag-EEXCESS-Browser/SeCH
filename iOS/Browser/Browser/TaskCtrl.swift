@@ -34,8 +34,18 @@ class TaskCtrl {
 //-------------------------------- /QueryBuild ---------------------------------------------
 //-------------------------------- QueryResulution -----------------------------------------
 //-------------------------------- Faroo
-        //Erst mit Key möglich
-        //let res = FarooConnectionCtrl().sendRequest(searchQuerys)
+
+        /*FarooConnectionCtrl().sendRequest(searchQuerys) {(searchResults: SearchResults) -> () in
+            
+            if(searchResults.getSearchResults().count == 0){
+                setRecommendations(status: "FAILED", message: "Keine Suchergebnisse gefunden", recommendationData: nil)
+                return
+            }
+            
+            setRecommendations(status: "SUCCEDED", message: "Faroo war erfolgreich", recommendationData: searchResults)
+            
+            
+        }*/
 //-------------------------------- /Faroo
 //-------------------------------- EXXCESS
 
