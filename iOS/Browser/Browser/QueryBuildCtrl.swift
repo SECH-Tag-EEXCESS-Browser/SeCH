@@ -26,7 +26,7 @@ class QueryBuildCtrl {
             for (tagTyp,tag) in searchModel.tags {
                 searchContexts[tagTyp] = (SearchContext(values: tag.getValues(), filters: searchModel.filters.getValues()))
             }
-            searchQuery.append(SearchQuery(index: searchModel.index, searchContext: searchContexts,url: searchModel.url,title: searchModel.title,searchEngine: searchModel.searchengine))
+            searchQuery.append(SearchQuery(index: searchModel.index, searchContext: searchContexts,url: searchModel.url,title: searchModel.title))
         }
         return SearchQuerys(mSearchQuerys: searchQuery,language: SettingsManager.getLanguage())
     }
