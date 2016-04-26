@@ -40,7 +40,7 @@ class TaskCtrl {
 //-------------------------------- EXXCESS
 
         // Generate Tuple(NSData,SearchQuerys) || NSData -> Query in JSON
-        let requestData = EEXCESSRecommendationJSONCtrl().addKontextKeywords(searchQuerys)
+        let requestData = EEXCESSRecommendationJSONCtrl().generateJSON(searchQuerys)
         
         // Send EEXCESS Request
         JSONConnectionCtrl().post(requestData, url: QUERY_URL){ (succeeded: Bool, msg: NSData, searchQuerys:SearchQuerys?) -> () in
