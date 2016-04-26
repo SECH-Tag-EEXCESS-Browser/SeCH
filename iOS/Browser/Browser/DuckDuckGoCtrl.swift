@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DuckDuckGoCtrl:ConnectionCtrl{
+class DuckDuckGoCtrl:URLConnectionCtrl{
     
     func extractSearch(searchQuerys:SearchQuerys)->SearchResults?{
 

@@ -8,24 +8,7 @@
 
 import Foundation
 
-class JSONConnectionCtrl:ConnectionCtrl {
-    
-    override func post(params : (SearchQuerys,AnyObject), url : String,
-        postCompleted : (succeeded: Bool, data: NSData, searchQuerys:SearchQuerys?) -> ())
-    {
-        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        let data =  try! NSJSONSerialization.dataWithJSONObject(params.1, options: [NSJSONWritingOptions()])
-        
-        self.post((params.0 ,data), request: request, postCompleted: postCompleted)
-    }
-}
-
-
-class FarooConnectionCtrl: ConnectionCtrl{
-    
-    
+class FarooConnectionCtrl:URLConnectionCtrl{
     
     func sendRequest(searchQuerys: SearchQuerys)->SearchResults{
         var topic: String = ""
@@ -96,6 +79,43 @@ class FarooConnectionCtrl: ConnectionCtrl{
         
         return SearchResult(index: index, url: url, resultItems: searchResultItems, title: title)
         
+    }
+}
+
+class JSONConnectionCtrl:ConnectionCtrl {
+    
+    override func post(params : (SearchQuerys,AnyObject), url : String,
+        postCompleted : (succeeded: Bool, data: NSData, searchQuerys:SearchQuerys?) -> ())
+    {
+        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let data =  try! NSJSONSerialization.dataWithJSONObject(params.1, options: [NSJSONWritingOptions()])
+        
+        self.post((params.0 ,data), request: request, postCompleted: postCompleted)
+    }
+}
+
+class URLConnectionCtrl:ConnectionCtrl {
+    
+    override func post(params : (SearchQuerys,AnyObject), url : String,
+        postCompleted : (succeeded: Bool, data: NSData, searchQuerys:SearchQuerys?) -> ())
+    {
+        postCompleted(succeeded: false, data: NSData(), searchQuerys: params.0)
+    }
+    
+    func post(data : SearchQuerys, postCompleted : (succeeded: Bool, data: NSData, searchQuerys:SearchQuerys?) -> ())
+    {
+        postCompleted(succeeded: false, data: NSData(), searchQuerys: data)
+    }
+    
+    func post(data : SearchQuerys , url : String,
+        postCompleted : (succeeded: Bool, data: NSData, searchQuerys:SearchQuerys?) -> ())
+    {
+        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        self.post((data,NSData()), request: request, postCompleted: postCompleted)
     }
 }
 
