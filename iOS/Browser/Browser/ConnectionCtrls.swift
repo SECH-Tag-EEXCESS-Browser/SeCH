@@ -28,7 +28,6 @@ class FarooConnectionCtrl:URLConnectionCtrl{
                 topic += "q="
                 topic += searchContextValues["text"] as! String
                 topic += "&"
-                
             }
             
             print("topic in URL: " + topic)
@@ -140,6 +139,58 @@ class ConnectionCtrl {
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             print("stoped")
             postCompleted(succeeded: error == nil, data: data!,searchQuerys: self.searchQuerys!)
+        })
+        task.resume()
+    }
+}
+
+class EEXCESSConnectionCtrl:JSON2ConnectionCtrl {
+    override func post(searchQuerys:SearchQuerys,postCompleted : (succeeded: Bool, data: AnyObject) -> ()){
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://eexcess.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer/recommend")!)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let data =  try! NSJSONSerialization.dataWithJSONObject(EEXCESSRecommendationJSONCtrl().generateJSON(searchQuerys) as! AnyObject, options: [NSJSONWritingOptions()])
+        
+        postCompleted(succeeded: false,data: "Noch nicht verfügbar".dataUsingEncoding(NSUTF8StringEncoding)!)
+    }
+}
+
+class URL2ConnectionCtrl:AbstractConnectionCtrl {
+    
+    func post(searchQuerys:SearchQuerys,postCompleted : (succeeded: Bool, data: AnyObject) -> ()){
+        postCompleted(succeeded: false,data: "Es wird die abstrakte Klasse ConnectionCtrl".dataUsingEncoding(NSUTF8StringEncoding)!)
+    }
+    
+    override func post(url : String, postCompleted : (succeeded: Bool, data: NSData) -> ()){
+        postCompleted(succeeded: false,data: "Es wird die abstrakte Klasse ConnectionCtrl".dataUsingEncoding(NSUTF8StringEncoding)!)
+    }
+}
+
+class JSON2ConnectionCtrl:AbstractConnectionCtrl {
+    
+    func post(searchQuerys:SearchQuerys,postCompleted : (succeeded: Bool, data: AnyObject) -> ()){
+        postCompleted(succeeded: false,data: "Es wird die abstrakte Klasse ConnectionCtrl".dataUsingEncoding(NSUTF8StringEncoding)!)
+    }
+    
+    override func post(url : String, postCompleted : (succeeded: Bool, data: NSData) -> ()){
+        postCompleted(succeeded: false,data: "Es wird die abstrakte Klasse ConnectionCtrl".dataUsingEncoding(NSUTF8StringEncoding)!)
+    }
+}
+
+class AbstractConnectionCtrl {
+    
+    func post(url : String, postCompleted : (succeeded: Bool, data: NSData) -> ()){
+            postCompleted(succeeded: false,data: "Es wird die abstrakte Klasse ConnectionCtrl".dataUsingEncoding(NSUTF8StringEncoding)!)
+    }
+    
+    func post(request : NSMutableURLRequest,postCompleted : (succeeded: Bool, data: NSData) -> ())
+    {
+        print("start")
+        let session = NSURLSession.sharedSession()
+        print("running")
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            print("stoped")
+            postCompleted(succeeded: error == nil, data: data!)
         })
         task.resume()
     }
