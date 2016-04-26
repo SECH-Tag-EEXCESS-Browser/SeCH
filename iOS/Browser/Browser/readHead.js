@@ -2,7 +2,7 @@ function returnHead(){
     var metas = document.getElementsByTagName("META");
     var i;
     for (i = 0; i < metas.length; i++) {
-        if (metas[i].getAttribute("name") == "search"){
+        if (metas[i].getAttribute("name") == "search-head"){
             var string = "";
             
             
