@@ -28,7 +28,7 @@ class SEARCHModel {
     
     var url = String()
     var title = String()
-    var searchengine = String()
+    var searchengine:String?
     var index:Int!
     var tags = [String : Tag]() // String is id (link, section, head) and Tag is Tag-Object
     var filters = Filter()

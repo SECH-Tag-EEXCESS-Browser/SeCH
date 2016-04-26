@@ -37,12 +37,15 @@ class SearchQuery{
     private let url:String
     // title
     private let title:String
+    // searchEngine
+    private let searchEngine:String?
     
-    init(index:Int,searchContext:[String:SearchContext],url:String,title:String){
+    init(index:Int,searchContext:[String:SearchContext],url:String,title:String,searchEngine:String?){
         self.index = index
         self.searchContext = searchContext
         self.url = url
         self.title = title
+        self.searchEngine = searchEngine
     }
     
     func getSearchContext()->[String:SearchContext] {
