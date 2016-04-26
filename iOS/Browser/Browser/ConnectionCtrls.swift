@@ -29,13 +29,13 @@ class FarooConnectionCtrl: ConnectionCtrl{
     
     func sendRequest(searchQuerys: SearchQuerys)->SearchResults{
         var topic: String = ""
-        let language = SettingsManager.getLanguage()
+        let language = searchQuerys.getLanguage()
         let basicUrl = "http://www.faroo.com/api?\(topic)start=1&length=10&l=\(language)&src=web&f=json"
         
         var searchResults: [SearchResult] = []
         
         
-        let searchQueryArray: [SearchQuery] = searchQuerys.getSearchQuerys()
+        let searchQueryArray = searchQuerys.getSearchQuerys()
         
         for searchQuery in searchQueryArray{
             let searchContexts: [String:SearchContext] = searchQuery.getSearchContext()
