@@ -33,7 +33,7 @@ class EEXCESSRecommendationJSONCtrl {
 //        jsonObject["numResults"] = mInfos.numResult
 //    }
     
-    func addKontextKeywords(searchQuerys:SearchQuerys)->(SearchQuerys,AnyObject)
+    func generateJSON(searchQuerys:SearchQuerys)->(SearchQuerys,AnyObject)
     {
         // create the jsonRequestObject and add the origin
         var jsonObject = addOrigin([String:AnyObject]())
