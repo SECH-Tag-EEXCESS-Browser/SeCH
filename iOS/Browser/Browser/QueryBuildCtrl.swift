@@ -24,9 +24,10 @@ class QueryBuildCtrl {
         for searchModel in searchModels.getSearchModels() {
             var searchContexts = [String:SearchContext]()
             for (tagTyp,tag) in searchModel.tags {
-                searchContexts[tagTyp] = (SearchContext(values: tag.getValues(), filters: searchModel.filters.getValues()))
+                
+                searchContexts[tagTyp] = (SearchContext(searchWord: tag.topic, searchTyp: tag.type, filterMediaType: searchModel.filters.mediaType, filterProvider: searchModel.filters.provider, filterLicence: searchModel.filters.licence))
             }
-            searchQuery.append(SearchQuery(index: searchModel.index, searchContext: searchContexts,url: searchModel.url,title: searchModel.title))
+            searchQuery.append(SearchQuery(index: searchModel.index,link: searchContexts["link"]!,section:searchContexts["section"]!,head:searchContexts["head"]! ,url: searchModel.url,title: searchModel.title))
         }
         return SearchQuerys(mSearchQuerys: searchQuery,language: SettingsManager.getLanguage())
     }

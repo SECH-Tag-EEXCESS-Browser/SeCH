@@ -64,6 +64,7 @@ class SearchResultItem {
             return "Title:\(title) -- Provider:\(provider) -- URI:\(uri)"
         }
     }
+    
     init(title : String, provider : String, uri : String, language: String, mediaType: String)
     {
         self.title = title
@@ -100,10 +101,6 @@ class SearchResultItem {
     func getLanguage()->String{
         return self.language
     }
-    
-    
-    
-    
 }
 
 func < (left : SearchResultItem, right : SearchResultItem) -> Bool

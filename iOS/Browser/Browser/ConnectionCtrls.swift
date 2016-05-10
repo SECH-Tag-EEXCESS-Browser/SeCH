@@ -11,75 +11,70 @@ import Foundation
 class FarooConnectionCtrl:URLConnectionCtrl{
     
     func sendRequest(searchQuerys: SearchQuerys, queryCompleted: (searchResults: SearchResults) ->()){
-        let specialCharacters = [" ", "/", "=", "(", ")", ":", ";"]
-        var topic: String = ""
-
-        let language = searchQuerys.getLanguage()
-        let basicUrl = "http://www.faroo.com/api?q="
-
-        let key = "&key=FQtTu5NKF02wXVyU2viD2SjfJ4Q_"
-        let restUrl = "&start=1&length=10&l=\(language)&src=web&f=json\(key)"
-
-        
-        var searchResults: [SearchResult] = []
-        
-        
-        let searchQueryArray = searchQuerys.getSearchQuerys()
-        
-        for searchQuery in searchQueryArray{
-            let searchContexts: [String:SearchContext] = searchQuery.getSearchContext()
-            
-            for searchContext in searchContexts{
-                let searchContextValues: [String: AnyObject] = searchContext.1.getValues()
-
-                
-                topic += "%20"
-               
-                var searchValue = searchContextValues["text"] as! String
-                
-                for specialChar in specialCharacters{
-                    
-                    searchValue = searchValue.stringByReplacingOccurrencesOfString(specialChar, withString: "%20")
-                }
-                
-                topic += searchValue
-                
-            
-
-            }
-            
-            
-            let completeUrl = basicUrl + topic + restUrl
-            
-            print("URL " + completeUrl)
-            
-            
-            
-            let request = NSMutableURLRequest(URL: NSURL(string: completeUrl)!)
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("application/json", forHTTPHeaderField: "Accept")
-            
-            
-            self.post((searchQuerys, NSData()), request: request, postCompleted: { (succeeded, data, searchQuerys) -> () in
-
-                
-                let searchRes: SearchResult? = self.parseJson(data, index: searchQuery.getIndex(), url: searchQuery.getUrl(), title: searchQuery.getTitle(), language: language)
-                
-                if(searchRes != nil){
-                    searchResults.append(searchRes!)
-                }
-                
-                
-            })
-            
-            
-            topic = ""
-            
-        }
-        
-        print("Anzahl an Results: \(searchResults.count)")
-        
-        queryCompleted(searchResults: SearchResults(searchResults: searchResults))
+//        let specialCharacters = [" ", "/", "=", "(", ")", ":", ";"]
+//        var topic: String = ""
+//
+//        let language = searchQuerys.getLanguage()
+//        let basicUrl = "http://www.faroo.com/api?q="
+//
+//        let key = "&key=FQtTu5NKF02wXVyU2viD2SjfJ4Q_"
+//        let restUrl = "&start=1&length=10&l=\(language)&src=web&f=json\(key)"
+//
+//        
+//        var searchResults: [SearchResult] = []
+//        
+//        
+//        let searchQueryArray = searchQuerys.getSearchQuerys()
+//        
+//        for searchQuery in searchQueryArray{
+//
+//                
+//                topic += "%20"
+//               
+//                var searchValue = searchContextValues["text"] as! String
+//                
+//                for specialChar in specialCharacters{
+//                    
+//                    searchValue = searchValue.stringByReplacingOccurrencesOfString(specialChar, withString: "%20")
+//                }
+//                
+//                topic += searchValue
+//                
+//            
+//
+//            }
+//            
+//            
+//            let completeUrl = basicUrl + topic + restUrl
+//            
+//            print("URL " + completeUrl)
+//            
+//            
+//            
+//            let request = NSMutableURLRequest(URL: NSURL(string: completeUrl)!)
+//            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//            request.addValue("application/json", forHTTPHeaderField: "Accept")
+//            
+//            
+//            self.post((searchQuerys, NSData()), request: request, postCompleted: { (succeeded, data, searchQuerys) -> () in
+//
+//                
+//                let searchRes: SearchResult? = self.parseJson(data, index: searchQuery.getIndex(), url: searchQuery.getUrl(), title: searchQuery.getTitle(), language: language)
+//                
+//                if(searchRes != nil){
+//                    searchResults.append(searchRes!)
+//                }
+//                
+//                
+//            })
+//            
+//            
+//            topic = ""
+//            
+//        }
+//        
+    
+//        queryCompleted(searchResults: SearchResults(searchResults: searchResults))
         
     }
     
@@ -179,20 +174,21 @@ class ConnectionCtrl {
 }
 
 class EEXCESSConnectionCtrl:JSON2ConnectionCtrl {
-    override func post(searchQuerys:SearchQuerys,postCompleted : (succeeded: Bool, data: AnyObject) -> ()){
+    override func post(searchQuerys:SearchQuerys,postCompleted : (succeeded: Bool, results: SearchResults) -> ()){
         let request = NSMutableURLRequest(URL: NSURL(string: "https://eexcess.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer/recommend")!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         let data =  try! NSJSONSerialization.dataWithJSONObject(EEXCESSRecommendationJSONCtrl().generateJSON(searchQuerys) as! AnyObject, options: [NSJSONWritingOptions()])
         
-        postCompleted(succeeded: false,data: "Noch nicht verfügbar".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        postCompleted(succeeded: false,results: SearchResults(searchResults: []))
     }
 }
 
 class URL2ConnectionCtrl:AbstractConnectionCtrl {
     
-    func post(searchQuerys:SearchQuerys,postCompleted : (succeeded: Bool, data: AnyObject) -> ()){
-        postCompleted(succeeded: false,data: "Es wird die abstrakte Klasse ConnectionCtrl".dataUsingEncoding(NSUTF8StringEncoding)!)
+    func post(searchQuerys:SearchQuerys,postCompleted : (succeeded: Bool, results: SearchResults) -> ()){
+        postCompleted(succeeded: false,results: SearchResults(searchResults: []))
     }
     
     override func post(url : String, postCompleted : (succeeded: Bool, data: NSData) -> ()){
@@ -202,8 +198,8 @@ class URL2ConnectionCtrl:AbstractConnectionCtrl {
 
 class JSON2ConnectionCtrl:AbstractConnectionCtrl {
     
-    func post(searchQuerys:SearchQuerys,postCompleted : (succeeded: Bool, data: AnyObject) -> ()){
-        postCompleted(succeeded: false,data: "Es wird die abstrakte Klasse ConnectionCtrl".dataUsingEncoding(NSUTF8StringEncoding)!)
+    func post(searchQuerys:SearchQuerys,postCompleted : (succeeded: Bool, results: SearchResults) -> ()){
+        postCompleted(succeeded: false,results: SearchResults(searchResults: []))
     }
     
     override func post(url : String, postCompleted : (succeeded: Bool, data: NSData) -> ()){

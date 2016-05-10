@@ -18,29 +18,29 @@ class DuckDuckGoCtrl:URLConnectionCtrl{
         var searchResults: [SearchResult] = []
         let searchQueryArr: [SearchQuery] = searchQuerys.getSearchQuerys()
         
-        for query in searchQueryArr{
-            let searchContexts: [String:SearchContext] = query.getSearchContext()
-            
-            for searchContext in searchContexts{
-                let searchContextValues: [String: AnyObject] = searchContext.1.getValues()
-                topic += searchContextValues["text"] as! String
-                topic += "+"
-            }
-            
-            let request = NSMutableURLRequest(URL: NSURL(string: basicUrl)!)
-            
-     //       request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-     //       request.addValue("application/json", forHTTPHeaderField: "Accept")
-            
-            self.post((searchQuerys, NSData()), request: request, postCompleted: { (succeeded, data, querys) -> () in
-                print(basicUrl)
-                searchResults.append(self.extractQuery(data, index: query.getIndex(), url: query.getUrl(), title: query.getTitle())!)
-            })
-            
-            
-            topic = ""
-            
-        }
+//        for query in searchQueryArr{
+//            let searchContexts: [String:SearchContext] = query.getSearchContext()
+//            
+//            for searchContext in searchContexts{
+//                let searchContextValues: [String: AnyObject] = searchContext.1.getValues()
+//                topic += searchContextValues["text"] as! String
+//                topic += "+"
+//            }
+//            
+//            let request = NSMutableURLRequest(URL: NSURL(string: basicUrl)!)
+//            
+//     //       request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//     //       request.addValue("application/json", forHTTPHeaderField: "Accept")
+//            
+//            self.post((searchQuerys, NSData()), request: request, postCompleted: { (succeeded, data, querys) -> () in
+//                print(basicUrl)
+//                searchResults.append(self.extractQuery(data, index: query.getIndex(), url: query.getUrl(), title: query.getTitle())!)
+//            })
+//            
+//            
+//            topic = ""
+//            
+//        }
         return SearchResults(searchResults: searchResults)
     }
     

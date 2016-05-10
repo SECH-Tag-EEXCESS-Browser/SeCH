@@ -31,24 +31,36 @@ class SearchQuerys {
 class SearchQuery{
 
     private let index:Int
-    // Contain [tagTyp:SearchContext] || tagTyp -> "link", "head" or "section" || SearchContext -> contain one SearchTag(SearchWord + Attributes)
-    private let searchContext:[String:SearchContext]
+
+    private let linkContext:SearchContext
+    private let sectionContext:SearchContext
+    private let headContext:SearchContext
     // url of the 
     private let url:String
     // title
     private let title:String
     
-    init(index:Int,searchContext:[String:SearchContext],url:String,title:String){
+    init(index:Int,link:SearchContext,section:SearchContext,head:SearchContext,url:String,title:String){
         self.index = index
-        self.searchContext = searchContext
+        self.linkContext = link
+        self.sectionContext = section
+        self.headContext = head
         self.url = url
         self.title = title
     }
     
-    func getSearchContext()->[String:SearchContext] {
-        return self.searchContext
+    func getLink()->SearchContext {
+        return self.linkContext
     }
     
+    func getSection()->SearchContext {
+        return self.sectionContext
+    }
+    
+    func getHead()->SearchContext {
+        return self.headContext
+    }
+
     func getUrl()->String{
         return self.url
     }
@@ -63,17 +75,38 @@ class SearchQuery{
 }
 // SearchContext represent a KeyWord with attributes and filters for the searchEngine ToDO: In Wiki
 class SearchContext{
+    private let searchWord:String
+    private let searchTyp:String
     
-    //values contain "type", "text"
-    private let values:[String:AnyObject]
-    private let filters:[String:AnyObject]
+    private let filterMediaType:String
+    private let filterProvider:String
+    private let filterLicence:String
     
-    init(values:[String:AnyObject],filters:[String:AnyObject]){
-        self.values = values
-        self.filters = filters
+    init(searchWord:String,searchTyp:String,filterMediaType:String,filterProvider:String,filterLicence:String){
+        self.searchWord = searchWord
+        self.searchTyp = searchTyp
+        self.filterLicence = filterLicence
+        self.filterMediaType = filterMediaType
+        self.filterProvider = filterProvider
     }
     
-    func getValues()->[String:AnyObject]{
-        return self.values
+    func getSearchWord()->String {
+        return self.searchWord
+    }
+    
+    func getSearchTyp()->String {
+        return self.searchTyp
+    }
+    
+    func getFilterMediaType()->String {
+        return self.filterMediaType
+    }
+    
+    func getFilterProvider()->String {
+        return self.filterProvider
+    }
+    
+    func getFilterLicence()->String {
+        return self.filterLicence
     }
 }

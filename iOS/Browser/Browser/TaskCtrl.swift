@@ -52,7 +52,7 @@ class TaskCtrl {
         
 //-------------------------------- /DuckDuckGo
 //-------------------------------- EXXCESS
-
+        
         // Generate Tuple(NSData,SearchQuerys) || NSData -> Query in JSON
         let requestData = EEXCESSRecommendationJSONCtrl().generateJSON(searchQuerys)
         

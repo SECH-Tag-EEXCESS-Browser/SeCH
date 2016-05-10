@@ -37,11 +37,11 @@ class EEXCESSRecommendationCtrl {
                 //Sucht nach title und url in dem er die generatingQuery mit den Suchwörtern aus SearchQuerys vergleicht
                 for searchQuery in (searchQuerys?.getSearchQuerys())! {
                     var isCorrectQuery = true
-                    for (tagTyp,context) in searchQuery.getSearchContext(){
-                        if !((generatingQuery?.contains(context.getValues()["text"] as! String)) != nil) {
-                            isCorrectQuery = false
-                        }
-                    }
+//                    for (tagTyp,context) in searchQuery.getSearchContext(){
+//                        if !((generatingQuery?.contains(context.getValues()["text"] as! String)) != nil) {
+//                            isCorrectQuery = false
+//                        }
+//                    }
                     if isCorrectQuery {
                         title = searchQuery.getTitle()
                         url = searchQuery.getUrl()
