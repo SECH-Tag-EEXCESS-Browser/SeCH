@@ -10,6 +10,76 @@
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
+			<string>Suchmaschinen</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Duck Duck Go</string>
+			<key>Key</key>
+			<string>duckduckgo_preference</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Eexcess</string>
+			<key>Key</key>
+			<string>google_preference</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Faroo</string>
+			<key>Key</key>
+			<string>faroo_preference</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Empfehlungen des Autors folgen</string>
+			<key>Key</key>
+			<string>autor_preference</string>
+			<key>DefaultValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Falls Sie den Empfehlungen des Autors nicht folgen wollen, deaktivieren sie diese Funktion.</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>Suchmaschinen</string>
+			<key>Key</key>
+			<string>searchengines_preference</string>
+			<key>DefaultValue</key>
+			<string>unknown</string>
+			<key>Values</key>
+			<array>
+				<string>Empfehlungen des Seitenautors ignorieren</string>
+			</array>
+			<key>Titles</key>
+			<array>
+				<string>Empfehlungen des Seitenautors ignorieren</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
 			<string>Nutzerprofil</string>
 		</dict>
 		<dict>
