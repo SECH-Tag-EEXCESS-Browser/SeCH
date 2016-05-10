@@ -11,73 +11,80 @@ import Foundation
 class FarooConnectionCtrl:URLConnectionCtrl{
     
     func sendRequest(searchQuerys: SearchQuerys, queryCompleted: (searchResults: SearchResults) ->()){
-//        let specialCharacters = [" ", "/", "=", "(", ")", ":", ";"]
-//        var topic: String = ""
-//
-//        let language = searchQuerys.getLanguage()
-//        let basicUrl = "http://www.faroo.com/api?q="
-//
-//        let key = "&key=FQtTu5NKF02wXVyU2viD2SjfJ4Q_"
-//        let restUrl = "&start=1&length=10&l=\(language)&src=web&f=json\(key)"
-//
-//        
-//        var searchResults: [SearchResult] = []
-//        
-//        
-//        let searchQueryArray = searchQuerys.getSearchQuerys()
-//        
-//        for searchQuery in searchQueryArray{
-//
-//                
-//                topic += "%20"
-//               
-//                var searchValue = searchContextValues["text"] as! String
-//                
-//                for specialChar in specialCharacters{
-//                    
-//                    searchValue = searchValue.stringByReplacingOccurrencesOfString(specialChar, withString: "%20")
-//                }
-//                
-//                topic += searchValue
-//                
-//            
-//
-//            }
-//            
-//            
-//            let completeUrl = basicUrl + topic + restUrl
-//            
-//            print("URL " + completeUrl)
-//            
-//            
-//            
-//            let request = NSMutableURLRequest(URL: NSURL(string: completeUrl)!)
-//            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//            request.addValue("application/json", forHTTPHeaderField: "Accept")
-//            
-//            
-//            self.post((searchQuerys, NSData()), request: request, postCompleted: { (succeeded, data, searchQuerys) -> () in
-//
-//                
-//                let searchRes: SearchResult? = self.parseJson(data, index: searchQuery.getIndex(), url: searchQuery.getUrl(), title: searchQuery.getTitle(), language: language)
-//                
-//                if(searchRes != nil){
-//                    searchResults.append(searchRes!)
-//                }
-//                
-//                
-//            })
-//            
-//            
-//            topic = ""
-//            
-//        }
-//        
-    
-//        queryCompleted(searchResults: SearchResults(searchResults: searchResults))
         
+        var topic: String = ""
+
+        let language = searchQuerys.getLanguage()
+        let basicUrl = "http://www.faroo.com/api?q="
+
+        let key = "&key=FQtTu5NKF02wXVyU2viD2SjfJ4Q_"
+        let restUrl = "&start=1&length=10&l=\(language)&src=web&f=json\(key)"
+
+        
+        var searchResults: [SearchResult] = []
+        
+        
+        let searchQueryArray = searchQuerys.getSearchQuerys()
+        
+        for searchQuery in searchQueryArray{
+
+          topic += checkSpecialCharakters(searchQuery.getLink().getSearchWord())
+            topic += "&q="
+            
+            topic += checkSpecialCharakters(searchQuery.getSection().getSearchWord())
+            
+            topic += "&q="
+            
+            topic += checkSpecialCharakters(searchQuery.getHead().getSearchWord())
+
+            let completeUrl = basicUrl + topic + restUrl
+            
+            print("URL " + completeUrl)
+
+            let request = NSMutableURLRequest(URL: NSURL(string: completeUrl)!)
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
+            
+            self.post((searchQuerys, NSData()), request: request, postCompleted: { (succeeded, data, searchQuerys) -> () in
+
+                
+                let searchRes: SearchResult? = self.parseJson(data, index: searchQuery.getIndex(), url: searchQuery.getUrl(), title: searchQuery.getTitle(), language: language)
+                
+                if(searchRes != nil){
+                    searchResults.append(searchRes!)
+                }
+                
+                
+            })
+            
+            
+            topic = ""
+            
+        }
+        
+    
+        queryCompleted(searchResults: SearchResults(searchResults: searchResults))
+    
+    }
+
+    
+    private func checkSpecialCharakters(var query: String)->String{
+        let specialCharacters = [" ", "/", "=", "(", ")", ":", ";"]
+        
+        
+        for specialChar in specialCharacters{
+            
+            query = query.stringByReplacingOccurrencesOfString(specialChar, withString: "%20")
+        }
+        
+        return query
     }
     
+    
+    
+    
+
     private func parseJson(data: NSData, index: Int, url: String, title: String, language: String)->SearchResult?{
         
         let provider = "Faroo"
@@ -108,6 +115,7 @@ class FarooConnectionCtrl:URLConnectionCtrl{
         return SearchResult(index: index, url: url, resultItems: searchResultItems, title: title)
         
     }
+
 }
 
 class JSONConnectionCtrl:ConnectionCtrl {
@@ -161,7 +169,7 @@ class ConnectionCtrl {
      {
         print("start")
         self.searchQuerys = data.0
-        request.HTTPMethod = "GET"
+        request.HTTPMethod = "POST"
         request.HTTPBody = data.1
         let session = NSURLSession.sharedSession()
         print("running")
