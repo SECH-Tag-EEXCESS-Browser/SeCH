@@ -47,6 +47,10 @@ class TaskCtrl {
             
         }*/
 //-------------------------------- /Faroo
+//-------------------------------- DuckDuckGo
+    //    let test = DuckDuckGoCtrl().extractSearch(searchQuerys)
+        
+//-------------------------------- /DuckDuckGo
 //-------------------------------- EXXCESS
 
         // Generate Tuple(NSData,SearchQuerys) || NSData -> Query in JSON

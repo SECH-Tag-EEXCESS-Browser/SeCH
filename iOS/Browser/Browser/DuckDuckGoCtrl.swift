@@ -32,7 +32,7 @@ class DuckDuckGoCtrl:URLConnectionCtrl{
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             
             self.post((searchQuerys, NSData()), request: request, postCompleted: { (succeeded, data, querys) -> () in
-                
+                print(String(data,NSASCIIStringEncoding))
                 searchResults.append(self.extractQuery(data, index: query.getIndex(), url: query.getUrl(), title: query.getTitle())!)
             })
             
@@ -45,7 +45,7 @@ class DuckDuckGoCtrl:URLConnectionCtrl{
     
     
     func extractQuery(data: NSData, index: Int, url: String, title: String)->SearchResult?{
-        let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as AnyObject
+        let json = try? NSJSONSerialization.JSONObjectWithData(data, options: [NSJSONReadingOptions()]) as AnyObject
         let relatedTopics = JSONData.fromObject(json!)!["RelatedTopics"]?.array as [JSONData]!
         let results = JSONData.fromObject(json!)!["Results"]?.array as [JSONData]!
         var searchResultItems = [SearchResultItem]()
