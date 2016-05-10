@@ -48,7 +48,7 @@ class TaskCtrl {
         }*/
 //-------------------------------- /Faroo
 //-------------------------------- DuckDuckGo
-    //    let test = DuckDuckGoCtrl().extractSearch(searchQuerys)
+      //let test = DuckDuckGoCtrl().extractSearch(searchQuerys)
         
 //-------------------------------- /DuckDuckGo
 //-------------------------------- EXXCESS

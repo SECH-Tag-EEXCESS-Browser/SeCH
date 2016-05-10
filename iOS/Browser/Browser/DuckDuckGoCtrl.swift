@@ -13,8 +13,8 @@ class DuckDuckGoCtrl:URLConnectionCtrl{
     func extractSearch(searchQuerys:SearchQuerys)->SearchResults?{
 
         var topic: String = ""
-        let basicUrl = "http://api.duckduckgo.com/?q=\(topic)&format=json&pretty=1&t=sechbrowser"
-        
+     //  let basicUrl = "http://api.duckduckgo.com/?q=\(topic)&format=json&pretty=1&t=sechbrowser"
+        let basicUrl = "http://api.duckduckgo.com/?q=bayern&format=json&pretty=1&t=sechbrowser"
         var searchResults: [SearchResult] = []
         let searchQueryArr: [SearchQuery] = searchQuerys.getSearchQuerys()
         
@@ -28,11 +28,12 @@ class DuckDuckGoCtrl:URLConnectionCtrl{
             }
             
             let request = NSMutableURLRequest(URL: NSURL(string: basicUrl)!)
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
+     //       request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+     //       request.addValue("application/json", forHTTPHeaderField: "Accept")
             
             self.post((searchQuerys, NSData()), request: request, postCompleted: { (succeeded, data, querys) -> () in
-                print(String(data,NSASCIIStringEncoding))
+                print(basicUrl)
                 searchResults.append(self.extractQuery(data, index: query.getIndex(), url: query.getUrl(), title: query.getTitle())!)
             })
             
@@ -45,7 +46,9 @@ class DuckDuckGoCtrl:URLConnectionCtrl{
     
     
     func extractQuery(data: NSData, index: Int, url: String, title: String)->SearchResult?{
-        let json = try? NSJSONSerialization.JSONObjectWithData(data, options: [NSJSONReadingOptions()]) as AnyObject
+        //print(String(data: data, encoding: NSWindowsCP1252StringEncoding))
+        let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as AnyObject
+        print(json?.query)
         let relatedTopics = JSONData.fromObject(json!)!["RelatedTopics"]?.array as [JSONData]!
         let results = JSONData.fromObject(json!)!["Results"]?.array as [JSONData]!
         var searchResultItems = [SearchResultItem]()

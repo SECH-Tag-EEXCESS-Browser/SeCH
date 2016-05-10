@@ -166,7 +166,7 @@ class ConnectionCtrl {
      {
         print("start")
         self.searchQuerys = data.0
-        request.HTTPMethod = "POST"
+        request.HTTPMethod = "GET"
         request.HTTPBody = data.1
         let session = NSURLSession.sharedSession()
         print("running")
