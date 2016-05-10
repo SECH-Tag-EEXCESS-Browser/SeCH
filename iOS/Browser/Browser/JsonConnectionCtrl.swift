@@ -7,3 +7,29 @@
 //
 
 import Foundation
+
+class JSONConnectionCtrl:AbstractConnectionCtrl {
+    
+    func post(builder:AbstractURLBuilder,postCompleted : (succeeded: Bool, results: SearchResults) -> ()){
+        postCompleted(succeeded: false,results: SearchResults(searchResults: []))
+//        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.addValue("application/json", forHTTPHeaderField: "Accept")
+//        
+//        self.searchQuerys = data.0
+//        request.HTTPMethod = "GET"
+//        request.HTTPBody = data.1
+    }
+    
+    func post(request : NSMutableURLRequest,postCompleted : (succeeded: Bool, data: NSData) -> ())
+    {
+        print("start")
+        let session = NSURLSession.sharedSession()
+        print("running")
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            print("stoped")
+            postCompleted(succeeded: error == nil, data: data!)
+        })
+        task.resume()
+    }
+}

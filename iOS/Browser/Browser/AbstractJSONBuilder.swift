@@ -7,3 +7,13 @@
 //
 
 import Foundation
+// TODO:  Own File for AbstractBuilder
+protocol AbstractBuilder {
+    func getPostMethod()->String
+    func getContentType()->String
+    func getAcceptType()->String
+}
+
+protocol AbstractJSONBuilder:AbstractBuilder {
+    func getJSON()-> [String:AnyObject]
+}

@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol AbstractURLBuilder:AbstractBuilder {
+    func generateURL()->String
+}

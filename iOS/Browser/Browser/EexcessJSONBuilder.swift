@@ -7,3 +7,22 @@
 //
 
 import Foundation
+
+class EEXCESS_JSONBuilder:AbstractJSONBuilder{
+    
+    func getPostMethod()->String{
+        return "POST"
+    }
+    
+    func getContentType()->String{
+        return "application/json"
+    }
+    
+    func getAcceptType()->String{
+        return "application/json"
+    }
+    
+    func getJSON()-> [String:AnyObject]{
+        return [:]
+    }
+}

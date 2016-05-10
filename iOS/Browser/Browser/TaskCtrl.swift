@@ -57,7 +57,7 @@ class TaskCtrl {
         let requestData = EEXCESSRecommendationJSONCtrl().generateJSON(searchQuerys)
         
         // Send EEXCESS Request
-        JSONConnectionCtrl().post(requestData, url: QUERY_URL){ (succeeded: Bool, msg: NSData, searchQuerys:SearchQuerys?) -> () in
+        JSONConnectionCtrlOld().post(requestData, url: QUERY_URL){ (succeeded: Bool, msg: NSData, searchQuerys:SearchQuerys?) -> () in
             if (succeeded) {
                 let recommendationCtrl = EEXCESSRecommendationCtrl()
                 guard let recommendation = recommendationCtrl.extractRecommendatins(msg,searchQuerys: searchQuerys) else

@@ -7,3 +7,22 @@
 //
 
 import Foundation
+
+class DuckDuckGoURLBuilder:AbstractURLBuilder {
+    
+    func generateURL()->String{
+        return "blabla"
+    }
+    
+    func getPostMethod()->String{
+        return "POST"
+    }
+    
+    func getContentType()->String{
+        return "application/json"
+    }
+    
+    func getAcceptType()->String{
+        return "application/json"
+    }
+}

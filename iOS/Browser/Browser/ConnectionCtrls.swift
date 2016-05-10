@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FarooConnectionCtrl:URLConnectionCtrl{
+class FarooConnectionCtrl:URLConnectionCtrlOld{
     
     func sendRequest(searchQuerys: SearchQuerys, queryCompleted: (searchResults: SearchResults) ->()){
         
@@ -118,7 +118,7 @@ class FarooConnectionCtrl:URLConnectionCtrl{
 
 }
 
-class JSONConnectionCtrl:ConnectionCtrl {
+class JSONConnectionCtrlOld:ConnectionCtrl {
     
     override func post(params : (SearchQuerys,AnyObject), url : String,
         postCompleted : (succeeded: Bool, data: NSData, searchQuerys:SearchQuerys?) -> ())
@@ -132,7 +132,7 @@ class JSONConnectionCtrl:ConnectionCtrl {
     }
 }
 
-class URLConnectionCtrl:ConnectionCtrl {
+class URLConnectionCtrlOld:ConnectionCtrl {
     
     override func post(params : (SearchQuerys,AnyObject), url : String,
         postCompleted : (succeeded: Bool, data: NSData, searchQuerys:SearchQuerys?) -> ())
@@ -181,55 +181,3 @@ class ConnectionCtrl {
     }
 }
 
-class EEXCESSConnectionCtrl:JSON2ConnectionCtrl {
-    override func post(searchQuerys:SearchQuerys,postCompleted : (succeeded: Bool, results: SearchResults) -> ()){
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://eexcess.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer/recommend")!)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        let data =  try! NSJSONSerialization.dataWithJSONObject(EEXCESSRecommendationJSONCtrl().generateJSON(searchQuerys) as! AnyObject, options: [NSJSONWritingOptions()])
-        
-        
-        postCompleted(succeeded: false,results: SearchResults(searchResults: []))
-    }
-}
-
-class URL2ConnectionCtrl:AbstractConnectionCtrl {
-    
-    func post(searchQuerys:SearchQuerys,postCompleted : (succeeded: Bool, results: SearchResults) -> ()){
-        postCompleted(succeeded: false,results: SearchResults(searchResults: []))
-    }
-    
-    override func post(url : String, postCompleted : (succeeded: Bool, data: NSData) -> ()){
-        postCompleted(succeeded: false,data: "Es wird die abstrakte Klasse ConnectionCtrl".dataUsingEncoding(NSUTF8StringEncoding)!)
-    }
-}
-
-class JSON2ConnectionCtrl:AbstractConnectionCtrl {
-    
-    func post(searchQuerys:SearchQuerys,postCompleted : (succeeded: Bool, results: SearchResults) -> ()){
-        postCompleted(succeeded: false,results: SearchResults(searchResults: []))
-    }
-    
-    override func post(url : String, postCompleted : (succeeded: Bool, data: NSData) -> ()){
-        postCompleted(succeeded: false,data: "Es wird die abstrakte Klasse ConnectionCtrl".dataUsingEncoding(NSUTF8StringEncoding)!)
-    }
-}
-
-class AbstractConnectionCtrl {
-    
-    func post(url : String, postCompleted : (succeeded: Bool, data: NSData) -> ()){
-            postCompleted(succeeded: false,data: "Es wird die abstrakte Klasse ConnectionCtrl".dataUsingEncoding(NSUTF8StringEncoding)!)
-    }
-    
-    func post(request : NSMutableURLRequest,postCompleted : (succeeded: Bool, data: NSData) -> ())
-    {
-        print("start")
-        let session = NSURLSession.sharedSession()
-        print("running")
-        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            print("stoped")
-            postCompleted(succeeded: error == nil, data: data!)
-        })
-        task.resume()
-    }
-}

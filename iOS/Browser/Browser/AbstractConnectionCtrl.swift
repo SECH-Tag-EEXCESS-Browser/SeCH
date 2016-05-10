@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol AbstractConnectionCtrl {
+    func post(request : NSMutableURLRequest,postCompleted : (succeeded: Bool, data: NSData) -> ())
+}
