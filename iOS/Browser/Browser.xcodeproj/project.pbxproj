@@ -13,6 +13,11 @@
 		4B5FEA061C3FBE94004795F8 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5FEA051C3FBE94004795F8 /* SearchTableViewController.swift */; };
 		5014A2691CC680DA006D70EF /* readHead.js in Resources */ = {isa = PBXBuildFile; fileRef = 5014A2681CC680DA006D70EF /* readHead.js */; };
 		505422801CC66F0900738CCE /* DuckDuckGoCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5054227F1CC66F0900738CCE /* DuckDuckGoCtrl.swift */; };
+		5070F0A01CE49F4A00D7A5A3 /* FarooResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070F09F1CE49F4A00D7A5A3 /* FarooResponseParser.swift */; };
+		5070F0A21CE49F5D00D7A5A3 /* DuckDuckGoResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070F0A11CE49F5D00D7A5A3 /* DuckDuckGoResponseParser.swift */; };
+		5070F0A41CE49F7900D7A5A3 /* EexcessResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070F0A31CE49F7900D7A5A3 /* EexcessResponseParser.swift */; };
+		5070F0A61CE49FA500D7A5A3 /* AbstractResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070F0A51CE49FA500D7A5A3 /* AbstractResponseParser.swift */; };
+		5070F0A81CE49FBB00D7A5A3 /* AbstractBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070F0A71CE49FBB00D7A5A3 /* AbstractBuilder.swift */; };
 		50773B1C1CBD208800D98111 /* QueryBuildCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50773B1B1CBD208800D98111 /* QueryBuildCtrl.swift */; };
 		507E7F4D1CE22E2200840F7B /* AbstractConnectionCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507E7F4C1CE22E2200840F7B /* AbstractConnectionCtrl.swift */; };
 		507E7F4F1CE22E4800840F7B /* JsonConnectionCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507E7F4E1CE22E4800840F7B /* JsonConnectionCtrl.swift */; };
@@ -80,6 +85,11 @@
 		4B5FEA051C3FBE94004795F8 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		5014A2681CC680DA006D70EF /* readHead.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = readHead.js; sourceTree = "<group>"; };
 		5054227F1CC66F0900738CCE /* DuckDuckGoCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DuckDuckGoCtrl.swift; sourceTree = "<group>"; };
+		5070F09F1CE49F4A00D7A5A3 /* FarooResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FarooResponseParser.swift; sourceTree = "<group>"; };
+		5070F0A11CE49F5D00D7A5A3 /* DuckDuckGoResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DuckDuckGoResponseParser.swift; sourceTree = "<group>"; };
+		5070F0A31CE49F7900D7A5A3 /* EexcessResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EexcessResponseParser.swift; sourceTree = "<group>"; };
+		5070F0A51CE49FA500D7A5A3 /* AbstractResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractResponseParser.swift; sourceTree = "<group>"; };
+		5070F0A71CE49FBB00D7A5A3 /* AbstractBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractBuilder.swift; sourceTree = "<group>"; };
 		50773B1B1CBD208800D98111 /* QueryBuildCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryBuildCtrl.swift; sourceTree = "<group>"; };
 		507E7F4C1CE22E2200840F7B /* AbstractConnectionCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractConnectionCtrl.swift; sourceTree = "<group>"; };
 		507E7F4E1CE22E4800840F7B /* JsonConnectionCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonConnectionCtrl.swift; sourceTree = "<group>"; };
@@ -154,6 +164,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5070F09E1CE49F2500D7A5A3 /* ResponseParse */ = {
+			isa = PBXGroup;
+			children = (
+				5070F09F1CE49F4A00D7A5A3 /* FarooResponseParser.swift */,
+				5070F0A11CE49F5D00D7A5A3 /* DuckDuckGoResponseParser.swift */,
+				5070F0A31CE49F7900D7A5A3 /* EexcessResponseParser.swift */,
+				5070F0A51CE49FA500D7A5A3 /* AbstractResponseParser.swift */,
+			);
+			name = ResponseParse;
+			sourceTree = "<group>";
+		};
 		8D43CB401BCE689D00EEBB7B = {
 			isa = PBXGroup;
 			children = (
@@ -269,20 +290,21 @@
 		96A5C45C1CA19EE300EA62D3 /* QueryResolution */ = {
 			isa = PBXGroup;
 			children = (
-				96A5C45E1CA19F4600EA62D3 /* QueryCommunication */,
+				5070F09E1CE49F2500D7A5A3 /* ResponseParse */,
+				96A5C45E1CA19F4600EA62D3 /* QuerySend */,
 				96A5C45F1CA19F8600EA62D3 /* QueryProcessing */,
 			);
 			name = QueryResolution;
 			sourceTree = "<group>";
 		};
-		96A5C45E1CA19F4600EA62D3 /* QueryCommunication */ = {
+		96A5C45E1CA19F4600EA62D3 /* QuerySend */ = {
 			isa = PBXGroup;
 			children = (
 				507E7F4C1CE22E2200840F7B /* AbstractConnectionCtrl.swift */,
 				507E7F4E1CE22E4800840F7B /* JsonConnectionCtrl.swift */,
 				507E7F501CE22E5600840F7B /* URLConnectionCtrl.swift */,
 			);
-			name = QueryCommunication;
+			name = QuerySend;
 			sourceTree = "<group>";
 		};
 		96A5C45F1CA19F8600EA62D3 /* QueryProcessing */ = {
@@ -293,6 +315,7 @@
 				507E7F561CE22EA000840F7B /* EexcessJSONBuilder.swift */,
 				507E7F581CE22EB100840F7B /* FarooURLBuilder.swift */,
 				507E7F5A1CE22EC200840F7B /* DuckDuckGoURLBuilder.swift */,
+				5070F0A71CE49FBB00D7A5A3 /* AbstractBuilder.swift */,
 			);
 			name = QueryProcessing;
 			sourceTree = "<group>";
@@ -530,15 +553,18 @@
 				4B5FEA061C3FBE94004795F8 /* SearchTableViewController.swift in Sources */,
 				A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */,
 				961D15DD1C2412CF00D2EF46 /* SearchManager.swift in Sources */,
+				5070F0A81CE49FBB00D7A5A3 /* AbstractBuilder.swift in Sources */,
 				961D15C51C2410B900D2EF46 /* PersistenceController.swift in Sources */,
 				187387311BE61DE000EDDC31 /* FavouriteTableViewController.swift in Sources */,
 				50773B1C1CBD208800D98111 /* QueryBuildCtrl.swift in Sources */,
 				961D15D81C24122E00D2EF46 /* ConnectionCtrls.swift in Sources */,
 				187387531BE64CA400EDDC31 /* FavouriteCell.swift in Sources */,
 				961D15C11C2410AA00D2EF46 /* RankingDataObject.swift in Sources */,
+				5070F0A61CE49FA500D7A5A3 /* AbstractResponseParser.swift in Sources */,
 				8D43CB4D1BCE689E00EEBB7B /* AppDelegate.swift in Sources */,
 				8D07B7941BD0F79A00031D8B /* WebViewDelegate.swift in Sources */,
 				961D15CA1C24114400D2EF46 /* JSONData.swift in Sources */,
+				5070F0A41CE49F7900D7A5A3 /* EexcessResponseParser.swift in Sources */,
 				507E7F4D1CE22E2200840F7B /* AbstractConnectionCtrl.swift in Sources */,
 				507E7F591CE22EB100840F7B /* FarooURLBuilder.swift in Sources */,
 				507E7F551CE22E8900840F7B /* AbstractURLBuilder.swift in Sources */,
@@ -554,9 +580,11 @@
 				1875A0471BE4D58C00DD94CD /* FavouritesModel.swift in Sources */,
 				507E7F571CE22EA000840F7B /* EexcessJSONBuilder.swift in Sources */,
 				8D1386021BF381DE009E5F46 /* SettingsController.swift in Sources */,
+				5070F0A01CE49F4A00D7A5A3 /* FarooResponseParser.swift in Sources */,
 				8D1385FD1BF3623D009E5F46 /* AdressBar.swift in Sources */,
 				961D15D31C24119900D2EF46 /* EEXCESSOrigin.swift in Sources */,
 				96D622B81C43E6720090C438 /* SeachRules.swift in Sources */,
+				5070F0A21CE49F5D00D7A5A3 /* DuckDuckGoResponseParser.swift in Sources */,
 				505422801CC66F0900738CCE /* DuckDuckGoCtrl.swift in Sources */,
 				507E7F511CE22E5600840F7B /* URLConnectionCtrl.swift in Sources */,
 				96A5C4661CA1A24800EA62D3 /* SearchResults.swift in Sources */,
