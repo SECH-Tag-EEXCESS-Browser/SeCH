@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+
+class DuckDuckGoResponseParser:AbstractResponseParser{
+    
+    init(query:SearchQuery){
+        
+    }
+    
+    func parse(data:NSData)->SearchResult{
+        return SearchResult()
+    }
+}

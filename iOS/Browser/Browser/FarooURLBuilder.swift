@@ -10,11 +10,11 @@ import Foundation
 
 class FarooURLBuilder:AbstractURLBuilder {
     
-    func generateURL()->String{
+    func generateURL(query:SearchQuery)->String{
         return "blabla"
     }
     
-    func getPostMethod()->String{
+    func getHTTPMethod()->String{
         return "POST"
     }
     
@@ -24,5 +24,9 @@ class FarooURLBuilder:AbstractURLBuilder {
     
     func getAcceptType()->String{
         return "application/json"
+    }
+    
+    func getParser(query:SearchQuery)->AbstractResponseParser{
+        return FarooResponseParser(query: query)
     }
 }

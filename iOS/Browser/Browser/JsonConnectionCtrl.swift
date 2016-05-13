@@ -10,26 +10,19 @@ import Foundation
 
 class JSONConnectionCtrl:AbstractConnectionCtrl {
     
-    func post(builder:AbstractURLBuilder,postCompleted : (succeeded: Bool, results: SearchResults) -> ()){
-        postCompleted(succeeded: false,results: SearchResults(searchResults: []))
-//        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.addValue("application/json", forHTTPHeaderField: "Accept")
-//        
-//        self.searchQuerys = data.0
-//        request.HTTPMethod = "GET"
-//        request.HTTPBody = data.1
-    }
+    let builders = [EEXCESS_JSONBuilder()]
     
-    func post(request : NSMutableURLRequest,postCompleted : (succeeded: Bool, data: NSData) -> ())
-    {
-        print("start")
-        let session = NSURLSession.sharedSession()
-        print("running")
-        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            print("stoped")
-            postCompleted(succeeded: error == nil, data: data!)
-        })
-        task.resume()
+    override func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult) -> ()){
+        
+        for builder in builders {
+            let request = NSMutableURLRequest(URL: NSURL(string: builder.getURL())!)
+            request.addValue(builder.getContentType(), forHTTPHeaderField: "Content-Type")
+            request.addValue(builder.getAcceptType(), forHTTPHeaderField: "Accept")
+            
+            
+            request.HTTPMethod = builder.getHTTPMethod()
+            request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(builder.generateJSON(query), options: [NSJSONWritingOptions()])
+            post(request, parser: builder.getParser(query), postCompleted: postCompleted)
+        }
     }
 }

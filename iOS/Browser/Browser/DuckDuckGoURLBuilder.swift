@@ -10,11 +10,11 @@ import Foundation
 
 class DuckDuckGoURLBuilder:AbstractURLBuilder {
     
-    func generateURL()->String{
+    func generateURL(query:SearchQuery)->String{
         return "blabla"
     }
     
-    func getPostMethod()->String{
+    func getHTTPMethod()->String{
         return "POST"
     }
     
@@ -25,4 +25,9 @@ class DuckDuckGoURLBuilder:AbstractURLBuilder {
     func getAcceptType()->String{
         return "application/json"
     }
+    
+    func getParser(query:SearchQuery)->AbstractResponseParser{
+        return DuckDuckGoResponseParser(query: query)
+    }
+
 }

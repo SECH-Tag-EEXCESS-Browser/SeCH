@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+protocol AbstractBuilder {
+    func getHTTPMethod()->String
+    func getContentType()->String
+    func getAcceptType()->String
+    func getParser(query:SearchQuery)->AbstractResponseParser
+}

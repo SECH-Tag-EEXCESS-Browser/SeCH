@@ -49,6 +49,10 @@ class SearchQuery{
         self.title = title
     }
     
+    func getSearchContext()->[SearchContext] {
+        return [getHead(),getSection(),getLink()]
+    }
+    
     func getLink()->SearchContext {
         return self.linkContext
     }

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol AbstractURLBuilder:AbstractBuilder {
-    func generateURL()->String
+    func generateURL(query:SearchQuery)->String
 }

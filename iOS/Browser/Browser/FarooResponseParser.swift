@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+class FarooResponseParser:AbstractResponseParser{
+    
+    init(query:SearchQuery){
+        
+    }
+    
+    func parse(data:NSData)->SearchResult{
+        return SearchResult() 
+    }
+}

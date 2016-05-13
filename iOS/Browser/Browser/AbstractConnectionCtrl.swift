@@ -8,6 +8,21 @@
 
 import Foundation
 
-protocol AbstractConnectionCtrl {
-    func post(request : NSMutableURLRequest,postCompleted : (succeeded: Bool, data: NSData) -> ())
+class AbstractConnectionCtrl {
+    
+    func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult) -> ()){
+        postCompleted(succeeded: false, result: SearchResult())
+    }
+    
+    func post(request : NSMutableURLRequest,parser:AbstractResponseParser,postCompleted : (succeeded: Bool, result: SearchResult) -> ())
+    {
+        print("start")
+        let session = NSURLSession.sharedSession()
+        print("running")
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            print("stoped")
+            postCompleted(succeeded: error == nil, result: parser.parse(data!))
+        })
+        task.resume()
+    }
 }

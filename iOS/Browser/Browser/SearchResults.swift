@@ -34,6 +34,14 @@ class SearchResult {
         self.title = title
     }
     
+    init()//Only for DummyBuild
+    {
+        self.url = ""
+        self.resultItems = []
+        self.index = 0
+        self.title = ""
+    }
+    
     func getIndex()->Int{
         return self.index
     }
