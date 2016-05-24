@@ -119,11 +119,11 @@ class SEARCHManager {
                 if regex.isSEARCHLink(inString: searchBodyArray[i]){
                     if sectionIsAvailable == true{
                         let link = makeTagObject(searchBodyArray[i])
-                        makeSEARCHObject(head, section: tmpSection, link: link, filter: setFilter(tmpFilter, newFilter: searchBodyArray[i]),withID: i, withUrl: self.url)
+                        makeSEARCHObject(head, section: tmpSection, link: link, filter: setFilter(tmpFilter, newFilter: searchBodyArray[i]),withID: searchCollection.count, withUrl: self.url)
                     }
                     if sectionIsAvailable == false{
                         let link = makeTagObject(searchBodyArray[i])
-                        makeSEARCHObject(head, section: Tag(), link: link, filter: setFilter(headFilter, newFilter: searchBodyArray[i]),withID: i, withUrl: self.url)
+                        makeSEARCHObject(head, section: Tag(), link: link, filter: setFilter(headFilter, newFilter: searchBodyArray[i]),withID: searchCollection.count, withUrl: self.url)
                     }
                 }
             }
