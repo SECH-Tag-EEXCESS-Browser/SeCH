@@ -2,7 +2,7 @@
 //  URLConnectionCtrl.swift
 //  Browser
 //
-//  Created by Andreas Ziemer on 10.05.16.
+//  Created by Burak Erol on 10.05.16.
 //  Copyright © 2016 SECH-Tag-EEXCESS-Browser. All rights reserved.
 //
 
@@ -10,9 +10,9 @@ import Foundation
 
 class URLConnectionCtrl:AbstractConnectionCtrl {
     
-    let builders:[AbstractURLBuilder] = [FarooURLBuilder()]
+    let builders:[AbstractURLBuilder] = [DuckDuckGoURLBuilder(), FarooURLBuilder()]
 
-    func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult?) -> ()){
+    override func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult?) -> ()){
         
         for builder in builders {
             // Achtung auf Umlaute in der URI ...

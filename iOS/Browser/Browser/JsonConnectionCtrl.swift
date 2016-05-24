@@ -12,7 +12,7 @@ class JSONConnectionCtrl:AbstractConnectionCtrl {
     
     let builders = [EEXCESS_JSONBuilder()]
     
-    func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult?) -> ()){
+    override func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult?) -> ()){
         
         for builder in builders {
             let request = NSMutableURLRequest(URL: NSURL(string: builder.getURL())!)

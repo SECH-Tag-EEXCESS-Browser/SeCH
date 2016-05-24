@@ -36,7 +36,7 @@ class TaskCtrl {
             }
         })*/
         
-        URLConnectionCtrl().post(searchQuerys.getSearchQuerys()[0], postCompleted: { (succeeded: Bool,result:SearchResult) -> () in
+        URLConnectionCtrl().post(searchQuerys.getSearchQuerys()[0], postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
             if (succeeded) {
                 setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result, searchModels: searchModels)
             }
@@ -59,7 +59,7 @@ class TaskCtrl {
         let searchQuery = QueryBuildCtrl().buildQuery(searchModel)
         //-------------------------------- /QueryBuild ---------------------------------------------
         //-------------------------------- QueryResulution -----------------------------------------
-        JSONConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult) -> () in
+        JSONConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
             if (succeeded) {
                 setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result,searchModel: searchModel)
             }
@@ -68,7 +68,7 @@ class TaskCtrl {
             }
         })
         
-                URLConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult) -> () in
+                URLConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
                     if (succeeded) {
                         setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result,searchModel: searchModel)
                     }
