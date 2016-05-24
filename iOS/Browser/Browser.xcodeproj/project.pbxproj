@@ -283,6 +283,7 @@
 		96A5C45B1CA19E7B00EA62D3 /* QueryBuild */ = {
 			isa = PBXGroup;
 			children = (
+				50773B1B1CBD208800D98111 /* QueryBuildCtrl.swift */,
 			);
 			name = QueryBuild;
 			sourceTree = "<group>";
@@ -344,7 +345,6 @@
 		FEB9DC411BFC8D0D00EB1729 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				50773B1B1CBD208800D98111 /* QueryBuildCtrl.swift */,
 				961D15C61C24111F00D2EF46 /* TaskCtrl.swift */,
 				961D15D41C24122E00D2EF46 /* ConnectionCtrls.swift */,
 				961D15D61C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift */,

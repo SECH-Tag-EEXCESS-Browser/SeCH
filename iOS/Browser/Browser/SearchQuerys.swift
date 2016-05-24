@@ -39,14 +39,17 @@ class SearchQuery{
     private let url:String
     // title
     private let title:String
+    private let language:String
+
     
-    init(index:Int,link:SearchContext,section:SearchContext,head:SearchContext,url:String,title:String){
+    init(index:Int,link:SearchContext,section:SearchContext,head:SearchContext,url:String,title:String,language:String){
         self.index = index
         self.linkContext = link
         self.sectionContext = section
         self.headContext = head
         self.url = url
         self.title = title
+        self.language = language
     }
     
     func getSearchContext()->[SearchContext] {
@@ -71,6 +74,10 @@ class SearchQuery{
     
     func getTitle()->String {
         return self.title
+    }
+    
+    func getLanguage()->String {
+        return self.language
     }
     
     func getIndex()->Int{

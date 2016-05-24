@@ -376,7 +376,10 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         myWebView?.loadRequest(request)
         addressBarTxt.text = requestURL
     }
-    
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    var lib:[String:SearchResults] = [String:SearchResults]()
+//    var searchModelsOnCurrentSite:SearchModels!
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     func userContentController(userContentController: WKUserContentController,
         didReceiveScriptMessage message: WKScriptMessage) {
             print("JavaScript is sending a message \(message.body)")
@@ -405,32 +408,3 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
