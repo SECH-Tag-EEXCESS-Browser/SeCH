@@ -14,7 +14,7 @@ class AbstractConnectionCtrl {
         postCompleted(succeeded: false, result: SearchResult())
     }
     
-    func post(request : NSMutableURLRequest,parser:AbstractResponseParser,postCompleted : (succeeded: Bool, result: SearchResult) -> ())
+    func post(request : NSMutableURLRequest,parser:AbstractResponseParser,postCompleted : (succeeded: Bool, result: SearchResult?) -> ())
     {
         print("start")
         let session = NSURLSession.sharedSession()

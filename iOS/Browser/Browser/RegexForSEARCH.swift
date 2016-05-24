@@ -4,11 +4,18 @@
 //  Created by Brian Mairhörmann on 04.11.15.
 //  Copyright © 2015 SECH-Tag-EEXCESS-Browser. All rights reserved.
 //
+// This class implements methods for the usage of regex. The regex is specifically designed to fit the
+// system of search-tags.
 
 import Foundation
 
 class RegexForSEARCH {
     
+    //#########################################################################################################################################
+    //##########################################################___Public_Methods___###########################################################
+    //#########################################################################################################################################
+    
+    // Collects search-tags from a given string an returns them as a string-array
     func findSEARCHTags(inString string : String) -> [String]{
         
         let pattern = "</?search-[^>]*>"
@@ -18,6 +25,7 @@ class RegexForSEARCH {
         
     }
     
+    // Returns a boolean whether a given string is a section-closing-tag
     func isSEARCHSectionClosing(inString string : String) -> Bool {
         
         let pattern = "</search-section"
@@ -26,6 +34,7 @@ class RegexForSEARCH {
         return regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil
     }
     
+    // Returns a boolean whether a given string is a link-closing-tag
     func isSEARCHLinkClosing(inString string : String) -> Bool {
         
         let pattern = "</search-link"
@@ -34,6 +43,7 @@ class RegexForSEARCH {
         return regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil
     }
     
+    // Returns a boolean whether a given string includes a section
     func isSEARCHSection(inString string : String) -> Bool {
         
         let pattern = "<search-section"
@@ -42,6 +52,7 @@ class RegexForSEARCH {
         return regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil
     }
     
+    // Returns a boolean whether a given string includes a link
     func isSEARCHLink(inString string : String) -> Bool {
         
         let pattern = "<search-link"
@@ -50,6 +61,7 @@ class RegexForSEARCH {
         return regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil
     }
     
+    // Returns the attributes of a given string (head, section, link) as a dictionary
     func getAttributes(inString string : String) -> [String: String]{
         
         // Attributes: topic, type, mediaType, provider, licence
@@ -76,13 +88,19 @@ class RegexForSEARCH {
         return attributes
     }
     
-    // Private Methods
-    //#################################################################################################
+    
+    
+    //#########################################################################################################################################
+    //##########################################################___Private_Methods___##########################################################
+    //#########################################################################################################################################
+    
+    // Creates a regular-expression with a given pattern
     private func makeRegEx(withPattern pattern : String) -> NSRegularExpression{
         let regex = try! NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive)
         return regex
     }
     
+    // Returns all matches of a given string that map a given regex as a string-array
     private func getStringArrayWithRegex(string : String, regex : NSRegularExpression) -> [String]{
         let range = NSMakeRange(0, string.characters.count)
         let matches = regex.matchesInString(string, options: NSMatchingOptions(), range: range)

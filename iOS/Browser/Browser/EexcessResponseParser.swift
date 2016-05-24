@@ -16,8 +16,7 @@ class EexcessResponseParser:AbstractResponseParser{
         self.query = query
     }
     
-    func parse(data:NSData)->SearchResult{
-        print(String(data: data, encoding: NSUTF8StringEncoding))
+    func parse(data:NSData)->SearchResult?{
         let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as AnyObject
         guard let allResults = JSONData.fromObject(json!)!["result"]?.array as [JSONData]! else{
             return SearchResult()
@@ -36,21 +35,11 @@ class EexcessResponseParser:AbstractResponseParser{
                 if generatingQuery == nil {
                     generatingQuery = (res.object!["generatingQuery"]?.string)!
                 }
-                //Sucht nach title und url in dem er die generatingQuery mit den Suchwörtern aus SearchQuerys vergleicht
-//                for searchQuery in (searchQuerys?.getSearchQuerys())! {
-//                    var isCorrectQuery = true
-                    //                    for (tagTyp,context) in searchQuery.getSearchContext(){
-                    //                        if !((generatingQuery?.contains(context.getValues()["text"] as! String)) != nil) {
-                    //                            isCorrectQuery = false
-                    //                        }
-                    //                    }
-//                    if isCorrectQuery {
                 title = query.getTitle()
                 url = query.getUrl()
                 index = query.getIndex()
-//                    }
                 searchResultItems.append(SearchResultItem(title: t, provider: p, uri: u, language: l, mediaType: m))
-                }
+            }
         return SearchResult(index: index, url: url, resultItems: searchResultItems,title: title)
      }
     

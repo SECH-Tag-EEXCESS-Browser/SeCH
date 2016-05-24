@@ -1,3 +1,8 @@
+// This javascript-file implements a method that returns all attributes of the search-meta-tag (search-head) on the Webiste. It returns
+// a long string with every attribute added after another.
+//
+// CORRECT WHEN CHANGED: This file is called in the WebViewDelegat.swift
+
 function returnHead(){
     var metas = document.getElementsByTagName("META");
     var i;

@@ -21,12 +21,12 @@ class DuckDuckGoResponseParser:AbstractResponseParser{
         index = query.getIndex()
     }
     
-    func parse(data:NSData)->SearchResult{
+    func parse(data:NSData)->SearchResult?{
 
         var searchResultItems = [SearchResultItem]()
         let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as! NSDictionary
 
-        //Official site
+        //Official site}
         if let result = json!["Results"] as? Array<AnyObject>{
             
             for item in result{
@@ -60,5 +60,6 @@ class DuckDuckGoResponseParser:AbstractResponseParser{
             }
         }
         return SearchResult(index: index, url: url, resultItems: searchResultItems, title: title)
-    }
+
+}
 }

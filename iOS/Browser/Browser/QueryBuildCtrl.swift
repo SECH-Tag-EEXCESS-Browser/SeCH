@@ -27,8 +27,21 @@ class QueryBuildCtrl {
                 
                 searchContexts[tagTyp] = (SearchContext(searchWord: tag.topic, searchTyp: tag.type, filterMediaType: searchModel.filters.mediaType, filterProvider: searchModel.filters.provider, filterLicence: searchModel.filters.licence))
             }
-            searchQuery.append(SearchQuery(index: searchModel.index,link: searchContexts["link"]!,section:searchContexts["section"]!,head:searchContexts["head"]! ,url: searchModel.url,title: searchModel.title))
+            searchQuery.append(SearchQuery(index: searchModel.index,link: searchContexts["link"]!,section:searchContexts["section"]!,head:searchContexts["head"]! ,url: searchModel.url,title: searchModel.title, language: SettingsManager.getLanguage()))
         }
         return SearchQuerys(mSearchQuerys: searchQuery,language: SettingsManager.getLanguage())
+    }
+    
+    /**
+
+
+    */
+    func buildQuery(searchModel:SEARCHModel)->SearchQuery {
+            var searchContexts = [String:SearchContext]()
+            for (tagTyp,tag) in searchModel.tags {
+                
+                searchContexts[tagTyp] = (SearchContext(searchWord: tag.topic, searchTyp: tag.type, filterMediaType: searchModel.filters.mediaType, filterProvider: searchModel.filters.provider, filterLicence: searchModel.filters.licence))
+            }
+            return SearchQuery(index: searchModel.index,link: searchContexts["link"]!,section:searchContexts["section"]!,head:searchContexts["head"]! ,url: searchModel.url,title: searchModel.title, language: SettingsManager.getLanguage())
     }
 }

@@ -5,6 +5,9 @@
 //  Created by Andreas Ziemer on 14.10.15.
 //  Copyright © 2015 SECH-Tag-EEXCESS-Browser. All rights reserved.
 //
+// This class handles the mainscreen of the application. In the upper most part the class variables are defined. Below this is a collection of viewcontroller specific
+// methods which holds methods like viewDidLoad(), viewWillAppear(), ect. AND methods for reacting to elements of the view such as observers, segues and tableViews.
+// After that the IB-Action-Methods are listed. At the end of this class methods are listed that do not fall in any of the categories above.
 
 import UIKit
 import WebKit
@@ -373,7 +376,10 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         myWebView?.loadRequest(request)
         addressBarTxt.text = requestURL
     }
-    
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    var lib:[String:SearchResults] = [String:SearchResults]()
+//    var searchModelsOnCurrentSite:SearchModels!
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     func userContentController(userContentController: WKUserContentController,
         didReceiveScriptMessage message: WKScriptMessage) {
             print("JavaScript is sending a message \(message.body)")
@@ -402,32 +408,3 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -5,11 +5,17 @@
 //  Created by Andreas Ziemer on 16.10.15.
 //  Copyright © 2015 SECH-Tag-EEXCESS-Browser. All rights reserved.
 //
+// This is the Delegate-Class for the WebView shown in the main-view. At the top are the class-variables and below web-view-delegate-specific methods such
+// as didFinishNavigation or didFailLoadWithError. At the bottom of the class other methods are listed that do not fall in the categories above.
 
 import UIKit
 import WebKit
 
 class WebViewDelegate: NSObject, WKNavigationDelegate {
+    
+    //#########################################################################################################################################
+    //##########################################################___Class_Variables___##########################################################
+    //#########################################################################################################################################
     
     let regex = RegexForSEARCH()
     let searchManager = SEARCHManager()
@@ -17,6 +23,12 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
     var viewCtrl: ViewController!
     var htmlHead = ""
     var htmlBody = ""
+    
+    
+    
+    //#########################################################################################################################################
+    //##########################################################___Web_View_Delegate_Methods___################################################
+    //#########################################################################################################################################
 
     
     func webView(webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
@@ -25,7 +37,6 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
     }
     
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
-        
         
         mURL = (webView.URL?.absoluteString)!
         viewCtrl.addressBarTxt.text = mURL
@@ -57,7 +68,21 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
 
     }
     
-    func sechMng(){
+    func webView(webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
+        print("#########didReceiveServerRedirectForProvisionalNavigation##########")
+    }
+    
+    func webViewWebContentProcessDidTerminate(webView: WKWebView) {
+        print("##########webViewWebContentProcessDidTerminate#########")
+    }
+    
+    
+    
+    //#########################################################################################################################################
+    //##########################################################___Other_Methods___############################################################
+    //#########################################################################################################################################
+    
+    func sechMng() {
         //-> !
         // Put call for Request of EEXCESS here!
 
@@ -65,7 +90,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
 
         let task = TaskCtrl()
         
-        let setRecommendations = ({(status:String,msg: String, result: SearchResult?) -> () in
+        let setRecommendations = ({(status:String,msg: String, result: SearchResult?, querys:SEARCHModels) -> () in
             print(msg)
             // TODO: To be redesigned! 6
             
@@ -77,7 +102,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
             }
             
             let ds = self.viewCtrl.tableViewDataSource
-            ds.makeLabels(task.searchObjects!.getSearchModels())
+            ds.makeLabels(querys.getSearchModels())
             
             if(result != nil){
                 self.viewCtrl.responses = [result!]
@@ -95,13 +120,5 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
         })
         // Start SearchTask -> find results for Search-tags
         task.getRecommendations(WebContent(html: Html(head: self.htmlHead, body: self.htmlBody), url: (self.viewCtrl.myWebView?.URL?.absoluteString)!), setRecommendations: setRecommendations)
-    }
-    
-    func webView(webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
-        print("#########didReceiveServerRedirectForProvisionalNavigation##########")
-    }
-    
-    func webViewWebContentProcessDidTerminate(webView: WKWebView) {
-        print("##########webViewWebContentProcessDidTerminate#########")
     }
 }

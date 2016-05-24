@@ -12,7 +12,7 @@ class URLConnectionCtrl:AbstractConnectionCtrl {
     
     let builders:[AbstractURLBuilder] = [FarooURLBuilder(),DuckDuckGoURLBuilder()]
 
-    override func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult) -> ()){
+    func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult?) -> ()){
         
         for builder in builders {
             let request = NSMutableURLRequest(URL: NSURL(string: builder.generateURL(query))!)
