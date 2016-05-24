@@ -27,23 +27,23 @@ class TaskCtrl {
         let searchQuerys = QueryBuildCtrl().buildQuery(searchModels)
 //-------------------------------- /QueryBuild ---------------------------------------------
 //-------------------------------- QueryResulution -----------------------------------------
-        JSONConnectionCtrl().post(searchQuerys.getSearchQuerys()[0], postCompleted: { (succeeded: Bool,result:SearchResult) -> () in
+  /*      JSONConnectionCtrl().post(searchQuerys.getSearchQuerys()[0], postCompleted: { (succeeded: Bool,result:SearchResult) -> () in
             if (succeeded) {
                 setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result,searchModels: searchModels)
             }
             else {
                 setRecommendations(status: "FAILED",message: "Die Anfrage war nicht erfolgreich", result: nil,searchModels: searchModels)
             }
-        })
+        })*/
         
-//        URLConnectionCtrl().post(searchQuerys.getSearchQuerys()[0], postCompleted: { (succeeded: Bool,result:SearchResult) -> () in
-//            if (succeeded) {
-//                setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result)
-//            }
-//            else {
-//                setRecommendations(status: "FAILED",message: "Die Anfrage war nicht erfolgreich", result: nil)
-//            }
-//        })
+        URLConnectionCtrl().post(searchQuerys.getSearchQuerys()[0], postCompleted: { (succeeded: Bool,result:SearchResult) -> () in
+            if (succeeded) {
+                setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result, searchModels: searchModels)
+            }
+            else {
+                setRecommendations(status: "FAILED",message: "Die Anfrage war nicht erfolgreich", result: nil, searchModels: searchModels)
+            }
+        })
 //-------------------------------- /QueryResulution -----------------------------------------
     }
     

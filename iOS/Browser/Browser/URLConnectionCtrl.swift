@@ -10,12 +10,17 @@ import Foundation
 
 class URLConnectionCtrl:AbstractConnectionCtrl {
     
-    let builders:[AbstractURLBuilder] = [FarooURLBuilder(),DuckDuckGoURLBuilder()]
+    let builders:[AbstractURLBuilder] = [FarooURLBuilder()]
 
     func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult?) -> ()){
         
         for builder in builders {
-            let request = NSMutableURLRequest(URL: NSURL(string: builder.generateURL(query))!)
+            // Achtung auf Umlaute in der URI ...
+            let str = builder.generateURL(query)
+            let path = str.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+            let url = NSURL(string: path)!
+            
+            let request = NSMutableURLRequest(URL: url)
             request.addValue(builder.getContentType(), forHTTPHeaderField: "Content-Type")
             request.addValue(builder.getAcceptType(), forHTTPHeaderField: "Accept")
             

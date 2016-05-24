@@ -11,11 +11,39 @@ import Foundation
 class FarooURLBuilder:AbstractURLBuilder {
     
     func generateURL(query:SearchQuery)->String{
-        return "blabla"
+        
+        var topic: String = ""
+        
+        let language = query.getLanguage()
+        let basicUrl = "http://www.faroo.com/api?q="
+        
+        let key = "&key=FQtTu5NKF02wXVyU2viD2SjfJ4Q_"
+        let restUrl = "&start=1&length=10&l=\(language)&src=web&f=json\(key)"
+        
+        
+        
+            topic += checkSpecialCharakters(query.getLink().getSearchWord())
+            topic += "&q="
+        
+            
+            topic += checkSpecialCharakters(query.getSection().getSearchWord())
+            
+            topic += "&q="
+            
+            topic += checkSpecialCharakters(query.getHead().getSearchWord())
+            
+            let completeUrl = basicUrl + topic + restUrl
+            
+            print("URL " + completeUrl)
+        
+        
+    
+
+        return completeUrl
     }
     
     func getHTTPMethod()->String{
-        return "POST"
+        return "GET"
     }
     
     func getContentType()->String{
@@ -29,4 +57,17 @@ class FarooURLBuilder:AbstractURLBuilder {
     func getParser(query:SearchQuery)->AbstractResponseParser{
         return FarooResponseParser(query: query)
     }
+
+    private func checkSpecialCharakters(var query: String)->String{
+        let specialCharacters = [" ", "/", "=", "(", ")", ":", ";"]
+        
+        
+        for specialChar in specialCharacters{
+            
+            query = query.stringByReplacingOccurrencesOfString(specialChar, withString: "%20")
+        }
+        
+        return query
+    }
+
 }
