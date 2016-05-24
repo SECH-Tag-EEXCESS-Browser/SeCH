@@ -11,11 +11,18 @@ import Foundation
 class DuckDuckGoURLBuilder:AbstractURLBuilder {
     
     func generateURL(query:SearchQuery)->String{
-        return "blabla"
+        
+        let searchUrl = query.getLink().getSearchWord()
+        let newSearchString = searchUrl.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        let basicUrl = "http://api.duckduckgo.com/?q=\(newSearchString)&format=json&pretty=1&t=sechbrowser"
+       // let basicUrl = "http://api.duckduckgo.com/?q=bayern&format=json&pretty=1&t=sechbrowser"
+        print(basicUrl)
+        
+        return basicUrl
     }
     
     func getHTTPMethod()->String{
-        return "POST"
+        return "GET"
     }
     
     func getContentType()->String{
