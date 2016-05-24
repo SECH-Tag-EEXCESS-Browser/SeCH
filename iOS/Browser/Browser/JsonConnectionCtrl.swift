@@ -19,7 +19,6 @@ class JSONConnectionCtrl:AbstractConnectionCtrl {
             request.addValue(builder.getContentType(), forHTTPHeaderField: "Content-Type")
             request.addValue(builder.getAcceptType(), forHTTPHeaderField: "Accept")
             
-            
             request.HTTPMethod = builder.getHTTPMethod()
             request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(builder.generateJSON(query), options: [NSJSONWritingOptions()])
             post(request, parser: builder.getParser(query), postCompleted: postCompleted)

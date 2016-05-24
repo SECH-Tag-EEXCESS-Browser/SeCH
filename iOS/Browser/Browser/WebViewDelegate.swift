@@ -90,7 +90,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
 
         let task = TaskCtrl()
         
-        let setRecommendations = ({(status:String,msg: String, result: SearchResult?) -> () in
+        let setRecommendations = ({(status:String,msg: String, result: SearchResult?, querys:SEARCHModels) -> () in
             print(msg)
             // TODO: To be redesigned! 6
             
@@ -102,7 +102,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
             }
             
             let ds = self.viewCtrl.tableViewDataSource
-            ds.makeLabels(task.searchObjects!.getSearchModels())
+            ds.makeLabels(querys.getSearchModels())
             
             if(result != nil){
                 self.viewCtrl.responses = [result!]
