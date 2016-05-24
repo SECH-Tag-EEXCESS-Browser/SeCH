@@ -15,7 +15,7 @@ class DuckDuckGoResponseParser:AbstractResponseParser{
         
     }
     
-    func parse(data:NSData)->SearchResult{
+    func parse(data:NSData)->SearchResult?{
         return SearchResult()
     }
 }

@@ -16,7 +16,7 @@ class EexcessResponseParser:AbstractResponseParser{
         self.query = query
     }
     
-    func parse(data:NSData)->SearchResult{
+    func parse(data:NSData)->SearchResult?{
         let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as AnyObject
         guard let allResults = JSONData.fromObject(json!)!["result"]?.array as [JSONData]! else{
             return SearchResult()

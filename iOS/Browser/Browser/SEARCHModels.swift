@@ -16,6 +16,10 @@ class SEARCHModels {
         self.mSearchModels = searchModels
     }
     
+    init(){
+        self.mSearchModels = []
+    }
+    
     func getSearchModels()->[SEARCHModel]{
         return self.mSearchModels
     }

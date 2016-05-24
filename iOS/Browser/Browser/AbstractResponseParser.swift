@@ -10,5 +10,5 @@ import Foundation
 
 
 protocol AbstractResponseParser {
-    func parse(data:NSData)->SearchResult
+    func parse(data:NSData)->SearchResult?
 }
