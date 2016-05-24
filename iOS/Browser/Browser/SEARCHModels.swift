@@ -37,7 +37,7 @@ class SEARCHModels {
 //##########################################################___A_Single_Search_Model___####################################################
 //#########################################################################################################################################
 
-class SEARCHModel {
+class SEARCHModel:Hashable,Equatable{
     static let LINK_TAG = "LINK"
     static let SECTION_TAG = "SECTION"
     static let HEAD_TAG = "HEAD"
@@ -48,8 +48,17 @@ class SEARCHModel {
     var tags = [String : Tag]() // String is id (link, section, head) and Tag is Tag-Object
     var filters = Filter()
 
+    public var hashValue: Int {
+        get {
+            return url.hashValue + index
+        }
+    }
+
 }
 
+func ==(lhs: SEARCHModel, rhs: SEARCHModel) -> Bool{
+    return lhs.index == rhs.index && lhs.url == rhs.url
+}
 
 
 //#########################################################################################################################################

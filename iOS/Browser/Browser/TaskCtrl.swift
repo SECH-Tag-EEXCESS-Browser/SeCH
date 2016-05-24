@@ -27,7 +27,7 @@ class TaskCtrl {
         let searchQuerys = QueryBuildCtrl().buildQuery(searchModels)
 //-------------------------------- /QueryBuild ---------------------------------------------
 //-------------------------------- QueryResulution -----------------------------------------
-        JSONConnectionCtrl().post(searchQuerys.getSearchQuerys()[0], postCompleted: { (succeeded: Bool,result:SearchResult) -> () in
+        JSONConnectionCtrl().post(searchQuerys.getSearchQuerys()[0], postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
             if (succeeded) {
                 setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result,searchModels: searchModels)
             }
@@ -36,30 +36,25 @@ class TaskCtrl {
             }
         })
         
-//        URLConnectionCtrl().post(searchQuerys.getSearchQuerys()[0], postCompleted: { (succeeded: Bool,result:SearchResult) -> () in
-//            if (succeeded) {
-//                setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result)
-//            }
-//            else {
-//                setRecommendations(status: "FAILED",message: "Die Anfrage war nicht erfolgreich", result: nil)
-//            }
-//        })
+        URLConnectionCtrl().post(searchQuerys.getSearchQuerys()[0], postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
+            if (succeeded) {
+                setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result,searchModels: searchModels)
+            }
+            else {
+                setRecommendations(status: "FAILED",message: "Die Anfrage war nicht erfolgreich", result: nil,searchModels: searchModels)
+            }
+        })
 //-------------------------------- /QueryResulution -----------------------------------------
     }
     
-    func getRecommendationsNew(webContent:WebContent, setRecommendations: (status:String,message: String, result: SearchResult? , searchModel:SEARCHModel) -> Void)
+    func getRecommendationsNew(searchModel:SEARCHModel, setRecommendations: (status:String,message: String, result: SearchResult? , searchModel:SEARCHModel) -> Void)
     {
-        //-------------------------------- SeARCHExtraction ----------------------------------------
-        // Generate SearchObjects for QueryBuildCtrl
-        let searchModel = SEARCHManager().getSEARCHObjects(webContent).getSearchModels()[0]
-
-        //-------------------------------- /SeARCHExtraction ---------------------------------------
         //-------------------------------- QueryBuild ----------------------------------------------
         // Generate SearchQuery
         let searchQuery = QueryBuildCtrl().buildQuery(searchModel)
         //-------------------------------- /QueryBuild ---------------------------------------------
         //-------------------------------- QueryResulution -----------------------------------------
-        JSONConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult) -> () in
+        JSONConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
             if (succeeded) {
                 setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result,searchModel: searchModel)
             }
@@ -68,14 +63,14 @@ class TaskCtrl {
             }
         })
         
-                URLConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult) -> () in
-                    if (succeeded) {
-                        setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result,searchModel: searchModel)
-                    }
-                    else {
-                        setRecommendations(status: "FAILED",message: "Die Anfrage war nicht erfolgreich", result: nil,searchModel: searchModel)
-                    }
-                })
+//                URLConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult) -> () in
+//                    if (succeeded) {
+//                        setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result,searchModel: searchModel)
+//                    }
+//                    else {
+//                        setRecommendations(status: "FAILED",message: "Die Anfrage war nicht erfolgreich", result: nil,searchModel: searchModel)
+//                    }
+//                })
         //-------------------------------- /QueryResulution -----------------------------------------
     }
 }

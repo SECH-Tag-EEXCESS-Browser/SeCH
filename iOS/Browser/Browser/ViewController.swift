@@ -51,8 +51,11 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     var headLine : String!
     var favourites = [FavouritesModel]()
     
-    
-    
+//    ***************************************************************
+    var searchModelsOfCurrentPage:SEARCHModels?
+    var searchResultsOfPages = [SEARCHModel:SearchResults]()
+//    ***************************************************************
+
     //################################################################################################################################################
     //##########################################################___View_Controlling_Methods___##########################################################
     //################################################################################################################################################
@@ -173,7 +176,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             popViewController.headLine = self.headLine
             
             if responses != nil && responses.count > 0{
-                popViewController.searchTags = responses[indexPathForSelectedSearchTag].getResultItems()
+                popViewController.searchTags = responses[0].getResultItems()//responses[indexPathForSelectedSearchTag].getResultItems()
             }else{
                 popViewController.jsonText = "NO RESULTS"
                 popViewController.url = "https://www.google.de/?gws_rd=ssl#q=Mein+Name+ist+Hase"
@@ -319,9 +322,9 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     //###########################################################################################################################################
     
     
-    func rankThatShit(eexcessAllResponses: [SearchResult]!){
-        
-        guard let allResponses = eexcessAllResponses else{
+    func doRank(responses: [SearchResult]!){
+        //Warum guard?
+        guard let allResponses = responses else{
             return
         }
         
@@ -343,13 +346,9 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             }
             rule.addRule(seachRule)
         }
-        
+        enableSearchLinks()
         rule.applyRulesToAllResponses(allResponses)
-        let scriptURL = NSBundle.mainBundle().pathForResource("main", ofType: "js")
-        let scriptContent = try! String( contentsOfFile: scriptURL!, encoding:NSUTF8StringEncoding)
-        self.myWebView?.evaluateJavaScript(scriptContent, completionHandler: { (object, error) in
-        })
-        
+
         //Change SechButton Image
         setSechButtonLoading(false)
         
@@ -360,6 +359,13 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     //#########################################################################################################################################
     //##########################################################___Other-Methods___############################################################
     //#########################################################################################################################################
+    
+    func enableSearchLinks(){
+        let scriptURL = NSBundle.mainBundle().pathForResource("main", ofType: "js")
+        let scriptContent = try! String( contentsOfFile: scriptURL!, encoding:NSUTF8StringEncoding)
+        self.myWebView?.evaluateJavaScript(scriptContent, completionHandler: { (object, error) in
+        })
+    }
     
     func countSechAnimation(){
         UIView.animateWithDuration(0.4, animations: { () -> Void in
@@ -376,10 +382,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         myWebView?.loadRequest(request)
         addressBarTxt.text = requestURL
     }
-    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    var lib:[String:SearchResults] = [String:SearchResults]()
-//    var searchModelsOnCurrentSite:SearchModels!
-    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
     func userContentController(userContentController: WKUserContentController,
         didReceiveScriptMessage message: WKScriptMessage) {
             print("JavaScript is sending a message \(message.body)")
@@ -391,7 +394,61 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
  
             self.headLine = json["topic"]
             
-            performSegueWithIdentifier("showPopView", sender: self)
+            guard let models = searchModelsOfCurrentPage?.getSearchModels() else{
+                return
+            }
+            var currentSearchModel:SEARCHModel?
+            
+            for model in models {
+                if model.url == json["url"]! && model.index == id {
+                    currentSearchModel = model
+                }
+            }
+            
+            if currentSearchModel != nil {
+                print(currentSearchModel!.title)
+            }
+//            if let self.searchResultsOfPages[currentSearchModel!]
+            let task = TaskCtrl()
+            
+            let setRecommendations = ({(status:String,msg: String, result: SearchResult?, query:SEARCHModel) -> () in
+                print(msg)
+                // TODO: To be redesigned! 6
+                
+                if(status == "FAILED"){
+                    self.tableViewDataSource.sechTags = []
+                    self.tableView.reloadData()
+                    self.setSechButtonLoading(false)
+                    return
+                }
+                
+                let ds = self.tableViewDataSource
+                ds.makeLabels([query])
+                
+                if(result != nil){
+                    self.responses = [result!]
+                    if self.searchResultsOfPages[query] == nil {
+                        self.searchResultsOfPages[query] = SearchResults(searchResults: [])
+                    }
+                    self.searchResultsOfPages[query]?.append(result!)
+                }else{
+                    self.responses = []
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    // TODO: To be redesigned! 8
+                    self.doRank(self.responses)
+                    self.tableView.reloadData()
+                    print("######### SeARCH fertig #########")
+                    self.showPopView()
+                })
+            })
+            // Start SearchTask -> find results for Search-tags
+            task.getRecommendationsNew(currentSearchModel!, setRecommendations: setRecommendations)
+    }
+    
+    func showPopView(){
+        performSegueWithIdentifier("showPopView", sender: self)
     }
     
     func setSechButtonLoading(bool : Bool){

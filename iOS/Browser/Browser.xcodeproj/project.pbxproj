@@ -12,7 +12,6 @@
 		1875A0471BE4D58C00DD94CD /* FavouritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875A0461BE4D58C00DD94CD /* FavouritesModel.swift */; };
 		4B5FEA061C3FBE94004795F8 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5FEA051C3FBE94004795F8 /* SearchTableViewController.swift */; };
 		5014A2691CC680DA006D70EF /* readHead.js in Resources */ = {isa = PBXBuildFile; fileRef = 5014A2681CC680DA006D70EF /* readHead.js */; };
-		505422801CC66F0900738CCE /* DuckDuckGoCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5054227F1CC66F0900738CCE /* DuckDuckGoCtrl.swift */; };
 		5070F0A01CE49F4A00D7A5A3 /* FarooResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070F09F1CE49F4A00D7A5A3 /* FarooResponseParser.swift */; };
 		5070F0A21CE49F5D00D7A5A3 /* DuckDuckGoResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070F0A11CE49F5D00D7A5A3 /* DuckDuckGoResponseParser.swift */; };
 		5070F0A41CE49F7900D7A5A3 /* EexcessResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070F0A31CE49F7900D7A5A3 /* EexcessResponseParser.swift */; };
@@ -46,9 +45,6 @@
 		961D15CA1C24114400D2EF46 /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C91C24114400D2EF46 /* JSONData.swift */; };
 		961D15CD1C24118100D2EF46 /* SEARCHModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15CC1C24118100D2EF46 /* SEARCHModels.swift */; };
 		961D15D31C24119900D2EF46 /* EEXCESSOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D01C24119900D2EF46 /* EEXCESSOrigin.swift */; };
-		961D15D81C24122E00D2EF46 /* ConnectionCtrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D41C24122E00D2EF46 /* ConnectionCtrls.swift */; };
-		961D15DA1C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D61C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift */; };
-		961D15DB1C24122E00D2EF46 /* EEXCESSRecommendationJSONCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D71C24122E00D2EF46 /* EEXCESSRecommendationJSONCtrl.swift */; };
 		961D15DD1C2412CF00D2EF46 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15DC1C2412CF00D2EF46 /* SearchManager.swift */; };
 		96A5C4621CA1A1BA00EA62D3 /* WebContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A5C4611CA1A1BA00EA62D3 /* WebContent.swift */; };
 		96A5C4641CA1A21F00EA62D3 /* SearchQuerys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A5C4631CA1A21F00EA62D3 /* SearchQuerys.swift */; };
@@ -84,7 +80,6 @@
 		1875A0461BE4D58C00DD94CD /* FavouritesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesModel.swift; sourceTree = "<group>"; };
 		4B5FEA051C3FBE94004795F8 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		5014A2681CC680DA006D70EF /* readHead.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = readHead.js; sourceTree = "<group>"; };
-		5054227F1CC66F0900738CCE /* DuckDuckGoCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DuckDuckGoCtrl.swift; sourceTree = "<group>"; };
 		5070F09F1CE49F4A00D7A5A3 /* FarooResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FarooResponseParser.swift; sourceTree = "<group>"; };
 		5070F0A11CE49F5D00D7A5A3 /* DuckDuckGoResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DuckDuckGoResponseParser.swift; sourceTree = "<group>"; };
 		5070F0A31CE49F7900D7A5A3 /* EexcessResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EexcessResponseParser.swift; sourceTree = "<group>"; };
@@ -124,9 +119,6 @@
 		961D15C91C24114400D2EF46 /* JSONData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONData.swift; sourceTree = "<group>"; };
 		961D15CC1C24118100D2EF46 /* SEARCHModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEARCHModels.swift; sourceTree = "<group>"; };
 		961D15D01C24119900D2EF46 /* EEXCESSOrigin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EEXCESSOrigin.swift; sourceTree = "<group>"; };
-		961D15D41C24122E00D2EF46 /* ConnectionCtrls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionCtrls.swift; sourceTree = "<group>"; };
-		961D15D61C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EEXCESSRecommendationCtrl.swift; sourceTree = "<group>"; };
-		961D15D71C24122E00D2EF46 /* EEXCESSRecommendationJSONCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EEXCESSRecommendationJSONCtrl.swift; sourceTree = "<group>"; };
 		961D15DC1C2412CF00D2EF46 /* SearchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		96A5C4611CA1A1BA00EA62D3 /* WebContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebContent.swift; sourceTree = "<group>"; };
 		96A5C4631CA1A21F00EA62D3 /* SearchQuerys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchQuerys.swift; sourceTree = "<group>"; };
@@ -206,7 +198,6 @@
 				96A5C4631CA1A21F00EA62D3 /* SearchQuerys.swift */,
 				96A5C45C1CA19EE300EA62D3 /* QueryResolution */,
 				96A5C4651CA1A24800EA62D3 /* SearchResults.swift */,
-				5054227F1CC66F0900738CCE /* DuckDuckGoCtrl.swift */,
 				96F405701C03356A0013E66F /* Ranking */,
 				9617645B1C3FB6B400C4169B /* Settings.bundle */,
 				FEB9DC401BFC8D0700EB1729 /* View */,
@@ -346,9 +337,6 @@
 			isa = PBXGroup;
 			children = (
 				961D15C61C24111F00D2EF46 /* TaskCtrl.swift */,
-				961D15D41C24122E00D2EF46 /* ConnectionCtrls.swift */,
-				961D15D61C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift */,
-				961D15D71C24122E00D2EF46 /* EEXCESSRecommendationJSONCtrl.swift */,
 				FEB9DC471BFC8E8100EB1729 /* Toolbar */,
 			);
 			name = Controller;
@@ -557,7 +545,6 @@
 				961D15C51C2410B900D2EF46 /* PersistenceController.swift in Sources */,
 				187387311BE61DE000EDDC31 /* FavouriteTableViewController.swift in Sources */,
 				50773B1C1CBD208800D98111 /* QueryBuildCtrl.swift in Sources */,
-				961D15D81C24122E00D2EF46 /* ConnectionCtrls.swift in Sources */,
 				187387531BE64CA400EDDC31 /* FavouriteCell.swift in Sources */,
 				961D15C11C2410AA00D2EF46 /* RankingDataObject.swift in Sources */,
 				5070F0A61CE49FA500D7A5A3 /* AbstractResponseParser.swift in Sources */,
@@ -569,8 +556,6 @@
 				507E7F591CE22EB100840F7B /* FarooURLBuilder.swift in Sources */,
 				507E7F551CE22E8900840F7B /* AbstractURLBuilder.swift in Sources */,
 				96F405741C0335B50013E66F /* Rules.swift in Sources */,
-				961D15DB1C24122E00D2EF46 /* EEXCESSRecommendationJSONCtrl.swift in Sources */,
-				961D15DA1C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift in Sources */,
 				50D67A951C2ACA8100B864FC /* ViewController.swift in Sources */,
 				961D15CD1C24118100D2EF46 /* SEARCHModels.swift in Sources */,
 				961D15C31C2410B200D2EF46 /* RankingDataObjectPersistency.swift in Sources */,
@@ -585,7 +570,6 @@
 				961D15D31C24119900D2EF46 /* EEXCESSOrigin.swift in Sources */,
 				96D622B81C43E6720090C438 /* SeachRules.swift in Sources */,
 				5070F0A21CE49F5D00D7A5A3 /* DuckDuckGoResponseParser.swift in Sources */,
-				505422801CC66F0900738CCE /* DuckDuckGoCtrl.swift in Sources */,
 				507E7F511CE22E5600840F7B /* URLConnectionCtrl.swift in Sources */,
 				96A5C4661CA1A24800EA62D3 /* SearchResults.swift in Sources */,
 				8DA1FB561BF5E44700732F5E /* SettingsModel.swift in Sources */,

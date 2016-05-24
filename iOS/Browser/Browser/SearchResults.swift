@@ -9,7 +9,7 @@
 import Foundation
 
 class SearchResults {
-    private let mSearchResults: [SearchResult]
+    private var mSearchResults: [SearchResult]
     
     init(searchResults:[SearchResult]){
         self.mSearchResults = searchResults
@@ -17,6 +17,10 @@ class SearchResults {
     
     func getSearchResults()->[SearchResult]{
         return self.mSearchResults
+    }
+    
+    func append(result:SearchResult){
+        self.mSearchResults.append(result)
     }
 }
 

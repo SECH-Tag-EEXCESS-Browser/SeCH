@@ -83,42 +83,11 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
     //#########################################################################################################################################
     
     func sechMng() {
-        //-> !
-        // Put call for Request of EEXCESS here!
-
         self.viewCtrl.countSechsLabel.hidden = false
-
-        let task = TaskCtrl()
-        
-        let setRecommendations = ({(status:String,msg: String, result: SearchResult?, querys:SEARCHModels) -> () in
-            print(msg)
-            // TODO: To be redesigned! 6
-            
-            if(status == "FAILED"){
-                self.viewCtrl.tableViewDataSource.sechTags = []
-                self.viewCtrl.tableView.reloadData()
-                self.viewCtrl.setSechButtonLoading(false)
-                return
-            }
-            
-            let ds = self.viewCtrl.tableViewDataSource
-            ds.makeLabels(querys.getSearchModels())
-            
-            if(result != nil){
-                self.viewCtrl.responses = [result!]
-            }else{
-                self.viewCtrl.responses = []
-            }
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                // TODO: To be redesigned! 8
-                self.viewCtrl.rankThatShit(self.viewCtrl.responses)
-                self.viewCtrl.tableView.reloadData()
-                print("######### SeARCH fertig #########")
-                
-            })
-        })
-        // Start SearchTask -> find results for Search-tags
-        task.getRecommendations(WebContent(html: Html(head: self.htmlHead, body: self.htmlBody), url: (self.viewCtrl.myWebView?.URL?.absoluteString)!), setRecommendations: setRecommendations)
+        viewCtrl.enableSearchLinks()
+        //-------------------------------- SeARCHExtraction ----------------------------------------
+        // Generate SearchObjects for QueryBuildCtrl
+        viewCtrl.searchModelsOfCurrentPage = SEARCHManager().getSEARCHObjects(WebContent(html: Html(head: self.htmlHead, body: self.htmlBody), url: (self.viewCtrl.myWebView?.URL?.absoluteString)!))
+        //-------------------------------- /SeARCHExtraction ---------------------------------------
     }
 }
