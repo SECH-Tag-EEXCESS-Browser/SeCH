@@ -21,10 +21,8 @@ class AbstractConnectionCtrl {
         print("running")
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             print("stoped")
-            if let res = parser.parse(data!){
-                postCompleted(succeeded: error == nil, result: res)
-            }
-            
+            let res = parser.parse(data!)
+            postCompleted(succeeded: error == nil, result: res)
         })
         task.resume()
     }

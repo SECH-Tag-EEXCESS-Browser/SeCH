@@ -35,6 +35,7 @@ class DuckDuckGoResponseParser:AbstractResponseParser{
                 let p = "duckduckgo"
                 let l = "unknown"
                 let m = "unknown"
+                
                 searchResultItems.append(SearchResultItem(title: t, provider: p, uri: u, language: l, mediaType: m))
             }
         }
@@ -44,8 +45,9 @@ class DuckDuckGoResponseParser:AbstractResponseParser{
         let topic = json!["Heading"] as! String
         let mediaType = "unknown"
         let language = "unknown"
-        searchResultItems.append(SearchResultItem(title: topic, provider: provider, uri: uri, language: language, mediaType: mediaType))
-
+        if uri != "" && provider != "" && topic != "" {
+            searchResultItems.append(SearchResultItem(title: topic, provider: provider, uri: uri, language: language, mediaType: mediaType))
+        }
         
         //Related Topics
         if let results = json!["RelatedTopics"] as? Array<AnyObject> {
@@ -56,10 +58,16 @@ class DuckDuckGoResponseParser:AbstractResponseParser{
                 let p = "duckduckgo"
                 let l = "unknown"
                 let m = "unknown"
-                searchResultItems.append(SearchResultItem(title: t, provider: p, uri: u, language: l, mediaType: m))
+                if u != "" && t != "" {
+                    searchResultItems.append(SearchResultItem(title: t, provider: p, uri: u, language: l, mediaType: m))
+                }
             }
         }
-        return SearchResult(index: index, url: url, resultItems: searchResultItems, title: title)
+        if searchResultItems.isEmpty {
+            return nil
+        }else{
+            return SearchResult(index: index, url: url, resultItems: searchResultItems, title: title)
 
+        }
 }
 }

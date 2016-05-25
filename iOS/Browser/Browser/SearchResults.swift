@@ -19,8 +19,24 @@ class SearchResults {
         return self.mSearchResults
     }
     
+    func getSearchResultForTitle(title:String)->SearchResult?{
+        var lresult:SearchResult?
+        for result in self.mSearchResults {
+            if lresult == nil {
+                lresult = result
+            }else{
+                lresult!.resultItems += result.resultItems
+            }
+        }
+        return lresult
+    }
+    
     func append(result:SearchResult){
         self.mSearchResults.append(result)
+    }
+    
+    func appendAll(results:[SearchResult]){
+        self.mSearchResults += results
     }
     
     func hasResults()->Bool {
@@ -28,7 +44,7 @@ class SearchResults {
     }
 }
 
-class SearchResult {
+class SearchResult:Hashable,Equatable {
     private let url:String
     private var resultItems:[SearchResultItem]
     private let index: Int
@@ -65,6 +81,17 @@ class SearchResult {
     func getTitle()->String {
         return self.title
     }
+    
+    var hashValue: Int {
+        get {
+            return url.hashValue + index
+        }
+    }
+    
+}
+
+func ==(lhs: SearchResult, rhs: SearchResult) -> Bool{
+    return lhs.index == rhs.index && lhs.url == rhs.url
 }
 
 class SearchResultItem {

@@ -177,7 +177,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             popViewController.headLine = self.headLine
             
             if self.searchResultsOfPages[self.currentSearchModel!] != nil ? self.searchResultsOfPages[self.currentSearchModel!]!.hasResults():false {
-                popViewController.searchTags = self.searchResultsOfPages[self.currentSearchModel!]!.getSearchResults()[0].getResultItems()//responses[indexPathForSelectedSearchTag].getResultItems()
+                let title = self.currentSearchModel?.title
+                popViewController.searchTags = self.searchResultsOfPages[self.currentSearchModel!]!.getSearchResultForTitle(title!)!.getResultItems()//responses[indexPathForSelectedSearchTag].getResultItems()
             }else{
                 popViewController.jsonText = "NO RESULTS"
                 popViewController.url = "https://www.google.de/?gws_rd=ssl#q=Mein+Name+ist+Hase"
@@ -404,11 +405,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
                 }
             }
             
-            if currentSearchModel != nil {
-                print(currentSearchModel!.title)
-            }
-            
-            let setRecommendations = ({(status:String,msg: String, result: SearchResult?) -> () in
+            let setRecommendations = ({(status:String,msg: String, results: [SearchResult]) -> () in
                 print(msg)
                 // TODO: To be redesigned! 6
                 
@@ -419,13 +416,13 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
                     return
                 }
                 
-                if(result != nil){
-                    self.tableViewDataSource.appendLabel(result!.getTitle())
+                if(!results.isEmpty){
+                    self.tableViewDataSource.appendLabel(results[0].getTitle())
                     //self.responses = [result!]
                     if self.searchResultsOfPages[self.currentSearchModel!] == nil {
                         self.searchResultsOfPages[self.currentSearchModel!] = SearchResults(searchResults: [])
                     }
-                    self.searchResultsOfPages[self.currentSearchModel!]?.append(result!)
+                    self.searchResultsOfPages[self.currentSearchModel!]?.appendAll(results)
                 }else{
                     //self.responses = []
                 }
@@ -441,11 +438,21 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
 
             let results = self.searchResultsOfPages[currentSearchModel!]
             
+            print("-------------------------")
+            
+            if currentSearchModel != nil {
+                print(currentSearchModel!.title)
+            }
+            for (key,result) in self.searchResultsOfPages {
+                print(key.title)
+                print("####################")
+
+            }
+            print("-------------------------")
+            
             if (results != nil ? (results!.hasResults()):false) {
 //            if results!.hasResults(){
-                for result in (results?.getSearchResults())! {
-                    setRecommendations("OK","Result wurde im Speicher gefunden", result)
-                }
+                  setRecommendations("OK","Result wurde im Speicher gefunden", results!.getSearchResults())
             }
             else{
             let task = TaskCtrl()

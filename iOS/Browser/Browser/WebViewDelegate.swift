@@ -91,7 +91,9 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
         viewCtrl.searchModelsOfCurrentPage = SEARCHManager().getSEARCHObjects(WebContent(html: Html(head: self.htmlHead, body: self.htmlBody), url: (self.viewCtrl.myWebView?.URL?.absoluteString)!))
         //-------------------------------- /SeARCHExtraction ---------------------------------------
         for searchModel in (viewCtrl.searchModelsOfCurrentPage?.getSearchModels())! {
-            viewCtrl.searchResultsOfPages[searchModel] = SearchResults(searchResults: [])
+            if viewCtrl.searchResultsOfPages[searchModel] == nil {
+                viewCtrl.searchResultsOfPages[searchModel] = SearchResults(searchResults: [])
+            }
         }
         
     }
