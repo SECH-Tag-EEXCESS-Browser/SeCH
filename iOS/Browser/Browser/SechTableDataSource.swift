@@ -45,26 +45,33 @@ class SechTableDataSource : NSObject, UITableViewDataSource{
     //##########################################################___Other_Methods___############################################################
     //#########################################################################################################################################
     
-    func makeLabels(sechs : [SEARCHModel]) {
+    func makeNewLabels(searchModels : [SEARCHModel]) {
+        emptyTable()
         
-        sechTags = []
-        
-        for item in sechs{
-            sechTags.append(item.title)
+        for searchModel in searchModels{
+            appendLabel(searchModel.title)
         }
     }
     
-    func makeLabels(sechs : [SearchResult]) {
+    func makeNewLabels(searchResults : [SearchResult]) {
+        emptyTable()
         
-        sechTags = []
-        
-        for item in sechs{
-            sechTags.append("item.title")
+        for searchResult in searchResults{
+            appendLabel(searchResult.getTitle())
         }
+    }
+    
+    func appendLabel(newtitle:String){
+        if !containValue(newtitle){
+            sechTags.append(newtitle)
+        }
+    }
+    
+    private func containValue(value:String)->Bool{
+        return sechTags.contains(value)
     }
     
     func emptyTable() {
-        sechTags = [""]
-        
+        sechTags.removeAll()
     }
 }

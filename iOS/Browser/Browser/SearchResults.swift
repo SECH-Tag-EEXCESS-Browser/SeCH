@@ -12,7 +12,7 @@ class SearchResults {
     private var mSearchResults: [SearchResult]
     
     init(searchResults:[SearchResult]){
-        self.mSearchResults = searchResults
+        self.mSearchResults = [SearchResult]()
     }
     
     func getSearchResults()->[SearchResult]{
@@ -21,6 +21,10 @@ class SearchResults {
     
     func append(result:SearchResult){
         self.mSearchResults.append(result)
+    }
+    
+    func hasResults()->Bool {
+        return !mSearchResults.isEmpty
     }
 }
 

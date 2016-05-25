@@ -85,9 +85,14 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
     func sechMng() {
         self.viewCtrl.countSechsLabel.hidden = false
         viewCtrl.enableSearchLinks()
+        viewCtrl.tableViewDataSource.emptyTable()
         //-------------------------------- SeARCHExtraction ----------------------------------------
         // Generate SearchObjects for QueryBuildCtrl
         viewCtrl.searchModelsOfCurrentPage = SEARCHManager().getSEARCHObjects(WebContent(html: Html(head: self.htmlHead, body: self.htmlBody), url: (self.viewCtrl.myWebView?.URL?.absoluteString)!))
         //-------------------------------- /SeARCHExtraction ---------------------------------------
+        for searchModel in (viewCtrl.searchModelsOfCurrentPage?.getSearchModels())! {
+            viewCtrl.searchResultsOfPages[searchModel] = SearchResults(searchResults: [])
+        }
+        
     }
 }

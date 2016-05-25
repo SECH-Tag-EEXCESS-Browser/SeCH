@@ -47,12 +47,13 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     let p : DataObjectPersistency = DataObjectPersistency()
     let tableViewDataSource = SechTableDataSource()
     private var indexPathForSelectedSearchTag: Int!
-    var responses: [SearchResult]!
     var headLine : String!
     var favourites = [FavouritesModel]()
     
 //    ***************************************************************
+    //var responses: [SearchResult]!
     var searchModelsOfCurrentPage:SEARCHModels?
+    var currentSearchModel:SEARCHModel?
     var searchResultsOfPages = [SEARCHModel:SearchResults]()
 //    ***************************************************************
 
@@ -175,8 +176,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             print("Segue "+self.headLine)
             popViewController.headLine = self.headLine
             
-            if responses != nil && responses.count > 0{
-                popViewController.searchTags = responses[0].getResultItems()//responses[indexPathForSelectedSearchTag].getResultItems()
+            if self.searchResultsOfPages[self.currentSearchModel!] != nil ? self.searchResultsOfPages[self.currentSearchModel!]!.hasResults():false {
+                popViewController.searchTags = self.searchResultsOfPages[self.currentSearchModel!]!.getSearchResults()[0].getResultItems()//responses[indexPathForSelectedSearchTag].getResultItems()
             }else{
                 popViewController.jsonText = "NO RESULTS"
                 popViewController.url = "https://www.google.de/?gws_rd=ssl#q=Mein+Name+ist+Hase"
@@ -322,9 +323,9 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     //###########################################################################################################################################
     
     
-    func doRank(responses: [SearchResult]!){
+    func doRank(){
         //Warum guard?
-        guard let allResponses = responses else{
+        guard let allResponses = self.searchResultsOfPages[self.currentSearchModel!]?.getSearchResults() else{
             return
         }
         
@@ -397,8 +398,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             guard let models = searchModelsOfCurrentPage?.getSearchModels() else{
                 return
             }
-            var currentSearchModel:SEARCHModel?
-            
             for model in models {
                 if model.url == json["url"]! && model.index == id {
                     currentSearchModel = model
@@ -408,10 +407,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             if currentSearchModel != nil {
                 print(currentSearchModel!.title)
             }
-//            if let self.searchResultsOfPages[currentSearchModel!]
-            let task = TaskCtrl()
             
-            let setRecommendations = ({(status:String,msg: String, result: SearchResult?, query:SEARCHModel) -> () in
+            let setRecommendations = ({(status:String,msg: String, result: SearchResult?) -> () in
                 print(msg)
                 // TODO: To be redesigned! 6
                 
@@ -422,29 +419,40 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
                     return
                 }
                 
-                let ds = self.tableViewDataSource
-                ds.makeLabels([query])
-                
                 if(result != nil){
-                    self.responses = [result!]
-                    if self.searchResultsOfPages[query] == nil {
-                        self.searchResultsOfPages[query] = SearchResults(searchResults: [])
+                    self.tableViewDataSource.appendLabel(result!.getTitle())
+                    //self.responses = [result!]
+                    if self.searchResultsOfPages[self.currentSearchModel!] == nil {
+                        self.searchResultsOfPages[self.currentSearchModel!] = SearchResults(searchResults: [])
                     }
-                    self.searchResultsOfPages[query]?.append(result!)
+                    self.searchResultsOfPages[self.currentSearchModel!]?.append(result!)
                 }else{
-                    self.responses = []
+                    //self.responses = []
                 }
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     // TODO: To be redesigned! 8
-                    self.doRank(self.responses)
+                    self.doRank()
                     self.tableView.reloadData()
                     print("######### SeARCH fertig #########")
                     self.showPopView()
                 })
             })
-            // Start SearchTask -> find results for Search-tags
+
+            let results = self.searchResultsOfPages[currentSearchModel!]
+            
+            if (results != nil ? (results!.hasResults()):false) {
+//            if results!.hasResults(){
+                for result in (results?.getSearchResults())! {
+                    setRecommendations("OK","Result wurde im Speicher gefunden", result)
+                }
+            }
+            else{
+            let task = TaskCtrl()
+            
+                        // Start SearchTask -> find results for Search-tags
             task.getRecommendationsNew(currentSearchModel!, setRecommendations: setRecommendations)
+        }
     }
     
     func showPopView(){
