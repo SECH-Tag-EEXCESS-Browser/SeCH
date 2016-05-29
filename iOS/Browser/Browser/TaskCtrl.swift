@@ -27,7 +27,7 @@ class TaskCtrl {
             }else {
                 //setRecommendations(status: "FAILED",message: "Die Anfrage war nicht erfolgreich", result: nil)
             }
-            if countResults == 3 {
+            if countResults == 2 {
                 setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", results: results)
             }
         })
@@ -41,7 +41,7 @@ class TaskCtrl {
             }else {
                 //setRecommendations(status: "FAILED",message: "Die Anfrage war nicht erfolgreich", result: nil)
                  }
-            if countResults == 3 {
+            if countResults == 2 {
                 setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", results: results)
             }
          })

@@ -10,7 +10,7 @@ import Foundation
 
 class URLConnectionCtrl:AbstractConnectionCtrl {
     
-    let builders:[AbstractURLBuilder] = [DuckDuckGoURLBuilder() , FarooURLBuilder()]
+    let builders:[AbstractURLBuilder] = [DuckDuckGoURLBuilder()]
 
     override func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult?) -> ()){
         

@@ -459,6 +459,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             
                         // Start SearchTask -> find results for Search-tags
             task.getRecommendationsNew(currentSearchModel!, setRecommendations: setRecommendations)
+                setSechButtonLoading(true)
         }
     }
     
