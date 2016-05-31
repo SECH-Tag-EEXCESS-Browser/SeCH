@@ -53,7 +53,12 @@ class DuckDuckGoResponseParser:AbstractResponseParser{
         if let results = json!["RelatedTopics"] as? Array<AnyObject> {
             
             for item in results{
-                let u = item["FirstURL"] as! String // <- Found nil sometimes!
+                
+                if(item["Topics"] != nil){
+                    break
+                }
+                
+                let u = item["FirstURL"] as! String
                 let t = item["Text"] as! String
                 let p = "duckduckgo"
                 let l = "unknown"
