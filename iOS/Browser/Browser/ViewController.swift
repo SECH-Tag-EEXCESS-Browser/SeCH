@@ -172,9 +172,10 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             let popViewController = segue.destinationViewController as! PopViewController
             
             //Change Size from PopViewController
-            popViewController.preferredContentSize.height = (UIScreen.mainScreen().bounds.height)*0.66
-            popViewController.preferredContentSize.width = (UIScreen.mainScreen().bounds.width)*0.66
+            popViewController.preferredContentSize.height = (UIScreen.mainScreen().bounds.height)*0.56
+            popViewController.preferredContentSize.width = (UIScreen.mainScreen().bounds.width)*0.56
             popViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            popViewController.popoverPresentationController?.permittedArrowDirections = .Any
             print("Segue "+self.headLine)
             popViewController.headLine = self.headLine
             popViewController.xPosition = self.xPosition
@@ -189,7 +190,10 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             }
             
             popViewController.popoverPresentationController?.delegate = self
-            popViewController.popoverPresentationController?.sourceRect = CGRectMake(CGFloat(xPosition), CGFloat(yPosition) , 400, 500)
+            //popViewController.popoverPresentationController?.sourceRect = CGRectMake(CGFloat(xPosition), CGFloat(yPosition) , 0, 0)
+            popViewController.popoverPresentationController?.sourceView = self.myWebView
+            popViewController.popoverPresentationController?.sourceRect = CGRect(x: xPosition,y: yPosition,width: 0,height: 0)
+            
             popViewController.popoverPresentationController?.canOverlapSourceViewRect = true
             
             

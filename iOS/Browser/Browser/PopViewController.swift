@@ -76,7 +76,8 @@ class PopViewController : UIViewController{
             popover.sourceView = viewForSource
             
             // the position of the popover where it's showed
-            popover.sourceRect = viewForSource.bounds
+           popover.sourceRect = viewForSource.bounds
+
             
             
             // the size you want to display
