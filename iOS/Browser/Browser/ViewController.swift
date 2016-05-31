@@ -49,6 +49,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     private var indexPathForSelectedSearchTag: Int!
     var headLine : String!
     var favourites = [FavouritesModel]()
+    var xPosition : Int!
+    var yPosition : Int!
     
 //    ***************************************************************
     //var responses: [SearchResult]!
@@ -175,6 +177,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             popViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             print("Segue "+self.headLine)
             popViewController.headLine = self.headLine
+            popViewController.xPosition = self.xPosition
+            popViewController.yPosition = self.yPosition
             
             if self.searchResultsOfPages[self.currentSearchModel!] != nil ? self.searchResultsOfPages[self.currentSearchModel!]!.hasResults():false {
                 let title = self.currentSearchModel?.title
@@ -185,6 +189,10 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             }
             
             popViewController.popoverPresentationController?.delegate = self
+            popViewController.popoverPresentationController?.sourceRect = CGRectMake(CGFloat(xPosition), CGFloat(yPosition) , 400, 500)
+            popViewController.popoverPresentationController?.canOverlapSourceViewRect = true
+            
+            
         }
     }
     
@@ -395,6 +403,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             self.indexPathForSelectedSearchTag = id
  
             self.headLine = json["topic"]
+            self.xPosition = Int(json["x"]!)!
+            self.yPosition = Int(json["y"]!)!
             
             guard let models = searchModelsOfCurrentPage?.getSearchModels() else{
                 return

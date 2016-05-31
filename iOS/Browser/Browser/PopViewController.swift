@@ -26,6 +26,8 @@ class PopViewController : UIViewController{
     var url : String!
     var searchTags : [SearchResultItem]!
     private var popoverContent: SearchTableViewController!
+    var xPosition : Int!
+    var yPosition : Int!
     
     
     
@@ -75,6 +77,7 @@ class PopViewController : UIViewController{
             
             // the position of the popover where it's showed
             popover.sourceRect = viewForSource.bounds
+            
             
             // the size you want to display
             popoverContent.preferredContentSize = CGSizeMake(400,500)
