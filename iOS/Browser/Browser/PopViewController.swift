@@ -26,8 +26,7 @@ class PopViewController : UIViewController{
     var url : String!
     var searchTags : [SearchResultItem]!
     private var popoverContent: SearchTableViewController!
-    var xPosition : Int!
-    var yPosition : Int!
+
     
     
     

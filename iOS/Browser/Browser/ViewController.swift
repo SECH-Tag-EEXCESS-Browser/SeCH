@@ -176,10 +176,13 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             popViewController.preferredContentSize.width = (UIScreen.mainScreen().bounds.width)*0.56
             popViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             popViewController.popoverPresentationController?.permittedArrowDirections = .Any
+            popViewController.popoverPresentationController?.delegate = self
+            popViewController.popoverPresentationController?.sourceView = self.myWebView
+            //Sets given Click Position from JS for Popover
+            popViewController.popoverPresentationController?.sourceRect = CGRect(x: xPosition,y: yPosition,width: 0,height: 0)
+            popViewController.popoverPresentationController?.canOverlapSourceViewRect = true
             print("Segue "+self.headLine)
             popViewController.headLine = self.headLine
-            popViewController.xPosition = self.xPosition
-            popViewController.yPosition = self.yPosition
             
             if self.searchResultsOfPages[self.currentSearchModel!] != nil ? self.searchResultsOfPages[self.currentSearchModel!]!.hasResults():false {
                 let title = self.currentSearchModel?.title
@@ -187,16 +190,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             }else{
                 popViewController.jsonText = "NO RESULTS"
                 popViewController.url = "https://www.google.de/?gws_rd=ssl#q=Mein+Name+ist+Hase"
-            }
-            
-            popViewController.popoverPresentationController?.delegate = self
-            //popViewController.popoverPresentationController?.sourceRect = CGRectMake(CGFloat(xPosition), CGFloat(yPosition) , 0, 0)
-            popViewController.popoverPresentationController?.sourceView = self.myWebView
-            popViewController.popoverPresentationController?.sourceRect = CGRect(x: xPosition,y: yPosition,width: 0,height: 0)
-            
-            popViewController.popoverPresentationController?.canOverlapSourceViewRect = true
-            
-            
+            }    
         }
     }
     
