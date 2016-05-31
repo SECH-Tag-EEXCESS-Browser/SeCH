@@ -47,6 +47,7 @@ class SEARCHModel:Hashable,Equatable{
     var index:Int!
     var tags = [String : Tag]() // String is id (link, section, head) and Tag is Tag-Object
     var filters = Filter()
+    var provider: String!
 
     public var hashValue: Int {
         get {

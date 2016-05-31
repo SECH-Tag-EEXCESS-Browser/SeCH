@@ -5,6 +5,9 @@
 //  Created by Andreas Ziemer on 11.11.15.
 //  Copyright © 2015 SECH-Tag-EEXCESS-Browser. All rights reserved.
 //
+//
+// This class validates the URL or send the query to google
+
 
 import Foundation
 
@@ -42,4 +45,5 @@ class AddressBar{
         let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
         return predicate.evaluateWithObject(stringURL)
     }
+
 }

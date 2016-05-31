@@ -3,6 +3,7 @@
 //     - add an id to all search-links (for identification on a website)
 //     - get the current URL which each link is on (for global identification)
 //     - add an eventListener to every search-link
+//     - gets position from Tap on search-link
 //
 // CORRECT WHEN CHANGED: This file is called in the ViewController.swift in the method rankThatShit()
 

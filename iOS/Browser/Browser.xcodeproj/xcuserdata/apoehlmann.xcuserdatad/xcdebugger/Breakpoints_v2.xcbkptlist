@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Browser/ViewController.swift"
-            timestampString = "486404383.722711"
+            timestampString = "486404696.202425"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "497"
-            endingLineNumber = "497"
+            startingLineNumber = "485"
+            endingLineNumber = "485"
             landmarkName = "ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Browser/ViewController.swift"
-            timestampString = "486404383.722711"
+            timestampString = "486404696.202425"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "490"
-            endingLineNumber = "490"
+            startingLineNumber = "478"
+            endingLineNumber = "478"
             landmarkName = "ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -298,12 +298,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Browser/PopViewController.swift"
-            timestampString = "486403216.001332"
+            timestampString = "486404696.202425"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "observeValueForKeyPath(_:ofObject:change:context:)"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "openTable(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
