@@ -8,8 +8,8 @@
 
 import Foundation
 
-class SearchResults {
-    private var mSearchResults: [SearchResult]
+class SearchResults:NSObject{
+    private dynamic var mSearchResults: [SearchResult]
     
     init(searchResults:[SearchResult]){
         self.mSearchResults = [SearchResult]()
@@ -19,12 +19,20 @@ class SearchResults {
         return self.mSearchResults
     }
     
-    func getSearchResultForTitle(title:String)->SearchResult?{
+    func getSearchResultForTitle(searchModel:SEARCHModel)->SearchResult?{
+        let lresult = getSearchResult(searchModel)
+        if lresult == nil {
+            findResults(searchModel)
+        }
+        return lresult
+    }
+    
+    func getSearchResult(searchModel:SEARCHModel)->SearchResult?{
         var lresult:SearchResult?
         for result in self.mSearchResults {
-            if lresult == nil {
+            if lresult == nil && result.getTitle() == searchModel.title && result.index == searchModel.index {
                 lresult = result
-            }else{
+            }else if result.getTitle() == searchModel.title && result.index == searchModel.index {
                 lresult!.resultItems += result.resultItems
             }
         }
@@ -42,9 +50,27 @@ class SearchResults {
     func hasResults()->Bool {
         return !mSearchResults.isEmpty
     }
+    
+    func findResults(searchModel:SEARCHModel){
+        let setRecommendations = ({(status:String,msg: String, result: SearchResult) -> () in
+            print(msg)
+            // TODO: To be redesigned! 6
+            
+            if(status == "FAILED"){
+                return
+            }
+
+            self.mSearchResults.append(result)
+            print("######### SeARCH fertig #########")
+        })
+            let task = TaskCtrl()
+            
+            // Start SearchTask -> find results for Search-tags
+            task.getRecommendationsNew(searchModel, setRecommendations: setRecommendations)
+    }
 }
 
-class SearchResult:Hashable,Equatable {
+class SearchResult:NSObject {
     private let url:String
     private var resultItems:[SearchResultItem]
     private let index: Int
@@ -58,7 +84,7 @@ class SearchResult:Hashable,Equatable {
         self.title = title
     }
     
-    init()//Only for DummyBuild
+    override init()//Only for DummyBuild
     {
         self.url = ""
         self.resultItems = []
@@ -81,20 +107,13 @@ class SearchResult:Hashable,Equatable {
     func getTitle()->String {
         return self.title
     }
-    
-    var hashValue: Int {
-        get {
-            return url.hashValue + index
-        }
-    }
-    
 }
 
 func ==(lhs: SearchResult, rhs: SearchResult) -> Bool{
     return lhs.index == rhs.index && lhs.url == rhs.url
 }
 
-class SearchResultItem {
+class SearchResultItem:NSObject {
     private let title : String
     private let provider : String
     private let uri : String?
@@ -102,7 +121,7 @@ class SearchResultItem {
     private let mediaType: String
     private var avg:Double!
     
-    private var description: String {
+    internal var itemDescription: String {
         get {
             return "Title:\(title) -- Provider:\(provider) -- URI:\(uri)"
         }

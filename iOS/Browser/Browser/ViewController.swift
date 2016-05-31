@@ -58,7 +58,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     var currentSearchModel:SEARCHModel?
     var searchResultsOfPages = [SEARCHModel:SearchResults]()
 //    ***************************************************************
-
     //################################################################################################################################################
     //##########################################################___View_Controlling_Methods___##########################################################
     //################################################################################################################################################
@@ -170,29 +169,29 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         if segue.identifier == "showPopView"
         {
             let popViewController = segue.destinationViewController as! PopViewController
+            popViewController.viewCtrl = self
             
             //Change Size from PopViewController
             popViewController.preferredContentSize.height = (UIScreen.mainScreen().bounds.height)*0.66
             popViewController.preferredContentSize.width = (UIScreen.mainScreen().bounds.width)*0.66
             popViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             print("Segue "+self.headLine)
-            popViewController.headLine = self.headLine
+//            popViewController.headLine = self.headLine
             popViewController.xPosition = self.xPosition
             popViewController.yPosition = self.yPosition
             
             if self.searchResultsOfPages[self.currentSearchModel!] != nil ? self.searchResultsOfPages[self.currentSearchModel!]!.hasResults():false {
                 let title = self.currentSearchModel?.title
-                popViewController.searchTags = self.searchResultsOfPages[self.currentSearchModel!]!.getSearchResultForTitle(title!)!.getResultItems()//responses[indexPathForSelectedSearchTag].getResultItems()
+//                popViewController.searchTags = self.searchResultsOfPages[self.currentSearchModel!]!.getSearchResultForTitle(title!)!.getResultItems()//responses[indexPathForSelectedSearchTag].getResultItems()
             }else{
-                popViewController.jsonText = "NO RESULTS"
-                popViewController.url = "https://www.google.de/?gws_rd=ssl#q=Mein+Name+ist+Hase"
+//                popViewController.jsonText = "NO RESULTS"
+//                popViewController.url = "https://www.google.de/?gws_rd=ssl#q=Mein+Name+ist+Hase"
             }
             
             popViewController.popoverPresentationController?.delegate = self
             popViewController.popoverPresentationController?.sourceRect = CGRectMake(CGFloat(xPosition), CGFloat(yPosition) , 400, 500)
             popViewController.popoverPresentationController?.canOverlapSourceViewRect = true
-            
-            
+
         }
     }
     
@@ -200,7 +199,10 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
+        xPosition = 0
+        yPosition = 0
         
+        currentSearchModel = self.tableViewDataSource.sechTags[indexPath.row]
         self.indexPathForSelectedSearchTag = indexPath.row
         
         let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
@@ -211,9 +213,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         
         return indexPath
     }
-    
-    
-    
+
     //###########################################################################################################################################
     //##########################################################___IB-Action-Methods___##########################################################
     //###########################################################################################################################################
@@ -280,7 +280,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         self.performSegueWithIdentifier("editBookmarks", sender: self)
     }
     
-    
     // Navigation
     @IBAction func reloadButton(sender: AnyObject){
         myWebView!.reload()
@@ -324,9 +323,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         popover.delegate = self
         presentViewController(vc, animated: true, completion:nil)
     }
-    
-    
-    
+
     //###########################################################################################################################################
     //##########################################################___Ranking-Methods___############################################################
     //###########################################################################################################################################
@@ -361,11 +358,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
 
         //Change SechButton Image
         setSechButtonLoading(false)
-        
     }
-    
-    
-    
+
     //#########################################################################################################################################
     //##########################################################___Other-Methods___############################################################
     //#########################################################################################################################################
@@ -392,6 +386,22 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         myWebView?.loadRequest(request)
         addressBarTxt.text = requestURL
     }
+    
+    func sechMng(htmlHead:String,htmlBody:String) {
+        countSechsLabel.hidden = false
+        enableSearchLinks()
+        tableViewDataSource.emptyTable()
+        //-------------------------------- SeARCHExtraction ----------------------------------------
+        // Generate SearchObjects for QueryBuildCtrl
+        searchModelsOfCurrentPage = SEARCHManager().getSEARCHObjects(WebContent(html: Html(head: htmlHead, body: htmlBody), url: (myWebView?.URL?.absoluteString)!))
+        //-------------------------------- /SeARCHExtraction ---------------------------------------
+        for searchModel in (searchModelsOfCurrentPage?.getSearchModels())! {
+            if searchResultsOfPages[searchModel] == nil {
+                searchResultsOfPages[searchModel] = SearchResults(searchResults: [])
+            }
+        }
+        self.tableViewDataSource.appendModels(searchModelsOfCurrentPage!.getSearchModels())
+    }
 
     func userContentController(userContentController: WKUserContentController,
         didReceiveScriptMessage message: WKScriptMessage) {
@@ -405,73 +415,81 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             self.headLine = json["topic"]
             self.xPosition = Int(json["x"]!)!
             self.yPosition = Int(json["y"]!)!
+
+            setCurrentSearchModel(json["url"]!, id: id!)
             
+    }
+    
+    func setCurrentSearchModel(url:String, id:Int) {
             guard let models = searchModelsOfCurrentPage?.getSearchModels() else{
                 return
             }
+        
             for model in models {
-                if model.url == json["url"]! && model.index == id {
+                if model.url == url && model.index == id {
                     currentSearchModel = model
                 }
             }
-            
-            let setRecommendations = ({(status:String,msg: String, results: [SearchResult]) -> () in
-                print(msg)
-                // TODO: To be redesigned! 6
-                
-                if(status == "FAILED"){
-                    self.tableViewDataSource.sechTags = []
-                    self.tableView.reloadData()
-                    self.setSechButtonLoading(false)
-                    return
-                }
-                
-                if(!results.isEmpty){
-                    self.tableViewDataSource.appendLabel(results[0].getTitle())
-                    //self.responses = [result!]
-                    if self.searchResultsOfPages[self.currentSearchModel!] == nil {
-                        self.searchResultsOfPages[self.currentSearchModel!] = SearchResults(searchResults: [])
-                    }
-                    self.searchResultsOfPages[self.currentSearchModel!]?.appendAll(results)
-                }else{
-                    //self.responses = []
-                }
-                
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    // TODO: To be redesigned! 8
-                    self.doRank()
-                    self.tableView.reloadData()
-                    print("######### SeARCH fertig #########")
-                    self.showPopView()
-                })
-            })
-
-            let results = self.searchResultsOfPages[currentSearchModel!]
-            
-            print("-------------------------")
-            
-            if currentSearchModel != nil {
-                print(currentSearchModel!.title)
-            }
-            for (key,result) in self.searchResultsOfPages {
-                print(key.title)
-                print("####################")
-
-            }
-            print("-------------------------")
-            
-            if (results != nil ? (results!.hasResults()):false) {
-//            if results!.hasResults(){
-                  setRecommendations("OK","Result wurde im Speicher gefunden", results!.getSearchResults())
-            }
-            else{
-            let task = TaskCtrl()
-            
-                        // Start SearchTask -> find results for Search-tags
-            task.getRecommendationsNew(currentSearchModel!, setRecommendations: setRecommendations)
-                setSechButtonLoading(true)
-        }
+            self.showPopView()
+            setSechButtonLoading(true)
+        
     }
+//            let setRecommendations = ({(status:String,msg: String, results: [SearchResult]) -> () in
+//                print(msg)
+//                // TODO: To be redesigned! 6
+//                
+//                if(status == "FAILED"){
+//                    self.tableViewDataSource.sechTags = []
+//                    self.tableView.reloadData()
+//                    self.setSechButtonLoading(false)
+//                    return
+//                }
+//                
+//                if(!results.isEmpty){
+//                    self.tableViewDataSource.appendLabel(results[0].getTitle())
+//                    //self.responses = [result!]
+//                    if self.searchResultsOfPages[self.currentSearchModel!] == nil {
+//                        self.searchResultsOfPages[self.currentSearchModel!] = SearchResults(searchResults: [])
+//                    }
+//                    self.searchResultsOfPages[self.currentSearchModel!]?.appendAll(results)
+//                }else{
+//                    //self.responses = []
+//                }
+//                
+//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                    // TODO: To be redesigned! 8
+//                    self.doRank()
+//                    self.tableView.reloadData()
+//                    print("######### SeARCH fertig #########")
+//                })
+//            })
+//
+//            let results = self.searchResultsOfPages[currentSearchModel!]
+//            
+//            print("-------------------------")
+//            
+//            if currentSearchModel != nil {
+//                print(currentSearchModel!.title)
+//            }
+//            for (key,result) in self.searchResultsOfPages {
+//                print(key.title)
+//                print("####################")
+//
+//            }
+//            print("-------------------------")
+//            
+//            if (results != nil ? (results!.hasResults()):false) {
+////            if results!.hasResults(){
+//                  setRecommendations("OK","Result wurde im Speicher gefunden", results!.getSearchResults())
+//            }
+//            else{
+//            let task = TaskCtrl()
+//            
+//                        // Start SearchTask -> find results for Search-tags
+//            task.getRecommendationsNew(currentSearchModel!, setRecommendations: setRecommendations)
+
+//        }
+//    }
     
     func showPopView(){
         performSegueWithIdentifier("showPopView", sender: self)

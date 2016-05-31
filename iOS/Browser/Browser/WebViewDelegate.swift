@@ -56,7 +56,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
                     if error == nil && object != nil{
                         self.htmlBody = (object as? String)!
                         //IBAction
-                        self.sechMng()
+                        self.viewCtrl.sechMng(self.htmlHead,htmlBody: self.htmlBody)
                     }
                 })
             }
@@ -74,27 +74,5 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
     
     func webViewWebContentProcessDidTerminate(webView: WKWebView) {
         print("##########webViewWebContentProcessDidTerminate#########")
-    }
-    
-    
-    
-    //#########################################################################################################################################
-    //##########################################################___Other_Methods___############################################################
-    //#########################################################################################################################################
-    
-    func sechMng() {
-        self.viewCtrl.countSechsLabel.hidden = false
-        viewCtrl.enableSearchLinks()
-        viewCtrl.tableViewDataSource.emptyTable()
-        //-------------------------------- SeARCHExtraction ----------------------------------------
-        // Generate SearchObjects for QueryBuildCtrl
-        viewCtrl.searchModelsOfCurrentPage = SEARCHManager().getSEARCHObjects(WebContent(html: Html(head: self.htmlHead, body: self.htmlBody), url: (self.viewCtrl.myWebView?.URL?.absoluteString)!))
-        //-------------------------------- /SeARCHExtraction ---------------------------------------
-        for searchModel in (viewCtrl.searchModelsOfCurrentPage?.getSearchModels())! {
-            if viewCtrl.searchResultsOfPages[searchModel] == nil {
-                viewCtrl.searchResultsOfPages[searchModel] = SearchResults(searchResults: [])
-            }
-        }
-        
     }
 }

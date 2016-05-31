@@ -21,33 +21,33 @@ class PopViewController : UIViewController{
     @IBOutlet weak var sechImage: UIImageView!
     @IBOutlet weak var sechWebView: UIWebView!
     
-    var headLine : String!
-    var jsonText : String!
-    var url : String!
-    var searchTags : [SearchResultItem]!
+//    var searchTags : [SearchResultItem]!
     private var popoverContent: SearchTableViewController!
     var xPosition : Int!
     var yPosition : Int!
-    
-    
-    
+    private var myContext = 0
+    var viewCtrl:ViewController?
     //#########################################################################################################################################
     //##########################################################___PopViewController_Methods___################################################
     //#########################################################################################################################################
     
     override func viewDidLoad() {
-        
-        sechHeadline.text = headLine
-        
-        guard let sTags = searchTags else{
+        super.viewDidLoad()
+        viewCtrl!.searchResultsOfPages[viewCtrl!.currentSearchModel!]!.addObserver(self, forKeyPath: "mSearchResults", options: .New, context: &myContext)
+        loadpopView(viewCtrl!.searchResultsOfPages[viewCtrl!.currentSearchModel!]!.getSearchResultForTitle(viewCtrl!.currentSearchModel!))
+    }
+    
+    func loadpopView(lresult:SearchResult?){
+        guard let results = lresult else {
             return
         }
-        
-        if(sTags.count > 0){
-        
-        let requesturl = NSURL(string: sTags[0].getUri())
-        let request = NSURLRequest(URL: requesturl!)
-        sechWebView.loadRequest(request)
+        sechHeadline.text = results.getTitle()
+
+        if(!results.getResultItems().isEmpty){
+            
+            let requesturl = NSURL(string: results.getResultItems()[0].getUri())
+            let request = NSURLRequest(URL: requesturl!)
+            sechWebView.loadRequest(request)
         }else{
             let requesturl = NSURL(string: "http://www.sech-browser.de/404.html")
             let request = NSURLRequest(URL: requesturl!)
@@ -56,12 +56,10 @@ class PopViewController : UIViewController{
         
         self.popoverContent = (self.storyboard?.instantiateViewControllerWithIdentifier("SearchTableViewController"))! as! SearchTableViewController
         
-        popoverContent.searchLists = sTags
+        popoverContent.searchLists = results.getResultItems()
         popoverContent.sechWebView = sechWebView
         popoverContent.modalPresentationStyle = .Popover
-      
     }
-    
     
     
     //#########################################################################################################################################
@@ -86,6 +84,25 @@ class PopViewController : UIViewController{
         self.presentViewController(popoverContent, animated: true, completion: nil)
     }
     
+    //#########################################################################################################################################
+    //##########################################################___observe-Methods___############################################################
+    //#########################################################################################################################################
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if context == &myContext {
+            if let newValue = change?[NSKeyValueChangeNewKey] {
+                loadpopView(viewCtrl!.searchResultsOfPages[viewCtrl!.currentSearchModel!]!.getSearchResult(viewCtrl!.currentSearchModel!))
+            }
+        } else {
+            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+        }
+    }
+    
+    deinit {
+        if viewCtrl!.searchResultsOfPages[viewCtrl!.currentSearchModel!] != nil {
+            viewCtrl!.searchResultsOfPages[viewCtrl!.currentSearchModel!]!.removeObserver(self, forKeyPath: "mSearchResults", context: &myContext)
+        }
+    }
     
     
     //#########################################################################################################################################
@@ -95,5 +112,4 @@ class PopViewController : UIViewController{
     func setDetailsInSechView(url: String){
         
     }
-    
 }
