@@ -28,7 +28,7 @@
 			<key>Title</key>
 			<string>Eexcess</string>
 			<key>Key</key>
-			<string>google_preference</string>
+			<string>eexcess_preference</string>
 			<key>DefaultValue</key>
 			<false/>
 		</dict>

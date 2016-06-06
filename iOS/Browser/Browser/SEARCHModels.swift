@@ -47,7 +47,6 @@ class SEARCHModel:Hashable,Equatable{
     var index:Int!
     var tags = [String : Tag]() // String is id (link, section, head) and Tag is Tag-Object
     var filters = Filter()
-    var provider: String!
 
     public var hashValue: Int {
         get {
@@ -83,7 +82,7 @@ class Tag {
 
 class Filter {
     var mediaType = String()
-    var provider = String()
+    var provider: String!
     var licence = String()
     
     func getValues()->[String:AnyObject]{

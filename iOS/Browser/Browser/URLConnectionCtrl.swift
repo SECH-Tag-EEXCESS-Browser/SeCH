@@ -10,22 +10,22 @@ import Foundation
 
 class URLConnectionCtrl:AbstractConnectionCtrl {
     
-    let builders:[AbstractURLBuilder] = [DuckDuckGoURLBuilder()]
+    //var builders:[AbstractURLBuilder] = [DuckDuckGoURLBuilder()]
 
-    override func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult?) -> ()){
-        
-        for builder in builders {
+    override func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult?) -> (), builder: AbstractBuilder){
+
+        let builder2 = builder as! AbstractURLBuilder
             // Achtung auf Umlaute in der URI ...
-            let str = builder.generateURL(query)
+            let str = builder2.generateURL(query)
             let path = str.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
             let url = NSURL(string: path)!
             
             let request = NSMutableURLRequest(URL: url)
-            request.addValue(builder.getContentType(), forHTTPHeaderField: "Content-Type")
-            request.addValue(builder.getAcceptType(), forHTTPHeaderField: "Accept")
+            request.addValue(builder2.getContentType(), forHTTPHeaderField: "Content-Type")
+            request.addValue(builder2.getAcceptType(), forHTTPHeaderField: "Accept")
             
-            request.HTTPMethod = builder.getHTTPMethod()
-            post(request, parser: builder.getParser(query), postCompleted: postCompleted)
-        }
+            request.HTTPMethod = builder2.getHTTPMethod()
+            post(request, parser: builder2.getParser(query), postCompleted: postCompleted)
+        
     }
 }
