@@ -26,6 +26,9 @@
 		507E7F571CE22EA000840F7B /* EexcessJSONBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507E7F561CE22EA000840F7B /* EexcessJSONBuilder.swift */; };
 		507E7F591CE22EB100840F7B /* FarooURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507E7F581CE22EB100840F7B /* FarooURLBuilder.swift */; };
 		507E7F5B1CE22EC200840F7B /* DuckDuckGoURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507E7F5A1CE22EC200840F7B /* DuckDuckGoURLBuilder.swift */; };
+		5084E7741CFDB9A2004377F7 /* FavTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5084E7731CFDB9A2004377F7 /* FavTableDataSource.swift */; };
+		5084E7761CFDB9BA004377F7 /* SechTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5084E7751CFDB9BA004377F7 /* SechTableDelegate.swift */; };
+		5084E7781CFDB9C9004377F7 /* FavTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5084E7771CFDB9C9004377F7 /* FavTableDelegate.swift */; };
 		50D67A951C2ACA8100B864FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB4E1BCE689E00EEBB7B /* ViewController.swift */; };
 		8D07B7941BD0F79A00031D8B /* WebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D07B7931BD0F79A00031D8B /* WebViewDelegate.swift */; };
 		8D1385FD1BF3623D009E5F46 /* AdressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1385FC1BF3623D009E5F46 /* AdressBar.swift */; };
@@ -94,6 +97,9 @@
 		507E7F561CE22EA000840F7B /* EexcessJSONBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EexcessJSONBuilder.swift; sourceTree = "<group>"; };
 		507E7F581CE22EB100840F7B /* FarooURLBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FarooURLBuilder.swift; sourceTree = "<group>"; };
 		507E7F5A1CE22EC200840F7B /* DuckDuckGoURLBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DuckDuckGoURLBuilder.swift; sourceTree = "<group>"; };
+		5084E7731CFDB9A2004377F7 /* FavTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavTableDataSource.swift; sourceTree = "<group>"; };
+		5084E7751CFDB9BA004377F7 /* SechTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SechTableDelegate.swift; sourceTree = "<group>"; };
+		5084E7771CFDB9C9004377F7 /* FavTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavTableDelegate.swift; sourceTree = "<group>"; };
 		8D07B7931BD0F79A00031D8B /* WebViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewDelegate.swift; sourceTree = "<group>"; };
 		8D1385FC1BF3623D009E5F46 /* AdressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdressBar.swift; sourceTree = "<group>"; };
 		8D1386011BF381DE009E5F46 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -333,6 +339,8 @@
 			children = (
 				8D43CB4C1BCE689E00EEBB7B /* AppDelegate.swift */,
 				8D07B7931BD0F79A00031D8B /* WebViewDelegate.swift */,
+				5084E7771CFDB9C9004377F7 /* FavTableDelegate.swift */,
+				5084E7751CFDB9BA004377F7 /* SechTableDelegate.swift */,
 			);
 			name = Delegate;
 			sourceTree = "<group>";
@@ -363,6 +371,7 @@
 		FEFDD4F01BFCE706005C95EC /* Datasource */ = {
 			isa = PBXGroup;
 			children = (
+				5084E7731CFDB9A2004377F7 /* FavTableDataSource.swift */,
 				FEFDD4EE1BFCE6FE005C95EC /* SechTableDataSource.swift */,
 			);
 			name = Datasource;
@@ -520,6 +529,7 @@
 				8D07B7941BD0F79A00031D8B /* WebViewDelegate.swift in Sources */,
 				961D15CA1C24114400D2EF46 /* JSONData.swift in Sources */,
 				5070F0A41CE49F7900D7A5A3 /* EexcessResponseParser.swift in Sources */,
+				5084E7741CFDB9A2004377F7 /* FavTableDataSource.swift in Sources */,
 				507E7F4D1CE22E2200840F7B /* AbstractConnectionCtrl.swift in Sources */,
 				507E7F591CE22EB100840F7B /* FarooURLBuilder.swift in Sources */,
 				507E7F551CE22E8900840F7B /* AbstractURLBuilder.swift in Sources */,
@@ -527,6 +537,7 @@
 				50D67A951C2ACA8100B864FC /* ViewController.swift in Sources */,
 				961D15CD1C24118100D2EF46 /* SEARCHModels.swift in Sources */,
 				961D15C31C2410B200D2EF46 /* RankingDataObjectPersistency.swift in Sources */,
+				5084E7761CFDB9BA004377F7 /* SechTableDelegate.swift in Sources */,
 				507E7F531CE22E7900840F7B /* AbstractJSONBuilder.swift in Sources */,
 				507E7F5B1CE22EC200840F7B /* DuckDuckGoURLBuilder.swift in Sources */,
 				961D15C71C24111F00D2EF46 /* TaskCtrl.swift in Sources */,
@@ -536,6 +547,7 @@
 				5070F0A01CE49F4A00D7A5A3 /* FarooResponseParser.swift in Sources */,
 				8D1385FD1BF3623D009E5F46 /* AdressBar.swift in Sources */,
 				961D15D31C24119900D2EF46 /* EEXCESSOrigin.swift in Sources */,
+				5084E7781CFDB9C9004377F7 /* FavTableDelegate.swift in Sources */,
 				96D622B81C43E6720090C438 /* SeachRules.swift in Sources */,
 				5070F0A21CE49F5D00D7A5A3 /* DuckDuckGoResponseParser.swift in Sources */,
 				507E7F511CE22E5600840F7B /* URLConnectionCtrl.swift in Sources */,

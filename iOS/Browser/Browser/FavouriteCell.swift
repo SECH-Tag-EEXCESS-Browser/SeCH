@@ -11,7 +11,7 @@ import UIKit
 
 class FavouriteCell: UITableViewCell
 {
+    @IBOutlet weak var favTitle: UILabel!
+    @IBOutlet weak var favUrl: UILabel!
     
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var lblUrl: UILabel!
 }

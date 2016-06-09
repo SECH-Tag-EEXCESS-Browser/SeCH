@@ -12,7 +12,7 @@
 import Foundation
 import UIKit
 
-class SechTableDataSource : NSObject, UITableViewDataSource{
+class SechTableDataSource: NSObject, UITableViewDataSource{
     
     //#########################################################################################################################################
     //##########################################################___Class_Variables___##########################################################

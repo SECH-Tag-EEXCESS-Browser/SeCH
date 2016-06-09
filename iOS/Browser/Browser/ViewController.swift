@@ -12,7 +12,7 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresentationControllerDelegate, UITableViewDelegate, BackDelegate
+class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresentationControllerDelegate, UITableViewDelegate
 {
     //#########################################################################################################################################
     //##########################################################___Class_Variables___##########################################################
@@ -20,11 +20,13 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     
     // IBOutlets
     @IBOutlet weak var sechWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var favWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var addressBarTxt: UITextField!
     @IBOutlet weak var reloadButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var favTableView: UITableView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var countSechsLabel: UILabel!
     @IBOutlet weak var sechButton: UIBarButtonItem!
@@ -36,6 +38,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     var webViewWidth: NSLayoutConstraint!
     var webViewHeight: NSLayoutConstraint!
     var webViewYpos: NSLayoutConstraint!
+    var webViewXpos: NSLayoutConstraint!
     var config = WKWebViewConfiguration()
     
     // Settings Variables
@@ -44,9 +47,12 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     
     // Other Variables
     let myAdressBar: AddressBar = AddressBar()
-    let p : DataObjectPersistency = DataObjectPersistency()
-    let tableViewDataSource = SechTableDataSource()
-    private var indexPathForSelectedSearchTag: Int!
+    let p : FavDataObjectPersistency = FavDataObjectPersistency()
+    let sechTableViewDataSource = SechTableDataSource()
+    let sechTableViewDelegate = SechTableViewDelegate()
+    let favTableViewDelegate = FavTableViewDelegate()
+    let favTableViewDataSource = FavTableDataSource()
+    var indexPathForSelectedSearchTag: Int!
     var headLine : String!
     var favourites = [FavouritesModel]()
     var xPosition : Int!
@@ -78,10 +84,12 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         webViewWidth = NSLayoutConstraint(item: myWebView!, attribute: .Width, relatedBy: .Equal, toItem: containerView, attribute: .Width, multiplier: 1.0, constant: 0.0)
         webViewHeight = NSLayoutConstraint(item: myWebView!, attribute: .Height, relatedBy: .Equal, toItem: containerView, attribute: .Height, multiplier: 1.0, constant: 0.0)
         webViewYpos = NSLayoutConstraint(item: myWebView!, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1.0, constant: 64.0)
+        webViewXpos = NSLayoutConstraint(item: myWebView!, attribute: .Left, relatedBy: .Equal, toItem: self.containerView, attribute: .Left, multiplier: 1.0, constant: 0)
         
         self.view.addConstraint(webViewWidth)
         self.view.addConstraint(webViewHeight)
         self.view.addConstraint(webViewYpos)
+        self.view.addConstraint(webViewXpos)
         
         myWebView?.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
         myWebView?.addObserver(self, forKeyPath: "canGoBack", options: .New, context: nil)
@@ -89,10 +97,18 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         
         
         // Setup SechTableView
-        tableView.delegate = self
-        tableView.dataSource = tableViewDataSource
+        tableView.delegate = sechTableViewDelegate
+        tableView.dataSource = sechTableViewDataSource
+        sechTableViewDelegate.viewCtrl = self
         tableView.hidden = true
         sechWidthConstraint.constant = 0
+        
+        // Setup FavTableView
+        favTableView.delegate = favTableViewDelegate
+        favTableView.dataSource = favTableViewDataSource
+        favTableViewDelegate.viewCtrl = self
+        favTableView.hidden = true
+        favWidthConstraint.constant = 0
         
         // Setup Settings
         settings = settingsPers.loadDataObject()
@@ -114,6 +130,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         super.viewWillAppear(animated)
         
         favourites = p.loadDataObject()
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -141,7 +158,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     
     //#########___View_Handling___#########
     
-    // Obeserver Methods added
+    // Observer Methods added
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath == "estimatedProgress" {
             progressViewWebsite.hidden = false
@@ -160,13 +177,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     // Segue Methods
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        if segue.identifier == "editBookmarks"
-        {
-            let destVC = segue.destinationViewController as! FavouriteTableViewController
-            destVC.favourites = favourites
-            destVC.delegate = self
-        }
-        
         if segue.identifier == "showPopView"
         {
             let popViewController = segue.destinationViewController as! PopViewController
@@ -182,7 +192,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             
             if self.searchResultsOfPages[self.currentSearchModel!] != nil ? self.searchResultsOfPages[self.currentSearchModel!]!.hasResults():false {
                 let title = self.currentSearchModel?.title
-                popViewController.searchTags = self.searchResultsOfPages[self.currentSearchModel!]!.getSearchResultForTitle(title!)!.getResultItems()//responses[indexPathForSelectedSearchTag].getResultItems()
+                popViewController.searchTags = self.searchResultsOfPages[self.currentSearchModel!]!.getSearchResultForTitle(title!)!.getResultItems()
+                //responses[indexPathForSelectedSearchTag].getResultItems()
             }else{
                 popViewController.jsonText = "NO RESULTS"
                 popViewController.url = "https://www.google.de/?gws_rd=ssl#q=Mein+Name+ist+Hase"
@@ -196,21 +207,21 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         }
     }
     
-    // Sechtableview Delegate
-    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        
-        self.indexPathForSelectedSearchTag = indexPath.row
-        
-        let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
-        
-        headLine = (currentCell.textLabel?.text!)! as String
-        print("\n\n\n\n\n\n\n")
-        print("selected: "+headLine)
-        
-        return indexPath
-    }
+    // SechTableViewDelegate
+//    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+//        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+//        
+//        
+//        self.indexPathForSelectedSearchTag = indexPath.row
+//        
+//        let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
+//        
+//        headLine = (currentCell.textLabel?.text!)! as String
+//        print("\n\n\n\n\n\n\n")
+//        print("selected: "+headLine)
+//        
+//        return indexPath
+//    }
     
     
     
@@ -247,15 +258,19 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         {
             action-> Void in
             
-            let textfield : UITextField = alertSheetController.textFields![0]
+            let textfieldTitel : UITextField = alertSheetController.textFields![0]
+            let textfieldURL : UITextField = alertSheetController.textFields![1]
+            
             let fav = FavouritesModel()
             
+            self.favourites = self.p.loadDataObject()
             self.favourites.append(fav)
             
-            fav.title = textfield.text!
-            fav.url = self.addressBarTxt.text!
+            fav.title = textfieldTitel.text!
+            fav.url = textfieldURL.text!
             
             self.p.saveDataObject(self.favourites)
+            self.favTableView.reloadData()
         }
         
         alertSheetController.addAction(enterAction)
@@ -302,14 +317,42 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         if (tableView.hidden == true){
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 self.sechWidthConstraint.constant = 210;
-                self.tableView.hidden = false
+                self.containerView.constraints
                 self.view.layoutIfNeeded()
             })
+            self.tableView.hidden = false
             
             //If Sech-Table visible
         }else{
             countSechAnimation()
             self.tableView.hidden = true
+        }
+    }
+    
+    func countSechAnimation(){
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            self.sechWidthConstraint.constant = 0;
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    @IBAction func doPopoverFavTableView(sender: AnyObject) {
+        
+        //If Fav-Table not visible
+        if (favTableView.hidden == true){
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.favWidthConstraint.constant = 210;
+                self.view.layoutIfNeeded()
+            })
+            self.favTableView.hidden = false
+            
+            //If Fav-Table visible
+        }else{
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.favWidthConstraint.constant = 0;
+                self.view.layoutIfNeeded()
+            })
+            self.favTableView.hidden = true
         }
     }
     
@@ -333,7 +376,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     
     
     func doRank(){
-        //Warum guard?
+        //Why guard?
         guard let allResponses = self.searchResultsOfPages[self.currentSearchModel!]?.getSearchResults() else{
             return
         }
@@ -377,15 +420,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         })
     }
     
-    func countSechAnimation(){
-        UIView.animateWithDuration(0.4, animations: { () -> Void in
-            self.sechWidthConstraint.constant = 0;
-            self.view.layoutIfNeeded()
-        })
-        
-        self.tableView.hidden = true
-    }
-    
     func loadURL(requestURL : String){
         let url = NSURL(string: requestURL)
         let request = NSURLRequest (URL: url!)
@@ -420,14 +454,14 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
                 // TODO: To be redesigned! 6
                 
                 if(status == "FAILED"){
-                    self.tableViewDataSource.sechTags = []
+                    self.sechTableViewDataSource.sechTags = []
                     self.tableView.reloadData()
                     self.setSechButtonLoading(false)
                     return
                 }
                 
                 if(!results.isEmpty){
-                    self.tableViewDataSource.appendLabel(results[0].getTitle())
+                    self.sechTableViewDataSource.appendLabel(results[0].getTitle())
                     //self.responses = [result!]
                     if self.searchResultsOfPages[self.currentSearchModel!] == nil {
                         self.searchResultsOfPages[self.currentSearchModel!] = SearchResults(searchResults: [])
@@ -483,11 +517,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         }else{
             sechButton.image = UIImage(named: "SechIcon")
         }
-    }
-    
-    func receiveInfo(ctrl: FavouriteTableViewController, info: FavouritesModel) {
-        loadURL(info.url)
-        ctrl.navigationController?.popToRootViewControllerAnimated(true)
     }
 
 }

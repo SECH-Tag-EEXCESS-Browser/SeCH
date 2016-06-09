@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FavouritesModel : NSObject, NSCoding
+class FavouritesModel: NSObject, NSCoding
 {
     var title: String
     var url : String
@@ -18,7 +18,6 @@ class FavouritesModel : NSObject, NSCoding
         self.title = title
         self.url = url
     }
-    
     
     override init()
     {
@@ -71,7 +70,7 @@ extension FavouritesModel
 }
     
 //Persistency Manager
-class DataObjectPersistency
+class FavDataObjectPersistency
 {
     private let fileName = "data.plist"
     private let dataKey = "DataObject"
