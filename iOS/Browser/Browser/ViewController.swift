@@ -333,37 +333,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     //###########################################################################################################################################
     
     
-    func doRank(){
-        //Warum guard?
-        guard let allResponses = self.searchResultsOfPages[self.currentSearchModel!]?.getSearchResults() else{
-            return
-        }
-        
-        let rule : Rules = Rules()
-        
-        for i in 0 ..< allResponses.count {
-            
-            let seachRule: SeachRules = SeachRules()
-            
-            for j in 0 ..< allResponses[i].getResultItems().count {
-                var rules: [Rule] = []
-                let mendeley : Mendeley = Mendeley(expectedResult: "Mendeley")
-                let language: Language = Language(expectedResult: LanguageType.German, title: allResponses[i].getResultItems()[j].getTitle())
-                let mediaType: MediaType = MediaType(expectedResult: MediaTypes.image)
-                rules.append(mendeley)
-                rules.append(language)
-                rules.append(mediaType)
-                seachRule.appendSeachRules(rules)
-            }
-            rule.addRule(seachRule)
-        }
-        enableSearchLinks()
-        rule.applyRulesToAllResponses(allResponses)
-
-        //Change SechButton Image
-        setSechButtonLoading(false)
-    }
-
+    
     //#########################################################################################################################################
     //##########################################################___Other-Methods___############################################################
     //#########################################################################################################################################

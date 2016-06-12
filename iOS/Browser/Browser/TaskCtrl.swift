@@ -16,10 +16,10 @@ class TaskCtrl {
         // Generate SearchQuery
         let searchQuery = QueryBuildCtrl().buildQuery(searchModel)
         //-------------------------------- /QueryBuild ---------------------------------------------
+        
+        
         //-------------------------------- QueryResulution -----------------------------------------
 
-
-        
         checkCalls(searchModel, searchQuery: searchQuery, setRecommendations: setRecommendations)
         
         print("getRecommendationsNew")
@@ -27,42 +27,7 @@ class TaskCtrl {
         //-------------------------------- /QueryResulution -----------------------------------------
     }
     
-    
-    /*func getRecommendationsNew(searchModel:SEARCHModel, setRecommendations: (status:String,message: String, result: SearchResult) -> Void)
-    {
-        //-------------------------------- QueryBuild ----------------------------------------------
-        // Generate SearchQuery
-        let searchQuery = QueryBuildCtrl().buildQuery(searchModel)
-        //-------------------------------- /QueryBuild ---------------------------------------------
-        //-------------------------------- QueryResulution -----------------------------------------
-        JSONConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
-            setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result!)
-        })
-        
-        URLConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
-            if result != nil {
-                setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result!)
-            }
-        })
-        //-------------------------------- /QueryResulution -----------------------------------------
-    }*/
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    //Aufruf des JSONCnnectionCtrls
     private func callJsonSearchEngines(searchQuery: SearchQuery, setRecommendations: (status:String,message: String, result: SearchResult)-> Void, builder: AbstractBuilder){
         JSONConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
             setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result!)
@@ -71,6 +36,7 @@ class TaskCtrl {
     
     }
     
+    //Aufruf des URLConnectionCtrls
     private func callURLSearchEngines(searchQuery: SearchQuery, setRecommendations: (status:String,message: String, result: SearchResult) -> Void, builder: AbstractBuilder){
         
         URLConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
@@ -84,12 +50,10 @@ class TaskCtrl {
     }
     
     private func checkCalls(searchModel:SEARCHModel, searchQuery: SearchQuery, setRecommendations: (status:String,message: String, result: SearchResult) -> Void){
-        //let isAutor = SettingsManager.getAutorPreference()
-        //let enabledSearchEngines = [SettingsManager.getEexcessPreference(), SettingsManager.getDuckDuckGoPreference()] //SettingsManager.getFarooPreference()]
         var isUserPreferences = false
         
         //Legt die unterstützten Suchmaschinen fest
-        let builders = [EEXCESS_JSONBuilder(), DuckDuckGoURLBuilder()]
+        let builders = [EEXCESS_JSONBuilder(), DuckDuckGoURLBuilder(), FarooURLBuilder()]
         let providers = ["eexcess", "duckduckgo", "faroo"]
         
         //Prüft ab, ob der Nutzer bevorzugte Suchmaschinen eingestellt hat
@@ -105,6 +69,13 @@ class TaskCtrl {
             
             isUserPreferences = true
              print("checkCalls DDG")
+        }
+        
+        if(SettingsManager.getFarooPreference()){
+            callURLSearchEngines(searchQuery, setRecommendations: setRecommendations, builder: FarooURLBuilder())
+            
+            isUserPreferences = true
+            print("checkCalls Faroo")
         }
         
         
@@ -131,7 +102,8 @@ class TaskCtrl {
                             
                         }
                     }else{
-                        callJsonSearchEngines(searchQuery, setRecommendations: setRecommendations, builder: builders[0] as! AbstractBuilder)
+                        callAllSearchEngines(searchQuery, setRecommendations: setRecommendations, providers: providers, builders: builders)
+                        return
                     }
                     
                     print("checkCalls AutorPreference 1")
