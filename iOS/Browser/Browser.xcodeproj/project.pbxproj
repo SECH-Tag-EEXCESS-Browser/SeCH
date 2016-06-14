@@ -196,6 +196,7 @@
 		8D43CB4B1BCE689E00EEBB7B /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				961D15C61C24111F00D2EF46 /* TaskCtrl.swift */,
 				96A5C4591CA19CB000EA62D3 /* UI */,
 				96A5C4611CA1A1BA00EA62D3 /* WebContent.swift */,
 				96A5C45A1CA19CBA00EA62D3 /* SEARCHExtraction */,
@@ -243,14 +244,6 @@
 			name = RankingPersistence;
 			sourceTree = "<group>";
 		};
-		961D15C81C24113800D2EF46 /* JSONData */ = {
-			isa = PBXGroup;
-			children = (
-				961D15C91C24114400D2EF46 /* JSONData.swift */,
-			);
-			name = JSONData;
-			sourceTree = "<group>";
-		};
 		964CE9E41C0C5461006419D5 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,7 +284,7 @@
 		96A5C45C1CA19EE300EA62D3 /* QueryResolution */ = {
 			isa = PBXGroup;
 			children = (
-				961D15C61C24111F00D2EF46 /* TaskCtrl.swift */,
+				961D15C91C24114400D2EF46 /* JSONData.swift */,
 				5070F09E1CE49F2500D7A5A3 /* ResponseParse */,
 				96A5C45E1CA19F4600EA62D3 /* QuerySend */,
 				96A5C45F1CA19F8600EA62D3 /* QueryProcessing */,
@@ -319,7 +312,6 @@
 				507E7F5A1CE22EC200840F7B /* DuckDuckGoURLBuilder.swift */,
 				5070F0A71CE49FBB00D7A5A3 /* AbstractBuilder.swift */,
 				961D15D01C24119900D2EF46 /* EEXCESSOrigin.swift */,
-				961D15C81C24113800D2EF46 /* JSONData */,
 			);
 			name = QueryProcessing;
 			sourceTree = "<group>";
