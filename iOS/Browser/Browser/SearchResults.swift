@@ -60,6 +60,8 @@ class SearchResults:NSObject{
                 return
             }
 
+            self.doRank(result)
+            
             self.mSearchResults.append(result)
             print("######### SeARCH fertig #########")
         })
@@ -68,6 +70,36 @@ class SearchResults:NSObject{
             // Start SearchTask -> find results for Search-tags
             task.getRecommendationsNew(searchModel, setRecommendations: setRecommendations)
     }
+    
+    func doRank(result: SearchResult){
+        
+        let rule : Rules = Rules()
+        
+        for i in 0 ..< result.getResultItems().count {
+            
+            let seachRule: SeachRules = SeachRules()
+            
+                var rules: [Rule] = []
+                let mendeley : Mendeley = Mendeley(expectedResult: "Mendeley")
+            let language: Language = Language(expectedResult: (SettingsManager.getLanguage() == "de" ? LanguageType.German : LanguageType.English), title: (result.getResultItems())[i].getTitle())
+                let mediaType: MediaType = MediaType(expectedResult: MediaTypes.image)
+                rules.append(mendeley)
+                rules.append(language)
+                rules.append(mediaType)
+                seachRule.appendSeachRules(rules)
+            
+            rule.addRule(seachRule)
+        }
+        rule.applyRulesToAllResponses(result)
+
+    }
+
+    
+    
+    
+    
+    
+    
 }
 
 class SearchResult:NSObject {

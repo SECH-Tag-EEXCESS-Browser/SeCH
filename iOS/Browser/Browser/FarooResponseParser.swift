@@ -24,7 +24,7 @@ class FarooResponseParser:AbstractResponseParser{
         
         let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as AnyObject
         
-        print("Faroo json" + String(data: data, encoding: NSUTF8StringEncoding)!)
+        //print("Faroo json" + String(data: data, encoding: NSUTF8StringEncoding)!)
         
         guard let allResults = JSONData.fromObject(json!)!["results"]?.array as [JSONData]! else{
             return nil
@@ -34,10 +34,10 @@ class FarooResponseParser:AbstractResponseParser{
             return nil
         }
         
-        for(index, allResult) in allResults.enumerate(){
+        for(_, allResult) in allResults.enumerate(){
             let title2 = allResult.object!["title"]?.string
             let url = allResult.object!["url"]?.string
-            let author = allResult.object!["author"]?.string
+            _ = allResult.object!["author"]?.string
             
             searchResultItems.append(SearchResultItem(title: title2!, provider: provider, uri: url!, language: query.getLanguage(), mediaType: MediaTypes.unknown.simpleDescription()))
             

@@ -44,21 +44,26 @@ class PopViewController: UIViewController{
         sechHeadline.text = results.getTitle()
 
         if(!results.getResultItems().isEmpty){
-            
+            viewCtrl?.setSechButtonLoading(false)
             let requesturl = NSURL(string: results.getResultItems()[0].getUri())
             let request = NSURLRequest(URL: requesturl!)
             sechWebView.loadRequest(request)
+            
         }else{
             let requesturl = NSURL(string: "http://www.sech-browser.de/404.html")
             let request = NSURLRequest(URL: requesturl!)
             sechWebView.loadRequest(request)
         }
         
+        
+                
         self.popoverContent = (self.storyboard?.instantiateViewControllerWithIdentifier("SearchTableViewController"))! as! SearchTableViewController
         
         popoverContent.searchLists = results.getResultItems()
         popoverContent.sechWebView = sechWebView
         popoverContent.modalPresentationStyle = .Popover
+        
+        
     }
     
     

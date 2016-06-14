@@ -27,22 +27,20 @@ class Rules {
         storedRules.append(rule)
     }
     
-    func applyRulesToAllResponses(var responses: [SearchResult]) {
-        calculateValueOfEachRule(responses)
-        
-        for i : SearchResult in responses
-        {
-            var results = i.getResultItems()
+    func applyRulesToAllResponses(var response: SearchResult) {
+        calculateValueOfEachRule(response)
+
+            var results = response.getResultItems()
             results.sortInPlace({$0.getAvg() > $1.getAvg()})
-            i.setResultItems(results)
-        }
+            response.setResultItems(results)
+        
         
     }
     
     
-    private func calculateValueOfEachRule(responses: [SearchResult]){
+    private func calculateValueOfEachRule(response: SearchResult){
         
-        for response in responses{
+
             for res in response.getResultItems(){
                 let avg = calculateRulesForSingleResponse(res)
                 
@@ -54,7 +52,7 @@ class Rules {
                 
             } 
             
-        }
+        
     }
     
     private func calculateRulesForSingleResponse(res: SearchResultItem)->Double{
@@ -101,7 +99,7 @@ class Rules {
 
 
 class MediaType: Rule {
-    var weighting: Double = 0.5
+    var weighting: Double = 0.6
     var classId: String = "MediaType"
     var expectedResult: MediaTypes
     
@@ -117,7 +115,7 @@ class MediaType: Rule {
 }
 
 class Language: Rule{
-    var weighting: Double = 0.5
+    var weighting: Double = 0.8
     var classId: String = "Language"
     var expectedResult: LanguageType
     var title:String
@@ -140,13 +138,13 @@ class Language: Rule{
     
     
     private func getLanguage(recommendationLanguage: String)->LanguageType{
-        if(recommendationLanguage.contains("ö") || recommendationLanguage.contains("ä") || recommendationLanguage.contains("ü")){
+        if(recommendationLanguage.contains("ö") || recommendationLanguage.contains("ä") || recommendationLanguage.contains("ü") || recommendationLanguage.contains("der") || recommendationLanguage.contains("die") || recommendationLanguage.contains("das")){
             return LanguageType.German
-        }else if(recommendationLanguage.contains("the") || recommendationLanguage.contains("a")){
+        }else if(recommendationLanguage.contains("the") || recommendationLanguage.contains("to") || recommendationLanguage.contains("and") || recommendationLanguage.contains("is") || recommendationLanguage.contains("are") || recommendationLanguage.contains("do")){
             return LanguageType.English
-        }else if(recommendationLanguage.contains("é") || recommendationLanguage.contains("è") || recommendationLanguage.contains("â")){
+        }else if(recommendationLanguage.contains("é") || recommendationLanguage.contains("è") || recommendationLanguage.contains("â") || recommendationLanguage.contains("avec") || recommendationLanguage.contains("la") || recommendationLanguage.contains("les") || recommendationLanguage.contains("ô")){
             return LanguageType.French
-        }else if(recommendationLanguage.contains("í") || recommendationLanguage.contains("ó")){
+        }else if(recommendationLanguage.contains("í") || recommendationLanguage.contains("ó") || recommendationLanguage.contains("con")){
             return LanguageType.Spanish
         }
         
@@ -155,7 +153,7 @@ class Language: Rule{
 }
 
 class Mendeley: Rule {
-    var weighting: Double = 0.0
+    var weighting: Double = 0.5
     var expectedResult: String
     var classId:String = "Mendeley"
     
@@ -165,7 +163,7 @@ class Mendeley: Rule {
     
     
     func applyRule(parameters: String) -> RuleMatch {
-        return (expectedResult.lowercaseString == parameters.lowercaseString) ? RuleMatch.Match : RuleMatch.NoMatch
+        return (expectedResult.lowercaseString == parameters.lowercaseString) ? RuleMatch.NoMatch : RuleMatch.Match
     }
     
     
@@ -188,29 +186,6 @@ class Mendeley: Rule {
 //
 //}
 
-//<Special Parameters> ---------------------------------------------------------------------------------------------------
-
-//class RuleParameters {
-//
-//}
-//
-//class LanguageParameter: RuleParameters {
-//    var value: String!
-//    var isKnownLanguage: Bool!
-//    var expectedResult: LanguageType!
-//}
-//
-//class MediaTypeParameter: RuleParameters {
-//    var value: String!
-//    var expectedResult: MediaTypes!
-//
-//
-//}
-//
-//class MendeleyParameter: RuleParameters {
-//    var value: String!
-//    var expectedResult: String!
-//}
 
 //<Enums> -----------------------------------------------------------------------------------------------------------------------
 

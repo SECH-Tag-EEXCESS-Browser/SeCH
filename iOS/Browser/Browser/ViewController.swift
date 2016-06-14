@@ -393,6 +393,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     //###########################################################################################################################################
     
     
+<<<<<<< HEAD
     func doRank(){
         //Why guard?
         guard let allResponses = self.searchResultsOfPages[self.currentSearchModel!]?.getSearchResults() else{
@@ -424,6 +425,9 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         setSechButtonLoading(false)
     }
 
+=======
+    
+>>>>>>> origin/dev-may
     //#########################################################################################################################################
     //##########################################################___Other-Methods___############################################################
     //#########################################################################################################################################
