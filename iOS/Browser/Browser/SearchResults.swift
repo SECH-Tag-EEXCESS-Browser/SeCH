@@ -10,6 +10,7 @@ import Foundation
 
 class SearchResults:NSObject{
     private dynamic var mSearchResults: [SearchResult]
+    private var isRank = false
     
     init(searchResults:[SearchResult]){
         self.mSearchResults = [SearchResult]()
@@ -36,6 +37,10 @@ class SearchResults:NSObject{
                 lresult!.resultItems += result.resultItems
             }
         }
+        if !self.isRank && lresult != nil {
+            self.doRank(lresult!)
+            self.isRank = true
+        }
         return lresult
     }
     
@@ -59,8 +64,7 @@ class SearchResults:NSObject{
             if(status == "FAILED"){
                 return
             }
-
-            self.doRank(result)
+            self.isRank = false
             
             self.mSearchResults.append(result)
             print("######### SeARCH fertig #########")
