@@ -9,9 +9,8 @@
 
 import UIKit
 
-class FavouriteCell: UITableViewCell
-{
-    @IBOutlet weak var favTitle: UILabel!
+class FavouriteCell: UITableViewCell {
     
+    @IBOutlet weak var favTitle: UILabel!
     
 }

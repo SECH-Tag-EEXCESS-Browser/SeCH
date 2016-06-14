@@ -363,7 +363,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listCell" id="8L4-iI-0ZG">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listCell" id="8L4-iI-0ZG" customClass="SearchCell" customModule="Browser" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8L4-iI-0ZG" id="UBD-SJ-rpE">
@@ -380,13 +380,13 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al2-V6-0E6">
                                             <rect key="frame" x="55" y="8" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBx-kO-G1v">
                                             <rect key="frame" x="101" y="14" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -399,6 +399,11 @@
                                         <constraint firstItem="qBx-kO-G1v" firstAttribute="leading" secondItem="al2-V6-0E6" secondAttribute="trailing" constant="7" id="evW-gb-0hS"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imageIcon" destination="npy-gD-vDa" id="PVc-yN-Kfq"/>
+                                    <outlet property="textLabelTitle" destination="al2-V6-0E6" id="oeD-gK-0NM"/>
+                                    <outlet property="textLabelUri" destination="qBx-kO-G1v" id="WC3-WH-UC7"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -406,11 +411,6 @@
                             <outlet property="delegate" destination="esV-Wh-8bk" id="In6-i6-1OQ"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <outlet property="imageIcon" destination="npy-gD-vDa" id="Haa-sK-bEm"/>
-                        <outlet property="textLabelTitle" destination="al2-V6-0E6" id="Bhv-kj-vNk"/>
-                        <outlet property="textLabelUri" destination="qBx-kO-G1v" id="aSW-d0-JOa"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hjN-1W-NgC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

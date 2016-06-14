@@ -12,10 +12,7 @@
 import UIKit
 
 class SearchTableViewController: UITableViewController {
-    
-    @IBOutlet weak var textLabelTitle: UILabel!
-    @IBOutlet weak var textLabelUri: UILabel!
-    @IBOutlet weak var imageIcon: UIImageView!
+
     //#########################################################################################################################################
     //##########################################################___Class_Variables___##########################################################
     //#########################################################################################################################################
@@ -51,7 +48,7 @@ class SearchTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("listCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("listCell", forIndexPath: indexPath) as! SearchCell
         
         cell.textLabel!.text = searchLists[indexPath.row].getTitle()
     
