@@ -205,7 +205,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             }
             
             popViewController.popoverPresentationController?.delegate = self
-            popViewController.popoverPresentationController?.sourceRect = CGRectMake(CGFloat(xPosition), CGFloat(yPosition) , 400, 500)
+            popViewController.popoverPresentationController?.sourceRect = CGRectMake(CGFloat(xPosition), CGFloat(yPosition) , 0, 0)
             popViewController.popoverPresentationController?.canOverlapSourceViewRect = true
         }
     }
@@ -393,41 +393,31 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     //###########################################################################################################################################
     
     
-<<<<<<< HEAD
-    func doRank(){
-        //Why guard?
-        guard let allResponses = self.searchResultsOfPages[self.currentSearchModel!]?.getSearchResults() else{
-            return
-        }
+
+    
+    func doRank(result: SearchResult){
         
         let rule : Rules = Rules()
         
-        for i in 0 ..< allResponses.count {
+        for i in 0 ..< result.getResultItems().count {
             
             let seachRule: SeachRules = SeachRules()
             
-            for j in 0 ..< allResponses[i].getResultItems().count {
-                var rules: [Rule] = []
-                let mendeley : Mendeley = Mendeley(expectedResult: "Mendeley")
-                let language: Language = Language(expectedResult: LanguageType.German, title: allResponses[i].getResultItems()[j].getTitle())
-                let mediaType: MediaType = MediaType(expectedResult: MediaTypes.image)
-                rules.append(mendeley)
-                rules.append(language)
-                rules.append(mediaType)
-                seachRule.appendSeachRules(rules)
-            }
+            var rules: [Rule] = []
+            let mendeley : Mendeley = Mendeley(expectedResult: "Mendeley")
+            let language: Language = Language(expectedResult: (SettingsManager.getLanguage() == "de" ? LanguageType.German : LanguageType.English), title: (result.getResultItems())[i].getTitle())
+            let mediaType: MediaType = MediaType(expectedResult: MediaTypes.image)
+            rules.append(mendeley)
+            rules.append(language)
+            rules.append(mediaType)
+            seachRule.appendSeachRules(rules)
+            
             rule.addRule(seachRule)
         }
-        enableSearchLinks()
-        rule.applyRulesToAllResponses(allResponses)
-
-        //Change SechButton Image
-        setSechButtonLoading(false)
+        rule.applyRulesToAllResponses(result)
+        
     }
 
-=======
-    
->>>>>>> origin/dev-may
     //#########################################################################################################################################
     //##########################################################___Other-Methods___############################################################
     //#########################################################################################################################################
