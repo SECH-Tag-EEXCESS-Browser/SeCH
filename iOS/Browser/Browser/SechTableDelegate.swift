@@ -13,9 +13,13 @@ class SechTableViewDelegate: NSObject, UITableViewDelegate{
     
     internal var viewCtrl: ViewController!
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        viewCtrl.hideAndOpenSechTableView()
+        viewCtrl.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
 func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
     
-
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         viewCtrl.indexPathForSelectedSearchTag = indexPath.row

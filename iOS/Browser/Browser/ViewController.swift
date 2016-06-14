@@ -73,6 +73,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
+        
         // Setup WebView
         myWebViewDelegate = WebViewDelegate()
         myWebViewDelegate.viewCtrl = self
@@ -300,6 +302,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         {
                 textField -> Void in
                 textField.placeholder="Titel"
+                textField.text = self.myWebView?.title
         }
         
         alertSheetController.addTextFieldWithConfigurationHandler
@@ -307,13 +310,10 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
                 textField -> Void in
                 textField.placeholder="URL"
                 textField.text = self.addressBarTxt.text
+                textField.userInteractionEnabled = false
         }
         
         self.presentViewController(alertSheetController, animated: true) {}
-    }
-    
-    @IBAction func favBtn(sender: UIBarButtonItem) {
-        self.performSegueWithIdentifier("editBookmarks", sender: self)
     }
     
     // Navigation
@@ -332,21 +332,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     
     // Sechtable
     @IBAction func doPopover(sender: AnyObject) {
-        
-        //If Sech-Table not visible
-        if (tableView.hidden == true){
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
-                self.sechWidthConstraint.constant = 210;
-                self.containerView.constraints
-                self.view.layoutIfNeeded()
-            })
-            self.tableView.hidden = false
-            
-            //If Sech-Table visible
-        }else{
-            countSechAnimation()
-            self.tableView.hidden = true
-        }
+        hideAndOpenSechTableView()
     }
     
     func countSechAnimation(){
@@ -357,25 +343,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     }
     
     @IBAction func doPopoverFavTableView(sender: AnyObject) {
-        
-        //If Fav-Table not visible
-        if (favTableView.hidden == true){
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
-                self.favWidthConstraint.constant = 210;
-                self.view.layoutIfNeeded()
-            })
-            self.favTableView.hidden = false
-            
-            //If Fav-Table visible
-        }else{
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
-                self.favWidthConstraint.constant = 0;
-                self.view.layoutIfNeeded()
-            })
-            self.favTableView.hidden = true
-        }
+        hideAndOpenFavTableView()
     }
-    
     
     // Settings
     @IBAction func optionsMenu(sender: UIBarButtonItem) {
@@ -548,8 +517,44 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     func setSechButtonLoading(bool : Bool){
         if bool == true{
             sechButton.image = UIImage(named: "SechLoadIcon")
-        }else{
+        }else if bool == false{
             sechButton.image = UIImage(named: "SechIcon")
+        }
+    }
+    
+    func hideAndOpenFavTableView(){
+        //If Fav-Table not visible
+        if (favTableView.hidden == true){
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.favWidthConstraint.constant = 230;
+                self.view.layoutIfNeeded()
+            })
+            self.favTableView.hidden = false
+            
+            //If Fav-Table visible
+        }else{
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.favWidthConstraint.constant = 0;
+                self.view.layoutIfNeeded()
+            })
+            self.favTableView.hidden = true
+        }
+    }
+    
+    func hideAndOpenSechTableView(){
+        //If Sech-Table not visible
+        if (tableView.hidden == true){
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.sechWidthConstraint.constant = 210;
+                self.containerView.constraints
+                self.view.layoutIfNeeded()
+            })
+            self.tableView.hidden = false
+            
+            //If Sech-Table visible
+        }else{
+            countSechAnimation()
+            self.tableView.hidden = true
         }
     }
 }
