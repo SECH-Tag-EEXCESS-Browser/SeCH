@@ -50,10 +50,14 @@ class SearchTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("listCell", forIndexPath: indexPath) as! SearchCell
         
-        cell.textLabel!.text = searchLists[indexPath.row].getTitle()
-    
-        cell.detailTextLabel?.text = searchLists[indexPath.row].getUri()
         
+        cell.textLabelTitle.text! = searchLists[indexPath.row].getTitle()
+        cell.textLabelUri.text! = searchLists[indexPath.row].getUri()
+        
+//        cell.textLabel!.text = searchLists[indexPath.row].getTitle()
+//    
+//        cell.detailTextLabel?.text = searchLists[indexPath.row].getUri()
+//        
         for (pkey,pvalue) in providersDictonary {
             if searchLists[indexPath.row].getUri().contains(pkey){
                 var url = NSURL(string : "https://eexcess.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer/getPartnerFavIcon?partnerId="+pvalue)
@@ -66,7 +70,8 @@ class SearchTableViewController: UITableViewController {
                 }
                 if url != nil{
                     let data = NSData(contentsOfURL: url!)
-                    cell.imageView!.image = UIImage(data: data!)
+                    cell.imageIcon.image = UIImage(data: data!)
+//                    cell.imageView!.image = UIImage(data: data!)
                 }
 
             }
