@@ -21,6 +21,7 @@ class SearchTableViewController: UITableViewController {
     var sechWebView: UIWebView!
 
     
+    let providersDictonary = ["swissbib.ch":"Swissbib","coro.ac.uk":"CORE.ac.uk","mendeley.com":"Mendeley","zbw.eu":"ZBW","dp.la":"Digital Public Library of America","nationalarchives.gov.uk":"The National Archives UK","rijksmuseum.nl":"RijksMuseum","dnb.de":"DeutscheNationalbibliothek","europeana.eu":"Europeana","kgportal.bl.ch":"KIMPortal","deutsche-digitale-bibliothek.de":"Deutsche Digitale Bibliothek"]
     
     //#########################################################################################################################################
     //##########################################################___Table_ViewController_Methods___#############################################
@@ -50,68 +51,28 @@ class SearchTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("listCell", forIndexPath: indexPath) as UITableViewCell
         
         cell.textLabel!.text = searchLists[indexPath.row].getTitle()
-        //cell.detailTextLabel?.text = "Reason why this super duper cool item is here"
+    
         cell.detailTextLabel?.text = searchLists[indexPath.row].getUri()
         
-        let providers :[String] = ["swissbib","mendelay","core.ac.uk",""]
-        
-        for index in 0...providers.count{
-           var providertemp = providers[index]
-            if searchLists[indexPath.row].getUri().contains(providertemp){
-                let url = NSURL(string: "https://eexcess.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer/getPartnerFavIcon?partnerId="+providertemp)
-                
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                    let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
-                    dispatch_async(dispatch_get_main_queue(), {
-                        cell.imageView!.image = UIImage(data: data!)
-                    });
+        for (pkey,pvalue) in providersDictonary {
+            if searchLists[indexPath.row].getUri().contains(pkey){
+                var url = NSURL(string : "https://eexcess.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer/getPartnerFavIcon?partnerId="+pvalue)
+
+                if pkey.contains("duckduckgo"){
+                    url = NSURL(string : "https://duckduckgo.com/favicon.ico")
                 }
+                if pkey.contains("faroo"){
+                    url = NSURL(string : "http://www.faroo.com/favicon.ico")
+                }
+                if url != nil{
+                    let data = NSData(contentsOfURL: url!)
+                    cell.imageView!.image = UIImage(data: data!)
+                }
+
             }
             
         }
-//        var provider = "Europeana"
-//        let someCharacter: String = searchLists[indexPath.row].getUri()
-//        
-//        if someCharacter.contains("swissbib"){
-//            provider = "Swissbib"
-//        }
-//        if someCharacter.contains("mendeley"){
-//            provider = "Mendeley"
-//        }
-//        if someCharacter.contains("CORE.ac.uk"){
-//            provider = "CORE.ac.uk"
-//        }
-//        if someCharacter.contains("dnb"){
-//            provider = "DeutscheNationalbibliothek"
-//        }
-//        if someCharacter.contains("mendeley"){
-//            provider = "Mendeley"
-//        }
-//        if someCharacter.contains("mendeley"){
-//            provider = "Mendeley"
-//        }
-//        
-        
-//        "CORE.ac.uk"
-//        "ZBW"
-//        "Digital Public Library of America"
-//        "The National Archives UK"
-//        "RijksMuseum"
-//        "DeutscheNationalbibliothek"
-//        "Europeana"
-//        "KIMPortal"
-        //2 arrays: 1 mit den ganzen Providern 2 mit den Ganzen Bildern. Dann mittels for-schleife beide vergleichen
-//        "Deutsche Digitale Bibliothek"
-        
-//        let url = NSURL(string : "https://eexcess.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer/getPartnerFavIcon?partnerId=Europeana")
-//        
-//        var pic = NSData(contentsOfURL: url!, options: <#T##NSDataReadingOptions#>)
-//        
-//        let image : UIImage = UIImage(data: pic)!
-//        cell.imageView!.image = image
-        
-        
-        return cell
+         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
