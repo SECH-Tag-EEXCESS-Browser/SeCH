@@ -10,7 +10,7 @@ import Foundation
 
 class AbstractConnectionCtrl {
     
-    func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult?) -> ()){
+    func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult?) -> (), builder: AbstractBuilder){
         postCompleted(succeeded: false, result: SearchResult())
     }
     

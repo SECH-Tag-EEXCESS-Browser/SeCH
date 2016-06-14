@@ -82,7 +82,7 @@ class Tag {
 
 class Filter {
     var mediaType = String()
-    var provider = String()
+    var provider: String!
     var licence = String()
     
     func getValues()->[String:AnyObject]{

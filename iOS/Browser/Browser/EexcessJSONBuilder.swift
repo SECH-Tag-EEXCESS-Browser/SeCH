@@ -19,7 +19,6 @@ class EEXCESS_JSONBuilder:AbstractJSONBuilder{
         return QUERY_URL
     }
 
-    
     func getHTTPMethod()->String{
         return "POST"
     }

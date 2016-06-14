@@ -18,7 +18,7 @@ class SechTableDataSource: NSObject, UITableViewDataSource{
     //##########################################################___Class_Variables___##########################################################
     //#########################################################################################################################################
     
-    var sechTags = ["Teststring"]
+    var sechTags = [SEARCHModel]()
     
     
     
@@ -33,41 +33,27 @@ class SechTableDataSource: NSObject, UITableViewDataSource{
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SechCell", forIndexPath: indexPath) as UITableViewCell
         
-        cell.textLabel!.text = sechTags[indexPath.row]
+        cell.textLabel!.text = sechTags[indexPath.row].title
         
         
         return cell
     }
-    
-    
-    
+
     //#########################################################################################################################################
     //##########################################################___Other_Methods___############################################################
     //#########################################################################################################################################
     
-    func makeNewLabels(searchModels : [SEARCHModel]) {
+    func appendModels(searchModels : [SEARCHModel]) {
         emptyTable()
         
         for searchModel in searchModels{
-            appendLabel(searchModel.title)
+            if !containValue(searchModel){
+                sechTags.append(searchModel)
+            }
         }
     }
     
-    func makeNewLabels(searchResults : [SearchResult]) {
-        emptyTable()
-        
-        for searchResult in searchResults{
-            appendLabel(searchResult.getTitle())
-        }
-    }
-    
-    func appendLabel(newtitle:String){
-        if !containValue(newtitle){
-            sechTags.append(newtitle)
-        }
-    }
-    
-    private func containValue(value:String)->Bool{
+    private func containValue(value:SEARCHModel)->Bool{
         return sechTags.contains(value)
     }
     

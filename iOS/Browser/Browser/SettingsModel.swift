@@ -182,6 +182,46 @@ class SettingsManager {
         
         return l!
     }
+    
+    static func getDuckDuckGoPreference()->Bool{
+        var l = NSUserDefaults.standardUserDefaults().valueForKey("duckduckgo_preference") as? Bool
+        if(l == nil){
+            NSUserDefaults.standardUserDefaults().setObject(false, forKey: "duckduckgo_preference")
+            l = false
+        }
+        return l!;
+        
+        
+    }
+    
+    static func getEexcessPreference()->Bool{
+        var l = NSUserDefaults.standardUserDefaults().valueForKey("eexcess_preference") as? Bool
+        if(l == nil){
+            NSUserDefaults.standardUserDefaults().setObject(false, forKey: "eexcess_preference")
+            l = false
+        }
+        return l!;
+    }
+    
+    static func getFarooPreference()->Bool{
+        var l = NSUserDefaults.standardUserDefaults().valueForKey("faroo_preference") as? Bool
+        if(l == nil){
+            NSUserDefaults.standardUserDefaults().setObject(false, forKey: "faroo_preference")
+            l = false
+        }
+        return l!;
+    }
+    
+    static func getAutorPreference()->Bool{
+        var l = NSUserDefaults.standardUserDefaults().valueForKey("autor_preference") as? Bool
+        if(l == nil){
+            NSUserDefaults.standardUserDefaults().setObject(true, forKey: "autor_preference")
+            l = true
+        }
+        return l!;
+    }
+    
+    
 }
 
 

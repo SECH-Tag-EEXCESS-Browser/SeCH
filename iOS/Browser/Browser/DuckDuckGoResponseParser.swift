@@ -5,6 +5,7 @@
 //  Created by Andreas Ziemer on 12.05.16.
 //  Copyright © 2016 SECH-Tag-EEXCESS-Browser. All rights reserved.
 //
+//
 
 import Foundation
 
@@ -26,7 +27,7 @@ class DuckDuckGoResponseParser:AbstractResponseParser{
         var searchResultItems = [SearchResultItem]()
         let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as! NSDictionary
 
-        //Official site}
+        //Official site
         if let result = json!["Results"] as? Array<AnyObject>{
             
             for item in result{
@@ -51,9 +52,24 @@ class DuckDuckGoResponseParser:AbstractResponseParser{
         
         //Related Topics
         if let results = json!["RelatedTopics"] as? Array<AnyObject> {
-            
+            //Topics in RelatedTopics
             for item in results{
-                let u = item["FirstURL"] as! String // <- Found nil sometimes!
+                if let topics =  item["Topics"] as? Array<AnyObject>{
+                    for topic in topics{
+                        let u = topic["FirstURL"] as! String
+                        let t = topic["Text"] as! String
+                        let p = "duckduckgo"
+                        let l = "unknown"
+                        let m = "unknown"
+                        if u != "" && t != "" {
+                            searchResultItems.append(SearchResultItem(title: t, provider: p, uri: u, language: l, mediaType: m))
+                        }
+                    }
+                    break
+                }
+                
+                
+                let u = item["FirstURL"] as! String
                 let t = item["Text"] as! String
                 let p = "duckduckgo"
                 let l = "unknown"

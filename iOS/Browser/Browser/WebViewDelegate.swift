@@ -56,7 +56,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
                     if error == nil && object != nil{
                         self.htmlBody = (object as? String)!
                         //IBAction
-                        self.sechMng()
+                        self.viewCtrl.sechMng(self.htmlHead,htmlBody: self.htmlBody)
                     }
                 })
             }
