@@ -76,6 +76,20 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
         print("##########webViewWebContentProcessDidTerminate#########")
     }
     
+    func webView(webView: WKWebView, didFailNavigation navigation: WKNavigation!, withError error: NSError) {
+        print("#########didFailNavigation##########")
+        let myError = String(error.userInfo["NSLocalizedDescription"])
+        
+        viewCtrl.myWebView?.loadHTMLString("<html><head><title>Browser Error</title></head><body><h1>Browser Error</h1><p>Failed to load this Site!</p><p>\(myError)</p></body></html>", baseURL: NSURL(string: ""))
+    }
+    
+    func webView(webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: NSError) {
+        print("#########didFailProvisionalNavigation##########")
+        let myError = String(error.userInfo["NSLocalizedDescription"])
+        
+        viewCtrl.myWebView?.loadHTMLString("<html><head><title>Browser Error</title></head><body><h1>Browser Error</h1><p>Failed to load this Site!</p><p>\(myError)</p></body></html>", baseURL: NSURL(string: ""))
+    }
+    
     
     
     //#########################################################################################################################################
