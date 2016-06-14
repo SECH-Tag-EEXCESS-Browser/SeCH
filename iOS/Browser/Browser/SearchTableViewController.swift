@@ -53,30 +53,44 @@ class SearchTableViewController: UITableViewController {
         //cell.detailTextLabel?.text = "Reason why this super duper cool item is here"
         cell.detailTextLabel?.text = searchLists[indexPath.row].getUri()
         
+        let providers :[String] = ["swissbib","mendelay","core.ac.uk",""]
         
-        
-        var provider = "Europeana"
-        let someCharacter: String = searchLists[indexPath.row].getUri()
-        
-        if someCharacter.contains("swissbib"){
-            provider = "Swissbib"
+        for index in 0...providers.count{
+           var providertemp = providers[index]
+            if searchLists[indexPath.row].getUri().contains(providertemp){
+                let url = NSURL(string: "https://eexcess.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer/getPartnerFavIcon?partnerId="+providertemp)
+                
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                    let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+                    dispatch_async(dispatch_get_main_queue(), {
+                        cell.imageView!.image = UIImage(data: data!)
+                    });
+                }
+            }
+            
         }
-        if someCharacter.contains("mendeley"){
-            provider = "Mendeley"
-        }
-        if someCharacter.contains("CORE.ac.uk"){
-            provider = "CORE.ac.uk"
-        }
-        if someCharacter.contains("dnb"){
-            provider = "DeutscheNationalbibliothek"
-        }
-        if someCharacter.contains("mendeley"){
-            provider = "Mendeley"
-        }
-        if someCharacter.contains("mendeley"){
-            provider = "Mendeley"
-        }
-        
+//        var provider = "Europeana"
+//        let someCharacter: String = searchLists[indexPath.row].getUri()
+//        
+//        if someCharacter.contains("swissbib"){
+//            provider = "Swissbib"
+//        }
+//        if someCharacter.contains("mendeley"){
+//            provider = "Mendeley"
+//        }
+//        if someCharacter.contains("CORE.ac.uk"){
+//            provider = "CORE.ac.uk"
+//        }
+//        if someCharacter.contains("dnb"){
+//            provider = "DeutscheNationalbibliothek"
+//        }
+//        if someCharacter.contains("mendeley"){
+//            provider = "Mendeley"
+//        }
+//        if someCharacter.contains("mendeley"){
+//            provider = "Mendeley"
+//        }
+//        
         
 //        "CORE.ac.uk"
 //        "ZBW"
@@ -88,14 +102,7 @@ class SearchTableViewController: UITableViewController {
 //        "KIMPortal"
         //2 arrays: 1 mit den ganzen Providern 2 mit den Ganzen Bildern. Dann mittels for-schleife beide vergleichen
 //        "Deutsche Digitale Bibliothek"
-        let url = NSURL(string: "https://eexcess.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer/getPartnerFavIcon?partnerId="+provider)
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
-            dispatch_async(dispatch_get_main_queue(), {
-                cell.imageView!.image = UIImage(data: data!)
-            });
-        }
 //        let url = NSURL(string : "https://eexcess.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer/getPartnerFavIcon?partnerId=Europeana")
 //        
 //        var pic = NSData(contentsOfURL: url!, options: <#T##NSDataReadingOptions#>)
