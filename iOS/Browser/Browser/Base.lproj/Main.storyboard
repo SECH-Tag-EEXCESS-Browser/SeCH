@@ -384,9 +384,9 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="imageIcon" destination="npy-gD-vDa" id="PVc-yN-Kfq"/>
-                                    <outlet property="textLabelTitle" destination="al2-V6-0E6" id="oeD-gK-0NM"/>
-                                    <outlet property="textLabelUri" destination="qBx-kO-G1v" id="WC3-WH-UC7"/>
+                                    <outlet property="imageIcon" destination="npy-gD-vDa" id="4zu-AR-wOp"/>
+                                    <outlet property="textLabelTitle" destination="al2-V6-0E6" id="Lhd-7M-U0a"/>
+                                    <outlet property="textLabelUri" destination="qBx-kO-G1v" id="m65-Zv-dWa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
