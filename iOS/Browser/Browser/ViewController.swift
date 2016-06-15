@@ -55,8 +55,10 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     var indexPathForSelectedSearchTag: Int!
     var headLine : String!
     var favourites = [FavouritesModel]()
-    var xPosition : Int!
-    var yPosition : Int!
+    var xPosition : Int = 0
+    var yPosition : Int = 0
+    var hiddenTV : Bool = true
+    var hiddenFTV : Bool = true
     
 //    ***************************************************************
     //var responses: [SearchResult]!
@@ -96,20 +98,46 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         myWebView?.addObserver(self, forKeyPath: "canGoBack", options: .New, context: nil)
         myWebView?.addObserver(self, forKeyPath: "canGoForward", options: .New, context: nil)
         
-        
         // Setup SechTableView
         tableView.delegate = sechTableViewDelegate
         tableView.dataSource = sechTableViewDataSource
         sechTableViewDelegate.viewCtrl = self
-        tableView.hidden = true
+        hiddenTV = true
         sechWidthConstraint.constant = 0
         
         // Setup FavTableView
         favTableView.delegate = favTableViewDelegate
         favTableView.dataSource = favTableViewDataSource
         favTableViewDelegate.viewCtrl = self
-        favTableView.hidden = true
+        hiddenFTV = true
         favWidthConstraint.constant = 0
+        
+        // Design from View, containerView, tableView and favTableView
+        myWebView?.scrollView.backgroundColor = UIColor.clearColor()
+        containerView.backgroundColor = UIColor.clearColor()
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "519626-android-android-jelly-bean-gaussian-blur-google-minimalistic.jpg.png")!)
+        
+        if (!UIAccessibilityIsReduceTransparencyEnabled()) {
+            tableView.backgroundColor = UIColor.clearColor()
+            favTableView.backgroundColor = UIColor.clearColor()
+            
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
+            let blurEffectViewTV = UIVisualEffectView(effect: blurEffect)
+            let blurEffectViewFTV = UIVisualEffectView(effect: blurEffect)
+            
+            blurEffectViewTV.frame = tableView.bounds
+            blurEffectViewFTV.frame = favTableView.bounds
+            
+            tableView.backgroundView = blurEffectViewTV
+            favTableView.backgroundView = blurEffectViewFTV
+
+            tableView.separatorEffect = UIVibrancyEffect(forBlurEffect: blurEffect)
+            favTableView.separatorEffect = UIVibrancyEffect(forBlurEffect: blurEffect)
+        }
+        
+        // SechPopUp
+        xPosition = Int(UIScreen.mainScreen().bounds.size.width)
+        yPosition = Int(UIScreen.mainScreen().bounds.size.height)/2
         
         // Setup Settings
         settings = settingsPers.loadDataObject()
@@ -155,8 +183,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         super.didReceiveMemoryWarning()
     }
     
-    
-    
     //#########___View_Handling___#########
     
     // Observer Methods added
@@ -190,18 +216,21 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             popViewController.popoverPresentationController?.permittedArrowDirections = .Any
             popViewController.popoverPresentationController?.delegate = self
             popViewController.popoverPresentationController?.sourceView = self.myWebView
+            
             //Sets given Click Position from JS for Popover
             popViewController.popoverPresentationController?.sourceRect = CGRect(x: xPosition,y: yPosition,width: 0,height: 0)
+            
             popViewController.popoverPresentationController?.canOverlapSourceViewRect = true
             print("Segue "+self.headLine)
 
             
             popViewController.xPosition = self.xPosition
             popViewController.yPosition = self.yPosition
+            popViewController.sechTitel = headLine
             
             if self.searchResultsOfPages[self.currentSearchModel!] != nil ? self.searchResultsOfPages[self.currentSearchModel!]!.hasResults():false {
                 let title = self.currentSearchModel?.title
-
+                
             }else{
 
             }
@@ -329,19 +358,12 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         myWebView!.goBack()
     }
     
-    
     // Sechtable
     @IBAction func doPopover(sender: AnyObject) {
         hideAndOpenSechTableView()
     }
     
-    func countSechAnimation(){
-        UIView.animateWithDuration(0.4, animations: { () -> Void in
-            self.sechWidthConstraint.constant = 0;
-            self.view.layoutIfNeeded()
-        })
-    }
-    
+    // FavTable
     @IBAction func doPopoverFavTableView(sender: AnyObject) {
         hideAndOpenFavTableView()
     }
@@ -361,8 +383,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     //##########################################################___Ranking-Methods___############################################################
     //###########################################################################################################################################
     
-    
-
     
     func doRank(result: SearchResult){
         
@@ -409,9 +429,11 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         countSechsLabel.hidden = false
         enableSearchLinks()
         sechTableViewDataSource.emptyTable()
+        
         //-------------------------------- SeARCHExtraction ----------------------------------------
         // Generate SearchObjects for QueryBuildCtrl
         searchModelsOfCurrentPage = SEARCHManager().getSEARCHObjects(WebContent(html: Html(head: htmlHead, body: htmlBody), url: (myWebView?.URL?.absoluteString)!))
+        
         //-------------------------------- /SeARCHExtraction ---------------------------------------
         for searchModel in (searchModelsOfCurrentPage?.getSearchModels())! {
             if searchResultsOfPages[searchModel] == nil {
@@ -448,6 +470,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
                     currentSearchModel = model
                 }
             }
+        
         self.showPopView()
         setSechButtonLoading(true)
         
@@ -522,14 +545,33 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         }
     }
     
+    func hideAndOpenSechTableView(){
+        //If Sech-Table not visible
+        if (hiddenTV == true){
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.sechWidthConstraint.constant = 210;
+                self.view.layoutIfNeeded()
+            })
+            hiddenTV = false
+            
+            //If Sech-Table visible
+        }else{
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.sechWidthConstraint.constant = 0;
+                self.view.layoutIfNeeded()
+            })
+            hiddenTV = true
+        }
+    }
+    
     func hideAndOpenFavTableView(){
         //If Fav-Table not visible
-        if (favTableView.hidden == true){
+        if (hiddenFTV == true){
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 self.favWidthConstraint.constant = 230;
                 self.view.layoutIfNeeded()
             })
-            self.favTableView.hidden = false
+            hiddenFTV = false
             
             //If Fav-Table visible
         }else{
@@ -537,24 +579,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
                 self.favWidthConstraint.constant = 0;
                 self.view.layoutIfNeeded()
             })
-            self.favTableView.hidden = true
-        }
-    }
-    
-    func hideAndOpenSechTableView(){
-        //If Sech-Table not visible
-        if (tableView.hidden == true){
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
-                self.sechWidthConstraint.constant = 210;
-                self.containerView.constraints
-                self.view.layoutIfNeeded()
-            })
-            self.tableView.hidden = false
-            
-            //If Sech-Table visible
-        }else{
-            countSechAnimation()
-            self.tableView.hidden = true
+            hiddenFTV = true
         }
     }
 }

@@ -30,6 +30,9 @@ func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSInd
         print("\n\n\n\n\n\n\n")
         print("selected: "+viewCtrl.headLine)
     
+    let searchModel = viewCtrl.searchModelsOfCurrentPage?.getSearchModels()[indexPath.row]
+    viewCtrl.currentSearchModel = searchModel
+    
     return indexPath
 }
 }

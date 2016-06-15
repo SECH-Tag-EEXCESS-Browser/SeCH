@@ -29,7 +29,6 @@ class SearchTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
     }
 
@@ -43,6 +42,8 @@ class SearchTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        
+        self.tableView.backgroundColor = UIColor.clearColor()
         return searchLists.count
     }
 
@@ -50,6 +51,11 @@ class SearchTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("listCell", forIndexPath: indexPath) as! SearchCell
         
+        cell.backgroundColor = UIColor.clearColor()
+        
+        cell.textLabel!.text = searchLists[indexPath.row].getTitle()
+    
+        cell.detailTextLabel?.text = searchLists[indexPath.row].getUri()
         
         cell.textLabelTitle.text! = searchLists[indexPath.row].getTitle()
         cell.textLabelUri.text! = searchLists[indexPath.row].getUri()

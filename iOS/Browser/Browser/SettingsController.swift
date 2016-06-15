@@ -21,6 +21,17 @@ class SettingsController: UITableViewController{
  
     override func viewDidLoad(){
         super.viewDidLoad()
+        
+        // Transparent Background
+        self.view.layer.backgroundColor = UIColor(red: 239, green: 239, blue: 244, alpha: 0).CGColor
+        self.view.subviews.first?.backgroundColor = UIColor(red: 239, green: 239, blue: 244, alpha: 0)
+        self.homeSetting.backgroundColor = UIColor.clearColor()
+        self.ageSetting.backgroundColor = UIColor.clearColor()
+        self.genderSetting.backgroundColor = UIColor.clearColor()
+        self.countrySetting.backgroundColor = UIColor.clearColor()
+        self.citySetting.backgroundColor = UIColor.clearColor()
+        self.languageSetting.backgroundColor = UIColor.clearColor()
+        
         homeSetting.detailTextLabel?.text = settingsModel.homeURL
         ageSetting.detailTextLabel?.text = String(settingsModel.age)
         genderSetting.detailTextLabel?.text = settingsModel.gender

@@ -30,6 +30,9 @@
 		5084E7761CFDB9BA004377F7 /* SechTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5084E7751CFDB9BA004377F7 /* SechTableDelegate.swift */; };
 		5084E7781CFDB9C9004377F7 /* FavTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5084E7771CFDB9C9004377F7 /* FavTableDelegate.swift */; };
 		50D67A951C2ACA8100B864FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB4E1BCE689E00EEBB7B /* ViewController.swift */; };
+		50FFFD861D11470700C206A8 /* Downloads in Resources */ = {isa = PBXBuildFile; fileRef = 50FFFD851D11470700C206A8 /* Downloads */; };
+		50FFFD8C1D11495E00C206A8 /* 519626-android-android-jelly-bean-gaussian-blur-google-minimalistic.jpg.png in Resources */ = {isa = PBXBuildFile; fileRef = 50FFFD8A1D11495E00C206A8 /* 519626-android-android-jelly-bean-gaussian-blur-google-minimalistic.jpg.png */; };
+		50FFFD8D1D11495E00C206A8 /* 854436-android-4.1-blurred-blurred-background-galaxy-nexus-gaussian-blur-google-ice-cream-sandwich-jelly-bean-jelly-beans-multicolor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 50FFFD8B1D11495E00C206A8 /* 854436-android-4.1-blurred-blurred-background-galaxy-nexus-gaussian-blur-google-ice-cream-sandwich-jelly-bean-jelly-beans-multicolor.jpg */; };
 		8D07B7941BD0F79A00031D8B /* WebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D07B7931BD0F79A00031D8B /* WebViewDelegate.swift */; };
 		8D1385FD1BF3623D009E5F46 /* AdressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1385FC1BF3623D009E5F46 /* AdressBar.swift */; };
 		8D1386021BF381DE009E5F46 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1386011BF381DE009E5F46 /* SettingsController.swift */; };
@@ -100,6 +103,9 @@
 		5084E7731CFDB9A2004377F7 /* FavTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavTableDataSource.swift; sourceTree = "<group>"; };
 		5084E7751CFDB9BA004377F7 /* SechTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SechTableDelegate.swift; sourceTree = "<group>"; };
 		5084E7771CFDB9C9004377F7 /* FavTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavTableDelegate.swift; sourceTree = "<group>"; };
+		50FFFD851D11470700C206A8 /* Downloads */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Downloads; sourceTree = "<group>"; };
+		50FFFD8A1D11495E00C206A8 /* 519626-android-android-jelly-bean-gaussian-blur-google-minimalistic.jpg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "519626-android-android-jelly-bean-gaussian-blur-google-minimalistic.jpg.png"; sourceTree = "<group>"; };
+		50FFFD8B1D11495E00C206A8 /* 854436-android-4.1-blurred-blurred-background-galaxy-nexus-gaussian-blur-google-ice-cream-sandwich-jelly-bean-jelly-beans-multicolor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "854436-android-4.1-blurred-blurred-background-galaxy-nexus-gaussian-blur-google-ice-cream-sandwich-jelly-bean-jelly-beans-multicolor.jpg"; sourceTree = "<group>"; };
 		8D07B7931BD0F79A00031D8B /* WebViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewDelegate.swift; sourceTree = "<group>"; };
 		8D1385FC1BF3623D009E5F46 /* AdressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdressBar.swift; sourceTree = "<group>"; };
 		8D1386011BF381DE009E5F46 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -173,6 +179,15 @@
 			name = ResponseParse;
 			sourceTree = "<group>";
 		};
+		50FFFD871D11485F00C206A8 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				50FFFD8A1D11495E00C206A8 /* 519626-android-android-jelly-bean-gaussian-blur-google-minimalistic.jpg.png */,
+				50FFFD8B1D11495E00C206A8 /* 854436-android-4.1-blurred-blurred-background-galaxy-nexus-gaussian-blur-google-ice-cream-sandwich-jelly-bean-jelly-beans-multicolor.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		8D43CB401BCE689D00EEBB7B = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +224,8 @@
 				8DA1FB551BF5E44700732F5E /* SettingsModel.swift */,
 				9617645B1C3FB6B400C4169B /* Settings.bundle */,
 				8D43CB531BCE689E00EEBB7B /* Assets.xcassets */,
+				50FFFD871D11485F00C206A8 /* Images */,
+				50FFFD851D11470700C206A8 /* Downloads */,
 				8D43CB501BCE689E00EEBB7B /* Main.storyboard */,
 				8D43CB551BCE689E00EEBB7B /* LaunchScreen.storyboard */,
 				8D43CB581BCE689E00EEBB7B /* Info.plist */,
@@ -473,11 +490,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50FFFD8D1D11495E00C206A8 /* 854436-android-4.1-blurred-blurred-background-galaxy-nexus-gaussian-blur-google-ice-cream-sandwich-jelly-bean-jelly-beans-multicolor.jpg in Resources */,
 				8D43CB571BCE689E00EEBB7B /* LaunchScreen.storyboard in Resources */,
 				8D43CB541BCE689E00EEBB7B /* Assets.xcassets in Resources */,
+				50FFFD8C1D11495E00C206A8 /* 519626-android-android-jelly-bean-gaussian-blur-google-minimalistic.jpg.png in Resources */,
 				5014A2691CC680DA006D70EF /* readHead.js in Resources */,
 				9617645C1C3FB6B400C4169B /* Settings.bundle in Resources */,
 				8D43CB521BCE689E00EEBB7B /* Main.storyboard in Resources */,
+				50FFFD861D11470700C206A8 /* Downloads in Resources */,
 				A9767A101C1B215100D6FF10 /* main.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

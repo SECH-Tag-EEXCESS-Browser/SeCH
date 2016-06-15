@@ -20,11 +20,13 @@ class PopViewController: UIViewController{
     @IBOutlet weak var sechHeadline: UILabel!
     @IBOutlet weak var sechImage: UIImageView!
     @IBOutlet weak var sechWebView: UIWebView!
+    @IBOutlet weak var allSearchResults: UIButton!
     
 //    var searchTags : [SearchResultItem]!
     private var popoverContent: SearchTableViewController!
     var xPosition : Int!
     var yPosition : Int!
+    var sechTitel : String!
     private var myContext = 0
     var viewCtrl:ViewController?
 
@@ -33,6 +35,13 @@ class PopViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sechHeadline.text = sechTitel
+        allSearchResults.enabled = false
+        
+        // Transparent Background
+        self.view.layer.backgroundColor = UIColor(red: 239, green: 239, blue: 244, alpha: 0).CGColor
+        self.view.subviews.first?.backgroundColor = UIColor(red: 239, green: 239, blue: 244, alpha: 0)
+        
         viewCtrl!.searchResultsOfPages[viewCtrl!.currentSearchModel!]!.addObserver(self, forKeyPath: "mSearchResults", options: .New, context: &myContext)
         loadpopView(viewCtrl!.searchResultsOfPages[viewCtrl!.currentSearchModel!]!.getSearchResultForTitle(viewCtrl!.currentSearchModel!))
     }
@@ -41,9 +50,11 @@ class PopViewController: UIViewController{
         guard let results = lresult else {
             return
         }
+        
         sechHeadline.text = results.getTitle()
 
         if(!results.getResultItems().isEmpty){
+            allSearchResults.enabled = true
             viewCtrl?.setSechButtonLoading(false)
             let requesturl = NSURL(string: results.getResultItems()[0].getUri())
             let request = NSURLRequest(URL: requesturl!)
@@ -55,14 +66,12 @@ class PopViewController: UIViewController{
             sechWebView.loadRequest(request)
         }
         
-        
-                
         self.popoverContent = (self.storyboard?.instantiateViewControllerWithIdentifier("SearchTableViewController"))! as! SearchTableViewController
         
         popoverContent.searchLists = results.getResultItems()
         popoverContent.sechWebView = sechWebView
         popoverContent.modalPresentationStyle = .Popover
-        
+        popoverContent.popoverPresentationController?.permittedArrowDirections = .Down
         
     }
     
@@ -80,8 +89,6 @@ class PopViewController: UIViewController{
             
             // the position of the popover where it's showed
            popover.sourceRect = viewForSource.bounds
-
-            
             
             // the size you want to display
             popoverContent.preferredContentSize = CGSizeMake(400,500)

@@ -27,14 +27,16 @@ class SechTableDataSource: NSObject, UITableViewDataSource{
     //#########################################################################################################################################
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return sechTags.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SechCell", forIndexPath: indexPath) as UITableViewCell
         
-        cell.textLabel!.text = sechTags[indexPath.row].title
+        cell.backgroundColor = UIColor.clearColor()
         
+        cell.textLabel!.text = sechTags[indexPath.row].title
         
         return cell
     }

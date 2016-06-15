@@ -52,7 +52,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
             if error == nil && object != nil{
                 self.htmlHead = (object as? String)!
             
-                webView .evaluateJavaScript("document.body.innerHTML", completionHandler: { (object, error) -> Void in
+                webView.evaluateJavaScript("document.body.innerHTML", completionHandler: { (object, error) -> Void in
                     if error == nil && object != nil{
                         self.htmlBody = (object as? String)!
                         //IBAction
