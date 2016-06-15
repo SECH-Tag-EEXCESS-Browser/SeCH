@@ -20,8 +20,6 @@ class SechTableViewDelegate: NSObject, UITableViewDelegate{
     
 func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
     
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
         viewCtrl.indexPathForSelectedSearchTag = indexPath.row
         
         let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell

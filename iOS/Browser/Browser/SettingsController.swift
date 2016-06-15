@@ -57,7 +57,7 @@ class SettingsController: UITableViewController{
         case languageSetting?:
             print(settingsModel.language)
         default:
-            print("asd")
+            print("Error X")
         }
     }
  }

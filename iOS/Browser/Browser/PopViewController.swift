@@ -39,11 +39,15 @@ class PopViewController: UIViewController{
         allSearchResults.enabled = false
         
         // Transparent Background
-        self.view.layer.backgroundColor = UIColor(red: 239, green: 239, blue: 244, alpha: 0).CGColor
-        self.view.subviews.first?.backgroundColor = UIColor(red: 239, green: 239, blue: 244, alpha: 0)
+        self.view.layer.backgroundColor = UIColor.clearColor().CGColor
+        self.view.subviews.first?.backgroundColor = UIColor.clearColor()
+        sechWebView?.scrollView.backgroundColor = UIColor.clearColor()
+
         
         viewCtrl!.searchResultsOfPages[viewCtrl!.currentSearchModel!]!.addObserver(self, forKeyPath: "mSearchResults", options: .New, context: &myContext)
         loadpopView(viewCtrl!.searchResultsOfPages[viewCtrl!.currentSearchModel!]!.getSearchResultForTitle(viewCtrl!.currentSearchModel!))
+        self.sechWebView?.opaque = false
+        self.sechWebView?.backgroundColor = UIColor.clearColor()
     }
     
     func loadpopView(lresult:SearchResult?){

@@ -153,11 +153,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Browser/PopViewController.swift"
-            timestampString = "487686359.683836"
+            timestampString = "487691529.421861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "loadpopView(_:)"
             landmarkType = "5">
          </BreakpointContent>
