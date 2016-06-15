@@ -292,11 +292,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mVy-3B-jbQ">
+                                <rect key="frame" x="290" y="327" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0cF-Uz-09O" firstAttribute="leading" secondItem="lb5-9J-iPy" secondAttribute="leadingMargin" constant="-4" id="AYd-ar-8eK"/>
                             <constraint firstItem="j0p-8e-8Fj" firstAttribute="leading" secondItem="uFX-md-2eB" secondAttribute="trailing" constant="15" id="B1J-Wl-s8V"/>
+                            <constraint firstItem="mVy-3B-jbQ" firstAttribute="centerY" secondItem="lb5-9J-iPy" secondAttribute="centerY" id="F0e-7t-V1w"/>
+                            <constraint firstItem="mVy-3B-jbQ" firstAttribute="centerX" secondItem="lb5-9J-iPy" secondAttribute="centerX" id="Ob1-GJ-n8n"/>
                             <constraint firstItem="j0p-8e-8Fj" firstAttribute="leading" secondItem="uFX-md-2eB" secondAttribute="trailing" constant="8" id="YHY-s2-eQk"/>
                             <constraint firstItem="uFX-md-2eB" firstAttribute="leading" secondItem="lb5-9J-iPy" secondAttribute="leadingMargin" constant="-4" id="aj3-7e-lG9"/>
                             <constraint firstItem="uFX-md-2eB" firstAttribute="top" secondItem="B87-Ow-p0w" secondAttribute="bottom" constant="12" id="i5R-z5-vGQ"/>
@@ -317,6 +322,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="mVy-3B-jbQ" id="fVQ-9F-xvZ"/>
                         <outlet property="allSearchResults" destination="j0p-8e-8Fj" id="uD0-rK-pKs"/>
                         <outlet property="sechHeadline" destination="uFX-md-2eB" id="Zch-4R-O6Y"/>
                         <outlet property="sechWebView" destination="0cF-Uz-09O" id="Eky-Pv-wF8"/>

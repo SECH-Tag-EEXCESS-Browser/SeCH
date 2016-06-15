@@ -11,16 +11,16 @@
 
 import UIKit
 
-class PopViewController: UIViewController{
+class PopViewController: UIViewController, UIWebViewDelegate{
     
     //#########################################################################################################################################
     //##########################################################___Class_Variables___##########################################################
     //#########################################################################################################################################
     
     @IBOutlet weak var sechHeadline: UILabel!
-    @IBOutlet weak var sechImage: UIImageView!
     @IBOutlet weak var sechWebView: UIWebView!
     @IBOutlet weak var allSearchResults: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
 //    var searchTags : [SearchResultItem]!
     private var popoverContent: SearchTableViewController!
@@ -35,6 +35,12 @@ class PopViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Indicator start
+        activityIndicator.alpha = 0.7
+        activityIndicator.startAnimating()
+        
+        sechWebView.delegate = self
         sechHeadline.text = sechTitel
         allSearchResults.enabled = false
         
@@ -58,8 +64,6 @@ class PopViewController: UIViewController{
         sechHeadline.text = results.getTitle()
 
         if(!results.getResultItems().isEmpty){
-            allSearchResults.enabled = true
-            viewCtrl?.setSechButtonLoading(false)
             let requesturl = NSURL(string: results.getResultItems()[0].getUri())
             let request = NSURLRequest(URL: requesturl!)
             sechWebView.loadRequest(request)
@@ -75,7 +79,7 @@ class PopViewController: UIViewController{
         popoverContent.searchLists = results.getResultItems()
         popoverContent.sechWebView = sechWebView
         popoverContent.modalPresentationStyle = .Popover
-        popoverContent.popoverPresentationController?.permittedArrowDirections = .Down
+        popoverContent.popoverPresentationController?.permittedArrowDirections = .Up
         
     }
     
@@ -121,6 +125,30 @@ class PopViewController: UIViewController{
         }
     }
     
+    //#########################################################################################################################################
+    //##########################################################___webviewdelegat___###########################################################
+    //#########################################################################################################################################
+    
+    func webViewDidStartLoad(sechWebView: UIWebView) {
+        viewCtrl?.setSechButtonLoading(false)
+        allSearchResults.enabled = true
+        
+        // Start Indicator if another page is selected
+        if (!activityIndicator.isAnimating()){
+            activityIndicator.hidden = false
+            activityIndicator.startAnimating()
+        }
+    }
+    
+    func webViewDidFinishLoad(sechWebView: UIWebView) {
+        activityIndicator.stopAnimating()
+        activityIndicator.hidden = true
+    }
+    
+    func webView(sechWebView: UIWebView, didFailLoadWithError error: NSError?) {
+        activityIndicator.stopAnimating()
+        activityIndicator.hidden = true
+    }
     
     //#########################################################################################################################################
     //##########################################################___other-Methods___############################################################
