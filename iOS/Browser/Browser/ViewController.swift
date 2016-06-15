@@ -19,6 +19,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     //#########################################################################################################################################
     
     // IBOutlets
+//    @IBOutlet weak var browserContainerWidth: NSLayoutConstraint!
     @IBOutlet weak var sechWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var favWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var backButton: UIBarButtonItem!
@@ -569,6 +570,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         if (hiddenFTV == true){
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 self.favWidthConstraint.constant = 230;
+//                self.browserContainerWidth.constant = self.browserContainerWidth.constant-210
                 self.view.layoutIfNeeded()
             })
             hiddenFTV = false
