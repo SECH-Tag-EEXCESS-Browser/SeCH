@@ -21,7 +21,7 @@ class SearchTableViewController: UITableViewController {
     var sechWebView: UIWebView!
 
     
-    let providersDictonary = ["swissbib.ch":"Swissbib","coro.ac.uk":"CORE.ac.uk","mendeley.com":"Mendeley","zbw.eu":"ZBW","dp.la":"Digital Public Library of America","nationalarchives.gov.uk":"The National Archives UK","rijksmuseum.nl":"RijksMuseum","dnb.de":"DeutscheNationalbibliothek","europeana.eu":"Europeana","kgportal.bl.ch":"KIMPortal","deutsche-digitale-bibliothek.de":"Deutsche Digitale Bibliothek"]
+    let providersDictonary = ["swissbib.ch":"Swissbib","coro.ac.uk":"CORE.ac.uk","mendeley.com":"Mendeley","zbw.eu":"ZBW","dp.la":"Digital%20Public%20Library%20of%20America","nationalarchives.gov.uk":"The National Archives UK","rijksmuseum.nl":"RijksMuseum","dnb.de":"DeutscheNationalbibliothek","europeana.eu":"Europeana","kgportal.bl.ch":"KIMPortal","deutsche-digitale-bibliothek.de":"Deutsche Digitale Bibliothek","duckduckgo":"","faroo":""]
     
     //#########################################################################################################################################
     //##########################################################___Table_ViewController_Methods___#############################################
@@ -57,7 +57,17 @@ class SearchTableViewController: UITableViewController {
         cell.textLabelUri.text! = searchLists[indexPath.row].getUri()
         
         for (pkey,pvalue) in providersDictonary {
+            
+            
             if searchLists[indexPath.row].getUri().contains(pkey){
+                print("##########################################")
+                print("\(searchLists[indexPath.row].getTitle())")
+                print("\(searchLists[indexPath.row].getUri())")
+                print("\(pkey)")
+                
+                print("https://eexcess.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer/getPartnerFavIcon?partnerId="+pvalue)
+                
+                print("##########################################")
                 var url = NSURL(string : "https://eexcess.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer/getPartnerFavIcon?partnerId="+pvalue)
 
                 if pkey.contains("duckduckgo"){
@@ -66,14 +76,18 @@ class SearchTableViewController: UITableViewController {
                 if pkey.contains("faroo"){
                     url = NSURL(string : "http://www.faroo.com/favicon.ico")
                 }
-                if url != nil{
+                if(url != nil){
                     let data = NSData(contentsOfURL: url!)
                     cell.imageIcon.image = UIImage(data: data!)
+                    return cell
                 }
+                
+                
 
             }
             
         }
+        cell.imageIcon.image = UIImage(named:"AppIconPopUp")
          return cell
     }
     
