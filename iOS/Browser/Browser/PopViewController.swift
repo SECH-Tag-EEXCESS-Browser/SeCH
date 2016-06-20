@@ -56,6 +56,12 @@ class PopViewController: UIViewController, UIWebViewDelegate{
         self.sechWebView?.backgroundColor = UIColor.clearColor()
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        sechWebView.stopLoading()
+        sechWebView.delegate = nil 
+    }
     func loadpopView(lresult:SearchResult?){
         guard let results = lresult else {
             return
