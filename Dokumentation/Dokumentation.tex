@@ -1,0 +1,104 @@
+\documentclass[
+    DIV12,
+%    cleardouble=plain,
+    headings=normal,
+    pdftex,
+%    headexclude,footexclude,
+    final
+]{scrreprt}
+
+\usepackage{spreadtab}
+\usepackage{xspace}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex]{graphicx}
+\usepackage[bookmarks]{hyperref}
+\usepackage{scrpage2}
+\usepackage{longtable}
+\usepackage{caption}
+\usepackage{pgf}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{relsize}
+\usepackage{fancyvrb}
+\usepackage{pdfpages} 
+
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{geometry}
+\usepackage{multicol}
+\usepackage{multido}
+\usepackage{listings}
+\usepackage{svg}
+
+\graphicspath{{./}{./images/}}
+
+\usepackage{hyperref}
+
+% #################################################################
+
+%\hyphenation{Cha-otn-gsch-werl}
+\setlength\headheight{1.75cm}
+
+\ihead{\small{Hochschule Hof}}
+\chead{}
+\ohead{\includegraphics[height=0.05\textheight]{LogoGelb.png}}
+\pagestyle{scrheadings}
+
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\renewcommand{\arraystretch}{1}
+
+\parskip0.5\baselineskip plus 0.125\baselineskip minus 0.25\baselineskip
+\parindent0em
+
+% #################################################################
+
+\def\SECH{S\kern-.075em \lower.5ex\hbox{E}\kern-0.05em CH\xspace}
+\def\SEARCH{S\kern-.075em \lower.5ex\hbox{E}\kern-0.05em AR\kern-.075em \raise.5ex\hbox{C}\kern-0.05em H\xspace}
+
+% #################################################################
+
+%\automark[section]{chapter}
+
+\titlehead{\begin{center}\includegraphics[width=5cm]{fh_logo}\end{center}}
+\title{
+  \SEARCH--Tag EEXCESS \SECH--Browser \\[1em]
+  Programmier Leitfaden\\
+Spezifikation, Konstruktion
+}
+
+\author{Prof. Dr. Peter Stöhr \and Gottfried von Recum \and Alexander Pöhlmann \and Lothar Mödl \and Burak Erol \and Brian Mairhörmann \and Andreas Netsch \and Philipp Winterholler \and Andreas Ziemer}
+\date{Version 0.4.0}
+
+% #################################################################
+
+\begin{document}
+\maketitle
+\pagenumbering{Roman}
+\tableofcontents
+
+%\newpage
+\pagenumbering{arabic}
+
+\part{Einleitung}
+\include{intro_Intro}
+\include{intro_UI}
+\include{intro_Programmlogik}
+
+\part{Spezifikation}
+\include{spez_Intro}
+\include{spez_UI}
+\include{spez_Programmlogik}
+
+\part{Konstruktion}
+\include{konstr_Intro}
+\include{konstr_UI}
+\include{konstr_Programmlogik}
+
+%\newpage
+\listoffigures
+\listoftables
+\end{document}

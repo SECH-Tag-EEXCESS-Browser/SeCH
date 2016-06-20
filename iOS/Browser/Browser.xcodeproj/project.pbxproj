@@ -209,9 +209,9 @@
 		8D43CB4B1BCE689E00EEBB7B /* Browser */ = {
 			isa = PBXGroup;
 			children = (
-				961D15C61C24111F00D2EF46 /* TaskCtrl.swift */,
 				96A5C4591CA19CB000EA62D3 /* UI */,
 				96A5C4611CA1A1BA00EA62D3 /* WebContent.swift */,
+				961D15C61C24111F00D2EF46 /* TaskCtrl.swift */,
 				96A5C45A1CA19CBA00EA62D3 /* SEARCHExtraction */,
 				961D15CC1C24118100D2EF46 /* SEARCHModels.swift */,
 				96A5C45B1CA19E7B00EA62D3 /* QueryBuild */,
@@ -252,8 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				961D15C41C2410B900D2EF46 /* PersistenceController.swift */,
-				961D15C21C2410B200D2EF46 /* RankingDataObjectPersistency.swift */,
 				961D15C01C2410AA00D2EF46 /* RankingDataObject.swift */,
+				961D15C21C2410B200D2EF46 /* RankingDataObjectPersistency.swift */,
 			);
 			name = RankingPersistence;
 			sourceTree = "<group>";
@@ -319,12 +319,12 @@
 		96A5C45F1CA19F8600EA62D3 /* QueryProcessing */ = {
 			isa = PBXGroup;
 			children = (
+				5070F0A71CE49FBB00D7A5A3 /* AbstractBuilder.swift */,
 				507E7F521CE22E7900840F7B /* AbstractJSONBuilder.swift */,
 				507E7F541CE22E8900840F7B /* AbstractURLBuilder.swift */,
 				507E7F561CE22EA000840F7B /* EexcessJSONBuilder.swift */,
 				507E7F581CE22EB100840F7B /* FarooURLBuilder.swift */,
 				507E7F5A1CE22EC200840F7B /* DuckDuckGoURLBuilder.swift */,
-				5070F0A71CE49FBB00D7A5A3 /* AbstractBuilder.swift */,
 				961D15D01C24119900D2EF46 /* EEXCESSOrigin.swift */,
 			);
 			name = QueryProcessing;
@@ -333,9 +333,9 @@
 		96F405701C03356A0013E66F /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
-				961D15BF1C24100A00D2EF46 /* RankingPersistence */,
 				96F405731C0335B50013E66F /* Rules.swift */,
 				96D622B71C43E6720090C438 /* SeachRules.swift */,
+				961D15BF1C24100A00D2EF46 /* RankingPersistence */,
 			);
 			name = Ranking;
 			sourceTree = "<group>";
@@ -355,10 +355,10 @@
 			isa = PBXGroup;
 			children = (
 				4B5FEA051C3FBE94004795F8 /* SearchTableViewController.swift */,
-				A9767A0F1C1B215100D6FF10 /* main.js */,
 				8D43CB4E1BCE689E00EEBB7B /* ViewController.swift */,
 				A9F615751BEA37CF003A3878 /* PopViewController.swift */,
 				8D1386011BF381DE009E5F46 /* SettingsController.swift */,
+				A9767A0F1C1B215100D6FF10 /* main.js */,
 				5014A2681CC680DA006D70EF /* readHead.js */,
 			);
 			name = ViewController;
