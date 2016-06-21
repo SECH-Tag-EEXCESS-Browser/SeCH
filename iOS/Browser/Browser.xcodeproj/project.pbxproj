@@ -345,6 +345,7 @@
 			children = (
 				8D43CB4C1BCE689E00EEBB7B /* AppDelegate.swift */,
 				8D07B7931BD0F79A00031D8B /* WebViewDelegate.swift */,
+				5014A2681CC680DA006D70EF /* readHead.js */,
 				5084E7771CFDB9C9004377F7 /* FavTableDelegate.swift */,
 				5084E7751CFDB9BA004377F7 /* SechTableDelegate.swift */,
 			);
@@ -354,12 +355,11 @@
 		FEB9DC441BFC8D5500EB1729 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4B5FEA051C3FBE94004795F8 /* SearchTableViewController.swift */,
 				8D43CB4E1BCE689E00EEBB7B /* ViewController.swift */,
+				4B5FEA051C3FBE94004795F8 /* SearchTableViewController.swift */,
 				A9F615751BEA37CF003A3878 /* PopViewController.swift */,
 				8D1386011BF381DE009E5F46 /* SettingsController.swift */,
 				A9767A0F1C1B215100D6FF10 /* main.js */,
-				5014A2681CC680DA006D70EF /* readHead.js */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
