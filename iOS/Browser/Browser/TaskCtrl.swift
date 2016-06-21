@@ -57,9 +57,9 @@ class TaskCtrl {
         }
         
         let builders:[String:AbstractBuilder] = ["eexcess":EEXCESS_JSONBuilder(), "duckduckgo":DuckDuckGoURLBuilder(), "faroo":FarooURLBuilder()]
-        
-        if(searchBuilders.isEmpty){
-            let provider = query.getLink().getFilterProvider()
+        let provider = query.getLink().getFilterProvider()
+
+        if(searchBuilders.isEmpty && provider != ""){
             let str:String = ((provider == "duckduckgo" || provider == "faroo") ? provider : "eexcess")
             searchBuilders.append(builders[str]!)
             }
