@@ -12,28 +12,24 @@ class TaskCtrl {
     
     func getRecommendationsNew(searchModel:SEARCHModel, setRecommendations: (status:String,message: String, result: SearchResult) -> Void)
     {
-        //-------------------------------- QueryBuild ----------------------------------------------
-        let searchQuery = QueryBuildCtrl().buildQuery(searchModel)
-        //-------------------------------- /QueryBuild ---------------------------------------------
+        //-------------------------------- QueryCreation ----------------------------------------------
+        let searchQuery = QueryCreationCtrl().buildQuery(searchModel)
+        //-------------------------------- /QueryCreation ---------------------------------------------
         //-------------------------------- QueryResulution -----------------------------------------
         let builders = getListOfAllSearchEngineBuilder(searchQuery)
         for builder in builders {
-            print("<<< send me >>>")
             if let lbuilder  = builder as? AbstractJSONBuilder {
-                print("send JSON")
                 JSONConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
                     setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result!)
                     }, builder: lbuilder)
             }else if let lbuilder = builder as? AbstractURLBuilder {
-                print("send URL")
                 URLConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
                     setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result!)
                     }, builder: lbuilder)
             }else {
-                print("nothing")
+                print("<<<!!!! ERROR - Found a other class extends AbstractBuilder !!!!>>> ")
             }
         }
-        print("getRecommendationsNew")
         //-------------------------------- /QueryResulution -----------------------------------------
     }
     
@@ -42,32 +38,35 @@ class TaskCtrl {
         var searchBuilders = [AbstractBuilder]()
 
         //Prüft ab, ob der Nutzer bevorzugte Suchmaschinen eingestellt hat
-        if(SettingsManager.getEexcessPreference()){
+        if(SettingsManager.getEexcessPreference()){// if EEXCESS is enable in settings
             searchBuilders.append(EEXCESS_JSONBuilder())
-            print("checkCalls EexcessPreference")
+            print("use Passau")
         }
-        if(SettingsManager.getDuckDuckGoPreference()){
+        if(SettingsManager.getDuckDuckGoPreference()){// if DuckDuckGo is enable in settings
             searchBuilders.append(DuckDuckGoURLBuilder())
-            print("checkCalls DDG")
+            print("use Duck")
         }
         
-        if(SettingsManager.getFarooPreference()){
+        if(SettingsManager.getFarooPreference()){// if Faroo is enable in settings
             searchBuilders.append(FarooURLBuilder())
-            print("checkCalls Faroo")
+            print("use Faroo")
         }
-        
+        // dic with all searchengines + keys
         let builders:[String:AbstractBuilder] = ["eexcess":EEXCESS_JSONBuilder(), "duckduckgo":DuckDuckGoURLBuilder(), "faroo":FarooURLBuilder()]
+        // author filter for searchengine; if not set => provider = "" else name of searchengine (@see github/sech/wiki/Attributwerte)
         let provider = query.getLink().getFilterProvider()
 
-        if(searchBuilders.isEmpty && provider != ""){
+        if(searchBuilders.isEmpty && provider != ""){// if no searchengine select and provider isn't "" => set authors searchengine setting
             let str:String = ((provider == "duckduckgo" || provider == "faroo") ? provider : "eexcess")
             searchBuilders.append(builders[str]!)
+            print("use Author")
             }
         
-        if(searchBuilders.isEmpty){
+        if(searchBuilders.isEmpty){// if nothing select or set => use all engines
             searchBuilders.append(EEXCESS_JSONBuilder())
             searchBuilders.append(DuckDuckGoURLBuilder())
             searchBuilders.append(FarooURLBuilder())
+            print("use all")
         }
         return searchBuilders
     }

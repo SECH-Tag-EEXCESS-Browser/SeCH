@@ -8,6 +8,9 @@
 
 import Foundation
 
+/*
+    protocol for all builder
+*/
 protocol AbstractBuilder {
     func getHTTPMethod()->String
     func getContentType()->String

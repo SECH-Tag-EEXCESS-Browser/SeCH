@@ -8,6 +8,12 @@
 
 import Foundation
 
+/*
+protocol for all URLBuilder
+
+super -> AbstractBuilder
+
+*/
 protocol AbstractURLBuilder:AbstractBuilder {
     func generateURL(query:SearchQuery)->String
 }

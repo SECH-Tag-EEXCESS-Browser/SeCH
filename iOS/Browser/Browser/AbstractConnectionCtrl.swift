@@ -7,16 +7,26 @@
 //
 
 import Foundation
-
+/*
+  AbstractConnectionCtrl is the superclass for all connectionctrls
+*/
 class AbstractConnectionCtrl {
     
-    func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult?) -> (), builder: AbstractBuilder){
+    /*
+        This abstract method for is for the childclasses
+        
+        postCompleted -> send a false and empty result -> abstract function
+    */
+    func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult?) -> (), abstractBuilder: AbstractBuilder){
         postCompleted(succeeded: false, result: SearchResult())
     }
     
+    /*
+        general part of the querysend-process
+    */
     func post(request : NSMutableURLRequest,parser:AbstractResponseParser,postCompleted : (succeeded: Bool, result: SearchResult?) -> ())
     {
-        print("start")
+        print("start ")
         let session = NSURLSession.sharedSession()
         print("running")
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in

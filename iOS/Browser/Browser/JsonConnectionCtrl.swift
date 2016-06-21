@@ -8,21 +8,23 @@
 
 import Foundation
 
+/*
+    ConnectionController handle all JSON-Querys and call AbstractConnectionCtrl.post(...)
+*/
 class JSONConnectionCtrl:AbstractConnectionCtrl {
     
     //let builders = [EEXCESS_JSONBuilder()]
     
-    override func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult?) -> (), builder: AbstractBuilder){
+    override func post(query:SearchQuery,postCompleted : (succeeded: Bool, result: SearchResult?) -> (), abstractBuilder: AbstractBuilder){
         
-        let builder2: EEXCESS_JSONBuilder = builder as! EEXCESS_JSONBuilder
+        let builder = abstractBuilder as! AbstractJSONBuilder
         
-            let request = NSMutableURLRequest(URL: NSURL(string: builder2.getURL())!)
-            request.addValue(builder2.getContentType(), forHTTPHeaderField: "Content-Type")
-            request.addValue(builder2.getAcceptType(), forHTTPHeaderField: "Accept")
+            let request = NSMutableURLRequest(URL: NSURL(string: builder.getURL())!)
+            request.addValue(builder.getContentType(), forHTTPHeaderField: "Content-Type")
+            request.addValue(builder.getAcceptType(), forHTTPHeaderField: "Accept")
             
             request.HTTPMethod = builder.getHTTPMethod()
-            request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(builder2.generateJSON(query), options: [NSJSONWritingOptions()])
-            post(request, parser: builder2.getParser(query), postCompleted: postCompleted)
-        
+            request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(builder.getJSON(query), options: [NSJSONWritingOptions()])
+            post(request, parser: builder.getParser(query), postCompleted: postCompleted)
     }
 }

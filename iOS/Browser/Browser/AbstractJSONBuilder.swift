@@ -8,6 +8,12 @@
 
 import Foundation
 
+/*
+protocol for all JSONBuilder
+
+super -> AbstractBuilder
+
+*/
 protocol AbstractJSONBuilder:AbstractBuilder {
     func getJSON(searchQuery:SearchQuery)-> [String:AnyObject]
     func getURL()->String

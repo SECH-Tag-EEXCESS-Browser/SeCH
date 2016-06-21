@@ -32,7 +32,7 @@ class EEXCESS_JSONBuilder:AbstractJSONBuilder{
     }
     
     func getJSON(searchQuery:SearchQuery)-> [String:AnyObject]{
-        var json = generateJSON(searchQuery)
+        let json = generateJSON(searchQuery)
         print(json)
         
         return json
@@ -67,7 +67,7 @@ class EEXCESS_JSONBuilder:AbstractJSONBuilder{
     //        jsonObject["numResults"] = mInfos.numResult
     //    }
     
-    func generateJSON(searchQuery:SearchQuery)->[String:AnyObject]
+    private func generateJSON(searchQuery:SearchQuery)->[String:AnyObject]
     {
         var jsonObject = createJSONAndAddOrigin()
         // create the jsonRequestObject and add the origin

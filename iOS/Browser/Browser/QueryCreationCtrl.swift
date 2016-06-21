@@ -1,5 +1,5 @@
 //
-//  QueryBuildCtrl.swift
+//  QueryCreationCtrl.swift
 //  Browser
 //
 //  Created by Burak Erol on 12.04.16.
@@ -13,7 +13,7 @@ This Controller build a general Queryformat
  with SEARCHModels (and Settings)
 
 */
-class QueryBuildCtrl {
+class QueryCreationCtrl {
     /**
         searchModels -> SearchModels of the
 
