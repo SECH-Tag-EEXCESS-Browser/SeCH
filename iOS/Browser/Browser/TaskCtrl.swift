@@ -13,129 +13,62 @@ class TaskCtrl {
     func getRecommendationsNew(searchModel:SEARCHModel, setRecommendations: (status:String,message: String, result: SearchResult) -> Void)
     {
         //-------------------------------- QueryBuild ----------------------------------------------
-        // Generate SearchQuery
         let searchQuery = QueryBuildCtrl().buildQuery(searchModel)
         //-------------------------------- /QueryBuild ---------------------------------------------
-        
-        
         //-------------------------------- QueryResulution -----------------------------------------
-
-        checkCalls(searchModel, searchQuery: searchQuery, setRecommendations: setRecommendations)
-        
+        let builders = getListOfAllSearchEngineBuilder(searchQuery)
+        for builder in builders {
+            print("<<< send me >>>")
+            if let lbuilder  = builder as? AbstractJSONBuilder {
+                print("send JSON")
+                JSONConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
+                    setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result!)
+                    }, builder: lbuilder)
+            }else if let lbuilder = builder as? AbstractURLBuilder {
+                print("send URL")
+                URLConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
+                    setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result!)
+                    }, builder: lbuilder)
+            }else {
+                print("nothing")
+            }
+        }
         print("getRecommendationsNew")
-       
         //-------------------------------- /QueryResulution -----------------------------------------
     }
     
-    //Aufruf des JSONCnnectionCtrls
-    private func callJsonSearchEngines(searchQuery: SearchQuery, setRecommendations: (status:String,message: String, result: SearchResult)-> Void, builder: AbstractBuilder){
-        JSONConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
-            setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result!)
-        }, builder: builder)
-            print("callJsonSearchEngines")
-    
-    }
-    
-    //Aufruf des URLConnectionCtrls
-    private func callURLSearchEngines(searchQuery: SearchQuery, setRecommendations: (status:String,message: String, result: SearchResult) -> Void, builder: AbstractBuilder){
-        
-        URLConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
-            if result != nil {
-                setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result!)
-            }
-        }, builder: builder)
-            
-             print("callURLSearchEngines")
-
-    }
-    
-    private func checkCalls(searchModel:SEARCHModel, searchQuery: SearchQuery, setRecommendations: (status:String,message: String, result: SearchResult) -> Void){
-        var isUserPreferences = false
-        
+    private func getListOfAllSearchEngineBuilder(query:SearchQuery)->[AbstractBuilder] {
         //Legt die unterstützten Suchmaschinen fest
-        let builders = [EEXCESS_JSONBuilder(), DuckDuckGoURLBuilder(), FarooURLBuilder()]
-        let providers = ["eexcess", "duckduckgo", "faroo"]
-        
+        var searchBuilders = [AbstractBuilder]()
+
         //Prüft ab, ob der Nutzer bevorzugte Suchmaschinen eingestellt hat
         if(SettingsManager.getEexcessPreference()){
-            callJsonSearchEngines(searchQuery, setRecommendations: setRecommendations, builder: EEXCESS_JSONBuilder())
-            
-            isUserPreferences = true
-            
-             print("checkCalls EexcessPreference")
+            searchBuilders.append(EEXCESS_JSONBuilder())
+            print("checkCalls EexcessPreference")
         }
         if(SettingsManager.getDuckDuckGoPreference()){
-            callURLSearchEngines(searchQuery, setRecommendations: setRecommendations, builder: DuckDuckGoURLBuilder())
-            
-            isUserPreferences = true
-             print("checkCalls DDG")
+            searchBuilders.append(DuckDuckGoURLBuilder())
+            print("checkCalls DDG")
         }
         
         if(SettingsManager.getFarooPreference()){
-            callURLSearchEngines(searchQuery, setRecommendations: setRecommendations, builder: FarooURLBuilder())
-            
-            isUserPreferences = true
+            searchBuilders.append(FarooURLBuilder())
             print("checkCalls Faroo")
         }
         
+        let builders:[String:AbstractBuilder] = ["eexcess":EEXCESS_JSONBuilder(), "duckduckgo":DuckDuckGoURLBuilder(), "faroo":FarooURLBuilder()]
         
-        
-        if(isUserPreferences){
-            return
-        }
-        
-        
-        //Prüft ab, ob die vom Autor angegebenen Suchmaschinen verwendet werden sollen
-        
-        if(SettingsManager.getAutorPreference()){
-            let provider = searchQuery.getLink().getFilterProvider()
-            
-            if(!provider.isEmpty){
-                for i in 0 ..< providers.count{
-                    if(providers[i] == provider){
-                        if(i < 1){
-                            callJsonSearchEngines(searchQuery, setRecommendations: setRecommendations, builder: builders[i] as! AbstractBuilder)
-                            print("checkCalls AutorPreference  callJsonSearchEngines")
-                        }else{
-                            print("checkCalls AutorPreference callURLSearchEngines")
-                            callURLSearchEngines(searchQuery, setRecommendations: setRecommendations, builder: builders[i] as! AbstractBuilder)
-                            
-                        }
-                    }else{
-                        callAllSearchEngines(searchQuery, setRecommendations: setRecommendations, providers: providers, builders: builders)
-                        return
-                    }
-                    
-                    print("checkCalls AutorPreference 1")
-                }
-            }else{
-                callAllSearchEngines(searchQuery, setRecommendations: setRecommendations, providers: providers, builders: builders)
-                print("checkCalls AutorPreference 2")
-
+        if(searchBuilders.isEmpty){
+            let provider = query.getLink().getFilterProvider()
+            let str:String = ((provider == "duckduckgo" || provider == "faroo") ? provider : "eexcess")
+            searchBuilders.append(builders[str]!)
             }
-        }else {
-            callAllSearchEngines(searchQuery, setRecommendations: setRecommendations, providers: providers, builders: builders)
-            print("checkCalls AutorPreference 3")
+        
+        if(searchBuilders.isEmpty){
+            searchBuilders.append(EEXCESS_JSONBuilder())
+            searchBuilders.append(DuckDuckGoURLBuilder())
+            searchBuilders.append(FarooURLBuilder())
         }
-        
-        
-        
-        
-    
+        return searchBuilders
     }
-    
-    private func callAllSearchEngines(searchQuery: SearchQuery, setRecommendations: (status:String,message: String, result: SearchResult) -> Void, providers:[String], builders: AnyObject){
-        for i in 0 ..< providers.count{
-            
-                if(i < 1){
-                    callJsonSearchEngines(searchQuery, setRecommendations: setRecommendations, builder: builders[i] as! AbstractBuilder)
-                }else{
-                    callURLSearchEngines(searchQuery, setRecommendations: setRecommendations, builder: builders[i] as! AbstractBuilder)
-                }
-         
-            print("callAllSearchEngines")
-        }
-
-    }
-    
 }
