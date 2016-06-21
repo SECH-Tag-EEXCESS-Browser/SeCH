@@ -21,11 +21,11 @@ class TaskCtrl {
             if let lbuilder  = builder as? AbstractJSONBuilder {
                 JSONConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
                     setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result!)
-                    }, builder: lbuilder)
+                    }, abstractBuilder: lbuilder)
             }else if let lbuilder = builder as? AbstractURLBuilder {
                 URLConnectionCtrl().post(searchQuery, postCompleted: { (succeeded: Bool,result:SearchResult?) -> () in
                     setRecommendations(status:"SUCCEDED",message: "Die Anfrage war erfolgreich", result: result!)
-                    }, builder: lbuilder)
+                    }, abstractBuilder: lbuilder)
             }else {
                 print("<<<!!!! ERROR - Found a other class extends AbstractBuilder !!!!>>> ")
             }
