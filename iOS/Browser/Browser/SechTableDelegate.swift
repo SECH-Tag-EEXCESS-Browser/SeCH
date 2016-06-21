@@ -11,14 +11,23 @@ import UIKit
 
 class SechTableViewDelegate: NSObject, UITableViewDelegate{
     
+    
+    //#########################################################################################################################################
+    //##########################################################___Class_Variables___##########################################################
+    //#########################################################################################################################################
+    
     internal var viewCtrl: ViewController!
+    
+    //#########################################################################################################################################
+    //##########################################################___TableView_Delegate_Methods___###############################################
+    //#########################################################################################################################################
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         viewCtrl.hideAndOpenSechTableView()
         viewCtrl.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
     
         viewCtrl.indexPathForSelectedSearchTag = indexPath.row
         
@@ -32,5 +41,5 @@ func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSInd
     viewCtrl.currentSearchModel = searchModel
     
     return indexPath
-}
+    }
 }

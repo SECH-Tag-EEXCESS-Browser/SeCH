@@ -11,10 +11,20 @@ import UIKit
 
 class FavTableViewDelegate: NSObject, UITableViewDelegate{
     
+    //#########################################################################################################################################
+    //##########################################################___Class_Variables___##########################################################
+    //#########################################################################################################################################
+   
     var favourites = [FavouritesModel]()
     var p = FavDataObjectPersistency()
     
     internal var viewCtrl: ViewController!
+    
+    
+    //#########################################################################################################################################
+    //##########################################################___TableView_Delegate_Methods___###############################################
+    //#########################################################################################################################################
+    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         favourites = p.loadDataObject()
@@ -22,10 +32,11 @@ class FavTableViewDelegate: NSObject, UITableViewDelegate{
         viewCtrl.loadURL(url)
         viewCtrl.hideAndOpenFavTableView()
         viewCtrl.favTableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
+        }
 
-func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
-{
+        func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
+        {
+            
     //Load PersistencyModel
     favourites = p.loadDataObject()
     
@@ -92,6 +103,11 @@ func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: N
     deleteAction.backgroundColor = UIColorFromHex(0xFF2D55, alpha:1.0)
     return [deleteAction, editAction]
 }
+    //#########################################################################################################################################
+    //#########################################################___TableView_ConvertColor_Method___#############################################
+    //#########################################################################################################################################
+    
+    
     //Convert HEX in RGB
     func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
         let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
