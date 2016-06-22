@@ -12,7 +12,7 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresentationControllerDelegate, UITableViewDelegate
+class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresentationControllerDelegate
 {
     //#########################################################################################################################################
     //##########################################################___Class_Variables___##########################################################
