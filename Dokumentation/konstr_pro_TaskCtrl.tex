@@ -3,7 +3,7 @@
 
 \section{TaskCtrl}
 
-Der TaskCtrl ist einer der wichtigsten Elemente bei der Kommunikation zwischen der Oberfläche und dem Abrufen der Daten aus dem Internet. Er bestimmt mit Hilfe der vom Nutzer getroffenen Einstellungen an welche Suchmaschine die Anfrage geschickt wird. Die Einstellungen werden durch das \glqq Settings.bundle\grqq\ definiert und können durch die Klasse \glqq SettingsManager\grqq\ abgerufen werden.   Der TaskCtrl wird von der Klasse \glqq SearchResults\grqq\ initialisiert und aufgerufen. 
+Der TaskCtrl ist einer der wichtigsten Elemente bei der Kommunikation zwischen der Oberfläche und dem Abrufen der Daten aus dem Internet. Er bestimmt mit Hilfe der vom Nutzer getroffenen Einstellungen an welche Suchmaschine die Anfrage geschickt wird. Die Einstellungen werden durch das \glqq Settings.bundle\grqq\ definiert und können durch die Klasse \glqq SettingsManager\grqq\ abgerufen werden.   Der TaskCtrl wird von der Klasse \glqq SearchResults\grqq\ initialisiert und aufgerufen. Die Suchanfragen werden asynchron versendet. Bei erfolgreicher Suche und nach erfolgreichem Parsen der Ergebnisse werden diese mit Aufruf der Methode \glqq setRecommendation(status:String, message:String, result:SearchResult) \grqq\xspace an den Aufrufer, die Klasse SearchResults zurückgegeben 
 
 %\subsection{Teilabschnitt}
 %\subsubsection{Unterteilabschnitt}
