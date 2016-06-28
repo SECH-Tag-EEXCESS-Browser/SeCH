@@ -3,9 +3,9 @@
 
 \section{ViewController}
 Der \lstinline|ViewController| dient zur Steuerung der Funktionen welche direkt mit dem Interface zusammen gehören. Dazu gehören
-\lstinline|IBActions| welche von Buttons oder anderen Interkationsflächen angestoßen werden können, sowie Funktionen welche direkt mit diesen zusammenhängen, Beziehungsweise aus diesen resultieren. Der \lstinline|ViewController| ist die zweite Schicht nach dem \lstinline|UI|. Im
-Folgenden werden die einzelnen \lstinline|Viewcontroller| mit ihren jeweiligen Funktionen beschrieben.
-Der \lstinline|Viewcontroller| ist der Hauptviewcontroller für die normale Browseransicht mit der Adresszeile und dem \lstinline|WkWebView|. Er verwaltet die Kopzeile mit Adresszeile sowie den Buttons für Vorwärts, Zurück, Lesezeichen, Lesezeichen hinzufügen, Reload, \SECH-Tabelle sowie die Settings. Die datei \lstinline|Main.js| welche aus dem \lstinline|Viewcontroller| heraus aufgerufen wird, markiert alle gefundenen \SEARCH-Tags. Außerdem wird im Falle eines Klicks die Position sowie die id des \SEARCH-Tags übermittelt.
+\lstinline|IBActions| welche von Buttons oder anderen Interkationsflächen angestoßen werden können, sowie Funktionen welche direkt mit diesen zusammenhängen, beziehungsweise aus diesen resultieren. Der \lstinline|ViewController| ist die zweite Schicht nach dem \lstinline|UI|. Im
+Folgenden werden die einzelnen \lstinline|ViewController| mit ihren jeweiligen Funktionen beschrieben.
+Der \lstinline|Viewcontroller| ist der Hauptviewcontroller für die normale Browseransicht mit der Adresszeile und dem \lstinline|WkWebView|. Er verwaltet die Kopfzeile mit Adresszeile sowie den Buttons für Vorwärts, Zurück, Lesezeichen, Lesezeichen hinzufügen, Reload, \SECH-Tabelle sowie die Settings. Die datei \lstinline|Main.js| welche aus dem \lstinline|Viewcontroller| heraus aufgerufen wird, markiert alle gefundenen \SEARCH-Tags. Außerdem wird im Falle eines Klicks die Position sowie die id des \SEARCH-Tags übermittelt.
 Der \lstinline|PopViewController| ist zuständig für die Verwaltung eines neuen \lstinline|PopViews|, beim klicken auf einen \SEARCH-Tag. Er verwaltet die Anzeige des ausgewählten \Search-Links in einem neuen \lstinline|WkWebView| sowie den Button für die Auswahl der verschiedenen Suchergebnisse zu einem \Search-Tag.
 Der \Search-TableViewController verwaltet die einzelnen Suchergebnisse zu einem \Search-Tag. Alle Ergebnisse werden sortiert in einer Tabelle mit Bild, Title und Link angezeigt.
 Der \lstinline|Settingscontroller| is für die verwaltung der Browsereinstellungen zuständig.
