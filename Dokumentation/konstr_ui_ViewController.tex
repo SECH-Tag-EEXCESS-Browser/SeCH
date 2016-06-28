@@ -9,6 +9,15 @@ Der Viewcontroller ist der Hauptviewcontroller für die normale Browseransicht m
 Der PopViewController ist zuständig für die Verwaltung eines neuen PopViews, beim klicken auf einen Searchtag. Er verwaltet die Anzeige des ausgewählten Searchlinks in einem neuen WkWebView sowie den Button für die Auswahl der verschiedenen Suchergebnisse zu einem Searchtag.
 Der SearchTableViewController verwaltet die einzellnen Suchergebnisse zu einem Searchtag. Alle Ergebnisse werden sortiert in einer Tabelle mit Bild, Title und Link angezeigt.
 Der Settingscontroller is für die verwaltung der Browsereinstellungen zuständig.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{SearchTagAnzeige.png}
+	\caption{Ablauf des Rankings}
+	\label{fig:Searchtag Anzeige}
+\end{figure}
+
+Obige Grafik zeigt den Programmablauf beim Klick auf einen Searchtag. Die Postion des Klicks wird über JavaScript ausgelesen und an den WkWebview weitergeleitet. Dieser erzeugt ausgehend von der übertragenen Position einen PopView. 
 \subsection{ViewController}
 \subsection{SearchTableViewController}
 \subsection{PopViewController}
