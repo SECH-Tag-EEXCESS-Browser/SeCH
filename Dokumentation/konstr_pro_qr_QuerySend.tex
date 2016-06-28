@@ -3,6 +3,11 @@
 %\section{QueryResolution}
 
 \subsection{QuerySend}
+
+Im Modul QuerySend befinden sich die ConnectionController, welche für das Versenden der Anfrage zuständig sind. Die ConnectionController werden mithilfe von QueryBuild konfiguriert und erhalten den Parser (ResponseParse).
+
+Bevor die Antwort an den TaskController weitergereicht wird, wird diese noch durch den Parser von NSData zu SearchResult umgewandelt.
+
 \subsubsection{AbstractConnectionCtrl}
 \subsubsection{JsonConnectionCtrl}
 \subsubsection{URLConnectionCtrl}
