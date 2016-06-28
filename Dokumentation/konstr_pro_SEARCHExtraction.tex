@@ -2,8 +2,8 @@
 %\chapter{Programmlogik}
 
 \section{SEARCHExtraction}
-Die SearchExtraction nimmt ein WebContent-Objekt entgegen und verarbeitet es zu einem SearchModels-Objekt. Hierbei wird der HTML-Code, der im WebContent enthalten ist, auf Search-Tags abgesucht. Diese Search-Tags werden dann zu SearchModel-Objekten zusammengebaut und in einem SearchModels-Objekt gesammelt.\newline
-Für den Ablauf der Analyse und Erzeugung ist der SearchManager zuständig. Die Methoden für die Analyse des HTML-Codes stellt die RegexForSEARCH zur Verfügung.
+Die SearchExtraction nimmt ein \lstinline|WebContent|-Objekt entgegen und verarbeitet es zu einem \lstinline|SearchModels|-Objekt. Hierbei wird der HTML-Code, der im \lstinline|WebContent| enthalten ist, auf Search-Tags abgesucht. Diese Search-Tags werden dann zu \lstinline|SearchModel|-Objekten zusammengebaut und in einem \lstinline|SearchModels|-Objekt gesammelt.\newline
+Für den Ablauf der Analyse und Erzeugung ist der \lstinline|SearchManager| zuständig. Die Methoden für die Analyse des HTML-Codes stellt die \lstinline|RegexForSEARCH| zur Verfügung.
 
 \begin{figure}[h]
 	\centering
@@ -12,7 +12,7 @@ Für den Ablauf der Analyse und Erzeugung ist der SearchManager zuständig. Die 
 	\label{fig:WebContent zu SearchModels}
 \end{figure}
 
-Die obige Darstellung beschreibt den Ablauf und die Übergabestellen der Schnittstellen WebContent und SearchModels. Der WebContent, erzeugt vom WebViewDelegate, wird in Schritt 1 dem SearchManager übergeben. Der SearchManager erzeugt aus dem WebContent die SearchModels und gibt diese in Schritt 2 an den WebViewDelegate zurück. Der WebViewDelegate übergibt dann das SearchModels-Objekt an den ViewController, wo es zur Verfügung für die anderen Packages steht.
+Die obige Darstellung beschreibt den Ablauf und die Übergabestellen der Schnittstellen \lstinline|WebContent| und \lstinline|SearchModels|. Der \lstinline|WebContent|, erzeugt vom \lstinline|WebViewDelegate|, wird in Schritt 1 dem \lstinline|SearchManager| übergeben. Der \lstinline|SearchManager| erzeugt aus dem \lstinline|WebContent| die \lstinline|SearchModels| und gibt diese in Schritt 2 an den \lstinline|WebViewDelegate| zurück. Der \lstinline|WebViewDelegate| übergibt dann das \lstinline|SearchModels|-Objekt an den \lstinline|ViewController|, wo es zur Verfügung für die anderen Packages steht.
 
 \subsection{SearchManager}
 \subsection{RegexForSEARCH}
