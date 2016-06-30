@@ -6,13 +6,13 @@
 
 \begin{figure}[htb]
   \includegraphics[width=\textwidth]{qr_querybuild}
-  \caption{Aufbau des Moduls QueryBuild}
-	\label{fig:Aufbau des Moduls QueryBuild}
+  \caption{Aufbau des Moduls \lstinline|QueryBuild|}
+	\label{fig:Aufbau des Moduls \lstinline|QueryBuild|}
 \end{figure}
 
-Das Modul QueryBuild liefert den größten Teil der Intelligenz im Modul QueryResolution. Die Aufgaben des Moduls sind es, die ConnectionController in QuerySend zu konfigurieren, die Query in das suchmaschinenspezifische Anfrageformat umzuwandeln und dem ConnectionController den Parser für die Antwort zu geben.
+Das Modul \lstinline|QueryBuild| liefert den größten Teil der Intelligenz im Modul \lstinline|QueryResolution|. Die Aufgaben des Moduls sind es, die \lstinline|ConnectionController| in \lstinline|QuerySend| zu konfigurieren, die Query in das suchmaschinenspezifische Anfrageformat umzuwandeln und dem \lstinline|ConnectionController| den Parser für die Antwort zu geben.
 
-Es gibt für jede Suchmaschine eine Implementation der Spezifikation AbstractBuilder, welche durch die Spezifikationen URLAbstractBuilder und JSONAbstractBuilder erweitert wird.
+Es gibt für jede Suchmaschine eine Implementation der Spezifikation \lstinline|AbstractBuilder|, welche durch die Spezifikationen \lstinline|URLAbstractBuilder| und \lstinline|JSONAbstractBuilder| erweitert wird.
 
 \subsubsection{AbstractBuilder}
 \subsubsection{AbstractJSONBuilder}
