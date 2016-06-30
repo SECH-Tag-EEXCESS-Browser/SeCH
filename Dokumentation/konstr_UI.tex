@@ -2,25 +2,23 @@
 
 \chapter{User Interface}
 
-Im Folgenden wird ein Überblick über die Klassenabhängigkeiten des UIs gegeben, der Verlauf zur Anzeige eines \SEARCH-Links erklärt, sowie die Packagebedeutungen innerhalb des UIs erläutert.
+Im Folgenden wird ein Überblick über die Klassenabhängigkeiten des UserInterfaces gegeben, der Ablauf bei der Anzeige eines \SEARCH-Links erklärt sowie die Packagebedeutungen innerhalb des UserInterfaces erläutert.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{UI_Uebersicht_Klassenabhaengigkeiten}
 	\caption{Klassenabhängigkeiten im UI}
-	\label{fig:Klassenabhängigkeiten}
 \end{figure}
 
 Die obige Darstellung zeigt die Verbindungen der Klassen des User Interfaces. Hierbei steht der ViewController im Mittelpunkt, da von ihm die meiste Funktionalität ausgeht.
-
+%toDo - lstinline?
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=\textwidth]{SearchTagAnzeige}
 	\caption{Searchtag Anzeige}
-	\label{fig:Searchtag Anzeige}
 \end{figure}
 
-Obige Grafik zeigt den Programmablauf beim Klick auf einen Searchtag. Die Position des Klicks wird über JavaScript ausgelesen und an den WkWebview weitergeleitet. Dieser erzeugt ausgehend von der übertragenen Position einen PopView und zeigt diesen an. 
+Obige Grafik zeigt den Programmablauf nach dem Tippen auf einen \SEARCH-Tag. Die Position des Tipps wird über JavaScript ausgelesen und an den \lstinline|WkWebview| weitergeleitet. Dieser erzeugt an der übertragenen Position einen \lstinline|PopView| und zeigt diesen an. 
 
 \input{konstr_ui_ViewController}
 \newpage
