@@ -1,9 +1,10 @@
 %\part{Konstruktion}
 
 \chapter{User Interface}
-
 Im Folgenden wird ein Überblick über die Klassenabhängigkeiten des User Interfaces gegeben, der Ablauf bei der Anzeige eines \SEARCH-Links erklärt sowie die Packages innerhalb des User Interfaces erläutert.
+
 \section{Klassenabhängigkeiten}
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{UI_Uebersicht_Klassenabhaengigkeiten}
@@ -12,24 +13,22 @@ Im Folgenden wird ein Überblick über die Klassenabhängigkeiten des User Inter
 
 Die obige Darstellung zeigt die Verbindungen der Klassen des User Interfaces. Hierbei steht der \lstinline|ViewController| im Mittelpunkt, da von ihm die meiste Funktionalität ausgeht.
 \pagebreak
+
 \section{Programmablauf}
+
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=\textwidth]{SearchTagAnzeige}
 	\caption{\SEARCH-Tag Anzeige}
 \end{figure}
 
-Obige Grafik zeigt den Programmablauf nach dem Tippen auf einen \SEARCH-Tag. Die Position des Tipps wird über JavaScript ausgelesen und an den \lstinline|WkWebview| weitergeleitet. Dieser erzeugt an der übertragenen Position einen \lstinline|PopView| und zeigt diesen an. 
+Obige Grafik zeigt den Programmablauf nach dem Tippen auf einen \SEARCH-Tag. Die Position des Tipps wird über JavaScript ausgelesen und an den WkWebview weitergeleitet. Dieser erzeugt an der übertragenen Position einen \lstinline|PopView| und zeigt diesen an. 
+
 \section{Packages}
 \input{konstr_ui_ViewController}
-\newpage
 \input{konstr_ui_Delegate}
-\newpage
 \input{konstr_ui_DataSource}
-\newpage
 \input{konstr_ui_Components}
-\newpage
 \input{konstr_ui_Persistence}
-\newpage
 \input{konstr_ui_WebContent}
 

@@ -2,28 +2,28 @@
 %\chapter{Programmlogik}
 
 \section{Ranking}
-\subsection{Rules}
-\subsection{SearchRules}
-\subsection{RankingPersistence}
-\subsubsection{PersistenceController}
-\subsubsection{RankingDataObject}
-\subsubsection{RankingDataObjectPersistency}
-
-Das Ranking dient der Sortierung der Suchergebnisse nach den Interessen des Nutzers. Das Sortieren der Zusatzinformationen wird durchgeführt, bevor die Ergebnisse dem Nutzer präsentiert werden. D.h.\ es wird in der Klasse \glqq SearchResults\grqq\xspace initialisiert und gestartet, nachdem diese aus dem Internet heruntergeladen wurden.
-
-Die Funktionalität des Rankings wird mit Hilfe von verschiedenen Regeln realisiert. Aktuell existieren drei Regeln: \glqq Language\grqq\xspace, \glqq Mendeley\grqq\xspace und \glqq MediaType\grqq\xspace. Jede Regel besitzt einen Faktor für die Gewichtung. Dieser legt fest, wie wichtig eine Regel ist. Für jeden Datensatz werden die o.g.\ Regeln mit den entsprechenden Eingangsparametern erzeugt. Im weiteren Fortschritt des Projekts soll das Ranking dahingehend erweitert werden, dass nicht für jeden Datensatz alle Regeln erzeugt werden, sondern nur diejenigen, die für den jeweiligen Datensatz notwendig sind. So wird z.B. für einen Datensatz, der nicht von der Suchmaschine Mendeley kommt, auch nicht die Regel \glqq Mendeley\grqq\xspace erzeugt. 
-
-Die erstellten Regeln pro Datensatz werden in einem Hilfsarray zwischengespeichert (SearchRules). Der Hauptteil des Rankings beginnt erst mit der Berechnung. Trifft eine Regel zu, d.h. der erwartete Wert der jeweiligen Regel entspricht dem tatsächlichen Wert des Suchergebnisses, so wird eine 1 von der Regel zurückgeliefert. Trifft eine Regel nicht zu, so wird eine 0 zurückgeliefert. Die Rückgabewerte werden mit hilfe des Enums \glqq RuleMatch\grqq\xspace realisiert. Dieser Wert wird mit der Gewichtung der jeweiligen Regel multipliziert. Im Anschluss werden alle Ergebnisse aller Regeln, die zu einem Datensatz gehören, aufsummiert und durch die Anzahl der verwendeten Regeln dividiert. Dieser errechnete Wert gibt prozentual wieder, in wie weit das Suchergebnis für den Nutzer interessant sein könnte. Nach dem Endergebnis werden alle Suchergebnisse zugehörig zu einem Search-Link der Größe nach sortiert und im Anschluss wieder dem Aufrufer zurückgegeben, der sie dann dem Nutzer präsentiert. 
-
-Die Klassen \glqq PersistenceController\grqq\xspace, \glqq RankingDataObject\grqq\ und \glqq RankingDataObjectPersistency\grqq\xspace werden bei dem aktuellen Stand des Projektes noch nicht verwendet. Im weiteren Verlauf werden die Klassen zum Speichern von nutzerspezifischen Informationen verwendet, um so die Suchergebnisse noch besser auf die Interessen des Nutzers zuschneiden zu können.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=\textwidth]{Ranking}
 	\caption{Ablauf des Rankings}
-	\label{fig:Rankingablauf}
 \end{figure}
 
+Das Ranking dient der Sortierung der Suchergebnisse nach den Vorlieben des Nutzers. Das Sortieren der Zusatzinformationen wird durchgeführt, bevor die Ergebnisse dem Nutzer präsentiert werden. Das bedeutet, das Sortieren wird in der Klasse \lstinline|SearchResults| initialisiert und gestartet, nachdem die Zusatzinformationen aus dem Internet heruntergeladen wurden.
 
-%\paragraph{Paragraph}
-%\subparagraph{Unterparagraph}
+Die zur Zeit drei Persistency-Klassen \lstinline|PersistenceController|, \lstinline|RankingDataObject| und \lstinline|RankingDataObjectPersistency| werden im aktuellen Stand des Projektes noch nicht verwendet. Im weiteren Verlauf sollen die Klassen für das Speichern von nutzerspezifischen Informationen verwendet werden, um so die Suchergebnisse noch besser auf die Interessen des Nutzers zuschneiden zu können.
+
+\pagebreak
+\clearpage
+
+Die Funktionalität des Rankings wird mit Hilfe von aktuell drei verschiedenen Regeln realisiert:
+
+\begin{itemize}
+	\item Language
+	\item Mendeley
+	\item MediaType
+\end{itemize}
+
+Jede dieser Regeln besitzt einen Faktor für die Gewichtung. Dieser legt fest, wie wichtig eine Regel ist. Für jeden Datensatz werden die oben genannten Regeln mit den entsprechenden Eingangsparametern erzeugt. Im weiteren Fortschritt des Projekts soll das Ranking dahingehend erweitert werden, dass nicht für jeden Datensatz alle Regeln erzeugt werden, sondern nur diejenigen, die für den jeweiligen Datensatz notwendig sind. So wird zum Beispiel für einen Datensatz, der nicht von der Suchmaschine Mendeley kommt, auch nicht die Regel \glqq Mendeley\grqq\xspace erzeugt. 
+
+Die erstellten Regeln pro Datensatz werden in einem Hilfsarray zwischengespeichert (\lstinline|SearchRules|). Der Hauptteil des Rankings beginnt erst mit der Berechnung. Trifft eine Regel zu, also wenn der erwartete Wert der jeweiligen Regel dem tatsächlichen Wert des Suchergebnisses entspricht, so wird eine 1 (wahr) von der Regel zurückgeliefert. Trifft eine Regel nicht zu, so wird eine 0 (nicht wahr) zurückgeliefert. Die Rückgabewerte werden mit Hilfe des Enums \lstinline|RuleMatch| realisiert. Dieser Wert wird mit der Gewichtung der jeweiligen Regel multipliziert. Im Anschluss werden alle Ergebnisse aller Regeln, die zu einem Datensatz gehören, aufsummiert und durch die Anzahl der verwendeten Regeln dividiert. Dieser errechnete Wert gibt im Verhältnis wieder, in wie weit das Suchergebnis für den Nutzer interessant sein könnte. Nach dem Endergebnis werden alle Suchergebnisse zugehörig zu einem \SEARCH-Link absteigend nach diesem Wert sortiert und im Anschluss wieder dem Aufrufer zurückgegeben, der sie dann dem Nutzer präsentiert.

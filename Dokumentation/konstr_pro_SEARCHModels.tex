@@ -2,10 +2,6 @@
 %\chapter{Programmlogik}
 
 \section{SEARCHModels}
-Das \lstinline|SearchModels| stellt die Schnittstelle zwischen der SearchExtraction und dem TaskController dar. Von der SearchExtraction erzeugt, beinhaltet ein SearchModels-Objekt eine Sammlung von SearchModel-Objekten erzeugt aus einer Website. In einem \lstinline|SearchModel|-Objekt werden Search-Tag-Links mit der zugehörigen Search-Tag-Section/-Head und Filtern gespeichert.\newline
-Zur globalen Identifikation wird in einem \lstinline|SearchModel| die Url der Website von der es kommt gesetzt. Um ein \lstinline|SearchModel| innerhalb einer Seite zu finden wird der Index gesetzt.
+\lstinline|SEARCHModels| stellt die Schnittstelle zwischen der \lstinline|SEARCHExtraction| einerseits und dem \lstinline|TaskController| andererseits dar. Von der \lstinline|SEARCHExtraction| erzeugt, beinhaltet ein \lstinline|SEARCHModels|-Objekt eine Sammlung von \lstinline|SEARCHModel|-Objekten, erzeugt aus dem Inhalt einer Website. In einem \lstinline|SEARCHModel|-Objekt werden \SEARCH-Tag-Links mit der zugehörigen \SEARCH-Tag-Section und/oder dem \SEARCH-Teg-Head sowie möglichen Filtern gespeichert.
 
-%\subsection{Teilabschnitt}
-%\subsubsection{Unterteilabschnitt}
-%\paragraph{Paragraph}
-%\subparagraph{Unterparagraph}
+Zur globalen Identifikation wird in einem \lstinline|SEARCHModel| die URL der Website von der es kommt gesetzt. Um ein \lstinline|SEARCHModel| innerhalb einer Seite zu finden wird ein Index bezüglich der Position in der Seite gesetzt.

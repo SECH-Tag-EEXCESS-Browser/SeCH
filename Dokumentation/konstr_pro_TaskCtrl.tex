@@ -2,14 +2,6 @@
 %\chapter{Programmlogik}
 
 \section{TaskCtrl}
+Der \lstinline|TaskCtrl| ist eines der wichtigsten Elemente bei der Kommunikation zwischen der Oberfläche und dem Abrufen der Daten aus dem Internet. Er bestimmt mit Hilfe der vom Nutzer getroffenen Einstellungen an welche Suchmaschine(n) die Anfrage geschickt wird/werden. Die Einstellungen werden durch das \lstinline|Settings.bundle| definiert und können durch die Klasse \lstinline|SettingsManager| abgerufen werden. 
 
-Der \lstinline|TaskCtrl| ist einer der wichtigsten Elemente bei der Kommunikation zwischen der Oberfläche und dem Abrufen der Daten aus dem Internet. Er bestimmt mit Hilfe der vom Nutzer getroffenen Einstellungen an welche Suchmaschine die Anfrage geschickt wird. Die Einstellungen werden durch das \lstinline|Settings.bundle| definiert und können durch die Klasse \lstinline|SettingsManager| abgerufen werden. 
-
-Der \lstinline|TaskCtrl| wird von der Klasse \lstinline|SearchResults| initialisiert und aufgerufen. Zuerst werden unter Verwendung der Klasse \lstinline|QueryCreationCtrl| Daten in einem allgemeingültigen Format für die Suchanfragen erstellt. Diese Daten werden daran anschließend von den jeweiligen \lstinline|QueryBuildern| (\lstinline|EEXCESSJSONBuilder|, \lstinline|DuckDuckGoURLBuilder| und \lstinline|FarooURLBuilder|) in das für die jeweilige Suchmaschine passende Datenformat umgewandelt. Die Suchanfragen werden asynchron durch die entsprechenden \verb|ConnectionCtrl| (\lstinline|JSONConnectionCtrl| und \lstinline|URLConnectionCtrl|) versendet. Bei erfolgreicher Suche und nach erfolgreichem Parsen der Ergebnisse werden diese dann mit Aufruf der Methode \lstinline|setRecommendation(|\lstinline|status:String,| \lstinline|message:String,| \lstinline|result:SearchResult)| an den Aufrufer, die Klasse \lstinline|SearchResults|, zurückgegeben. Diese speichert die Suchergebnisse in einem Cache zwischen. Der \lstinline|TaskCtrl| wird nur aufgerufen, falls zu dem jeweiligen \SEARCH-Tag noch keine Ergebnisse im Cache vorhanden sind. 
-
-%\subsection{Teilabschnitt}
-%\subsubsection{Unterteilabschnitt}
-%\paragraph{Paragraph}
-%\subparagraph{Unterparagraph}
-
-%\begin{sloppy}
+Der \lstinline|TaskCtrl| wird von der Klasse \lstinline|SearchResults| initialisiert und aufgerufen. Zuerst werden unter Verwendung der Klasse \lstinline|QueryCreationCtrl| Daten in einem allgemeingültigen Format für die Suchanfragen erstellt. Diese Daten werden daran anschließend von den jeweiligen \lstinline|QueryBuildern| (\lstinline|EEXCESSJSONBuilder|, \lstinline|DuckDuckGoURLBuilder| und \lstinline|FarooURLBuilder|) in das für die jeweilige Suchmaschine passende Datenformat umgewandelt. Die Suchanfragen werden asynchron durch den entsprechenden \verb|ConnectionCtrl| (\lstinline|JSONConnectionCtrl| und \lstinline|URLConnectionCtrl|) versendet. Bei erfolgreicher Suche und nach erfolgreichem Parsen der Ergebnisse werden diese dann mit Aufruf der Methode \lstinline|setRecommendation(|\lstinline|status:String,| \lstinline|message:String,| \lstinline|result:SearchResult)| an den Aufrufer, die Klasse \lstinline|SearchResults|, zurückgegeben. Diese speichert die Suchergebnisse in einem Cache zwischen. Der \lstinline|TaskCtrl| wird nur aufgerufen, falls zu dem jeweiligen \SEARCH-Tag noch keine Ergebnisse im Cache vorhanden sind.

@@ -2,15 +2,12 @@
 %\chapter{Programmlogik}
 
 \section{SearchResults}
+
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=0.4\textwidth]{SearchResults2}
+  \includegraphics[width=0.6\textwidth]{SearchResults2}
   \caption{Ablaufmöglichkeiten im \lstinline|SearchResults|}
 \end{figure}
 
-\lstinline|SEARCHResults| ist ein Container, der für ein Suchwort die Suchergebnisse speichert.
-Der Container ist in der Lage, bei fehlenden Suchergebnissen Suchanfragen abzuschicken und informiert mit dem Observer, ob neue Suchergebnisse von der Suchmaschine gekommen sind. Der Observer wird im \lstinline|PopViewController| registriert und ist somit in der Lage auf neue Suchergebnisse zu reagieren. 
-%\subsection{Teilabschnitt}
-%\subsubsection{Unterteilabschnitt}
-%\paragraph{Paragraph}
-%\subparagraph{Unterparagraph}
+\lstinline|SearchResults| ist ein Container, der für ein Suchwort dessen Suchergebnisse speichert.
+Der Container ist in der Lage, bei fehlenden Suchergebnissen Suchanfragen abzuschicken und informiert mit dem Observer, ob neue Suchergebnisse von der Suchmaschine zurückgegeben wurden. Der Observer wird im \lstinline|PopViewController| registriert und ist somit in der Lage auf neue Suchergebnisse zu reagieren.

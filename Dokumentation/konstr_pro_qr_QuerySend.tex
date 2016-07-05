@@ -5,17 +5,9 @@
 \subsection{QuerySend}
 
 \begin{figure}[htb]
+	\centering
   	\includegraphics[width=\textwidth]{qr_querysend}
   	\caption{Aufbau des Moduls \lstinline|QuerySend|}
 \end{figure}
 
-Im Modul \lstinline|QuerySend| befinden sich die \lstinline|ConnectionController|, welche für das Versenden der Anfrage zuständig sind. Die \lstinline|ConnectionController| werden mithilfe von \lstinline|QueryBuild| konfiguriert und erhalten den Parser (\lstinline|ResponseParse|).
-
-Bevor die Antwort an den \lstinline|TaskController| weitergereicht wird, wird diese noch durch den Parser von \lstinline|NSData| zu \lstinline|SearchResult| umgewandelt.
-
-\subsubsection{AbstractConnectionCtrl}
-\subsubsection{JsonConnectionCtrl}
-\subsubsection{URLConnectionCtrl}
-
-%\paragraph{Paragraph}
-%\subparagraph{Unterparagraph}
+Im Modul \lstinline|QuerySend| befinden sich die \lstinline|ConnectionController|, die für das Versenden der Anfrage zuständig sind. Sie werden mithilfe von \lstinline|QueryBuild| konfiguriert und erhalten den Parser (\lstinline|ResponseParse|). Vor dem Weiterreichen an den \lstinline|TaskController|, wird durch den Parser noch von NSData zu \lstinline|SearchResult| umgewandelt.
