@@ -3,12 +3,12 @@
 \chapter{Programmlogik}
 Unter dem Punkt Programmlogik wird der ganze Anfrageprozess verstanden. Dieser reicht vom Extrahieren von \lstinline|SearchModel|s bis hin zum Ausliefern der \lstinline|SearchResult|s stützt sich auf folgende wichtige Komponenten:
 
-\begin{enumerate}
+\begin{itemize}
      \item \lstinline|SEARCHExtraction|
      \item \lstinline|QueryCreation|
      \item \lstinline|QueryResolution|
      \item \lstinline|Ranking|
-\end{enumerate}
+\end{itemize}
 
 \begin{figure}[htb]
   \centering
@@ -19,12 +19,17 @@ Unter dem Punkt Programmlogik wird der ganze Anfrageprozess verstanden. Dieser r
 Im Folgenden werden alle Teile der Programmlogik beschrieben.
 
 \input{konstr_pro_TaskCtrl}
+\pagebreak
+\clearpage
 \input{konstr_pro_SEARCHExtraction}
 \input{konstr_pro_SEARCHModels}
 \input{konstr_pro_QueryCreation}
 %\input{konstr_pro_SearchQuerys}
+\pagebreak
 \input{konstr_pro_QueryResolution}
 \input{konstr_pro_SearchResults}
 \pagebreak
 \input{konstr_pro_Ranking}
+\pagebreak
+\clearpage
 \input{konstr_pro_SettingsModel}

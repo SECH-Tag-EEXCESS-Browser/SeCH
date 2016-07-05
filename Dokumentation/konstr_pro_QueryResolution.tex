@@ -3,6 +3,12 @@
 
 \section{QueryResolution}
 
+\begin{figure}[htb]
+    	\centering
+  	\includegraphics[width=\textwidth]{QueryResolution}
+  	\caption{Aufbau des Moduls QueryResolution}
+\end{figure}
+
 \lstinline|QueryResolution| ist die Komponente, welche die eigentlichen Anfragen für die Suchmaschinen generiert, abschickt und die Antwort in \lstinline|SearchResult| umwandelt. Dieses \lstinline|SearchResult| wird über den \lstinline|TaskCtrl| an das \lstinline|SearchResults| weitergeleitet.
 
 \begin{figure}[htb]
@@ -11,15 +17,8 @@
   	\caption{Übersicht des Moduls QueryResolution}
 \end{figure}
 
-\begin{figure}[htb]
-    	\centering
-  	\includegraphics[width=\textwidth]{QueryResolution}
-  	\caption{Aufbau des Moduls QueryResolution}
-\end{figure}
-
 %\input{konstr_pro_qr_JSONData}
 \input{konstr_pro_qr_QueryBuild}
-\input{konstr_pro_qr_QuerySend}
-\pagebreak
 \clearpage
+\input{konstr_pro_qr_QuerySend}
 \input{konstr_pro_qr_ResponseParse}

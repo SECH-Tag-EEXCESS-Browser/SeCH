@@ -9,7 +9,7 @@ Für den Ablauf der Analyse und die Erzeugung des \lstinline|SEARCHModels|-Objek
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{UI_WebContent_SearchModel_Usage}
-	\caption{Umwandeln eines WebContent-Objekts in ein SEARCHModels-Objekt}
+	\caption{Umwandeln eines WebContent-Objekts in ein \lstinline|SEARCHModels|-Objekt}
 \end{figure}
 
 Die Darstellung beschreibt den Ablauf und die Schnittstellen zwischen dem \lstinline|WebContent| und dem \lstinline|SEARCHModels|-Objekt. Der \lstinline|WebContent|, erzeugt vom \lstinline|WebViewDelegate|, wird in Schritt 1 dem \lstinline|SearchManager| übergeben. Der \lstinline|SearchManager| erzeugt dann aus dem \lstinline|WebContent| das \lstinline|SEARCHModels|-Objekt und gibt dieses im folgenden Schritt 2 an den \lstinline|WebViewDelegate| zurück. Der \lstinline|WebViewDelegate| übergibt nun das \lstinline|SEARCHModels|-Objekt an den \lstinline|ViewController|, wo es schließlich für die anderen Packages zur Verfügung  steht.
