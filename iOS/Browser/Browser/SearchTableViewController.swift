@@ -73,7 +73,10 @@ class SearchTableViewController: UITableViewController {
                 }
                 if(url != nil){
                     let data = NSData(contentsOfURL: url!)
-                    cell.imageIcon.image = UIImage(data: data!)
+                    if (data != nil)
+                    {
+                        cell.imageIcon.image = UIImage(data: data!)
+                    }
                     return cell
                 }
 
