@@ -151,7 +151,7 @@ class PopViewController: UIViewController, UIWebViewDelegate{
         activityIndicator.hidden = true
     }
     
-    func webView(sechWebView: UIWebView, didFailLoadWithError error: NSError?) {
+    func webView(sechWebView: UIWebView, didFailLoadWithError error: NSError) {
         activityIndicator.stopAnimating()
         activityIndicator.hidden = true
     }
